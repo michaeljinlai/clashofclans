@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
@@ -253,29 +263,19 @@
                 // It may provide an attacker with helpful information about your code.  
                 die("Failed to run query: " . $ex->getMessage()); 
             } 
-             
+
             // This redirects the user back to the login page after they register 
-            header("Location: login.php"); 
+            header("Location: registersuccess.php"); 
              
             // Calling die or exit after performing a redirect using the header function 
             // is critical.  The rest of your PHP script will continue to execute and 
             // will be sent to the user if you do not die or exit. 
-            die("Redirecting to login.php"); 
+            die(); 
 
         }
     } 
-     
-?> 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-</head>
+?> 
 
 <body>
     <div class="container">
@@ -283,7 +283,7 @@
             <div class="row">
                 <h3>Register</h3>
             </div>
-            <form class="form-horizontal" action="register.php" method="post"> 
+            <form id="myform" class="form-horizontal" action="register.php" method="post"> 
                 <!-- Username -->
                 <div class="control-group <?php echo !empty($usernameError)?'error':'';?>">
                     <label class="control-label">Username</label>
