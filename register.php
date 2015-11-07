@@ -9,6 +9,7 @@
     {   
 
         // Google ReCaptcha
+        // https://www.google.com/recaptcha/admin#site/319847548?setup
         // Honestly I have no idea what this code really does, but it's what makes Google's recaptcha function work
         $secret = "6Ld8fBATAAAAAIWPaXH74AjV0YC7nn60qHB4eCwZ";
         $ip = $_SERVER['REMOTE_ADDR'];
