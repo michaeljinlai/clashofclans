@@ -23,7 +23,8 @@
                 id, 
                 username, 
                 password, 
-                salt, 
+                salt,
+                privilege, 
                 email 
             FROM users 
             WHERE 
@@ -92,15 +93,15 @@
             // the user's details. 
             $_SESSION['user'] = $row; 
             
-            if($_SESSION['user']['username'] === 'keiwo'){
-            // Redirect the user to the private members-only page. 
+            if($_SESSION['user']['privilege'] === 'administrator'){
+            // Redirect the user to the private administrator-only page.  <-- need to add field to users table for administrator 
             header("Location: private.php"); 
             die("Redirecting to: private.php"); 
             }
             else {
-            // Redirect the user to the private members-only page. 
+            // Redirect the user to the users-only page. 
             header("Location: anymember.php"); 
-            die("Redirecting to: private.php"); 
+            die("Redirecting to: anymember.php"); 
             }
         } 
         else 
