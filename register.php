@@ -7,6 +7,22 @@
     // If it has, then the registration code is run, otherwise the form is displayed 
     if(!empty($_POST)) 
     {   
+
+
+        // Honestly I have no idea what this really does, but it's required for Google's recaptcha function    
+        $secret = "6Ld8fBATAAAAAIWPaXH74AjV0YC7nn60qHB4eCwZ";
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $captcha = $_POST['g-recaptcha-response'];
+        $rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip$ip");
+        $arr = json_decode($rsp, TRUE);
+
+        $captchasuccess = false;
+
+        if ($arr['success']){
+            $captchasuccess = true;
+        }
+        // END RECAPTCHA
+
         // keep track validation errors
         $usernameError = null;
         $emailError = null;
@@ -40,6 +56,13 @@
             //die("Please enter a password."); 
 
             $passwordError = 'Please enter a password';
+            $valid = false;
+        } 
+
+        // Ensure that the user has captcha 
+        if($captchasuccess == false) 
+        { 
+            $captchaError = 'Please verify the captcha';
             $valid = false;
         } 
 
@@ -153,7 +176,7 @@
             $valid = false;
         } 
          
-        if($valid) {
+        if($valid && $captchasuccess) {
 
             // An INSERT query is used to add new rows to a database table. 
             // Again, we are using special tokens (technically called parameters) to 
@@ -242,6 +265,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -291,8 +315,16 @@
                         <?php endif; ?>
                     </div>
                 </div>
+                <div class="control-group <?php echo !empty($captchaError)?'error':'';?>">
+                    <div class="controls">
+                        <div class="g-recaptcha" data-sitekey="6Ld8fBATAAAAAA_N9OVBzUq_TFkcjQeKa1iiBjJx" data-callback="enableBtn"></div>
+                        <?php if (!empty($captchaError)): ?>
+                            <span class="help-inline"><?php echo $captchaError;?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-success">Register</button>
+                    <button id="register" type="submit" class="btn btn-success">Register</button>
                     <a class="btn" href="login.php">Back</a>
                 </div>
             </form>
