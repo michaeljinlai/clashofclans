@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-</head>
-
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
@@ -276,6 +266,16 @@
     } 
 
 ?> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
 
 <body>
     <div class="container">
