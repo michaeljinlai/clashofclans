@@ -49,7 +49,15 @@
 
             $usernameError = 'Please enter a username';
             $valid = false;
-        } 
+        }
+
+        // Ensure that the password is at least 6 characters long 
+        if(strlen($_POST['password']) < 6) 
+        { 
+            $passwordError = 'Password needs to be at least 6 characters';
+            $confirmPasswordError = 'Password needs to be at least 6 characters';
+            $valid = false;
+        }        
          
         // Ensure that the user has entered a non-empty password 
         if(empty($_POST['password'])) 
@@ -90,7 +98,7 @@
         { 
             //die("Invalid E-Mail Address"); 
 
-            $emailError = 'Invalid E-Mail Address';
+            $emailError = 'Please enter a valid email address';
             $valid = false;
         } 
          
