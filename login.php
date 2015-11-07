@@ -12,6 +12,10 @@
     // If it has, then the login code is run, otherwise the form is displayed 
     if(!empty($_POST)) 
     { 
+
+        // keep track of incorrect username and password
+        $error = null;
+
         // This query retreives the user's information from the database using 
         // their username. 
         $query = " 
@@ -102,7 +106,8 @@
         else 
         { 
             // Tell the user they failed 
-            print("Login Failed."); 
+            //print("Login Failed."); 
+            $error = "Incorrect Username/Password";
              
             // Show them their username again so all they have to do is enter a new 
             // password.  The use of htmlentities prevents XSS attacks.  You should 
@@ -114,7 +119,7 @@
     } 
      
 ?> 
-<h1>Login</h1> 
+<!-- <h1>Login</h1> 
 <form action="login.php" method="post"> 
     Username:<br /> 
     <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> 
@@ -124,4 +129,47 @@
     <br /><br /> 
     <input type="submit" value="Login" /> 
 </form> 
-<a href="register.php">Register</a>
+<a href="register.php">Register</a> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="span10 offset1">
+            <div class="row">
+                <h3>Login</h3>
+            </div>
+            <form class="form-horizontal" action="login.php" method="post"> 
+                <!-- Username -->
+                <div class="control-group <?php echo !empty($error)?'error':'';?>">
+                    <label class="control-label">Username</label>
+                    <div class="controls">
+                        <input name="username" type="text"  placeholder="Username" value="<?php echo $submitted_username; ?>">
+                        <?php if (!empty($error)): ?>
+                            <span class="help-inline"><?php echo $error;?></span>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <!-- Password -->
+                <div class="control-group <?php echo !empty($error)?'error':'';?>">
+                    <label class="control-label">Password</label>
+                    <div class="controls">
+                        <input name="password" type="password"  placeholder="Password" value="">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Login</button>
+                    <a class="btn" href="register.php">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

@@ -8,8 +8,8 @@
     if(!empty($_POST)) 
     {   
 
-
-        // Honestly I have no idea what this really does, but it's required for Google's recaptcha function    
+        // Google ReCaptcha
+        // Honestly I have no idea what this code really does, but it's what makes Google's recaptcha function work
         $secret = "6Ld8fBATAAAAAIWPaXH74AjV0YC7nn60qHB4eCwZ";
         $ip = $_SERVER['REMOTE_ADDR'];
         $captcha = $_POST['g-recaptcha-response'];
@@ -21,7 +21,7 @@
         if ($arr['success']){
             $captchasuccess = true;
         }
-        // END RECAPTCHA
+        // END GOOGLE RECAPTCHA
 
         // keep track validation errors
         $usernameError = null;
