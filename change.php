@@ -1,6 +1,6 @@
 <?php
 
-require("common.php");
+require("database.php");
 
 // Was the form submitted?
 if (isset($_POST["ForgotPassword"])) {
