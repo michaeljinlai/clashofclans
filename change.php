@@ -10,7 +10,22 @@ if (isset($_POST["ForgotPassword"])) {
 		$email = $_POST["email"];
 		
 	}else{
-		echo "email is not valid";
+		require('Elements/header.php');
+		echo   '<body>
+				    <div class="container">
+				        <div class="span10 offset1">
+				            <div class="row">
+				                <h3>Forgot Password</h3>
+				            </div>
+				            <form class="form-horizontal"> 
+					            Entered email is invalid.  
+					            <div class="form-actions">
+					                <a class="btn" href="forgot_password.php">Try Again</a>
+					            </div>
+					        </form    
+				        </div>
+				    </div>
+				</body>';
 		exit;
 	}
 
@@ -38,7 +53,24 @@ if (isset($_POST["ForgotPassword"])) {
 		echo "Your password recovery key has been sent to your e-mail address.";
 		
 	}
-	else
-		echo "No user with that e-mail address exists.";
+	else {
+		require('Elements/header.php');
+		echo   '<body>
+				    <div class="container">
+				        <div class="span10 offset1">
+				            <div class="row">
+				                <h3>Forgot Password</h3>
+				            </div>
+				            <form class="form-horizontal"> 
+					            Email does not exist.  
+					            <div class="form-actions">
+					                <a class="btn" href="forgot_password.php">Try Again</a>
+					            </div>
+					        </form    
+				        </div>
+				    </div>
+				</body>';
+		exit;
+	}
 }
 ?>
