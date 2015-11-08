@@ -1,2 +1,2 @@
 Data table-fy memberlist
-Bootstrap-fy reset_password, update and read functions
+Bootstrap-fy reset.php html code, update and read functions
