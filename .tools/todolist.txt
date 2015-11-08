@@ -1,2 +1,2 @@
 Data table-fy memberlist
-Bootstrap-fy forgot_password, reset_password, update and read functions
+Bootstrap-fy reset_password, update and read functions
