@@ -50,8 +50,23 @@ if (isset($_POST["ForgotPassword"])) {
 		// Mail them their key
 		$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website clashofclans.mikelai.org\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
 		mail($userExists["email"], "clashofclans.mikelai.org - Password Reset", $mailbody);
-		echo "Your password recovery key has been sent to your e-mail address.";
 		
+		require('Elements/header.php');
+		echo   '<body>
+				    <div class="container">
+				        <div class="span10 offset1">
+				            <div class="row">
+				                <h3>Forgot Password</h3>
+				            </div>
+				            <form class="form-horizontal"> 
+					            Your password recovery key has been sent to your email.  
+					            <div class="form-actions">
+					                <a class="btn" href="login.php">Back to Login</a>
+					            </div>
+					        </form    
+				        </div>
+				    </div>
+				</body>';		
 	}
 	else {
 		require('Elements/header.php');
