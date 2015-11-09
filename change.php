@@ -10,7 +10,7 @@ if (isset($_POST["ForgotPassword"])) {
 		$email = $_POST["email"];
 		
 	}else{
-		require('Elements/header.php');
+		require('Elements/usebootstrap2.3.2.php');
 		echo   '<body>
 				    <div class="container">
 				        <div class="span10 offset1">
@@ -51,7 +51,7 @@ if (isset($_POST["ForgotPassword"])) {
 		$mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website clashofclans.mikelai.org\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
 		mail($userExists["email"], "clashofclans.mikelai.org - Password Reset", $mailbody);
 		
-		require('Elements/header.php');
+		require('Elements/usebootstrap2.3.2.php');
 		echo   '<body>
 				    <div class="container">
 				        <div class="span10 offset1">
@@ -69,7 +69,7 @@ if (isset($_POST["ForgotPassword"])) {
 				</body>';		
 	}
 	else {
-		require('Elements/header.php');
+		require('Elements/usebootstrap2.3.2.php');
 		echo   '<body>
 				    <div class="container">
 				        <div class="span10 offset1">

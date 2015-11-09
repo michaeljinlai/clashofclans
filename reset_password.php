@@ -1,4 +1,4 @@
-<?php require('Elements/header.php');?>
+<?php require('Elements/usebootstrap2.3.2.php');?>
 <?php echo '
 <body>
 	<div class="container">

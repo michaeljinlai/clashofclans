@@ -267,7 +267,7 @@
 
 ?> 
 
-<?php require('Elements/header.php'); ?>
+<?php require('Elements/usebootstrap2.3.2.php'); ?>
 <head>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
