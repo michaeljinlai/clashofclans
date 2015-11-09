@@ -22,11 +22,12 @@ body {
 }
 
 .main {
-	padding-left: 80px;
+	margin-left: 50px;
+  padding-left: 30px;
 }
 
 .menu-toggle {
-	padding-left:50px;
+	margin-left: 50px;
 }
 
 .rotateOneEight{
