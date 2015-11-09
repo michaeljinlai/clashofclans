@@ -26,12 +26,12 @@
 <div class="menu-toggle">
     <!-- This Menu Button is active when side menu is not open -->
     <div class="icon-menu">
-        <i class="icon-play"></i>
+        <i class="glyphicon glyphicon-play"></i>
     </div>
 
     <!-- This Menu Button is active when side menu is open -->
     <div class="icon-menu-open rotateOneEighty hide">
-        <i class="icon-play "></i>
+        <i class="glyphicon glyphicon-play gly-rotate-180"></i>
     </div>
 
 </div>

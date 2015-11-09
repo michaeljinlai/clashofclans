@@ -125,9 +125,9 @@
 
 <body>
     <div class="container">
-        <div class="span10 offset1">
+
             <div class="row">
-                <h3>Login</h3>
+                <h2 class="form-signin-heading">Login</h2>
             </div>
             <form class="form-horizontal" action="login.php" method="post"> 
                 <!-- Username -->
@@ -153,6 +153,6 @@
                     <br><br><a href="forgot_password.php">Forgot Password?</a>
                 </div>
             </form>
-        </div>
+
     </div>
 </body>
