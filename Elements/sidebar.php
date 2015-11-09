@@ -1,6 +1,5 @@
-<html>
 <?php require('header.php');?>
-
+<html>
 <body>
 
 <div class="menu">
