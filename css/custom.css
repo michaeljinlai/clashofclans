@@ -12,35 +12,49 @@ body {
   background-color: white;
 }
 
-/* Initial menu */
-.menu {
-  background: black;
+/* Initial sidebar */
+.sidebar {
+  background-color: #19191F;
   left: 0px;  /* start off behind the scenes */
   height: 100%;
   position: fixed;
-  width: 100px;
+  width: 240px;
   text-align: left;
-  z-index: -9999;
+  z-index: -9999; /* behind everything */
   overflow: hidden;
 }
+
+.sidebar li .sidebar-item-link {
+  padding: 15px;
+  color: #8B8B8E;
+}
+
+.sidebar li .sidebar-item-link .glyph-sidebar {
+  font-size: 17px;
+}
+
+.sidebar li .sidebar-item-link .sidebar-text {
+  font-size: 15px;
+  padding-left: 20px;
+}
+
+
 
 .main {
   background-color: white;
   height: 100vh;
+  padding-left: 30px;
 }
 
 .menu-toggle {
   background-color: white;
+  cursor: pointer;
+  color: gray;
+  padding-left: 5px;
 }
 
-.glyph-sidebar {
-  font-size: 30px;
-  padding-top: 10px; 
-}
 
-.sidebar-text {
-  font-size: 20px;
-}
+
 
 
 

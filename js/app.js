@@ -11,7 +11,7 @@ var main = function () {
         // }, 200);
 
         $('body').animate({
-            left: "100px"
+            left: "240px"
         }, 200);
 
     });

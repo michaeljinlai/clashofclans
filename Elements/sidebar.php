@@ -2,20 +2,20 @@
 <html>
 
 
-<div class="menu">
+<div class="sidebar">
 
-    <!-- Menu -->
-
-
-        <a href="#">
-        	
-        	<span class="glyphicon glyphicon-home glyph-sidebar"></span>
-        	<span class="sidebar-text">Home</span>
-        </a>
-        
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Contact</a></li>
+	<!-- Sidebar -->
+	<ul class="nav nav-sidebar">
+		<li>
+			<a class ="sidebar-item-link" href="#">
+				<span class="glyphicon glyphicon-home glyph-sidebar"></span>
+				<span class="sidebar-text">Home</span>
+			</a>
+		</li>
+	<li><a href="#">Blog</a></li>
+	<li><a href="#">Help</a></li>
+	<li><a href="#">Contact</a></li>
+	</ul>
 
 </div>
 
