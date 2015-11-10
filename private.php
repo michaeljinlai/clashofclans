@@ -23,7 +23,7 @@
 <?php require('Elements/sidebar.php'); ?>
 
 
-<div class="menu-toggle">
+<div class="sidebar-toggle">
     <!-- This Menu Button is active when side menu is not open -->
     <div class="icon-menu">
         <i class="glyphicon glyphicon-play"></i>

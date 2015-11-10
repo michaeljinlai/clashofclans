@@ -12,7 +12,7 @@ body {
   background-color: white;
 }
 
-/* Initial sidebar */
+/* Initial Sidebar */
 .sidebar {
   background-color: #19191F;
   left: 0px;  /* start off behind the scenes */
@@ -26,7 +26,7 @@ body {
 
 .sidebar li .sidebar-item-link {
   padding: 15px;
-  color: #8B8B8E;
+  color: #8C8C9C;
 }
 
 .sidebar li .sidebar-item-link .glyph-sidebar {
@@ -38,7 +38,10 @@ body {
   padding-left: 20px;
 }
 
-
+ul.nav a:hover { 
+  color: #C3C3C4 !important; 
+  background-color: #101014!important;
+}
 
 .main {
   background-color: white;
@@ -46,14 +49,17 @@ body {
   padding-left: 30px;
 }
 
-.menu-toggle {
+/* Sidebar Arrow Collapse */
+.sidebar-toggle {
   background-color: white;
   cursor: pointer;
-  color: gray;
+  color: #BFBFBF;
   padding-left: 5px;
 }
 
-
+.sidebar-toggle:hover {
+  color: #808080;
+}
 
 
 
