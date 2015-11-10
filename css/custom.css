@@ -29,13 +29,29 @@ body {
   color: #8C8C9C;
 }
 
+/* Sidebar Glyphicons */
 .sidebar li .sidebar-item-link .glyph-sidebar {
   font-size: 17px;
 }
 
+/* Sidebar Text Next To Glyphicons */
 .sidebar li .sidebar-item-link .sidebar-text {
   font-size: 15px;
   padding-left: 20px;
+}
+
+/* Sidebar Arrow Collapse */
+.sidebar-toggle {
+  background-color: white;
+  cursor: pointer;
+  color: #BFBFBF;
+  padding: 7px;
+  padding-left: 8px;
+}
+
+/* Sidebar Arrow Collapse Hover Effect*/
+.sidebar-toggle:hover {
+  color: #808080;
 }
 
 ul.nav a:hover { 
@@ -49,17 +65,7 @@ ul.nav a:hover {
   padding-left: 30px;
 }
 
-/* Sidebar Arrow Collapse */
-.sidebar-toggle {
-  background-color: white;
-  cursor: pointer;
-  color: #BFBFBF;
-  padding-left: 5px;
-}
 
-.sidebar-toggle:hover {
-  color: #808080;
-}
 
 
 
