@@ -5,37 +5,41 @@ label {
 
 /* Initial body */
 body {
-  left: 0;
+  left: 50px;
   margin: 0;
   overflow: hidden;
   position: relative;
+  background-color: white;
 }
 
 /* Initial menu */
 .menu {
-  background: #202024 url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;
-  left: -235px;  /* start off behind the scenes */
+  background: black;
+  left: 0px;  /* start off behind the scenes */
   height: 100%;
   position: fixed;
-  width: 285px;
-  text-align: right;
+  width: 100px;
+  text-align: left;
+  z-index: -9999;
+  overflow: hidden;
 }
 
 .main {
-	margin-left: 50px;
-  padding-left: 30px;
+  background-color: white;
+  height: 100vh;
 }
 
 .menu-toggle {
-	margin-left: 50px;
+  background-color: white;
 }
 
-.rotateOneEight{
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
+.glyph-sidebar {
+  font-size: 30px;
+  padding-top: 10px; 
+}
+
+.sidebar-text {
+  font-size: 20px;
 }
 
 

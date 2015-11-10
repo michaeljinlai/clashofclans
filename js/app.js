@@ -6,12 +6,12 @@ var main = function () {
         $('.icon-menu-open').toggleClass('hide');
         $('.icon-menu').toggleClass('hide');
 
-        $('.menu').animate({
-            left: "0px"
-        }, 200);
+        // $('.menu').animate({
+        //     left: "0px"
+        // }, 200);
 
         $('body').animate({
-            left: "235px"
+            left: "100px"
         }, 200);
 
     });
@@ -21,12 +21,12 @@ var main = function () {
         $('.icon-menu-open').toggleClass('hide');
         $('.icon-menu').toggleClass('hide');
 
-        $('.menu').animate({
-            left: "-235px"
-        }, 200);
+        // $('.menu').animate({
+        //     left: "-235px"
+        // }, 200);
 
         $('body').animate({
-            left: "0px"
+            left: "50px"
         }, 200);
 
     });

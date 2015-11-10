@@ -1,21 +1,25 @@
 <?php require('Elements/header.php');?>
 <html>
-<body>
+
 
 <div class="menu">
 
     <!-- Menu -->
-    <ul>
-        <li><a href="#">About</a></li>
+
+
+        <a href="#">
+        	
+        	<span class="glyphicon glyphicon-home glyph-sidebar"></span>
+        	<span class="sidebar-text">Home</span>
+        </a>
+        
         <li><a href="#">Blog</a></li>
         <li><a href="#">Help</a></li>
         <li><a href="#">Contact</a></li>
-    </ul>
-</div>
 
-<!-- Main body -->
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/app.js"></script>
-</body>
+
 </html>
