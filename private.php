@@ -43,6 +43,25 @@
 <a href="memberlist.php">Memberlist</a><br /> 
 <a href="edit_account.php">Edit Account</a><br /> 
 <a href="logout.php">Logout</a>
+
+    <a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+
+    <li data-toggle="tooltip" title="Some tooltip text!">
+      <a class="sidebar-item-link" href="#" data-toggle="tooltip" title="Some tooltip text!">
+        <span class="glyphicon glyphicon-home glyph-sidebar"></span>
+        <span class="sidebar-text">Home</span>
+      </a>
+    </li>
+
+      <ul class="nav nav-sidebar">
+    <li>
+        <a href="#" data-toggle="tooltip" title="Some tooltip text!" class="sidebar-item-link" data-placement="right">
+            <span class="glyphicon glyphicon-home glyph-sidebar"></span>
+            <span class="sidebar-text">Home</span>
+        </a>
+    </li>
+</ul>
+
 </div>
 
 <div class="container">

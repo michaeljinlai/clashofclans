@@ -7,7 +7,7 @@ label {
 body {
   left: 50px;
   margin: 0;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   background-color: white;
 }
@@ -18,10 +18,16 @@ body {
   left: 0px;  /* start off behind the scenes */
   height: 100%;
   position: fixed;
-  width: 240px;
+  width: 50px;
   text-align: left;
   z-index: -9999; /* behind everything */
+  vertical-align: middle;
   overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebar-enlarged {
+  width: 240px;
 }
 
 .sidebar li .sidebar-item-link {
@@ -55,8 +61,8 @@ body {
 }
 
 ul.nav a:hover { 
-  color: #C3C3C4 !important; 
-  background-color: #101014!important;
+  color: #C3C3C4 ; 
+  background-color: #101014;
 }
 
 .main {

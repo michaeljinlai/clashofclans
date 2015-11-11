@@ -5,10 +5,11 @@ var main = function () {
 
         $('.icon-menu-open').toggleClass('hide');
         $('.icon-menu').toggleClass('hide');
+        $("[data-toggle='tooltip']").tooltip('destroy');
 
-        // $('.menu').animate({
-        //     left: "0px"
-        // }, 200);
+        $('.sidebar').animate({
+            width: "240px"
+        }, 200);
 
         $('body').animate({
             left: "240px"
@@ -20,16 +21,19 @@ var main = function () {
 
         $('.icon-menu-open').toggleClass('hide');
         $('.icon-menu').toggleClass('hide');
+        $("[data-toggle='tooltip']").tooltip({container: 'body'});
 
-        // $('.menu').animate({
-        //     left: "-235px"
-        // }, 200);
+        $('.sidebar').animate({
+            width: "50px"
+        }, 200);
 
         $('body').animate({
             left: "50px"
         }, 200);
 
     });
+
+
 
 };
 
