@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'clashofclans/Elements/header.php'); ?>
+<?php require('Elements/header.php'); ?>
 
 <body>
     <div class="container">

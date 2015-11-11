@@ -1,7 +1,7 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require($_SERVER['DOCUMENT_ROOT'].'clashofclans/database.php'); 
+    require("database.php"); 
      
     // This if statement checks to determine whether the registration form has been submitted 
     // If it has, then the registration code is run, otherwise the form is displayed 
@@ -267,7 +267,7 @@
 
 ?> 
 
-<?php require($_SERVER['DOCUMENT_ROOT'].'clashofclans/Elements/usebootstrap2.3.2.php'); ?>
+<?php require('Elements/usebootstrap2.3.2.php'); ?>
 <head>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>

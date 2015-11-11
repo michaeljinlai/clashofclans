@@ -1,9 +1,9 @@
-<?php require($_SERVER['DOCUMENT_ROOT'].'clashofclans/Elements/header.php'); ?>
+<?php require('Elements/header.php'); ?>
 <html>
 <div class="sidebar">
 <ul class="nav nav-sidebar">
     <li>
-        <a onclick="loadDoc('Home')" data-toggle="tooltip" title="Home" class="sidebar-item-link" data-placement="right">
+        <a href="#" data-toggle="tooltip" title="Home" class="sidebar-item-link" data-placement="right">
             <span class="glyphicon glyphicon-home glyph-sidebar"></span>
             <span class="sidebar-text">Home</span>
         </a>
@@ -50,12 +50,6 @@
 			<span class="sidebar-text">Statistics</span>
 		</a>
 	</li>
-	<li>
-        <a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
-			<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
-			<span class="sidebar-text">Logout</span>
-		</a>
-	</li>
 </ul>
 </div>
 </html>
@@ -68,4 +62,3 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip({container: 'body'});
 });
 </script>
-

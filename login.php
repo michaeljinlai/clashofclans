@@ -1,7 +1,7 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require($_SERVER['DOCUMENT_ROOT'].'clashofclans/database.php'); 
+    require("database.php"); 
      
     // This variable will be used to re-display the user's username to them in the 
     // login form if they fail to enter the correct password.  It is initialized here 
@@ -121,7 +121,7 @@
      
 ?> 
 
-<?php require($_SERVER['DOCUMENT_ROOT'].'clashofclans/Elements/usebootstrap2.3.2.php'); ?>
+<?php require('Elements/usebootstrap2.3.2.php'); ?>
 
 <body>
     <div class="container">
