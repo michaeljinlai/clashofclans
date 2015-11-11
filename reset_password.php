@@ -1,4 +1,4 @@
-<?php require('Elements/usebootstrap2.3.2.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/usebootstrap2.3.2.php");?>
 <?php echo '
 <body>
 	<div class="container">

@@ -1,7 +1,7 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require("database.php"); 
+    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
      
     // At the top of the page we check to see whether the user is logged in or not 
     if(empty($_SESSION['user'])) 
