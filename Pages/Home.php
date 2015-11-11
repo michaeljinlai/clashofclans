@@ -7,7 +7,7 @@
     if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') 
     { 
         // If they are not, we redirect them to the login page. 
-        header('Location:'.$_SERVER['DOCUMENT_ROOT'].'/clashofclans/login.php');
+        header('Location: login.php');
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
