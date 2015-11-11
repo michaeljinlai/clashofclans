@@ -20,5 +20,4 @@
     // a username is user submitted content we must use htmlentities on it before displaying it to the user. 
 ?> 
 
-<div>Hello <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>, secret content!</div><br /> 
-<a href="memberlist.php">Memberlist</a><br /> 
+<a href="edit_account.php">Edit Account</a><br />

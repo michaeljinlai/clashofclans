@@ -9,7 +9,7 @@
         </a>
     </li>
 	<li>
-        <a href="#" data-toggle="tooltip" title="Profile" class="sidebar-item-link" data-placement="right">
+        <a onclick="loadDoc('Profile')" data-toggle="tooltip" title="Profile" class="sidebar-item-link" data-placement="right">
 			<span class="glyphicon glyphicon-user glyph-sidebar"></span>
 			<span class="sidebar-text">Profile</span>
 		</a>
