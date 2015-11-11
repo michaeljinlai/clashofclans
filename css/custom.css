@@ -7,7 +7,7 @@ label {
 body {
   left: 50px;
   margin: 0;
-  overflow: visible;
+  overflow-x: hidden;
   position: relative;
   background-color: white;
 }
@@ -75,7 +75,9 @@ ul.nav a:hover {
   padding-left: 30px;
 }
 
-
+.page-header {
+  margin-top: 0px;
+}
 
 
 
