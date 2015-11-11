@@ -15,9 +15,9 @@
 		</a>
 	</li>
 	<li>
-        <a href="#" data-toggle="tooltip" title="Favourites" class="sidebar-item-link" data-placement="right">
+        <a href="#" data-toggle="tooltip" title="Following" class="sidebar-item-link" data-placement="right">
 			<span class="glyphicon glyphicon-heart glyph-sidebar"></span>
-			<span class="sidebar-text">Favourites</span>
+			<span class="sidebar-text">Following</span>
 		</a>
 	</li>
 	<li>

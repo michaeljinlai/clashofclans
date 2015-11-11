@@ -25,13 +25,13 @@
 
 <div class="sidebar-toggle">
     <!-- This Menu Button is active when side menu is not open -->
-    <div class="icon-menu">
-        <i class="glyphicon glyphicon-triangle-right"></i>
+    <div class="">
+        <i class="icon-menu glyphicon glyphicon-triangle-right sidebar-arrow"></i>
     </div>
 
     <!-- This Menu Button is active when side menu is open -->
-    <div class="icon-menu-open rotateOneEighty hide">
-        <i class="glyphicon glyphicon-triangle-right gly-rotate-180"></i>
+    <div class="">
+        <i class="icon-menu-open hide glyphicon glyphicon-triangle-right gly-rotate-180 sidebar-arrow"></i>
     </div>
 
 </div>
@@ -43,25 +43,6 @@
 <a href="memberlist.php">Memberlist</a><br /> 
 <a href="edit_account.php">Edit Account</a><br /> 
 <a href="logout.php">Logout</a>
-
-    <a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
-
-    <li data-toggle="tooltip" title="Some tooltip text!">
-      <a class="sidebar-item-link" href="#" data-toggle="tooltip" title="Some tooltip text!">
-        <span class="glyphicon glyphicon-home glyph-sidebar"></span>
-        <span class="sidebar-text">Home</span>
-      </a>
-    </li>
-
-      <ul class="nav nav-sidebar">
-    <li>
-        <a href="#" data-toggle="tooltip" title="Some tooltip text!" class="sidebar-item-link" data-placement="right">
-            <span class="glyphicon glyphicon-home glyph-sidebar"></span>
-            <span class="sidebar-text">Home</span>
-        </a>
-    </li>
-</ul>
-
 </div>
 
 <div class="container">
