@@ -1,11 +1,11 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require("database.php"); 
+    require($_SERVER['DOCUMENT_ROOT'].'clashofclans/database.php'); 
      
     // We remove the user's data from the session 
     unset($_SESSION['user']); 
      
     // We redirect them to the login page 
-    header("Location: login.php"); 
+    header('Location:'.$_SERVER['DOCUMENT_ROOT'].'clashofclans/login.php');
     die("Redirecting to: login.php");

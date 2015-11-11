@@ -1,13 +1,13 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require("database.php"); 
+    require($_SERVER['DOCUMENT_ROOT'].'clashofclans/database.php'); 
      
     // At the top of the page we check to see whether the user is logged in or not 
     if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') 
     { 
         // If they are not, we redirect them to the login page. 
-        header("Location: login.php"); 
+        header('Location:'.$_SERVER['DOCUMENT_ROOT'].'clashofclans/login.php'); 
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
@@ -20,7 +20,7 @@
     // a username is user submitted content we must use htmlentities on it before displaying it to the user. 
 ?> 
 
-<?php require('Elements/sidebar.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'clashofclans/Elements/sidebar.php'); ?>
 
 
 <div class="sidebar-toggle">
@@ -37,37 +37,33 @@
 </div>
 
 
-<div class="main">
+<div class="main" id="main">
 
+<!-- Empty Content Until Something Is Clicked -->
 <div>Hello <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>, secret content!</div><br /> 
 <a href="memberlist.php">Memberlist</a><br /> 
-<a href="edit_account.php">Edit Account</a><br /> 
-<a href="logout.php">Logout</a>
+<a href="edit_account.php">Edit Account</a><br />
+
 </div>
 
-<div class="container">
-      <h2>Glyphicon Examples</h2>
-      <p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p>    
-      <p>Envelope icon as a link:
-        <a href="#">
-          <span class="glyphicon glyphicon-envelope"></span>
-        </a>
-      </p>
-      <p>Search icon: <span class="glyphicon glyphicon-search"></span></p>
-      <p>Search icon on a button:
-        <button type="button" class="btn btn-default">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </button>
-      </p>
-      <p>Search icon on a styled button:
-        <button type="button" class="btn btn-info">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </button>
-      </p>
-      <p>Print icon: <span class="glyphicon glyphicon-print"></span></p>      
-      <p>Print icon on a styled link button:
-        <a href="#" class="btn btn-success btn-lg">
-          <span class="glyphicon glyphicon-print"></span> Print 
-        </a>
-      </p> 
-    </div>
+<script>
+function loadDoc(str) {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("main").innerHTML = xhttp.responseText;
+    }
+  }
+  if (str === 'Home'){
+    xhttp.open("GET", "Pages/Home.php", true);
+  }
+  xhttp.send();
+}
+</script>

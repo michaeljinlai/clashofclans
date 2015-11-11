@@ -1,6 +1,6 @@
 <?php
 
-require("database.php");
+require($_SERVER['DOCUMENT_ROOT'].'clashofclans/database.php');
     
 // Was the form submitted?
 if (isset($_POST["ResetPasswordForm"]))
