@@ -37,37 +37,32 @@
 </div>
 
 
-<div class="main">
+<div class="main" id="main">
 
 <div>Hello <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>, secret content!</div><br /> 
 <a href="memberlist.php">Memberlist</a><br /> 
-<a href="edit_account.php">Edit Account</a><br /> 
-<a href="logout.php">Logout</a>
+<a href="edit_account.php">Edit Account</a><br />
+
 </div>
 
-<div class="container">
-      <h2>Glyphicon Examples</h2>
-      <p>Envelope icon: <span class="glyphicon glyphicon-envelope"></span></p>    
-      <p>Envelope icon as a link:
-        <a href="#">
-          <span class="glyphicon glyphicon-envelope"></span>
-        </a>
-      </p>
-      <p>Search icon: <span class="glyphicon glyphicon-search"></span></p>
-      <p>Search icon on a button:
-        <button type="button" class="btn btn-default">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </button>
-      </p>
-      <p>Search icon on a styled button:
-        <button type="button" class="btn btn-info">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </button>
-      </p>
-      <p>Print icon: <span class="glyphicon glyphicon-print"></span></p>      
-      <p>Print icon on a styled link button:
-        <a href="#" class="btn btn-success btn-lg">
-          <span class="glyphicon glyphicon-print"></span> Print 
-        </a>
-      </p> 
-    </div>
+<script>
+function loadDoc(str) {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("main").innerHTML = xhttp.responseText;
+    }
+  }
+  if (str === 'Home'){
+  xhttp.open("GET", "Pages/Home.php", true);
+  }
+  xhttp.send();
+}
+</script>

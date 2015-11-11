@@ -3,7 +3,7 @@
 <div class="sidebar">
 <ul class="nav nav-sidebar">
     <li>
-        <a href="#" data-toggle="tooltip" title="Home" class="sidebar-item-link" data-placement="right">
+        <a onclick="loadDoc('Home')" data-toggle="tooltip" title="Home" class="sidebar-item-link" data-placement="right">
             <span class="glyphicon glyphicon-home glyph-sidebar"></span>
             <span class="sidebar-text">Home</span>
         </a>
@@ -48,6 +48,12 @@
         <a href="#" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
 			<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
 			<span class="sidebar-text">Statistics</span>
+		</a>
+	</li>
+	<li>
+        <a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
+			<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
+			<span class="sidebar-text">Logout</span>
 		</a>
 	</li>
 </ul>
