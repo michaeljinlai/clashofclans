@@ -3,13 +3,13 @@
 <div class="sidebar">
 <ul class="nav nav-sidebar">
     <li>
-        <a onclick="loadDoc('Home')" data-toggle="tooltip" title="Home" class="sidebar-item-link" data-placement="right">
+        <a onclick="loadDoc('Home')" data-toggle="tooltip" title="Home" class="sidebar-item-link active" data-placement="right">
             <span class="glyphicon glyphicon-home glyph-sidebar"></span>
             <span class="sidebar-text">Home</span>
         </a>
     </li>
 	<li>
-        <a onclick="loadDoc('Profile')" data-toggle="tooltip" title="Profile" class="sidebar-item-link" data-placement="right">
+        <a onclick="loadDoc('Profile')" data-toggle="tooltip"title="Profile" class="sidebar-item-link" data-placement="right">
 			<span class="glyphicon glyphicon-user glyph-sidebar"></span>
 			<span class="sidebar-text">Profile</span>
 		</a>
@@ -67,4 +67,7 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip({container: 'body'});
 });
+
+
+
 </script>

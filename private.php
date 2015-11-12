@@ -62,4 +62,15 @@ function loadDoc(str) {
   xhttp.open("GET", "Pages/"+str+".php", true);
   xhttp.send();
 }
+
+$(function () {
+
+    $('.nav li a').click(function (e) {
+        e.preventDefault();
+        $('.nav li a').removeClass('active');
+        $(this).closest('a').addClass('active');
+
+    });
+
+});
 </script>

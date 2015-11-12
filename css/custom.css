@@ -54,27 +54,40 @@ body {
   padding-left: 8px;
 }
 
+/* Sidebar Arrow */
 .sidebar-arrow {
   cursor: pointer;
 }
 
-/* Sidebar Arrow Collapse Hover Effect*/
+/* Sidebar Arrow Collapse Hover Effect */
 .sidebar-arrow:hover {
   color: #808080;
 }
 
+/* Sidebar Hover Effect */
 ul.nav a:hover { 
   color: #C3C3C4 ; 
   background-color: #101014;
   cursor: pointer;
 }
 
+/* Sidebar Active Effect */
+ul.nav a.active { 
+  color: #C3C3C4 ; 
+  background-color: #101014;
+  border-left: 4px solid;
+  border-color: #6441A5;
+  padding-left: 11px;
+}
+
+/* Main Content */
 .main {
   background-color: white;
   height: 100vh;
   padding-left: 30px;
 }
 
+/* Removing the margin from page-header built in from bootstrap */
 .page-header {
   margin-top: 0px;
 }
