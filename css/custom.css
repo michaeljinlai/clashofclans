@@ -10,12 +10,11 @@ body {
   overflow-x: hidden;
   position: relative;
   background-color: white;
+  width: -webkit-calc(100% - 50px);
+  width: -moz-calc(100% - 50px);
+  width: calc(100% - 50px);
 }
 
-/* Temporary solution until I find out how to DISABLE sideways scrolling, not just hiding */
-html, body {
-    max-width: 98%;
-}
 
 /* Initial Sidebar */
 .sidebar {
