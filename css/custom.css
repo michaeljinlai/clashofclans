@@ -2,7 +2,6 @@ label {
   cursor: default;
 }
 
-
 /* Initial body */
 body {
   left: 50px;
@@ -14,7 +13,6 @@ body {
   width: -moz-calc(100% - 50px);
   width: calc(100% - 50px);
 }
-
 
 /* Initial Sidebar */
 .sidebar {

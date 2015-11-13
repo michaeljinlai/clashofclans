@@ -44,40 +44,35 @@
     $rows = $stmt->fetchAll(); 
 ?> 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,af-2.1.0,r-2.0.0/datatables.min.css"/>
- 
+<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
 
-<h1>Memberlist</h1> 
-<table id="myTable"> 
-    <thead>
-        <tr> 
-            <th>ID</th> 
-            <th>Username</th> 
-            <th>E-Mail Address</th> 
-        </tr> 
-    </thead>
-    <tbody>
-        <?php foreach($rows as $row): ?> 
+<!-- Datatables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
+
+<div>
+    <h1 class="page-header">Members</h1>
+    <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%"> 
+        <thead>
             <tr> 
-                <td><?php echo $row['id']; ?></td> <!-- htmlentities is not needed here because $row['id'] is always an integer --> 
-                <td><?php echo htmlentities($row['username'], ENT_QUOTES, 'UTF-8'); ?></td> 
-                <td><?php echo htmlentities($row['email'], ENT_QUOTES, 'UTF-8'); ?></td> 
+                <th>ID</th> 
+                <th>Username</th> 
+                <th>E-Mail Address</th> 
             </tr> 
-        <?php endforeach; ?> 
-    </tbody>
-</table> 
-
-<!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+        </thead>
+        <tbody>
+            <?php foreach($rows as $row): ?> 
+                <tr> 
+                    <td><?php echo $row['id']; ?></td> <!-- htmlentities is not needed here because $row['id'] is always an integer --> 
+                    <td><?php echo htmlentities($row['username'], ENT_QUOTES, 'UTF-8'); ?></td> 
+                    <td><?php echo htmlentities($row['email'], ENT_QUOTES, 'UTF-8'); ?></td> 
+                </tr> 
+            <?php endforeach; ?> 
+        </tbody>
+    </table> 
+</div>
 
 <script id="testThree" type="text/javascript">
     $(document).ready(function(){
     $('#myTable').DataTable();
 });
 </script>
-
-<!-- jQuery -->
-<!-- <script id="testOne" type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
-  
-<!-- DataTables -->
-<!-- <script id="testTwo" type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.js"></script> -->

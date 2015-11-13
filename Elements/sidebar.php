@@ -1,4 +1,4 @@
-<?php require('Elements/header.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
 <html>
 <div class="sidebar">
 	<ul class="nav nav-sidebar">
@@ -77,12 +77,8 @@ $(function () {
 });
 </script>
 
-<!-- Activate these 2 lines of code and comment out the 2 in loadDoc also works -->
-<!-- jQuery -->
-<!-- <script id="testOne" type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>--> 
- 
 <!-- DataTables -->
-<script id="testTwo" type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.js"></script>
+<script id="testTwo" type="text/javascript" charset="utf8" src="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.js"></script>
 
 <!-- Sidebar Button Tab Changes -->
 <script>
