@@ -12,6 +12,11 @@ body {
   background-color: white;
 }
 
+/* Temporary solution until I find out how to DISABLE sideways scrolling, not just hiding */
+html, body {
+    max-width: 98%;
+}
+
 /* Initial Sidebar */
 .sidebar {
   background-color: #19191F;
