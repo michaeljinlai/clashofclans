@@ -94,9 +94,12 @@ ul.nav a.active {
   margin-top: 0px;
 }
 
-
-
-
+/* Datatables Whole Frame*/
+#myTable_wrapper {
+  width: -webkit-calc(100% - 30px);
+  width: -moz-calc(100% - 30px);
+  width: calc(100% - 30px);
+}
 
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
