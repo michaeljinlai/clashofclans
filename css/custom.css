@@ -101,8 +101,13 @@ ul.nav a.active {
   width: calc(100% - 30px);
 }
 
+/* Bootstrap removes border from responsive tables class */
 .table-responsive {
   border: none;
+}
+
+.tooltip.in {
+  opacity: 0.8;
 }
 
 /* START GLYPHYICON ANIMATIONS */
