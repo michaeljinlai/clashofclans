@@ -101,6 +101,10 @@ ul.nav a.active {
   width: calc(100% - 30px);
 }
 
+.table-responsive {
+  border: none;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
