@@ -22,7 +22,6 @@ if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator
 
 <?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/sidebar.php"); ?>
 
-
 <div class="sidebar-toggle">
   <!-- This Menu Button is active when side menu is not open -->
   <div class="">
@@ -36,33 +35,12 @@ if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator
 
 </div>
 
-
 <div class="main" id="main">
   <div>Hello <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>, secret content!</div><br /> 
   <a href="memberlist.php">Memberlist</a><br /> 
   <a href="logout.php">Logout</a><br /> 
 </div>
 
-<script>
-function loadDoc(str) {
-  var xhttp;
-  if (window.XMLHttpRequest) {
-    // code for modern browsers
-    xhttp = new XMLHttpRequest();
-  } else {
-    // code for IE6, IE5
-    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      document.getElementById("main").innerHTML = xhttp.responseText;
-      eval(document.getElementById("testThree").innerHTML);
-      $.getScript("https://code.jquery.com/jquery-1.10.2.min.js");
-      $.getScript("https://cdn.datatables.net/1.10.10/js/jquery.dataTables.js");
-    }
-  }
-  xhttp.open("GET", "Pages/"+str+".php", true);
-  xhttp.send();
 
-}
-</script>
+
+

@@ -66,18 +66,18 @@
         <?php endforeach; ?> 
     </tbody>
 </table> 
+
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
-  
-<!-- jQuery -->
-<script id="testOne" type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-  
-<!-- DataTables -->
-<script id="testTwo" type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.js"></script>
 
-<script type="text/javascript" src="https://cdn.datatables.net/s/bs/dt-1.10.10,af-2.1.0,r-2.0.0/datatables.min.js"></script>
 <script id="testThree" type="text/javascript">
     $(document).ready(function(){
     $('#myTable').DataTable();
 });
 </script>
+
+<!-- jQuery -->
+<!-- <script id="testOne" type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
+  
+<!-- DataTables -->
+<!-- <script id="testTwo" type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.js"></script> -->
