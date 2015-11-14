@@ -43,6 +43,7 @@ if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator
   </div>
 </div>
 
+<!-- Calculates the width of sidebar everytime the window is resized and adjusts the body -->
 <script>
 $(document).ready(function(){
     $(window).resize(function(){
