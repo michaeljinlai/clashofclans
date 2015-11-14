@@ -21,15 +21,16 @@
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Following')" data-toggle="tooltip" title="Following" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-heart glyph-sidebar"></span>
-				<span class="sidebar-text">Following</span>
+			<!-- This one does not have onclick="loadDoc('Chat')" because I am using it to popup the chat window -->
+			<a href="chat/" onclick="openWindow(this.href);this.blur();return false;" data-toggle="tooltip" title="Enter Chat" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-globe glyph-sidebar"></span>
+				<span class="sidebar-text">Enter Chat</span>
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Messages')" data-toggle="tooltip" title="Messages" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-envelope glyph-sidebar"></span>
-				<span class="sidebar-text">Messages</span>
+			<a onclick="loadDoc('Following')" data-toggle="tooltip" title="Following" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-heart glyph-sidebar"></span>
+				<span class="sidebar-text">Following</span>
 			</a>
 		</li>
 		<li>
@@ -102,3 +103,19 @@ $(function () {
 });
 </script>
 
+<!-- Makes Chat Popout -->
+<script type="text/javascript">
+  // <![CDATA[
+    function openWindow(url,width,height,options,name) {
+      width = width ? width : 800;
+      height = height ? height : 600;
+      options = options ? options : 'resizable=yes';
+      name = name ? name : 'openWindow';
+      window.open(
+        url,
+        name,
+        'screenX='+(screen.width-width)/2+',screenY='+(screen.height-height)/2+',width='+width+',height='+height+','+options
+      )
+    }
+  // ]]>
+</script>

@@ -53,18 +53,4 @@ $(document).ready(function(){
 });
 </script>
 
-<script type="text/javascript">
-  // <![CDATA[
-    function openWindow(url,width,height,options,name) {
-      width = width ? width : 800;
-      height = height ? height : 600;
-      options = options ? options : 'resizable=yes';
-      name = name ? name : 'openWindow';
-      window.open(
-        url,
-        name,
-        'screenX='+(screen.width-width)/2+',screenY='+(screen.height-height)/2+',width='+width+',height='+height+','+options
-      )
-    }
-  // ]]>
-</script>
+
