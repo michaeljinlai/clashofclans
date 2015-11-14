@@ -20,8 +20,8 @@ $users[0]['channels'] = array(0);
 // Sample admin user:
 $users[1] = array();
 $users[1]['userRole'] = AJAX_CHAT_ADMIN;
-$users[1]['userName'] = 'admin';
-$users[1]['password'] = 'admin';
+$users[1]['userName'] = 'keiwo';
+$users[1]['password'] = 'asdasd';
 $users[1]['channels'] = array(0,1);
 
 // Sample moderator user:

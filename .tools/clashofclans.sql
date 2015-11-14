@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2015 at 01:14 AM
+-- Generation Time: Nov 14, 2015 at 04:27 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,99 @@ SET time_zone = "+00:00";
 --
 -- Database: `clashofclans`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ajax_chat_bans`
+--
+
+CREATE TABLE IF NOT EXISTS `ajax_chat_bans` (
+  `userID` int(11) NOT NULL,
+  `userName` varchar(64) COLLATE utf8_bin NOT NULL,
+  `dateTime` datetime NOT NULL,
+  `ip` varbinary(16) NOT NULL,
+  PRIMARY KEY (`userID`),
+  KEY `userName` (`userName`),
+  KEY `dateTime` (`dateTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ajax_chat_invitations`
+--
+
+CREATE TABLE IF NOT EXISTS `ajax_chat_invitations` (
+  `userID` int(11) NOT NULL,
+  `channel` int(11) NOT NULL,
+  `dateTime` datetime NOT NULL,
+  PRIMARY KEY (`userID`,`channel`),
+  KEY `dateTime` (`dateTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ajax_chat_messages`
+--
+
+CREATE TABLE IF NOT EXISTS `ajax_chat_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `userName` varchar(64) COLLATE utf8_bin NOT NULL,
+  `userRole` int(1) NOT NULL,
+  `channel` int(11) NOT NULL,
+  `dateTime` datetime NOT NULL,
+  `ip` varbinary(16) NOT NULL,
+  `text` text COLLATE utf8_bin,
+  PRIMARY KEY (`id`),
+  KEY `message_condition` (`id`,`channel`,`dateTime`),
+  KEY `dateTime` (`dateTime`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `ajax_chat_messages`
+--
+
+INSERT INTO `ajax_chat_messages` (`id`, `userID`, `userName`, `userRole`, `channel`, `dateTime`, `ip`, `text`) VALUES
+(1, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:18:44', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/login (342652)'),
+(2, 426961334, '(342652)', 0, 0, '2015-11-15 02:18:53', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'asdads'),
+(3, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:18:57', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/logout (342652)'),
+(4, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:18:59', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/login (407426)'),
+(5, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:19:02', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/logout (407426)'),
+(6, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:19:15', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/login (553284)'),
+(7, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:19:59', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/roll (553284) 1d6 6'),
+(8, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:20:05', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/roll (553284) 1d6 4'),
+(9, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:20:08', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/roll (553284) 1d6 5'),
+(10, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:20:19', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/nick (553284) (keiwo)'),
+(11, 450364910, '(keiwo)', 0, 0, '2015-11-15 02:20:23', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'vxc'),
+(12, 450364910, '(keiwo)', 0, 0, '2015-11-15 02:21:46', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/action sdfdsf'),
+(13, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:21:49', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/logout (keiwo)'),
+(14, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:21:51', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/login (765831)'),
+(15, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:22:02', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/logout (765831)'),
+(16, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:23:17', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/login keiwo'),
+(17, 1, 'keiwo', 3, 0, '2015-11-15 02:23:23', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 'fdssdf'),
+(18, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:23:27', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/logout keiwo'),
+(19, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:23:37', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/login (what)'),
+(20, 2147483647, 'ChatBot', 4, 0, '2015-11-15 02:23:39', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '/logout (what)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ajax_chat_online`
+--
+
+CREATE TABLE IF NOT EXISTS `ajax_chat_online` (
+  `userID` int(11) NOT NULL,
+  `userName` varchar(64) COLLATE utf8_bin NOT NULL,
+  `userRole` int(1) NOT NULL,
+  `channel` int(11) NOT NULL,
+  `dateTime` datetime NOT NULL,
+  `ip` varbinary(16) NOT NULL,
+  PRIMARY KEY (`userID`),
+  KEY `userName` (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
