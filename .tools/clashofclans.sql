@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2015 at 09:41 AM
+-- Generation Time: Nov 14, 2015 at 01:14 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `clashofclans`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comentarios`
+--
+
+CREATE TABLE IF NOT EXISTS `comentarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `usuario`) VALUES
+(2, 'fuck'),
+(3, 'fuck'),
+(4, 'my name is khan'),
+(5, 'my name is khaan'),
+(6, 'my name is khan');
 
 -- --------------------------------------------------------
 
