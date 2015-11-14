@@ -15,7 +15,9 @@ var main = function () {
             left: "240px"
         }, 200);
 
-        $('body').css('width', '100%').css('width', '-=240px');
+        setTimeout(function () {
+            $('body').css('width', '100%').css('width', '-=240px');
+        }, 200);
 
     });
 
@@ -33,7 +35,9 @@ var main = function () {
             left: "50px"
         }, 200);
 
-        $('body').css('width', '100%').css('width', '-=50px');
+        setTimeout(function () {
+            $('body').css('width', '100%').css('width', '-=50px');
+        }, 200);
 
     });
 
