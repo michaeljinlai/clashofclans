@@ -1,27 +1,44 @@
-<fieldset>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title></title>
+    <meta name="" content="">
+</head>
+<body>
+    <div id="maindiv">
+        <h3>post Detail:</h3>
+        <h3><textarea id="txtarea" >my name is khan</textarea></h3>
+        <h3><button id="save" title="post">post</button></h3>
 
-    <p><label>NOMBRE *</label>
-    <input type="text" id="nombre" name="usuario"></p>
-    
-    <p><input type="button" name="submit" id="submit" onclick="send_data()" value="Enviar " /></p>
+    </div>
 
-</fieldset>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script type="text/javascript">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(document).on('click','#save',function(){
+            var name = $("#txtarea").val();
+            var param = {name: name};
 
-function send_data()
-{
-    var usuario = $('#nombre').val();
+            $.ajax({
+                type: 'POST',
+                url: 'ajax_page.php',
+                cache: 'false',
+                data: param,
 
-    $.ajax({
-    url: "ver.php?usuario=" + usuario,
-    type: 'POST',
-    success: function(result) {
-        
-    }});
+                beforeSend: function(){
+                    // function to perform before sending data
+                },
 
-}
+                success: function(data){
+                    alert(name);
+                },
 
-</script>
-
-
+                error: function(){
+                    // function to perform if unexpected error occurs 
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

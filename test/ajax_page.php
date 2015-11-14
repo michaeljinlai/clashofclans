@@ -5,18 +5,11 @@ require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
 // $connect=mysql_connect("localhost","root","");  
 // //Seleccionamos la base  
 // mysql_select_db("mostra",$connect);
-$nick=$_POST['usuario']; 
+$nick=$_POST['name']; 
  
 
 // $query = "INSERT INTO comentarios (usuario,email,comentario,noticia_id, fecha) VALUES('$nick','$email','$comentario','$id', NOW())";
 // mysql_query($query) or die(mysql_error());
-
-
-
-
-
-
-
 
 $query = " 
         INSERT INTO comentarios ( 
@@ -28,7 +21,7 @@ $query = "
      
     
     $query_params = array( 
-        ':nick' => $_POST['usuario']
+        ':nick' => $nick
     ); 
      
     try 
