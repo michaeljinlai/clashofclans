@@ -15,6 +15,8 @@ var main = function () {
             left: "240px"
         }, 200);
 
+        $('body').css('width', '100%').css('width', '-=240px');
+
     });
 
     $('.icon-menu-open').click(function () {
@@ -31,6 +33,8 @@ var main = function () {
             left: "50px"
         }, 200);
 
+        $('body').css('width', '100%').css('width', '-=50px');
+
     });
 
 
@@ -39,4 +43,4 @@ var main = function () {
 
 //This waits for the HTML document to load completely before running the main() function.
 //This is important because JavaScript should only run after the web page has loaded completely in the browser - otherwise there wouldn't be any HTML elements to add interactivity to.
-$(document).ready(main);
+$(document).ready(main);Previous12Next

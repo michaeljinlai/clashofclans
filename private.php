@@ -43,6 +43,12 @@ if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator
   </div>
 </div>
 
-
+<script>
+$(document).ready(function(){
+    $(window).resize(function(){
+        $('body').css('width', '100%').css('width', '-='+$('.sidebar').width());
+    });
+});
+</script>
 
 
