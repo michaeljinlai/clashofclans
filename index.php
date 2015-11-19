@@ -23,7 +23,11 @@ require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
 <div class="main" id="main">
   <div>
       <h1 class="page-header">Home</h1>
-      <div>Hello <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>, secret content!</div><br /> 
+      <?php 
+	      if(!empty($_SESSION['user'])) {
+	      	echo '<div>Hello '.htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8').', secret content!</div><br />';
+	      }
+      ?>
       <a href="memberlist.php">Memberlist</a><br /> 
       <a href="chat/" onclick="openWindow(this.href);this.blur();return false;">Chat</a>
   </div>
