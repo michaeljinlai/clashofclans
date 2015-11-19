@@ -57,12 +57,15 @@
 				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
+<?php 
+if(!empty($_SESSION['user'])) {echo '
 		<li>
 			<a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
 				<span class="sidebar-text">Logout</span>
 			</a>
-		</li>
+		</li>';}
+?>
 	</ul>
 </div>
 </html>
