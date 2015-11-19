@@ -58,4 +58,4 @@
         </tr> 
     <?php endforeach; ?> 
 </table> 
-<a href="private.php">Go Back</a><br />
+<a href="admin.php">Go Back</a><br />

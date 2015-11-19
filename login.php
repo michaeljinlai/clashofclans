@@ -95,8 +95,8 @@
             
             if($_SESSION['user']['privilege'] === 'administrator'){
             // Redirect the user to the private administrator-only page.  <-- need to add field to users table for administrator 
-            header("Location: private.php"); 
-            die("Redirecting to: private.php"); 
+            header("Location: admin.php"); 
+            die("Redirecting to: admin.php"); 
             }
             else {
             // Redirect the user to the users-only page. 
