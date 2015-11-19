@@ -1,5 +1,10 @@
 <?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
 <html>
+
+<!-- Mobile device options -->
+<!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> -->
+<meta name="viewport" content="width=device-width; initial-scale=1.0;">
+
 <div class="sidebar">
 	<ul class="nav nav-sidebar">
 		<li>
