@@ -25,13 +25,6 @@
 			</a>
 		</li>
 		<li>
-			<!-- This one does not have onclick="loadDoc('Chat')" because I am using it to popup the chat window -->
-			<a href="chat/" onclick="openWindow(this.href);this.blur();return false;" data-toggle="tooltip" title="Enter Chat" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-globe glyph-sidebar"></span>
-				<span class="sidebar-text">Enter Chat</span>
-			</a>
-		</li>
-		<li>
 			<a onclick="loadDoc('Following')" data-toggle="tooltip" title="Following" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-heart glyph-sidebar"></span>
 				<span class="sidebar-text">Following</span>
@@ -59,6 +52,13 @@
 			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
 				<span class="sidebar-text">Statistics</span>
+			</a>
+		</li>
+		<li>
+			<!-- This one does not have onclick="loadDoc('Chat')" because I am using it to popup the chat window -->
+			<a href="chat/" onclick="openWindow(this.href);this.blur();return false;" data-toggle="tooltip" title="Enter Chat" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-globe glyph-sidebar"></span>
+				<span class="sidebar-text">Enter Chat</span>
 			</a>
 		</li>
 		<!-- Only show log out button if they are logged in -->
