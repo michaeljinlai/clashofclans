@@ -8,12 +8,16 @@
 				<span class="sidebar-text">Home</span>
 			</a>
 		</li>
-		<li>
-			<a onclick="loadDoc('Profile')" data-toggle="tooltip"title="Profile" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-user glyph-sidebar"></span>
-				<span class="sidebar-text">Profile</span>
-			</a>
-		</li>	
+		<!-- Only show log out button if they are logged in -->
+		<?php 
+		if(!empty($_SESSION['user'])) {echo '
+			<li>
+				<a onclick="loadDoc(\'Profile\')" data-toggle="tooltip"title="Profile" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-user glyph-sidebar"></span>
+					<span class="sidebar-text">Profile</span>
+				</a>
+			</li>';}
+		?>
 		<li>
 			<a onclick="loadDoc('Members')" data-toggle="tooltip"title="Members" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-list-alt glyph-sidebar"></span>
@@ -57,15 +61,16 @@
 				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
-<?php 
-if(!empty($_SESSION['user'])) {echo '
-		<li>
-			<a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
-				<span class="sidebar-text">Logout</span>
-			</a>
-		</li>';}
-?>
+		<!-- Only show log out button if they are logged in -->
+		<?php 
+		if(!empty($_SESSION['user'])) {echo '
+				<li>
+					<a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
+						<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
+						<span class="sidebar-text">Logout</span>
+					</a>
+				</li>';}
+		?>
 	</ul>
 </div>
 </html>
