@@ -8,7 +8,7 @@
 				<span class="sidebar-text">Home</span>
 			</a>
 		</li>
-		<!-- Only show log out button if they are logged in -->
+		<!-- Only show Profile button if they are logged in -->
 		<?php 
 		if(!empty($_SESSION['user'])) {echo '
 			<li>
@@ -64,12 +64,24 @@
 		<!-- Only show log out button if they are logged in -->
 		<?php 
 		if(!empty($_SESSION['user'])) {echo '
-				<li>
-					<a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
-						<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
-						<span class="sidebar-text">Logout</span>
-					</a>
-				</li>';}
+			<li>
+				<a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
+					<span class="sidebar-text">Logout</span>
+				</a>
+			</li>';
+		}
+		?>
+		<!-- Only show log in button if they are not logged in -->		
+		<?php 
+		if(empty($_SESSION['user'])) {echo '
+			<li>
+				<a href="login.php" data-toggle="tooltip" title="Login" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-log-in glyph-sidebar"></span>
+					<span class="sidebar-text">Login</span>
+				</a>
+			</li>';
+		}
 		?>
 	</ul>
 </div>
