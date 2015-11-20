@@ -175,7 +175,14 @@
         <!-- Sign in button -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
+        <div class="login-back">
+            <label>
+                <a href="index.php">Back</a>
+            </label>    
+        </div>
+
     </form>
+
 
 </div> <!-- /container -->
 
