@@ -167,7 +167,7 @@
 
             <!-- Forgot Password (with inline style to make it float right) -->
             <label style="float:right;">
-                <a href="register.php">Forgot Password</a>
+                <a href="forgot_password.php">Forgot Password</a>
             </label>
 
         </div>
