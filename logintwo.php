@@ -121,38 +121,47 @@
      
 ?> 
 
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/usebootstrap2.3.2.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
 
-<body>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom styles for this template -->
+    <link href="css/login.css" rel="stylesheet">
+  </head>
+
+  <body>
+
     <div class="container">
-        <div class="span10 offset1">
-            <div class="row">
-                <h2 class="form-signin-heading">Login</h2>
-            </div>
-            <form class="form-horizontal" action="login.php" method="post"> 
-                <!-- Username -->
-                <div class="control-group <?php echo !empty($error)?'error':'';?>">
-                    <label class="control-label">Username</label>
-                    <div class="controls">
-                        <input name="username" type="text"  placeholder="Username" value="<?php echo $submitted_username; ?>">
-                        <?php if (!empty($error)): ?>
-                            <span class="help-inline"><?php echo $error;?></span>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <!-- Password -->
-                <div class="control-group <?php echo !empty($error)?'error':'';?>">
-                    <label class="control-label">Password</label>
-                    <div class="controls">
-                        <input name="password" type="password"  placeholder="Password" value="">
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-success">Login</button>
-                    <a class="btn" href="register.php">Register</a>
-                    <br><br><a href="forgot_password.php">Forgot Password?</a>
-                </div>
-            </form>
+
+      <form class="form-signin" action="logintwo.php" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <!-- Show error message upon wrong user details -->
+        <?php if (!empty($error)): ?>
+            <span><?php echo $error;?></span>
+        <?php endif; ?>
+        <input name="username" type="text" id="inputUsername" class="form-control" value="<?php echo $submitted_username; ?>" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" value="" required>
+        <div class="login-help">
+            <label>
+                <a href="register.php">Sign Up</a>
+            </label>
+            <label style="float:right;">
+                <a href="register.php">Forgot Password</a>
+            </label>
         </div>
-    </div>
-</body>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+
+  </body>
+
