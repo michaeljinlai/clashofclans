@@ -132,6 +132,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
+
+    <title>Login</title>
 </head>
 
 <body>
@@ -158,7 +160,8 @@
         <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" value="">
 
         <!-- Container for 'Sign Up' and 'Forgot Password' -->
-        <div class="login-help">
+        <!-- Hidden because the buttons below are better -->
+        <div class="login-help hide">
 
             <!-- Sign Up -->
             <label>
@@ -174,6 +177,10 @@
 
         <!-- Sign in button -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="btn-group btn-block btn-group-justified">
+        <a class="btn btn-info" href="register.php">Register</a>
+        <a class="btn btn-info" href="forgot_password.php">Forgot Password</a>
+        </div>
 
         <div class="login-back">
             <label>
