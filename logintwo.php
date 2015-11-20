@@ -121,47 +121,63 @@
      
 ?> 
 
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
-
-
-  <head>
-    <meta charset="utf-8">
+<head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- Bootstrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="container">
+<div class="container">
 
-      <form class="form-signin" action="logintwo.php" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
+    <form class="form-signin" action="logintwo.php" method="post">
+
+        <!-- Sign in heading -->
+        <h2 class="form-signin-heading">Login</h2>
+
+        <!-- Username -->
         <label for="inputUsername" class="sr-only">Username</label>
         <!-- Show error message upon wrong user details -->
-        <?php if (!empty($error)): ?>
-            <span><?php echo $error;?></span>
-        <?php endif; ?>
-        <input name="username" type="text" id="inputUsername" class="form-control" value="<?php echo $submitted_username; ?>" placeholder="Username" required autofocus>
+        <?php 
+            if (!empty($error)) {
+                echo $error;
+            }
+        ?>
+        <input name="username" type="text" id="inputUsername" class="form-control" value="<?php echo $submitted_username; ?>" placeholder="Username" autofocus>
+
+        <!-- Password -->
         <label for="inputPassword" class="sr-only">Password</label>
-        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" value="" required>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" value="">
+
+        <!-- Container for 'Sign Up' and 'Forgot Password' -->
         <div class="login-help">
+
+            <!-- Sign Up -->
             <label>
                 <a href="register.php">Sign Up</a>
             </label>
+
+            <!-- Forgot Password (with inline style to make it float right) -->
             <label style="float:right;">
                 <a href="register.php">Forgot Password</a>
             </label>
+
         </div>
+
+        <!-- Sign in button -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
 
-    </div> <!-- /container -->
+    </form>
 
-  </body>
+</div> <!-- /container -->
+
+</body>
 
