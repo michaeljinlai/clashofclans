@@ -184,7 +184,7 @@
 
         <div class="login-back">
             <label>
-                <a href="index.php">Back</a>
+                <a href="./">Back</a>
             </label>    
         </div>
 
