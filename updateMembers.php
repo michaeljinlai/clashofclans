@@ -58,7 +58,9 @@ foreach ($data['clanDetails']['results']['memberList'] as $member) {
 	        clanRank,
 	        previousClanRank,
 	        donations,
-	        donationsReceived 
+	        donationsReceived,
+	        leagueBadgeImg_s,
+	        leagueBadgeImg_xl
 	    ) VALUES ( 
 	        :name, 
 	        :role, 
@@ -67,7 +69,9 @@ foreach ($data['clanDetails']['results']['memberList'] as $member) {
 	        :clanRank,
 	        :previousClanRank,
 	        :donations,
-	        :donationsReceived 
+	        :donationsReceived,
+	        :leagueBadgeImg_s,
+	        :leagueBadgeImg_xl
 	    ) 
 	"; 
 
@@ -79,7 +83,9 @@ foreach ($data['clanDetails']['results']['memberList'] as $member) {
 	    ':clanRank' => $member['clanRank'], 
 	    ':previousClanRank' => $member['previousClanRank'], 
 	    ':donations' => $member['donations'], 
-	    ':donationsReceived' => $member['donationsReceived'] 
+	    ':donationsReceived' => $member['donationsReceived'],
+	    ':leagueBadgeImg_s' => substr($member['leagueBadgeImg']['s'], 0, strrpos($member['leagueBadgeImg']['s'], ',')), //Because the api provides two links for some reason
+	    ':leagueBadgeImg_xl' => $member['leagueBadgeImg']['xl'] // And only one link for this
 	); 
 	 
 	try 
