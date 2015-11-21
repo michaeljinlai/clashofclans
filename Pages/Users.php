@@ -39,7 +39,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
 <div class="table-responsive">
-    <h1 class="page-header">Members</h1>
+    <h1 class="page-header">Users</h1>
     <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive"> <!-- Removed: width="100%", cellspacing="0" -->
         <thead>
             <tr> 

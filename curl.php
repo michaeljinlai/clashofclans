@@ -97,7 +97,7 @@ foreach ($data['clanDetails']['results']['memberList'] as $member) {
 
 }
 
-header("Location: index.php"); 
+header("Location: updatesuccess.php"); 
 die(); 
 
 ?>

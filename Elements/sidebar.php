@@ -29,12 +29,16 @@
 				<span class="sidebar-text">Users</span>
 			</a>
 		</li>
-		<li>
-			<a onclick="loadDoc('Following')" data-toggle="tooltip" title="Following" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-heart glyph-sidebar"></span>
-				<span class="sidebar-text">Following</span>
-			</a>
-		</li>
+		<!-- Only show Profile button if the user is an administrator -->
+		<?php 
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+			<li>
+				<a href="curl.php" data-toggle="tooltip" title="Update Database" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-refresh glyph-sidebar"></span>
+					<span class="sidebar-text">Update Database</span>
+				</a>
+			</li>';}
+		?>
 		<li>
 			<a onclick="loadDoc('Games')" data-toggle="tooltip" title="Games" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-plus glyph-sidebar"></span>
