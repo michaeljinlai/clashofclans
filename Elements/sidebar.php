@@ -24,9 +24,9 @@
 			</li>';}
 		?>
 		<li>
-			<a onclick="loadDoc('Members')" data-toggle="tooltip"title="Members" class="sidebar-item-link" data-placement="right">
+			<a onclick="loadDoc('Users')" data-toggle="tooltip"title="Users" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-list-alt glyph-sidebar"></span>
-				<span class="sidebar-text">Members</span>
+				<span class="sidebar-text">Users</span>
 			</a>
 		</li>
 		<li>
