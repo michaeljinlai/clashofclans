@@ -14,8 +14,13 @@ if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator
 } 
 
 // Completely clear table 'members'
-$truncate = "TRUNCATE TABLE members";
-$stmt = $db->prepare($truncate); 
+$truncateMembers = "TRUNCATE TABLE members";
+$stmt = $db->prepare($truncateMembers); 
+$result = $stmt->execute(); 
+
+// Completely clear table 'clan_details'
+$truncateDetails = "TRUNCATE TABLE clan_details";
+$stmt = $db->prepare($truncateDetails); 
 $result = $stmt->execute(); 
 
 // Create a curl handle to a non-existing location
@@ -102,6 +107,64 @@ foreach ($data['clanDetails']['results']['memberList'] as $member) {
 	} 
 
 }
+
+$query = " 
+    INSERT INTO clan_details ( 
+        tag, 
+        name, 
+        type, 
+        description,
+        locationName,
+        clanBadgeImg_s,
+        clanBadgeImg_xl,
+        warFrequency,
+        clanLevel,
+        clanPoints,
+        requiredTrophies,
+        members
+    ) VALUES ( 
+        :tag, 
+        :name, 
+        :type, 
+        :description,
+        :locationName,
+        :clanBadgeImg_s,
+        :clanBadgeImg_xl,
+        :warFrequency,
+        :clanLevel,
+        :clanPoints,
+        :requiredTrophies,
+        :members
+    ) 
+"; 
+
+$query_params = array( 
+    ':tag' => $data['clanDetails']['results']['tag'], 
+    ':name' => $data['clanDetails']['results']['name'], 
+    ':type' => $data['clanDetails']['results']['type'], 
+    ':description' => $data['clanDetails']['results']['description'], 
+    ':locationName' => $data['clanDetails']['results']['locationName'], 
+    ':clanBadgeImg_s' => substr($data['clanDetails']['results']['clanBadgeImg']['s'], 0, strrpos($data['clanDetails']['results']['clanBadgeImg']['s'], ',')), 
+    ':clanBadgeImg_xl' => $data['clanDetails']['results']['clanBadgeImg']['xl'], 
+    ':warFrequency' => $data['clanDetails']['results']['warFrequency'], 
+    ':clanLevel' => $data['clanDetails']['results']['clanLevel'], 
+    ':clanPoints' => $data['clanDetails']['results']['clanPoints'], 
+    ':requiredTrophies' => $data['clanDetails']['results']['requiredTrophies'],
+    ':members' => $data['clanDetails']['results']['members'],
+); 
+
+try 
+{ 
+    // Execute the query to create the user 
+    $stmt = $db->prepare($query); 
+    $result = $stmt->execute($query_params); 
+} 
+catch(PDOException $ex) 
+{ 
+    // Note: On a production website, you should not output $ex->getMessage(). 
+    // It may provide an attacker with helpful information about your code.  
+    die("Failed to run query: " . $ex->getMessage()); 
+} 
 
 header("Location: updatesuccess.php"); 
 die(); 
