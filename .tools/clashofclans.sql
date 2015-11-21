@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2015 at 08:00 AM
+-- Generation Time: Nov 22, 2015 at 12:31 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -158,6 +158,36 @@ INSERT INTO `ajax_chat_online` (`userID`, `userName`, `userRole`, `channel`, `da
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `clan_details`
+--
+
+CREATE TABLE IF NOT EXISTS `clan_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag` varchar(25) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `type` varchar(25) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `locationName` varchar(25) NOT NULL,
+  `clanBadgeImg_s` varchar(400) NOT NULL,
+  `clanBadgeImg_xl` varchar(400) NOT NULL,
+  `warFrequency` varchar(25) NOT NULL,
+  `clanLevel` int(10) NOT NULL,
+  `clanPoints` int(25) NOT NULL,
+  `requiredTrophies` int(25) NOT NULL,
+  `members` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `clan_details`
+--
+
+INSERT INTO `clan_details` (`id`, `tag`, `name`, `type`, `description`, `locationName`, `clanBadgeImg_s`, `clanBadgeImg_xl`, `warFrequency`, `clanLevel`, `clanPoints`, `requiredTrophies`, `members`) VALUES
+(1, '#2J0G90RR', 'Prepare to Die', 'inviteOnly', 'This is a WAR CLAN! We war 3x a week. Rules are posted at preparetodieclan. blogspot. com. We use the App BAND to communicate outside of Clash.  Download the app and ask for an invite code. Join if you like to 3 star!', 'International', 'https://api-assets.clashofclans.com/badges/70/JvFFQDgc-22OzYP9HQPAY372sWDpWXgTHCxuzOa37k0.png', 'https://api-assets.clashofclans.com/badges/200/JvFFQDgc-22OzYP9HQPAY372sWDpWXgTHCxuzOa37k0.png', 'always', 7, 19022, 800, 37);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `comentarios`
 --
 
@@ -194,50 +224,53 @@ CREATE TABLE IF NOT EXISTS `members` (
   `previousClanRank` int(50) NOT NULL,
   `donations` int(50) NOT NULL,
   `donationsReceived` int(50) NOT NULL,
+  `leagueBadgeImg_s` varchar(200) NOT NULL,
+  `leagueBadgeImg_xl` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`id`, `name`, `role`, `expLevel`, `trophies`, `clanRank`, `previousClanRank`, `donations`, `donationsReceived`) VALUES
-(1, 'juv', 'member', 122, 3317, 1, 1, 714, 60),
-(2, 'ryan', 'coLeader', 132, 2997, 2, 2, 1965, 3451),
-(3, 'Alex', 'admin', 103, 2873, 3, 3, 5, 330),
-(4, 'June', 'admin', 116, 2339, 4, 4, 132, 44),
-(5, 'XxRSxX', 'member', 93, 2295, 5, 5, 284, 30),
-(6, 'Red Beard', 'member', 121, 2241, 6, 6, 283, 275),
-(7, 'splashtodd', 'coLeader', 117, 2073, 7, 8, 1327, 1313),
-(8, 'Preston', 'admin', 116, 2039, 8, 7, 2047, 1136),
-(9, 'Shutyourmouth', 'coLeader', 98, 1974, 9, 9, 1260, 659),
-(10, 'SpideyG', 'member', 98, 1945, 10, 10, 600, 360),
-(11, 'Stacey', 'coLeader', 99, 1657, 11, 13, 675, 570),
-(12, 'Jannetta 13', 'member', 111, 1632, 12, 14, 511, 420),
-(13, 'Kunz Klan', 'leader', 114, 1611, 13, 15, 504, 936),
-(14, 'Bl@ckout', 'coLeader', 106, 1586, 14, 16, 471, 180),
-(15, 'Binglbee', 'admin', 91, 1580, 15, 12, 636, 590),
-(16, 'GiantD0nuts', 'admin', 111, 1528, 16, 17, 652, 685),
-(17, 'Ambassador U.S.', 'member', 115, 1521, 17, 18, 76, 120),
-(18, 'Tj deadmouse', 'member', 95, 1511, 18, 20, 212, 450),
-(19, 'Boo', 'coLeader', 125, 1476, 19, 23, 204, 175),
-(20, 'CrAxYWolF', 'admin', 90, 1458, 20, 19, 2136, 1143),
-(21, 'Clint', 'coLeader', 122, 1438, 21, 21, 889, 360),
-(22, 'fCD', 'coLeader', 107, 1428, 22, 22, 3218, 474),
-(23, 'ICEMAN', 'member', 108, 1409, 23, 24, 40, 30),
-(24, 'TastyTodd', 'admin', 92, 1336, 24, 25, 206, 804),
-(25, 'Trey', 'member', 80, 1310, 25, 26, 0, 985),
-(26, 'Preston2', 'member', 66, 1260, 26, 27, 0, 1118),
-(27, 'Shay', 'admin', 86, 1258, 27, 29, 0, 584),
-(28, 'BallisLife', 'member', 77, 1229, 28, 28, 0, 50),
-(29, 'G.O', 'member', 69, 1145, 29, 30, 6, 370),
-(30, 'Colby17', 'member', 68, 1132, 30, 31, 90, 1600),
-(31, 'comander dragon', 'admin', 79, 1103, 31, 32, 205, 551),
-(32, 'YourBroShah', 'member', 111, 1078, 32, 11, 48, 30),
-(33, 'Kunzey00', 'admin', 84, 1063, 33, 35, 178, 325),
-(34, 'LordWolF', 'member', 73, 1019, 34, 34, 7, 50),
-(35, 'Dave2?7?', 'member', 81, 1016, 35, 33, 30, 0),
-(36, 'RSLGunner', 'admin', 73, 954, 36, 36, 1, 325);
+INSERT INTO `members` (`id`, `name`, `role`, `expLevel`, `trophies`, `clanRank`, `previousClanRank`, `donations`, `donationsReceived`, `leagueBadgeImg_s`, `leagueBadgeImg_xl`) VALUES
+(1, 'juv', 'member', 122, 3314, 1, 1, 714, 60, 'https://api-assets.clashofclans.com/leagues/36/JmmTbspV86xBigM7OP5_SjsEDPuE7oXjZC9aOy8xO3s.png', 'https://api-assets.clashofclans.com/leagues/72/JmmTbspV86xBigM7OP5_SjsEDPuE7oXjZC9aOy8xO3s.png'),
+(2, 'ryan', 'coLeader', 132, 2997, 2, 2, 1965, 3453, 'https://api-assets.clashofclans.com/leagues/36/olUfFb1wscIH8hqECAdWbdB6jPm9R8zzEyHIzyBgRXc.png', 'https://api-assets.clashofclans.com/leagues/72/olUfFb1wscIH8hqECAdWbdB6jPm9R8zzEyHIzyBgRXc.png'),
+(3, 'Alex', 'admin', 103, 2873, 3, 3, 5, 330, 'https://api-assets.clashofclans.com/leagues/36/4wtS1stWZQ-1VJ5HaCuDPfdhTWjeZs_jPar_YPzK6Lg.png', 'https://api-assets.clashofclans.com/leagues/72/4wtS1stWZQ-1VJ5HaCuDPfdhTWjeZs_jPar_YPzK6Lg.png'),
+(4, 'doobie', 'member', 129, 2689, 4, 0, 27, 0, 'https://api-assets.clashofclans.com/leagues/36/pSXfKvBKSgtvfOY3xKkgFaRQi0WcE28s3X35ywbIluY.png', 'https://api-assets.clashofclans.com/leagues/72/pSXfKvBKSgtvfOY3xKkgFaRQi0WcE28s3X35ywbIluY.png'),
+(5, 'June', 'admin', 116, 2339, 5, 4, 132, 44, 'https://api-assets.clashofclans.com/leagues/36/jhP36EhAA9n1ADafdQtCP-ztEAQjoRpY7cT8sU7SW8A.png', 'https://api-assets.clashofclans.com/leagues/72/jhP36EhAA9n1ADafdQtCP-ztEAQjoRpY7cT8sU7SW8A.png'),
+(6, 'XxRSxX', 'member', 93, 2292, 6, 5, 284, 30, 'https://api-assets.clashofclans.com/leagues/36/jhP36EhAA9n1ADafdQtCP-ztEAQjoRpY7cT8sU7SW8A.png', 'https://api-assets.clashofclans.com/leagues/72/jhP36EhAA9n1ADafdQtCP-ztEAQjoRpY7cT8sU7SW8A.png'),
+(7, 'Red Beard', 'member', 121, 2241, 7, 6, 283, 275, 'https://api-assets.clashofclans.com/leagues/36/jhP36EhAA9n1ADafdQtCP-ztEAQjoRpY7cT8sU7SW8A.png', 'https://api-assets.clashofclans.com/leagues/72/jhP36EhAA9n1ADafdQtCP-ztEAQjoRpY7cT8sU7SW8A.png'),
+(8, 'splashtodd', 'coLeader', 117, 2073, 8, 8, 1328, 1313, 'https://api-assets.clashofclans.com/leagues/36/Hyqco7bHh0Q81xB8mSF_ZhjKnKcTmJ9QEq9QGlsxiKE.png', 'https://api-assets.clashofclans.com/leagues/72/Hyqco7bHh0Q81xB8mSF_ZhjKnKcTmJ9QEq9QGlsxiKE.png'),
+(9, 'Preston', 'admin', 116, 2034, 9, 7, 2047, 1136, 'https://api-assets.clashofclans.com/leagues/36/Hyqco7bHh0Q81xB8mSF_ZhjKnKcTmJ9QEq9QGlsxiKE.png', 'https://api-assets.clashofclans.com/leagues/72/Hyqco7bHh0Q81xB8mSF_ZhjKnKcTmJ9QEq9QGlsxiKE.png'),
+(10, 'Shutyourmouth', 'coLeader', 98, 1974, 10, 9, 1260, 659, 'https://api-assets.clashofclans.com/leagues/36/Hyqco7bHh0Q81xB8mSF_ZhjKnKcTmJ9QEq9QGlsxiKE.png', 'https://api-assets.clashofclans.com/leagues/72/Hyqco7bHh0Q81xB8mSF_ZhjKnKcTmJ9QEq9QGlsxiKE.png'),
+(11, 'SpideyG', 'member', 98, 1939, 11, 10, 624, 360, 'https://api-assets.clashofclans.com/leagues/36/CorhMY9ZmQvqXTZ4VYVuUgPNGSHsO0cEXEL5WYRmB2Y.png', 'https://api-assets.clashofclans.com/leagues/72/CorhMY9ZmQvqXTZ4VYVuUgPNGSHsO0cEXEL5WYRmB2Y.png'),
+(12, 'Stacey', 'coLeader', 99, 1650, 12, 13, 675, 570, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(13, 'Jannetta 13', 'member', 111, 1632, 13, 14, 511, 420, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(14, 'Kunz Klan', 'leader', 114, 1602, 14, 15, 504, 936, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(15, 'Bl@ckout', 'coLeader', 106, 1598, 15, 16, 471, 180, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(16, 'Binglbee', 'admin', 91, 1580, 16, 12, 636, 590, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(17, 'Ambassador U.S.', 'member', 115, 1552, 17, 18, 76, 120, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(18, 'GiantD0nuts', 'admin', 111, 1528, 18, 17, 652, 685, 'https://api-assets.clashofclans.com/leagues/36/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png', 'https://api-assets.clashofclans.com/leagues/72/Y6CveuHmPM_oiOic2Yet0rYL9AFRYW0WA0u2e44-YbM.png'),
+(19, 'Tj deadmouse', 'member', 95, 1511, 19, 20, 212, 450, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(20, 'Boo', 'coLeader', 125, 1490, 20, 23, 204, 175, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(21, 'CrAxYWolF', 'admin', 90, 1448, 21, 19, 2136, 1143, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(22, 'Clint', 'coLeader', 122, 1438, 22, 21, 889, 360, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(23, 'fCD', 'coLeader', 107, 1423, 23, 22, 3218, 474, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(24, 'ICEMAN', 'member', 108, 1409, 24, 24, 40, 30, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(25, 'TastyTodd', 'admin', 92, 1336, 25, 25, 206, 804, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(26, 'Trey', 'member', 80, 1310, 26, 26, 0, 985, 'https://api-assets.clashofclans.com/leagues/36/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png', 'https://api-assets.clashofclans.com/leagues/72/vd4Lhz5b2I1P0cLH25B6q63JN3Wt1j2NTMhOYpMPQ4M.png'),
+(27, 'Shay', 'admin', 86, 1258, 27, 29, 0, 584, 'https://api-assets.clashofclans.com/leagues/36/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png', 'https://api-assets.clashofclans.com/leagues/72/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png'),
+(28, 'Preston2', 'member', 66, 1249, 28, 27, 0, 1118, 'https://api-assets.clashofclans.com/leagues/36/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png', 'https://api-assets.clashofclans.com/leagues/72/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png'),
+(29, 'BallisLife', 'member', 77, 1229, 29, 28, 0, 50, 'https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png', 'https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png'),
+(30, 'G.O', 'member', 69, 1145, 30, 30, 6, 370, 'https://api-assets.clashofclans.com/leagues/36/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png', 'https://api-assets.clashofclans.com/leagues/72/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png'),
+(31, 'Colby17', 'member', 68, 1132, 31, 31, 90, 1625, 'https://api-assets.clashofclans.com/leagues/36/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png', 'https://api-assets.clashofclans.com/leagues/72/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png'),
+(32, 'comander dragon', 'admin', 79, 1103, 32, 32, 205, 551, 'https://api-assets.clashofclans.com/leagues/36/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png', 'https://api-assets.clashofclans.com/leagues/72/nvrBLvCK10elRHmD1g9w5UU1flDRMhYAojMB2UbYfPs.png'),
+(33, 'YourBroShah', 'member', 111, 1078, 33, 11, 48, 30, 'https://api-assets.clashofclans.com/leagues/36/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png', 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'),
+(34, 'Kunzey00', 'admin', 84, 1041, 34, 35, 203, 350, 'https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png', 'https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png'),
+(35, 'LordWolF', 'member', 73, 1019, 35, 34, 7, 50, 'https://api-assets.clashofclans.com/leagues/36/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png', 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'),
+(36, 'Dave2?7?', 'member', 81, 1005, 36, 33, 30, 0, 'https://api-assets.clashofclans.com/leagues/36/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png', 'https://api-assets.clashofclans.com/leagues/72/8OhXcwDJkenBH2kPH73eXftFOpHHRF-b32n0yrTqC44.png'),
+(37, 'RSLGunner', 'admin', 73, 944, 37, 36, 1, 350, 'https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png', 'https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png');
 
 -- --------------------------------------------------------
 
