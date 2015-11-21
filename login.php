@@ -94,14 +94,14 @@
             $_SESSION['user'] = $row; 
             
             if($_SESSION['user']['privilege'] === 'administrator'){
-            // Redirect the user to the private administrator-only page.  <-- need to add field to users table for administrator 
-            header("Location: admin.php"); 
-            die("Redirecting to: admin.php"); 
+            // Redirect the user if they are an administrator.  <-- need to add field to users table for administrator 
+            header("Location: index.php"); 
+            die("Redirecting to: index.php"); 
             }
             else {
-            // Redirect the user to the users-only page. 
-            header("Location: anymember.php"); 
-            die("Redirecting to: anymember.php"); 
+            // Redirect the user if they are a normal user. 
+            header("Location: index.php"); 
+            die("Redirecting to: index.php"); 
             }
         } 
         else 
