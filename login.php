@@ -140,7 +140,7 @@
 
 <div class="container">
 
-    <form class="form-signin" action="logintwo.php" method="post">
+    <form class="form-signin" action="login.php" method="post">
 
         <!-- Sign in heading -->
         <h2 class="form-signin-heading">Login</h2>
