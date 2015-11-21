@@ -2,6 +2,17 @@
 
 require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
 
+// Check if user is logged in
+if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') 
+{ 
+        // If they are not, we redirect them to the login page. 
+  header("Location: login.php"); 
+
+        // Remember that this die statement is absolutely critical.  Without it, 
+        // people can view your members-only content without logging in. 
+  die("Redirecting to login.php"); 
+} 
+
 // Completely clear table 'members'
 $truncate = "TRUNCATE TABLE members";
 $stmt = $db->prepare($truncate); 
