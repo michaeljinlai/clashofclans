@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2015 at 06:55 AM
+-- Generation Time: Nov 21, 2015 at 08:00 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -195,7 +195,49 @@ CREATE TABLE IF NOT EXISTS `members` (
   `donations` int(50) NOT NULL,
   `donationsReceived` int(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `name`, `role`, `expLevel`, `trophies`, `clanRank`, `previousClanRank`, `donations`, `donationsReceived`) VALUES
+(1, 'juv', 'member', 122, 3317, 1, 1, 714, 60),
+(2, 'ryan', 'coLeader', 132, 2997, 2, 2, 1965, 3451),
+(3, 'Alex', 'admin', 103, 2873, 3, 3, 5, 330),
+(4, 'June', 'admin', 116, 2339, 4, 4, 132, 44),
+(5, 'XxRSxX', 'member', 93, 2295, 5, 5, 284, 30),
+(6, 'Red Beard', 'member', 121, 2241, 6, 6, 283, 275),
+(7, 'splashtodd', 'coLeader', 117, 2073, 7, 8, 1327, 1313),
+(8, 'Preston', 'admin', 116, 2039, 8, 7, 2047, 1136),
+(9, 'Shutyourmouth', 'coLeader', 98, 1974, 9, 9, 1260, 659),
+(10, 'SpideyG', 'member', 98, 1945, 10, 10, 600, 360),
+(11, 'Stacey', 'coLeader', 99, 1657, 11, 13, 675, 570),
+(12, 'Jannetta 13', 'member', 111, 1632, 12, 14, 511, 420),
+(13, 'Kunz Klan', 'leader', 114, 1611, 13, 15, 504, 936),
+(14, 'Bl@ckout', 'coLeader', 106, 1586, 14, 16, 471, 180),
+(15, 'Binglbee', 'admin', 91, 1580, 15, 12, 636, 590),
+(16, 'GiantD0nuts', 'admin', 111, 1528, 16, 17, 652, 685),
+(17, 'Ambassador U.S.', 'member', 115, 1521, 17, 18, 76, 120),
+(18, 'Tj deadmouse', 'member', 95, 1511, 18, 20, 212, 450),
+(19, 'Boo', 'coLeader', 125, 1476, 19, 23, 204, 175),
+(20, 'CrAxYWolF', 'admin', 90, 1458, 20, 19, 2136, 1143),
+(21, 'Clint', 'coLeader', 122, 1438, 21, 21, 889, 360),
+(22, 'fCD', 'coLeader', 107, 1428, 22, 22, 3218, 474),
+(23, 'ICEMAN', 'member', 108, 1409, 23, 24, 40, 30),
+(24, 'TastyTodd', 'admin', 92, 1336, 24, 25, 206, 804),
+(25, 'Trey', 'member', 80, 1310, 25, 26, 0, 985),
+(26, 'Preston2', 'member', 66, 1260, 26, 27, 0, 1118),
+(27, 'Shay', 'admin', 86, 1258, 27, 29, 0, 584),
+(28, 'BallisLife', 'member', 77, 1229, 28, 28, 0, 50),
+(29, 'G.O', 'member', 69, 1145, 29, 30, 6, 370),
+(30, 'Colby17', 'member', 68, 1132, 30, 31, 90, 1600),
+(31, 'comander dragon', 'admin', 79, 1103, 31, 32, 205, 551),
+(32, 'YourBroShah', 'member', 111, 1078, 32, 11, 48, 30),
+(33, 'Kunzey00', 'admin', 84, 1063, 33, 35, 178, 325),
+(34, 'LordWolF', 'member', 73, 1019, 34, 34, 7, 50),
+(35, 'Dave2?7?', 'member', 81, 1016, 35, 33, 30, 0),
+(36, 'RSLGunner', 'admin', 73, 954, 36, 36, 1, 325);
 
 -- --------------------------------------------------------
 
