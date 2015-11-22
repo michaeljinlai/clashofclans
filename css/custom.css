@@ -196,6 +196,14 @@ ul.nav a.active {
   margin-left: 11px;
 }
 
+.clan-badge {
+  
+}
+
+.clan-name {
+  font-family: 'supercell';
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {

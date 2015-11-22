@@ -119,6 +119,7 @@ $query = "
         clanBadgeImg_xl,
         warFrequency,
         clanLevel,
+        warWins,
         clanPoints,
         requiredTrophies,
         members
@@ -132,6 +133,7 @@ $query = "
         :clanBadgeImg_xl,
         :warFrequency,
         :clanLevel,
+        :warWins,
         :clanPoints,
         :requiredTrophies,
         :members
@@ -148,6 +150,7 @@ $query_params = array(
     ':clanBadgeImg_xl' => $data['clanDetails']['results']['clanBadgeImg']['xl'], 
     ':warFrequency' => $data['clanDetails']['results']['warFrequency'], 
     ':clanLevel' => $data['clanDetails']['results']['clanLevel'], 
+    ':warWins' => $data['clanDetails']['results']['warWins'], 
     ':clanPoints' => $data['clanDetails']['results']['clanPoints'], 
     ':requiredTrophies' => $data['clanDetails']['results']['requiredTrophies'],
     ':members' => $data['clanDetails']['results']['members'],
