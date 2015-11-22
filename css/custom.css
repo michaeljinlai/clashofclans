@@ -196,12 +196,47 @@ ul.nav a.active {
   margin-left: 11px;
 }
 
+.outer-clan-details-container {
+  background-image: url('https://d3fyyuog756ajk.cloudfront.net/uploaded-images/_600x600_crop_center-center_90/Gold.png');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.clan-details-container {
+  text-align: center;
+  color: white;
+  width: 50%; /* Centers the div */
+  margin: 0 auto; /* Centers the div */
+}
+
 .clan-badge {
   
 }
 
 .clan-name {
   font-family: 'supercell';
+  font-size: 44px;
+}
+
+.clan-description {
+  font-size: 24px;
+}
+
+.clan-tag {
+  font-size: 16px;
+}
+
+.clan-total-points {
+  font-size: 18px;
+  float: left;
+  width: 50%;
+}
+
+.clan-war-wins {
+  font-size: 18px;
+  width: 50%;
+  float: right;
 }
 
 /* START GLYPHYICON ANIMATIONS */
