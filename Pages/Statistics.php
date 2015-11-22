@@ -72,7 +72,7 @@
                     <td><?php echo $row['previousClanRank']; ?></td> 
                     <td><div class="troops-donated-received"><?php echo $row['donations']; ?></div></td> 
                     <td><div class="troops-donated-received"><?php echo $row['donationsReceived']; ?></div></td>
-                    <td><div class="trophies"><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'?></div></td>
+                    <td><div class="trophies"><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'; ?></div></td>
                 </tr> 
             <?php endforeach; ?> 
         </tbody>
