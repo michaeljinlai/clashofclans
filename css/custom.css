@@ -134,6 +134,7 @@ ul.nav a.active {
 /*  -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;*/
   text-shadow: 1px 3px 0px rgba(0, 0, 0, 1);
+  font-size: 17px;
 }
 
 /* START GLYPHYICON ANIMATIONS */
