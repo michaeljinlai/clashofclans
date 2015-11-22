@@ -71,8 +71,8 @@
                     <td><?php echo $row['clanRank']; ?></td> 
                     <td><?php echo $row['previousClanRank']; ?></td> 
                     <td><?php echo $row['donations']; ?></td> 
-                    <td><?php echo $row['donationsReceived']; ?></td> 
-                    <td><?php echo $row['leagueBadgeImg_xl']; ?></td> 
+                    <td><?php echo $row['donationsReceived']; ?></td>
+                    <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td> 
                 </tr> 
             <?php endforeach; ?> 
         </tbody>
