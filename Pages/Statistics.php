@@ -67,7 +67,7 @@
                     <td><?php echo $row['name']; ?></td> 
                     <td><?php echo $row['role']; ?></td> 
                     <td><div class='experience-level'><?php echo $row['expLevel']; ?></div></td> 
-                    <td><?php echo $row['trophies']; echo '<img src="https://clashofclans.com/img/shared/trophy.png" width="50" height="50" />'?></td> 
+                    <td><div class='trophies'><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'?></div></td> 
                     <td><?php echo $row['clanRank']; ?></td> 
                     <td><?php echo $row['previousClanRank']; ?></td> 
                     <td><?php echo $row['donations']; ?></td> 
