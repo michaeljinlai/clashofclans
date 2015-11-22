@@ -124,10 +124,10 @@ ul.nav a.active {
   width: 50px;
   height: 50px;
   background-image: url('https://clashofclans.com/img/svgs/player-star.svg');
-  background-repeat:no-repeat;
-  background-size: 50px 50px;
-  text-align: center;
-  line-height: 50px;
+  background-repeat: no-repeat;
+  background-size: 50px 50px; /* Size of the blue image thing */
+  text-align: center; /* This only aligns center horizontally */
+  line-height: 50px; /* When this matches 'height', data will be vertically aligned in the center */
   font-family: 'supercell';
   color: white;
   /* Commented out because the border is terrible, maybe because the font file's quality is bad */
@@ -135,6 +135,7 @@ ul.nav a.active {
   -webkit-text-stroke-color: black;*/
   text-shadow: 1px 3px 0px rgba(0, 0, 0, 1);
   font-size: 17px;
+  margin: auto; /* This centers the div within the td */
 }
 
 .trophies {
@@ -147,6 +148,7 @@ ul.nav a.active {
   font-size: 18px;
   color: white;
   border-radius: 5px;
+  margin: auto;
 }
 
 .trophy-image {
