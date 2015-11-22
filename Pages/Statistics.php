@@ -54,7 +54,7 @@
                 <!-- <th>Badge</th>  -->
                 <th>Name</th> 
                 <!-- <th>Role</th>  -->
-                <th>Exp Level</th> 
+                <th>XP Level</th> 
                 <th>Previous Clan Rank</th> 
                 <th>Troops Donated</th> 
                 <th>Troops Received</th> 
