@@ -218,6 +218,7 @@ ul.nav a.active {
 }
 
 .clan-badge {
+  padding-top: 50px;
   opacity: 1;
 }
 
@@ -236,12 +237,13 @@ ul.nav a.active {
   font-weight: bold;
   margin-top: 25px;
   margin-bottom: 30px;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .clan-details-wrapper {
   width: 60%;
   margin: 0 auto;
+  height: 107px;
 }
 
 .clan-total-points {
@@ -253,7 +255,7 @@ ul.nav a.active {
   height: 107px;
   float: left;
   line-height: 107px;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .3);
   font-family: 'supercell';
 }
 
@@ -266,18 +268,12 @@ ul.nav a.active {
   height: 107px;
   float: right;
   line-height: 107px;
-  background: rgba(255, 255, 255, .5); 
+  background: rgba(255, 255, 255, .3); 
   font-family: 'supercell'; 
 }
 
 .clan-details-trophy-image, .clan-details-wars-image {
   padding-right: 5px;
-}
-
-.test {
-  float: left;
-  width: 50%;
-  margin: 0 auto;
 }
 
 /* START GLYPHYICON ANIMATIONS */
