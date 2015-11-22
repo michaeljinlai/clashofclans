@@ -68,10 +68,10 @@
                     <!-- <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td>  -->
                     <td><div class="member-name"><?php echo $row['name']; ?></div><div class="member-role"><?php echo $row['role']; ?></div></td> 
                     <!-- <td><?php echo $row['role']; ?></td>  -->
-                    <td><div class='experience-level'><?php echo $row['expLevel']; ?></div></td> 
+                    <td><div class="experience-level"><?php echo $row['expLevel']; ?></div></td> 
                     <td><?php echo $row['previousClanRank']; ?></td> 
-                    <td><?php echo $row['donations']; ?></td> 
-                    <td><?php echo $row['donationsReceived']; ?></td>
+                    <td><div class="troops-donated-received"><?php echo $row['donations']; ?></div></td> 
+                    <td><div class="troops-donated-received"><?php echo $row['donationsReceived']; ?></div></td>
                     <td><div class='trophies'><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'?></div></td>
                 </tr> 
             <?php endforeach; ?> 
