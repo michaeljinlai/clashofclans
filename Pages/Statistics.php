@@ -47,7 +47,7 @@
 
 <div class="table-responsive">
     <h1 class="page-header">Statistics</h1>
-    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive"> <!-- Removed: width="100%", cellspacing="0" -->
+    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive statistics-table"> <!-- Removed: width="100%", cellspacing="0" -->
         <thead>
             <tr> 
                 <th>Name</th> 
@@ -67,7 +67,7 @@
                     <td><?php echo $row['name']; ?></td> 
                     <td><?php echo $row['role']; ?></td> 
                     <td><?php echo $row['expLevel']; ?></td> 
-                    <td><?php echo $row['trophies']; ?></td> 
+                    <td><?php echo $row['trophies']; echo '<img src="https://clashofclans.com/img/shared/trophy.png" width="50" height="50" />'?></td> 
                     <td><?php echo $row['clanRank']; ?></td> 
                     <td><?php echo $row['previousClanRank']; ?></td> 
                     <td><?php echo $row['donations']; ?></td> 

@@ -110,6 +110,11 @@ ul.nav a.active {
   opacity: 0.8;
 }
 
+/* CSS for statistic table */
+.statistics-table tbody tr td {
+  vertical-align: middle;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
