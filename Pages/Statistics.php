@@ -50,29 +50,29 @@
     <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive statistics-table"> <!-- Removed: width="100%", cellspacing="0" -->
         <thead>
             <tr> 
-                <th>Name</th> 
-                <th>Role</th> 
-                <th>Exp Level</th> 
-                <th>Trophies</th> 
                 <th>Clan Rank</th> 
-                <th>Previous Clan Rank</th> 
-                <th>Donations</th> 
-                <th>Donations Received</th> 
                 <th>Badge</th> 
+                <th>Name</th> 
+                <!-- <th>Role</th>  -->
+                <th>Exp Level</th> 
+                <th>Previous Clan Rank</th> 
+                <th>Troops Donated</th> 
+                <th>Troops Received</th> 
+                <th>Trophies</th> 
             </tr> 
         </thead>
         <tbody>
             <?php foreach($rows as $row): ?> 
                 <tr> 
-                    <td><?php echo $row['name']; ?></td> 
-                    <td><?php echo $row['role']; ?></td> 
+                    <td><div class="clan-rank"><?php echo $row['clanRank']; ?></div></td> 
+                    <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td> 
+                    <td><div class="member-name"><?php echo $row['name']; ?></div><div class="member-role"><?php echo $row['role']; ?></div></td> 
+                    <!-- <td><?php echo $row['role']; ?></td>  -->
                     <td><div class='experience-level'><?php echo $row['expLevel']; ?></div></td> 
-                    <td><div class='trophies'><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'?></div></td> 
-                    <td><?php echo $row['clanRank']; ?></td> 
                     <td><?php echo $row['previousClanRank']; ?></td> 
                     <td><?php echo $row['donations']; ?></td> 
                     <td><?php echo $row['donationsReceived']; ?></td>
-                    <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td> 
+                    <td><div class='trophies'><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'?></div></td>
                 </tr> 
             <?php endforeach; ?> 
         </tbody>

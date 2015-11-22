@@ -135,7 +135,7 @@ ul.nav a.active {
   -webkit-text-stroke-color: black;*/
   text-shadow: 1px 3px 0px rgba(0, 0, 0, 1);
   font-size: 17px;
-  margin: auto; /* This centers the div within the td */
+  /*margin: auto;*/ /* This centers the div within the td */
 }
 
 .trophies {
@@ -148,11 +148,34 @@ ul.nav a.active {
   font-size: 18px;
   color: white;
   border-radius: 5px;
-  margin: auto;
+  /*margin: auto;*/
 }
 
 .trophy-image {
   padding-left: 5px;
+}
+
+.clan-rank {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #444444;
+  text-align: center;
+  font-family: 'supercell';
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+}
+
+.member-name {
+  font-family: 'supercell';
+  font-size: 17px;
+  color: black;
+}
+
+.member-role {
+  font-size: 12px;
+  color: #A4A2A2;
 }
 
 /* START GLYPHYICON ANIMATIONS */
