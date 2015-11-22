@@ -165,6 +165,9 @@ ul.nav a.active {
   font-size: 18px;
   color: white;
   border-radius: 5px;
+  float: left;
+  margin-top: 11px;
+  margin-left: 11px;
 }
 
 .member-name {

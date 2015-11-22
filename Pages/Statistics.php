@@ -51,7 +51,7 @@
         <thead>
             <tr> 
                 <th>Clan Rank</th> 
-                <th>Badge</th> 
+                <!-- <th>Badge</th>  -->
                 <th>Name</th> 
                 <!-- <th>Role</th>  -->
                 <th>Exp Level</th> 
@@ -64,8 +64,8 @@
         <tbody>
             <?php foreach($rows as $row): ?> 
                 <tr> 
-                    <td><div class="clan-rank"><?php echo $row['clanRank']; ?></div></td> 
-                    <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td> 
+                    <td><div class="clan-rank"><?php echo $row['clanRank']; ?></div><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td> 
+                    <!-- <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td>  -->
                     <td><div class="member-name"><?php echo $row['name']; ?></div><div class="member-role"><?php echo $row['role']; ?></div></td> 
                     <!-- <td><?php echo $row['role']; ?></td>  -->
                     <td><div class='experience-level'><?php echo $row['expLevel']; ?></div></td> 
