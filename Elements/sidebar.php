@@ -40,15 +40,15 @@
 			</li>';}
 		?>
 		<li>
-			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
+			<a onclick="loadDoc('Members')" data-toggle="tooltip" title="Members" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
-				<span class="sidebar-text">Statistics</span>
+				<span class="sidebar-text">Members</span>
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Games')" data-toggle="tooltip" title="Games" class="sidebar-item-link" data-placement="right">
+			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-plus glyph-sidebar"></span>
-				<span class="sidebar-text">Games</span>
+				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
 		<li>
