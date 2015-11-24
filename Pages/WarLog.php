@@ -44,11 +44,3 @@
 </script>
 
 
-<!-- War Log Details Changes -->
-<script>
-function loadWar(id) {
-		$("#warMain").load("Pages/WarDetails.php?id="+id, function() {
-	    // Code here gets executed when the content is loaded
-	});
-}
-</script>
