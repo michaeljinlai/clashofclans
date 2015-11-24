@@ -106,7 +106,7 @@ $(function () {
 <!-- Sidebar Button Tab Changes -->
 <script>
 function loadDoc(str) {
-		$( "#main" ).load( "Pages/"+str+".php", function() {
+		$("#main").load("Pages/"+str+".php", function() {
 	    // This gets executed when the content is loaded
 	    //$.get("//code.jquery.com/jquery-1.10.2.min.js");
 	    //$.get("//cdn.datatables.net/1.10.10/js/jquery.dataTables.js");
