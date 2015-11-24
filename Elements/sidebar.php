@@ -47,14 +47,14 @@
 		</li>
 		<li>
 			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-plus glyph-sidebar"></span>
+				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
 				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Channels')" data-toggle="tooltip" title="Channels" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-facetime-video glyph-sidebar"></span>
-				<span class="sidebar-text">Channels</span>
+			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
+				<span class="sidebar-text">War Log</span>
 			</a>
 		</li>
 		<li>
