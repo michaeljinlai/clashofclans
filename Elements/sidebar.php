@@ -63,13 +63,6 @@
 				<span class="sidebar-text">Videos</span>
 			</a>
 		</li>
-		<li>
-			<!-- This one does not have onclick="loadDoc('Chat')" because I am using it to popup the chat window -->
-			<a href="chat/" onclick="openWindow(this.href);this.blur();return false;" data-toggle="tooltip" title="Enter Chat" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-globe glyph-sidebar"></span>
-				<span class="sidebar-text">Enter Chat</span>
-			</a>
-		</li>
 		<!-- Only show log out button if they are logged in -->
 		<?php 
 		if(!empty($_SESSION['user'])) {echo '
