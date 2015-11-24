@@ -117,7 +117,35 @@
 		</table>
     </div>
     <div id="warEvents" class="tab-pane fade">
-
+	    <table class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th colspan="3">Attack Totals</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Used</td>
+					<td class="col-xs-4">11</td>
+				</tr>
+				<tr>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Won</td>
+					<td class="col-xs-4">11</td>
+				</tr>
+				<tr>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Lost</td>
+					<td class="col-xs-4">11</td>
+				</tr>
+				<tr>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Remaining</td>
+					<td class="col-xs-4">11</td>
+				</tr>
+			</tbody>
+		</table>
     </div>
     <div id="myTeam" class="tab-pane fade">
 
