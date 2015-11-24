@@ -282,6 +282,10 @@ ul.nav a.active {
   color: white;
 }
 
+#warMain ul li {
+  margin-bottom: 15px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {

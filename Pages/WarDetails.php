@@ -19,22 +19,47 @@
   
   <div class="tab-content">
     <div id="warStats" class="tab-pane fade in active">
-      <h3>HOME</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th>Time</th>
+					<th>Percentage</th>
+					<th>Stars</th>
+					<th>My Clan</th>
+					<th>Enemy Clan</th>
+					<th>Stars</th>
+					<th>Percentage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2d ago</td>
+					<td>50%</td>
+					<td>star</td>
+					<td>Prepare to Die</td>
+					<td>Enemy Clan Name</td>
+					<td>star</td>
+					<td>50%</td>
+				</tr>
+			</tbody>
+		</table>
     </div>
     <div id="warEvents" class="tab-pane fade">
-      <h3>Menu 1</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
     </div>
     <div id="myTeam" class="tab-pane fade">
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
     </div>
     <div id="enemyTeam" class="tab-pane fade">
-      <h3>Menu 3</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
     </div>
   </div>
 </div>
 
 <?php echo $_GET['id']; ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#myTable').DataTable();
+});
+</script>
