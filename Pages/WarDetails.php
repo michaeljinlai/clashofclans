@@ -19,27 +19,99 @@
   
   <div class="tab-content">
     <div id="warStats" class="tab-pane fade in active">
-	    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
+	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th>Time</th>
-					<th>Percentage</th>
-					<th>Stars</th>
-					<th>My Clan</th>
-					<th>Enemy Clan</th>
-					<th>Stars</th>
-					<th>Percentage</th>
+					<th colspan="3">Attack Totals</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>2d ago</td>
-					<td>50%</td>
-					<td>star</td>
-					<td>Prepare to Die</td>
-					<td>Enemy Clan Name</td>
-					<td>star</td>
-					<td>50%</td>
+					<td>13</td>
+					<td>Attacks Used</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Attacks Won</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Attacks Lost</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Attacks Remaining</td>
+					<td>11</td>
+				</tr>
+			</tbody>
+		</table>
+	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th colspan="3">Best Attacks</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>13</td>
+					<td>3 Stars</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>2 Stars</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>1 Star</td>
+					<td>11</td>
+				</tr>
+			</tbody>
+		</table>
+	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th colspan="3">Attack Stats</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>13</td>
+					<td>New Stars Per Attack</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Average Destruction</td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>Average Attack Duration</td>
+					<td>11</td>
+				</tr>
+			</tbody>
+		</table>
+	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th colspan="3">Featured Battles</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>name</td>
+					<td>Most Heroic Attack</td>
+					<td>name</td>
+				</tr>
+				<tr>
+					<td>name</td>
+					<td>Most Heroic Defense</td>
+					<td>name</td>
 				</tr>
 			</tbody>
 		</table>
