@@ -95,7 +95,7 @@ ul.nav a.active {
 }
 
 /* Datatables Whole Frame*/
-#myTable_wrapper {
+#myTable_wrapper, .war-stats {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);

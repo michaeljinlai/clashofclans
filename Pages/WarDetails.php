@@ -19,7 +19,7 @@
   
   <div class="tab-content">
     <div id="warStats" class="tab-pane fade in active">
-	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
 					<th colspan="3">Attack Totals</th>
@@ -27,28 +27,28 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>13</td>
-					<td>Attacks Used</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Used</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>Attacks Won</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Won</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>Attacks Lost</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Lost</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>Attacks Remaining</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Attacks Remaining</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 			</tbody>
 		</table>
-	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
 					<th colspan="3">Best Attacks</th>
@@ -56,23 +56,23 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>13</td>
-					<td>3 Stars</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">3 Stars</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>2 Stars</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">2 Stars</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>1 Star</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">1 Star</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 			</tbody>
 		</table>
-	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
 					<th colspan="3">Attack Stats</th>
@@ -80,23 +80,23 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>13</td>
-					<td>New Stars Per Attack</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">New Stars Per Attack</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>Average Destruction</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Average Destruction</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 				<tr>
-					<td>13</td>
-					<td>Average Attack Duration</td>
-					<td>11</td>
+					<td class="col-xs-4">13</td>
+					<td class="col-xs-4">Average Attack Duration</td>
+					<td class="col-xs-4">11</td>
 				</tr>
 			</tbody>
 		</table>
-	    <table class="table table-striped table-bordered table-hover dt-responsive members-table">
+	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
 					<th colspan="3">Featured Battles</th>
@@ -104,14 +104,14 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>name</td>
-					<td>Most Heroic Attack</td>
-					<td>name</td>
+					<td class="col-xs-4">name</td>
+					<td class="col-xs-4">Most Heroic Attack</td>
+					<td class="col-xs-4">name</td>
 				</tr>
 				<tr>
-					<td>name</td>
-					<td>Most Heroic Defense</td>
-					<td>name</td>
+					<td class="col-xs-4">name</td>
+					<td class="col-xs-4">Most Heroic Defense</td>
+					<td class="col-xs-4">name</td>
 				</tr>
 			</tbody>
 		</table>
