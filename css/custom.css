@@ -106,11 +106,7 @@ ul.nav a.active {
   width: calc(100% - 30px);
 }
 
-#warStats .war-clan-vs-clan thead tr th:nth-child(3) {
-  text-align: right;
-}
-
-#warStats .war-clan-vs-clan thead tr th:nth-child(2) {
+#warStats .war-clan-vs-clan thead tr th, #warStats .war-stats thead tr th, #warStats {
   text-align: center;
 }
 

@@ -23,9 +23,9 @@
 	    <table class="war-clan-vs-clan table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th>Prepare to Die</th>
-					<th>VS</th>
-					<th>Enemy Clan Name</th>
+					<th class="col-xs-4">Prepare to Die</th>
+					<th class="col-xs-4">VS</th>
+					<th class="col-xs-4">Enemy Clan Name</th>
 				</tr>
 			</thead>
 		</table>
@@ -132,7 +132,8 @@
 	    <table class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th colspan="2"></th>
+					<th>Prepare to Die</th>
+					<th>Enemy Clan Name</th>
 					<th>Time Until War Ends</th>
 				</tr>
 			</thead>
@@ -157,6 +158,10 @@
 					<td class="col-xs-4">Name</td>
 					<td class="col-xs-4">11h until war ends</td>
 				</tr>
+				<tr>
+					<td colspan="2"></td>
+					<td>War Started</td>
+				</tr>
 			</tbody>
 		</table>
     </div>
@@ -175,36 +180,36 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td class="col-xs-2">1</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">1</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 				<tr>
-					<td class="col-xs-2">2</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">2</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 				<tr>
-					<td class="col-xs-2">3</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">3</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 				<tr>
-					<td class="col-xs-2">4</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">Enemy Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">4</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-3">Enemy Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 			</tbody>
 		</table>
@@ -224,36 +229,36 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td class="col-xs-2">1</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">1</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 				<tr>
-					<td class="col-xs-2">2</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">2</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 				<tr>
-					<td class="col-xs-2">3</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">3</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 				<tr>
-					<td class="col-xs-2">4</td>
-					<td class="col-xs-2">126</td>
-					<td class="col-xs-2">Boo</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">Ally Name</td>
-					<td class="col-xs-2">3</td>
+					<td class="col-xs-1">4</td>
+					<td class="col-xs-1">126</td>
+					<td class="col-xs-3">Boo</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-3">Ally Name</td>
+					<td class="col-xs-1">3</td>
 				</tr>
 			</tbody>
 		</table>
