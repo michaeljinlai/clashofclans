@@ -18,7 +18,10 @@
   </ul>
   
   <div class="tab-content">
+  	<!-- War Stats Tab -->
     <div id="warStats" class="tab-pane fade in active">
+    	<div class="row col-xs-12">12</div>
+
 	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
@@ -116,50 +119,138 @@
 			</tbody>
 		</table>
     </div>
+  	<!-- War Events Tab -->    
     <div id="warEvents" class="tab-pane fade">
 	    <table class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th colspan="3">Attack Totals</th>
+					<th colspan="2"></th>
+					<th>Time Until War Ends</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td class="col-xs-4">13</td>
-					<td class="col-xs-4">Attacks Used</td>
-					<td class="col-xs-4">11</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">11h until war ends</td>
 				</tr>
 				<tr>
-					<td class="col-xs-4">13</td>
-					<td class="col-xs-4">Attacks Won</td>
-					<td class="col-xs-4">11</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">11h until war ends</td>
 				</tr>
 				<tr>
-					<td class="col-xs-4">13</td>
-					<td class="col-xs-4">Attacks Lost</td>
-					<td class="col-xs-4">11</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">11h until war ends</td>
 				</tr>
 				<tr>
-					<td class="col-xs-4">13</td>
-					<td class="col-xs-4">Attacks Remaining</td>
-					<td class="col-xs-4">11</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">Name</td>
+					<td class="col-xs-4">11h until war ends</td>
 				</tr>
 			</tbody>
 		</table>
     </div>
+  	<!-- My Team Tab -->    
     <div id="myTeam" class="tab-pane fade">
-
+	    <table class="war-my-team table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Experience</th>
+					<th>Name</th>
+					<th>Attack 1</th>
+					<th>Attack 2</th>
+					<th>Stars</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="col-xs-2">1</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">2</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">3</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">4</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">Enemy Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+			</tbody>
+		</table>
     </div>
+    <!-- Enemy Team Tab -->
     <div id="enemyTeam" class="tab-pane fade">
-
+	    <table class="war-enemy-team table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Experience</th>
+					<th>Name</th>
+					<th>Attack 1</th>
+					<th>Attack 2</th>
+					<th>Stars</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="col-xs-2">1</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">2</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">3</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+				<tr>
+					<td class="col-xs-2">4</td>
+					<td class="col-xs-2">126</td>
+					<td class="col-xs-2">Boo</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">Ally Name</td>
+					<td class="col-xs-2">3</td>
+				</tr>
+			</tbody>
+		</table>
     </div>
   </div>
 </div>
 
 <?php echo $_GET['id']; ?>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-    $('#myTable').DataTable();
-});
-</script>
