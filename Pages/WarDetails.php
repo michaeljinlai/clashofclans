@@ -20,7 +20,15 @@
   <div class="tab-content">
   	<!-- War Stats Tab -->
     <div id="warStats" class="tab-pane fade in active">
-    	<div class="row col-xs-12">12</div>
+	    <table class="war-clan-vs-clan table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th>Prepare to Die</th>
+					<th>VS</th>
+					<th>Enemy Clan Name</th>
+				</tr>
+			</thead>
+		</table>
 
 	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>

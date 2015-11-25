@@ -95,10 +95,23 @@ ul.nav a.active {
 }
 
 /* Datatables Whole Frame*/
-#myTable_wrapper, .war-stats, .war-events, .war-my-team, .war-enemy-team {
+#myTable_wrapper, 
+.war-stats, 
+.war-events, 
+.war-my-team, 
+.war-enemy-team, 
+.war-clan-vs-clan {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);
+}
+
+#warStats .war-clan-vs-clan thead tr th:nth-child(3) {
+  text-align: right;
+}
+
+#warStats .war-clan-vs-clan thead tr th:nth-child(2) {
+  text-align: center;
 }
 
 /* Bootstrap removes border from responsive tables class */
