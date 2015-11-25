@@ -100,7 +100,8 @@ ul.nav a.active {
 .war-events, 
 .war-my-team, 
 .war-enemy-team, 
-.war-clan-vs-clan {
+.war-clan-vs-clan,
+.war-clan-info {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);

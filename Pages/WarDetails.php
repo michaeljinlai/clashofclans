@@ -167,6 +167,49 @@
     </div>
   	<!-- My Team Tab -->    
     <div id="myTeam" class="tab-pane fade">
+
+    	<table class="war-clan-info table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th>Prepare to Die</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="col-xs-6">Total Points</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">Wars Won</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">Members</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">Type</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">Required Trophies</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">War Frequency</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">Clan Location</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+				<tr>
+					<td class="col-xs-6">Clan Tag</td>
+					<td class="col-xs-6">123</td>
+				</tr>
+			</tbody>
+		</table>
+
 	    <table class="war-my-team table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
