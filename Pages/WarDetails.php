@@ -27,6 +27,18 @@
 				<th class="col-xs-4"><?php echo $json['enemy']['name']; ?></th>
 			</tr>
 		</thead>
+		<tbody>
+			<tr>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['totalStars'] ?></td>
+				<td class="col-xs-4">Final Score</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['totalStars'] ?></td>		
+			</tr>
+			<tr>
+				<td class="col-xs-4"><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
+				<td class="col-xs-4">Total Destruction</td>
+				<td class="col-xs-4"><?php echo number_format((float)$json['summary']['enemy']['totalDestruction'], 2, '.', '');?>%</td>		
+			</tr>
+		</tbody>
 	</table>
 
     <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
@@ -42,14 +54,14 @@
 				<td class="col-xs-4"><?php echo $json['summary']['enemy']['attacksUsed'] ?></td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">Unknown</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['attacksWon'] ?></td>
 				<td class="col-xs-4">Attacks Won</td>
-				<td class="col-xs-4">Unknown</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['attacksWon'] ?></td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">Unknown</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['attacksLost'] ?></td>
 				<td class="col-xs-4">Attacks Lost</td>
-				<td class="col-xs-4">Unknown</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['attacksLost'] ?></td>
 			</tr>
 			<tr>
 				<td class="col-xs-4"><?php echo $json['summary']['home']['attacksRemaining'] ?></td>
