@@ -66,19 +66,19 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['3Star']; ?></td>
 				<td class="col-xs-4">3 Stars</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['3Star']; ?></td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['2Star']; ?></td>
 				<td class="col-xs-4">2 Stars</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['2Star']; ?></td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['1Star']; ?></td>
 				<td class="col-xs-4">1 Star</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['1Star']; ?></td>
 			</tr>
 		</tbody>
 	</table>
@@ -137,30 +137,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">11h until war ends</td>
-			</tr>
-			<tr>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">11h until war ends</td>
-			</tr>
-			<tr>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">11h until war ends</td>
-			</tr>
-			<tr>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">Name</td>
-				<td class="col-xs-4">11h until war ends</td>
-			</tr>
-			<tr>
-				<td colspan="2"></td>
-				<td>War Started</td>
-			</tr>
+			<?php foreach ($json['events'] as $event) : ?>
+				<tr>
+					<td class="col-xs-4"><?php echo $event['homePlayer']; ?></td>
+					<td class="col-xs-4"><?php echo $event['enemyPlayer']; ?></td>
+					<td class="col-xs-4"><?php echo $event['timeLeftDisplay'].' until war ends'; ?></td>
+				</tr>
+			<?php endforeach; ?>
+				<tr>
+					<td colspan="2"></td>
+					<td>War Started</td>
+				</tr>
 		</tbody>
 	</table>
 </div>
