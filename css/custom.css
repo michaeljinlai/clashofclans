@@ -296,6 +296,10 @@ ul.nav a.active {
   margin-bottom: 15px;
 }
 
+.war-event-img {
+  margin-right: 5px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {

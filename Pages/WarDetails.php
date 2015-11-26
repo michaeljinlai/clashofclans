@@ -139,8 +139,48 @@
 		<tbody>
 			<?php foreach ($json['events'] as $event) : ?>
 				<tr>
-					<td class="col-xs-4"><?php echo $event['homePlayer']; ?></td>
-					<td class="col-xs-4"><?php echo $event['enemyPlayer']; ?></td>
+					<td class="col-xs-4">
+						<?php 
+							if ($event['isHomeAttack'] === false) {
+								if ($event['starsWon'] > 0) {
+									echo '<img class="war-event-img" src="img/Shield-Broken.png" width="30" height="30" />';
+								}
+								elseif ($event['starsWon'] === 0) {
+									echo '<img class="war-event-img" src="img/Shield.png" width="30" height="30" />';
+								}
+							}
+							elseif ($event['isHomeAttack'] === true) {
+								if ($event['starsWon'] > 0) {
+									echo '<img class="war-event-img" src="img/Sword.png" width="30" height="30" />';
+								}
+								elseif ($event['starsWon'] === 0) {
+									echo '<img class="war-event-img" src="img/Sword-Broken.png" width="30" height="30" />';
+								}
+							}
+							echo $event['homePlayer']; 
+						?>
+					</td>
+					<td class="col-xs-4">
+						<?php 
+							if ($event['isHomeAttack'] === false) {
+								if ($event['starsWon'] > 0) {
+									echo '<img class="war-event-img" src="img/Sword.png" width="30" height="30" />';
+								}
+								elseif ($event['starsWon'] === 0) {
+									echo '<img class="war-event-img" src="img/Sword-Broken.png" width="30" height="30" />';
+								}
+							}
+							elseif ($event['isHomeAttack'] === true) {
+								if ($event['starsWon'] > 0) {
+									echo '<img class="war-event-img" src="img/Shield-Broken.png" width="30" height="30" />';
+								}
+								elseif ($event['starsWon'] === 0) {
+									echo '<img class="war-event-img" src="img/Shield.png" width="30" height="30" />';
+								}
+							}
+							echo $event['enemyPlayer']; 
+						?>
+					</td>
 					<td class="col-xs-4"><?php echo $event['timeLeftDisplay'].' until war ends'; ?></td>
 				</tr>
 			<?php endforeach; ?>
