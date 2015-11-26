@@ -24,7 +24,7 @@
 			<tr>
 				<th class="col-xs-4">Prepare to Die</th>
 				<th class="col-xs-4">VS</th>
-				<th class="col-xs-4">Enemy Clan Name</th>
+				<th class="col-xs-4"><?php echo $json['enemy']['name']; ?></th>
 			</tr>
 		</thead>
 	</table>
@@ -37,9 +37,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['attacksUsed'] ?></td>
 				<td class="col-xs-4">Attacks Used</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['attacksUsed'] ?></td>
 			</tr>
 			<tr>
 				<td class="col-xs-4">13</td>
@@ -132,7 +132,7 @@
 		<thead>
 			<tr>
 				<th>Prepare to Die</th>
-				<th>Enemy Clan Name</th>
+				<th><?php echo $json['enemy']['name']; ?></th>
 				<th>Time Until War Ends</th>
 			</tr>
 		</thead>
