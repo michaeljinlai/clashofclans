@@ -41,7 +41,7 @@
 						<td><?php echo $json['enemy']['name']; ?></td>
 						<td><?php echo ($json['summary']['enemy']['3Star']*3 + $json['summary']['enemy']['2Star']*2 + $json['summary']['enemy']['1Star']); ?></td>
 						<td><?php echo $json['summary']['enemy']['totalDestruction']; ?></td>
-						<td><a onclick="loadWar('23432')" class="btn btn-primary">Details</a></td>
+						<td><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">Details</a></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
