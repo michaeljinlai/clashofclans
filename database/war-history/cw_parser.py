@@ -34,7 +34,7 @@ def secondsToString(seconds):
     if hours > 0:
         str += "%dh " % hours
     if hours == 0 and minutes == 0:
-        str += "%dh" % seconds
+        str += "%ds" % seconds
     else:
         str += "%dm" % minutes
 
@@ -94,8 +94,9 @@ def parseMember(file):
     player = {} # formatted output
 
     player['attacksUsed'] = 0
-    player['attack1'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': ""}
-    player['attack2'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': ""}
+    player['attacksWon'] = 0
+    player['attack1'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': "", 'targetPosition': 0}
+    player['attack2'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': "", 'targetPosition': 0}
 
     values.append(readInt64(file))  # Clan ID
 
@@ -247,18 +248,17 @@ def parseAttackEntry(file):
 
     isHomeAttack = attackerClanId == homeClanId
     event['isHomeAttack'] = isHomeAttack
-    if isHomeAttack:
-        homePlayerId = attackerId
-        enemyPlayerId = defenderId
-        event['homePlayer'] = attackerName
-        event['enemyPlayer'] = defenderName
-    else:
-        homePlayerId = defenderId
-        enemyPlayerId = attackerId
-        event['homePlayer'] = defenderName
-        event['enemyPlayer'] = attackerName
 
-    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName}
+    homePlayer = searchPlayer(attackerId if isHomeAttack else defenderId, homeClan)
+    enemyPlayer = searchPlayer(defenderId if isHomeAttack else attackerId, enemyClan)
+
+    event['homePlayer'] = homePlayer['name']
+    event['homePlayerPosition'] = homePlayer['position']
+    event['enemyPlayer'] = enemyPlayer['name']
+    event['enemyPlayerPosition'] = enemyPlayer['position']
+
+    defenderPosition = searchPlayer(defenderId, enemyClan if isHomeAttack else homeClan)['position']
+    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition}
 
     player = searchPlayer(attackerId, homeClan if isHomeAttack else enemyClan)
     player['attacksUsed'] += 1
@@ -266,6 +266,9 @@ def parseAttackEntry(file):
         player['attack2'] = attackResult
     else:
         player['attack1'] = attackResult
+
+    if event['starsWon'] > 0:
+        player['attacksWon'] += 1
 
     return event
 
@@ -284,9 +287,12 @@ def createStats(home, enemy):
     warSize = home['size']
 
     stats['attacksUsed'] = 0
+    stats['attacksWon'] = 0
     for player in home['roster']:
         stats['attacksUsed'] += player['attacksUsed']
+        stats['attacksWon'] += player['attacksWon']
     stats['attacksRemaining'] = warSize * 2 - stats['attacksUsed']
+    stats['attacksLost'] = stats['attacksUsed'] - stats['attacksWon']
 
     stats['3Star'] = 0
     stats['2Star'] = 0
@@ -301,6 +307,7 @@ def createStats(home, enemy):
         elif player['starsGiven'] == 1:
             stats['1Star'] += 1
     
+    stats['totalStars'] = stats['3Star'] * 3 + stats['2Star'] * 2 + stats['1Star']
     stats['totalDestruction'] = float(destruction) / warSize
 
     return stats
@@ -308,7 +315,18 @@ def createStats(home, enemy):
 def createSummary(homeClan, enemyClan, events):
     home = createStats(homeClan, enemyClan)
     enemy = createStats(enemyClan, homeClan)
-    return {'home': home, 'enemy': enemy}
+    if home['totalStars'] > enemy['totalStars']:
+        result = "win"
+    elif home['totalStars'] < enemy['totalStars']:
+        result = "loss"
+    else:
+        if home['totalDestruction'] > enemy['totalDestruction']:
+            result = "win"
+        elif home['totalDestruction'] < enemy['totalDestruction']:
+            result = "loss"
+        else:
+            result = "draw"
+    return {'home': home, 'enemy': enemy, 'result': result}
     
 # Labels do not display properly for war packet during preparation day
 clanLabel = "ClanID,ClanName,,ClanLevel,WarSize"
