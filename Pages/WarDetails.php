@@ -249,5 +249,3 @@
 	</table>
 </div>
 </div>
-
-<?php echo $_GET['id']; ?>
