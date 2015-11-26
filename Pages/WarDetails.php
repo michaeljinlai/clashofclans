@@ -42,19 +42,19 @@
 				<td class="col-xs-4"><?php echo $json['summary']['enemy']['attacksUsed'] ?></td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">Attacks Won</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">Attacks Lost</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4"><?php echo $json['summary']['home']['attacksRemaining'] ?></td>
 				<td class="col-xs-4">Attacks Remaining</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4"><?php echo $json['summary']['enemy']['attacksRemaining'] ?></td>
 			</tr>
 		</tbody>
 	</table>
@@ -90,19 +90,19 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">New Stars Per Attack</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">Average Destruction</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">13</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">Average Attack Duration</td>
-				<td class="col-xs-4">11</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 		</tbody>
 	</table>
@@ -114,14 +114,14 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="col-xs-4">name</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">Most Heroic Attack</td>
-				<td class="col-xs-4">name</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 			<tr>
-				<td class="col-xs-4">name</td>
+				<td class="col-xs-4">Unknown</td>
 				<td class="col-xs-4">Most Heroic Defense</td>
-				<td class="col-xs-4">name</td>
+				<td class="col-xs-4">Unknown</td>
 			</tr>
 		</tbody>
 	</table>
@@ -208,38 +208,16 @@
 			</tr>
 		</thead>
 		<tbody>
+			<?php foreach ($json['home']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1">1</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-1">3</td>
+				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
+				<td class="col-xs-1">Unknown</td>
+				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-3"><?php echo $enemy['attack1']['target']; ?></td>
+				<td class="col-xs-3"><?php echo $enemy['attack2']['target']; ?></td>
+				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
 			</tr>
-			<tr>
-				<td class="col-xs-1">2</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-1">3</td>
-			</tr>
-			<tr>
-				<td class="col-xs-1">3</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-1">3</td>
-			</tr>
-			<tr>
-				<td class="col-xs-1">4</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-3">Enemy Name</td>
-				<td class="col-xs-1">3</td>
-			</tr>
+			<?php endforeach; ?>
 		</tbody>
 	</table>
 </div>
@@ -257,38 +235,16 @@
 			</tr>
 		</thead>
 		<tbody>
+			<?php foreach ($json['enemy']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1">1</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-1">3</td>
+				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
+				<td class="col-xs-1">Unknown</td>
+				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-3"><?php echo $enemy['attack1']['target']; ?></td>
+				<td class="col-xs-3"><?php echo $enemy['attack2']['target']; ?></td>
+				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
 			</tr>
-			<tr>
-				<td class="col-xs-1">2</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-1">3</td>
-			</tr>
-			<tr>
-				<td class="col-xs-1">3</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-1">3</td>
-			</tr>
-			<tr>
-				<td class="col-xs-1">4</td>
-				<td class="col-xs-1">126</td>
-				<td class="col-xs-3">Boo</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-3">Ally Name</td>
-				<td class="col-xs-1">3</td>
-			</tr>
+			<?php endforeach; ?>
 		</tbody>
 	</table>
 </div>
