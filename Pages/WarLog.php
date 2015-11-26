@@ -4,37 +4,50 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
 <div id="warMain">
-
-<div class="table-responsive">
-    <h1 class="page-header">War Log</h1>
-    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
-		<thead>
-			<tr>
-				<th>Time</th>
-				<th>Percentage</th>
-				<th>Stars</th>
-				<th>My Clan</th>
-				<th>Enemy Clan</th>
-				<th>Stars</th>
-				<th>Percentage</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>2d ago</td>
-				<td>50%</td>
-				<td>star</td>
-				<td>Prepare to Die</td>
-				<td>Enemy Clan Name</td>
-				<td>star</td>
-				<td>50%</td>
-				<td><a onclick="loadWar('23432')" class="btn btn-primary">Details</a></td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="table-responsive">
+	    <h1 class="page-header">War Log</h1>
+	    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th>Time</th>
+					<th>Percentage</th>
+					<th>Stars</th>
+					<th>My Clan</th>
+					<th>Enemy Clan</th>
+					<th>Stars</th>
+					<th>Percentage</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>2d ago</td>
+					<td>50%</td>
+					<td>star</td>
+					<td>Prepare to Die</td>
+					<td>Enemy Clan Name</td>
+					<td>star</td>
+					<td>50%</td>
+					<td><a onclick="loadWar('23432')" class="btn btn-primary">Details</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
+<div>
+	<h2>Test Section</h2>
+	<?php
+		$directory = '../database/war-history/json';
+
+		$scanned_directory = array_diff(scandir($directory), array('..', '.'));
+
+		foreach ($scanned_directory as $warFile) {
+			$str = file_get_contents('../database/war-history/json/'.$warFile);
+			$json = json_decode($str, true);
+			echo $json['summary']['enemy']['totalDestruction'].'<br>';
+		}
+	?>
 </div>
 
 <script type="text/javascript">
