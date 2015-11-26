@@ -35,12 +35,12 @@
 				?>
 					<tr>
 						<td>Unknown</td>
-						<td><?php echo $json['summary']['home']['totalDestruction']; ?></td>
+						<td><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
 						<td><?php echo ($json['summary']['home']['3Star']*3 + $json['summary']['home']['2Star']*2 + $json['summary']['home']['1Star']); ?></td>
 						<td>Prepare to Die</td>
 						<td><?php echo $json['enemy']['name']; ?></td>
 						<td><?php echo ($json['summary']['enemy']['3Star']*3 + $json['summary']['enemy']['2Star']*2 + $json['summary']['enemy']['1Star']); ?></td>
-						<td><?php echo $json['summary']['enemy']['totalDestruction']; ?></td>
+						<td><?php echo number_format((float)$json['summary']['enemy']['totalDestruction'], 2, '.', ''); ?>%</td>
 						<td><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">Details</a></td>
 					</tr>
 				<?php endforeach; ?>
