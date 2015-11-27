@@ -195,8 +195,8 @@
 						}
 					?>
 				">
-					<td class="col-xs-1"><?php echo $event['id']; ?></td>
-					<td class="col-xs-1"><?php echo $event['timeLeftDisplay']; ?></td>
+					<td class="col-xs-1"><?php echo '<span class="war-event-id">'.$event['id'].'</span>'; ?></td>
+					<td class="col-xs-1"><?php echo '<span class="war-time-remain">'.$event['timeLeftDisplay'].'</span>'; ?></td>
 					<td class="col-xs-4">
 						<?php							
 							$nameDisplay = $event['homePlayerPosition'].". ".$event['homePlayer'];
