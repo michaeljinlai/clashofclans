@@ -97,6 +97,7 @@ def parseMember(file):
     player['attacksWon'] = 0
     player['attack1'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': "", 'targetPosition': 0}
     player['attack2'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': "", 'targetPosition': 0}
+    player['enemyBestAttack'] = {'starsWon': 0, 'starsEarned': 0, 'damage': 0, 'target': "", 'targetPosition': 0}
 
     values.append(readInt64(file))  # Clan ID
 
@@ -259,8 +260,9 @@ def parseAttackEntry(file):
     event['enemyPlayer'] = enemyPlayer['name']
     event['enemyPlayerPosition'] = enemyPlayer['position']
 
-    defenderPosition = searchPlayer(defenderId, enemyClan if isHomeAttack else homeClan)['position']
-    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition}
+    defender = searchPlayer(defenderId, enemyClan if isHomeAttack else homeClan)
+    defenderPosition = defender['position']
+    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition}        
 
     player = searchPlayer(attackerId, homeClan if isHomeAttack else enemyClan)
     player['attacksUsed'] += 1
@@ -271,6 +273,9 @@ def parseAttackEntry(file):
 
     if event['starsWon'] > 0:
         player['attacksWon'] += 1
+
+    if event['starsEarned'] > 0 or (event['starsEarned'] == 0 and event['damage'] > defender['enemyBestAttack']['damage']):
+        defender['enemyBestAttack'] = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': player['name'], 'targetPosition': player['position']}
 
     return event
 
@@ -368,6 +373,7 @@ swapAttackOrder(homeClan)
 swapAttackOrder(enemyClan)
 
 m = re.search("[^\\\/]+$", args.filepath)
+#warId = int(m.group(0)) if isinstance(m.group(0), int) else 0
 warData = {'id': int(m.group(0)), 'summary': warSummary, 'home': homeClan, 'enemy': enemyClan, 'events': warEvents}
 if args.pretty:
     jsonOutput = json.dumps(warData, indent = 2, ensure_ascii = False)
