@@ -17,13 +17,14 @@
 	    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
+					<th>#</th>
 					<th>Time</th>
-					<th>Percentage</th>
+					<th>Destruction</th>
 					<th>Stars</th>
 					<th>My Clan</th>
 					<th>Enemy Clan</th>
 					<th>Stars</th>
-					<th>Percentage</th>
+					<th>Destruction</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -34,6 +35,7 @@
 					$json = json_decode($str, true);
 				?>
 					<tr>
+						<td><?php echo $json['id']; ?></td>
 						<td>Unknown</td>
 						<td><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
 						<td><?php echo ($json['summary']['home']['3Star']*3 + $json['summary']['home']['2Star']*2 + $json['summary']['home']['1Star']); ?></td>
@@ -51,7 +53,9 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-    $('#myTable').DataTable();
+    $('#myTable').DataTable( {
+    	"order": [[0, 'dsc']]
+    } );
 });
 </script>
 
