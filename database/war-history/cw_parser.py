@@ -274,7 +274,8 @@ def parseAttackEntry(file):
     if event['starsWon'] > 0:
         player['attacksWon'] += 1
 
-    if event['starsEarned'] > 0 or (event['starsEarned'] == 0 and event['damage'] > defender['enemyBestAttack']['damage']):
+    if (event['starsEarned'] > 0  and event['starsWon'] > defender['enemyBestAttack']['starsWon']) or \
+        (event['starsEarned'] == 0 and event['damage'] > defender['enemyBestAttack']['damage']):
         defender['enemyBestAttack'] = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': player['name'], 'targetPosition': player['position']}
 
     return event
