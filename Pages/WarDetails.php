@@ -161,6 +161,14 @@
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
 								echo $event['homePlayer'];
+								echo '<div class="war-atkdef-container">';
+								if ($event['starsWon'] > 0) {
+									echo 'Defeat';
+								}
+								elseif ($event['starsWon'] === 0) {
+									echo 'Defended!';
+								}
+								echo '</div>';
 							}
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {

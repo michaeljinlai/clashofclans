@@ -307,7 +307,7 @@ ul.nav a.active {
   height: 18px;
 }
 
-.war-star-img-container {
+.war-star-img-container, .war-atkdef-container {
   margin-left: 35px;
 }
 
