@@ -156,12 +156,11 @@
 							if ($event['isHomeAttack'] === false) {
 								if ($event['starsWon'] > 0) {
 									echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
-									echo $event['homePlayer'];
 								}
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Shield.png" />';
-									echo $event['homePlayer'];
 								}
+								echo $event['homePlayer'];
 							}
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
@@ -258,12 +257,11 @@
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
 									echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
-									echo $event['enemyPlayer']; 
 								}
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Shield.png" />';
-									echo $event['enemyPlayer']; 
 								}
+								echo $event['enemyPlayer']; 
 							}
 						?>
 					</td>
