@@ -3,6 +3,37 @@
 <?php 
 	$str = file_get_contents('../database/war-history/json/'.$_GET['id'].'.json');
 	$json = json_decode($str, true);
+
+	// Display damage and stars
+	function displayResult($event) {
+		echo '<div class="war-star-img-container">';
+		echo $event['damage']."% ";
+		$count = 0;
+		while ($count < $event['starsWon'] - $event['starsEarned']) {
+			echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
+			$count = $count + 1;
+		}
+		$count = 0;
+		while ($count < $event['starsEarned']) {
+			echo '<img src="img/Star.png" class="war-star-img" />';
+			$count = $count + 1;
+		}
+		$count = 0;
+		while ($count < 3 - $event['starsWon']) {
+			echo '<img src="img/Star-Empty.png" class="war-star-img" />';
+			$count = $count + 1;
+		}
+		echo '</div>';
+	}
+
+	// Used in My Team and Enemy Team only
+	function displayAttack($player, $attackNum) {
+		$attack = ($attackNum == 1) ? $player['attack1'] : $player['attack2'];
+		if ($player['attacksUsed'] >= $attackNum) {
+			echo $attack['targetPosition'].". ".$attack['target'];
+			displayResult($attack);
+		}
+	}
 ?>
 
 <!-- Datatables CSS -->
@@ -164,7 +195,8 @@
 					?>
 				">
 					<td class="col-xs-4">
-						<?php 
+						<?php							
+							$nameDisplay = $event['homePlayerPosition'].". ".$event['homePlayer'];
 							if ($event['isHomeAttack'] === false) {
 								if ($event['starsWon'] > 0) {
 									echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
@@ -172,7 +204,7 @@
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
-								echo $event['homePlayer'];
+								echo $nameDisplay;
 								echo '<div class="war-atkdef-container">';
 								if ($event['starsWon'] > 0) {
 									echo 'Defeat';
@@ -185,94 +217,27 @@
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
 									echo '<img class="war-event-img" src="img/Sword.png" />';
-									echo $event['homePlayer'];
-									echo '<div class="war-star-img-container">';
-									$count = 0;
-									while ($count < $event['starsWon'] - $event['starsEarned']) {
-										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < $event['starsEarned']) {
-										echo '<img src="img/Star.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < 3 - $event['starsWon']) {
-										echo '<img src="img/Star-Empty.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									echo '</div>';
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
-									echo $event['homePlayer'];
-									echo '<div class="war-star-img-container">';
-									$count = 0;
-									while ($count < $event['starsWon'] - $event['starsEarned']) {
-										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < $event['starsEarned']) {
-										echo '<img src="img/Star.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < 3 - $event['starsWon']) {
-										echo '<img src="img/Star-Empty.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									echo '</div>';
+									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';									
 								}
+								echo $nameDisplay;
+								displayResult($event);
 							}
 						?>
 					</td>
 					<td class="col-xs-4">
 						<?php 
+							$nameDisplay = $event['enemyPlayerPosition'].". ".$event['enemyPlayer'];
 							if ($event['isHomeAttack'] === false) {
 								if ($event['starsWon'] > 0) {
 									echo '<img class="war-event-img" src="img/Sword.png" />';
-									echo $event['enemyPlayer']; 
-									echo '<div class="war-star-img-container">';
-									$count = 0;
-									while ($count < $event['starsWon'] - $event['starsEarned']) {
-										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < $event['starsEarned']) {
-										echo '<img src="img/Star.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < 3 - $event['starsWon']) {
-										echo '<img src="img/Star-Empty.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									echo '</div>';
 								}
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
-									echo $event['enemyPlayer']; 
-									echo '<div class="war-star-img-container">';
-									$count = 0;
-									while ($count < $event['starsWon'] - $event['starsEarned']) {
-										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < $event['starsEarned']) {
-										echo '<img src="img/Star.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									$count = 0;
-									while ($count < 3 - $event['starsWon']) {
-										echo '<img src="img/Star-Empty.png" class="war-star-img" />';
-										$count = $count + 1;
-									}
-									echo '</div>';
 								}
+								echo $nameDisplay; 
+								displayResult($event);
 							}
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
@@ -281,7 +246,7 @@
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
-								echo $event['enemyPlayer']; 
+								echo $nameDisplay; 
 								echo '<div class="war-atkdef-container">';
 								if ($event['starsWon'] > 0) {
 									echo 'Defeat';
@@ -323,8 +288,8 @@
 				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
 				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
-				<td class="col-xs-3"><?php echo $enemy['attack1']['target']; ?></td>
-				<td class="col-xs-3"><?php echo $enemy['attack2']['target']; ?></td>
+				<td class="col-xs-3"><?php displayAttack($enemy, 1); ?></td>
+				<td class="col-xs-3"><?php displayAttack($enemy, 2); ?></td>
 				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
 			</tr>
 			<?php endforeach; ?>
@@ -350,8 +315,8 @@
 				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
 				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
-				<td class="col-xs-3"><?php echo $enemy['attack1']['target']; ?></td>
-				<td class="col-xs-3"><?php echo $enemy['attack2']['target']; ?></td>
+				<td class="col-xs-3"><?php displayAttack($enemy, 1); ?></td>
+				<td class="col-xs-3"><?php displayAttack($enemy, 2); ?></td>
 				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
 			</tr>
 			<?php endforeach; ?>
