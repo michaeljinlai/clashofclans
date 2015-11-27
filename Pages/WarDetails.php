@@ -30,7 +30,7 @@
 	function displayAttack($player, $attackNum) {
 		$attack = ($attackNum == 1) ? $player['attack1'] : $player['attack2'];
 		if ($player['attacksUsed'] >= $attackNum) {
-			echo '<span class=" war-name-display">'.$attack['targetPosition'].". ".$attack['target'].'</span>';
+			echo '<span class=" war-team-display">'.$attack['targetPosition'].". ".$attack['target'].'</span>';
 			displayResult($attack);
 		}
 	}
@@ -45,7 +45,7 @@
 	function displayEnemyBestAttack($player) {
 		if ($player['totalDefenses'] > 0) {
 			$attack = $player['enemyBestAttack'];
-			echo '<span class=" war-name-display">'.$attack['targetPosition'].". ".$attack['target'].'</span>';
+			echo '<span class=" war-team-display">'.$attack['targetPosition'].". ".$attack['target'].'</span>';
 			displayResult($attack);
 		}
 	}
@@ -296,14 +296,14 @@
 		<tbody>
 			<?php foreach ($json['home']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1 war-name-display"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1 war-name-display"><?php echo $enemy['townHall']; ?></td>
-				<td class="col-xs-2 war-name-display"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-1 war-team-display"><?php echo $enemy['position']; ?></td>
+				<td class="col-xs-1 war-team-display"><?php echo $enemy['townHall']; ?></td>
+				<td class="col-xs-2 war-team-display"><?php echo $enemy['name']; ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
-				<td class="col-xs-1 war-name-display"><?php displayTotalStars($enemy); ?></td>
+				<td class="col-xs-1 war-team-display"><?php displayTotalStars($enemy); ?></td>
 				<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
-				<td class="col-xs-1 war-name-display"><?php echo $enemy['totalDefenses']; ?></td>
+				<td class="col-xs-1 war-team-display"><?php echo $enemy['totalDefenses']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
@@ -327,14 +327,14 @@
 		<tbody>
 			<?php foreach ($json['enemy']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1 war-name-display"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1 war-name-display"><?php echo $enemy['townHall']; ?></td>
-				<td class="col-xs-2 war-name-display"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-1 war-team-display"><?php echo $enemy['position']; ?></td>
+				<td class="col-xs-1 war-team-display"><?php echo $enemy['townHall']; ?></td>
+				<td class="col-xs-2 war-team-display"><?php echo $enemy['name']; ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
-				<td class="col-xs-1 war-name-display"><?php displayTotalStars($enemy); ?></td>
+				<td class="col-xs-1 war-team-display"><?php displayTotalStars($enemy); ?></td>
 				<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
-				<td class="col-xs-1 war-name-display"><?php echo $enemy['totalDefenses']; ?></td>
+				<td class="col-xs-1 war-team-display"><?php echo $enemy['totalDefenses']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
