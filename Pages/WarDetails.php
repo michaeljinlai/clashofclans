@@ -270,6 +270,14 @@
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
 								echo $event['enemyPlayer']; 
+								echo '<div class="war-atkdef-container">';
+								if ($event['starsWon'] > 0) {
+									echo 'Defeat';
+								}
+								elseif ($event['starsWon'] === 0) {
+									echo 'Defended!';
+								}
+								echo '</div>';
 							}
 						?>
 					</td>
