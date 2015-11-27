@@ -197,7 +197,7 @@
 				">
 					<td class="col-xs-1"><?php echo '<span class="war-event-id">'.$event['id'].'</span>'; ?></td>
 					<td class="col-xs-1"><?php echo '<span class="war-time-remain">'.$event['timeLeftDisplay'].'</span>'; ?></td>
-					<td class="col-xs-4">
+					<td class="col-xs-5">
 						<?php							
 							$nameDisplay = $event['homePlayerPosition'].". ".$event['homePlayer'];
 							if ($event['isHomeAttack'] === false) {
@@ -227,7 +227,7 @@
 							}
 						?>
 					</td>
-					<td class="col-xs-4">
+					<td class="col-xs-5">
 						<?php 
 							$nameDisplay = $event['enemyPlayerPosition'].". ".$event['enemyPlayer'];
 							if ($event['isHomeAttack'] === false) {
