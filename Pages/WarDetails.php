@@ -150,7 +150,19 @@
 		</thead>
 		<tbody>
 			<?php foreach ($json['events'] as $event) : ?>
-				<tr>
+				<tr class="
+					<?php 
+						if ($event['starsEarned'] === 0) {
+							echo 'background-neutral';
+						}
+						elseif ($event['isHomeAttack'] === true && $event['starsEarned'] > 0) {
+							echo 'background-win';
+						}
+						elseif ($event['isHomeAttack'] === false && $event['starsEarned'] > 0) {
+							echo 'background-lose';
+						}
+					?>
+				">
 					<td class="col-xs-4">
 						<?php 
 							if ($event['isHomeAttack'] === false) {

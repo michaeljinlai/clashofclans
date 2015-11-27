@@ -311,6 +311,18 @@ ul.nav a.active {
   margin-left: 35px;
 }
 
+.background-neutral {
+  background-color: gray!important;
+}
+
+.background-win {
+  background-color: green!important;
+}
+
+.background-lose {
+  background-color: red!important;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
