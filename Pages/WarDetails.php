@@ -273,7 +273,8 @@
 				<th>Name</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
-				<th>Stars</th>
+				<th>Stars Earned</th>
+				<th>Stars Given Up</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -285,6 +286,7 @@
 				<td class="col-xs-3"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-3"><?php displayAttack($enemy, 2); ?></td>
 				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
+				<td class="col-xs-1"><?php echo $enemy['starsGiven']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
@@ -300,7 +302,8 @@
 				<th>Name</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
-				<th>Stars</th>
+				<th>Stars Earned</th>
+				<th>Stars Given Up</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -312,6 +315,7 @@
 				<td class="col-xs-3"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-3"><?php displayAttack($enemy, 2); ?></td>
 				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
+				<td class="col-xs-1"><?php echo $enemy['starsGiven']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
