@@ -312,15 +312,15 @@ ul.nav a.active {
 }
 
 .background-neutral {
-  background-color: gray!important;
+  background-color: #C6CBC5!important;
 }
 
 .background-win {
-  background-color: green!important;
+  background-color: #ADC7A4!important;
 }
 
 .background-lose {
-  background-color: red!important;
+  background-color: #CFA9A6!important;
 }
 
 /* START GLYPHYICON ANIMATIONS */
