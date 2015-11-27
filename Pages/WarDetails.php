@@ -174,9 +174,10 @@
     <table class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
 		<thead>
 			<tr>
+				<th>#</th>
+				<th>Time Remaining</th>
 				<th>Prepare to Die</th>
 				<th><?php echo $json['enemy']['name']; ?></th>
-				<th>Time Until War Ends</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -194,6 +195,8 @@
 						}
 					?>
 				">
+					<td class="col-xs-1"><?php echo $event['id']; ?></td>
+					<td class="col-xs-1"><?php echo $event['timeLeftDisplay']; ?></td>
 					<td class="col-xs-4">
 						<?php							
 							$nameDisplay = $event['homePlayerPosition'].". ".$event['homePlayer'];
@@ -254,13 +257,8 @@
 							}
 						?>
 					</td>
-					<td class="col-xs-4"><?php echo $event['timeLeftDisplay'].' until war ends'; ?></td>
 				</tr>
 			<?php endforeach; ?>
-				<tr>
-					<td colspan="2"></td>
-					<td>War Started</td>
-				</tr>
 		</tbody>
 	</table>
 </div>

@@ -189,7 +189,9 @@ def parseAttacks(file, homeClan, enemyClan):
 
     warEvents = []
     for i in range (0, numAttacks):
-        warEvents.append(parseAttackEntry(fileIn))
+        entry = parseAttackEntry(fileIn)
+        entry['id'] = numAttacks - i
+        warEvents.append(entry)
 
     return warEvents
 
