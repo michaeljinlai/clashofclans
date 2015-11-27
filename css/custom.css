@@ -307,8 +307,21 @@ ul.nav a.active {
   height: 18px;
 }
 
-.war-star-img-container, .war-atkdef-container {
+.war-star-img-container, .war-event-defeat, .war-event-defended {
   margin-left: 35px;
+}
+
+.war-event-defended, .war-event-defeat {
+  font-family: 'supercell';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.war-event-defended {
+  color: #FFFB73;
+}
+
+.war-event-defeat {
+  color: #FF6131;
 }
 
 .background-neutral {

@@ -205,14 +205,12 @@
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
 								echo $nameDisplay;
-								echo '<div class="war-atkdef-container">';
 								if ($event['starsWon'] > 0) {
-									echo 'Defeat';
+									echo '<div class="war-event-defeat">Defeat</div>';
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo 'Defended!';
+									echo '<div class="war-event-defended">Defended!</div>';
 								}
-								echo '</div>';
 							}
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
@@ -247,14 +245,12 @@
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
 								echo $nameDisplay; 
-								echo '<div class="war-atkdef-container">';
 								if ($event['starsWon'] > 0) {
-									echo 'Defeat';
+									echo '<div class="war-event-defeat">Defeat</div>';
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo 'Defended!';
+									echo '<div class="war-event-defended">Defended!</div>';
 								}
-								echo '</div>';
 							}
 						?>
 					</td>
