@@ -327,14 +327,14 @@
 		<tbody>
 			<?php foreach ($json['enemy']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
-				<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-1 war-name-display"><?php echo $enemy['position']; ?></td>
+				<td class="col-xs-1 war-name-display"><?php echo $enemy['townHall']; ?></td>
+				<td class="col-xs-2 war-name-display"><?php echo $enemy['name']; ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
-				<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
+				<td class="col-xs-1 war-name-display"><?php displayTotalStars($enemy); ?></td>
 				<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
-				<td class="col-xs-1"><?php echo $enemy['totalDefenses']; ?></td>
+				<td class="col-xs-1 war-name-display"><?php echo $enemy['totalDefenses']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
