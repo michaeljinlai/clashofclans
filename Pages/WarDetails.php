@@ -5,9 +5,12 @@
 	$json = json_decode($str, true);
 
 	// Display damage and stars
-	function displayResult($event) {
+	function displayResult($event, $useGameFont = true) {
 		echo '<div class="war-star-img-container">';
-		echo '<span class="war-dmg">'.$event['damage']."% ".'</span>';
+		if ($useGameFont)
+			echo '<span class="war-dmg">'.$event['damage']."% ".'</span>';
+		else
+			echo'<span class="">'.$event['damage']."% ".'</span>';
 		$count = 0;
 		while ($count < $event['starsWon'] - $event['starsEarned']) {
 			echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
@@ -31,7 +34,7 @@
 		$attack = ($attackNum == 1) ? $player['attack1'] : $player['attack2'];
 		if ($player['attacksUsed'] >= $attackNum) {
 			echo '<span class="">'.$attack['targetPosition'].". ".$attack['target'].'</span>';
-			displayResult($attack);
+			displayResult($attack, false);
 		}
 	}
 
@@ -46,7 +49,7 @@
 		if ($player['totalDefenses'] > 0) {
 			$attack = $player['enemyBestAttack'];
 			echo '<span class="">'.$attack['targetPosition'].". ".$attack['target'].'</span>';
-			displayResult($attack);
+			displayResult($attack, false);
 		}
 	}
 ?>
@@ -285,8 +288,8 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Town Hall</th>
 				<th>Name</th>
+				<th>Town Hall</th>				
 				<th>Attack 1</th>
 				<th>Attack 2</th>
 				<th>Total Stars</th>
@@ -297,9 +300,9 @@
 		<tbody>
 			<?php foreach ($json['home']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
+				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>				
 				<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
 				<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
@@ -316,21 +319,21 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Town Hall</th>
 				<th>Name</th>
+				<th>Town Hall</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
 				<th>Total Stars</th>
-				<th>Enemy Best Attack</th>
+				<th>Home Best Attack</th>
 				<th>Total Defenses</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach ($json['enemy']['roster'] as $enemy) : ?>
 			<tr>
-				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
+				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>				
 				<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
 				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
 				<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
