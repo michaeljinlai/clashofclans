@@ -311,9 +311,22 @@ ul.nav a.active {
   margin-left: 35px;
 }
 
-.war-event-defended, .war-event-defeat {
-  font-family: 'supercell';
+.war-event-defended, .war-event-defeat, .war-name-display {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.war-event-defended, .war-event-defeat, .war-dmg, .war-name-display {
+  font-family: 'supercell';
+}
+
+.war-dmg {
+  font-size: 11px;
+  color: black;
+}
+
+.war-name-display {
+  font-size: 14px;
+  color: white;
 }
 
 .war-event-defended {

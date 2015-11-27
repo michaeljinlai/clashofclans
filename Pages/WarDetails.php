@@ -7,7 +7,7 @@
 	// Display damage and stars
 	function displayResult($event) {
 		echo '<div class="war-star-img-container">';
-		echo $event['damage']."% ";
+		echo '<span class="war-dmg">'.$event['damage']."% ".'</span>';
 		$count = 0;
 		while ($count < $event['starsWon'] - $event['starsEarned']) {
 			echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
@@ -204,7 +204,7 @@
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
-								echo $nameDisplay;
+								echo '<span class="war-name-display">'.$nameDisplay.'</span>';
 								if ($event['starsWon'] > 0) {
 									echo '<div class="war-event-defeat">Defeat</div>';
 								}
@@ -219,7 +219,7 @@
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';									
 								}
-								echo $nameDisplay;
+								echo '<span class="war-name-display">'.$nameDisplay.'</span>';
 								displayResult($event);
 							}
 						?>
@@ -234,7 +234,7 @@
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
 								}
-								echo $nameDisplay; 
+								echo '<span class="war-name-display">'.$nameDisplay.'</span>'; 
 								displayResult($event);
 							}
 							elseif ($event['isHomeAttack'] === true) {
@@ -244,7 +244,7 @@
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
-								echo $nameDisplay; 
+								echo '<span class="war-name-display">'.$nameDisplay.'</span>'; 
 								if ($event['starsWon'] > 0) {
 									echo '<div class="war-event-defeat">Defeat</div>';
 								}
