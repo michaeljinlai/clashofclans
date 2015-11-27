@@ -34,6 +34,21 @@
 			displayResult($attack);
 		}
 	}
+
+	function displayTotalStars($player) {
+		echo $player['attack1']['starsEarned'] + $player['attack2']['starsEarned'];
+		echo "/";
+		echo $player['attack1']['starsWon'] + $player['attack2']['starsWon'];
+	}
+
+	// Used in My Team and Enemy Team only
+	function displayEnemyBestAttack($player) {
+		if ($player['totalDefenses'] > 0) {
+			$attack = $player['enemyBestAttack'];
+			echo $attack['targetPosition'].". ".$attack['target'];
+			displayResult($attack);
+		}
+	}
 ?>
 
 <!-- Datatables CSS -->
@@ -273,7 +288,9 @@
 				<th>Name</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
-				<th>Stars</th>
+				<th>Total Stars</th>
+				<th>Enemy Best Attack</th>
+				<th>Total Defenses</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -281,10 +298,12 @@
 			<tr>
 				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
 				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
-				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
-				<td class="col-xs-3"><?php displayAttack($enemy, 1); ?></td>
-				<td class="col-xs-3"><?php displayAttack($enemy, 2); ?></td>
-				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
+				<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
+				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
+				<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
+				<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
+				<td class="col-xs-1"><?php echo $enemy['totalDefenses']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
@@ -300,7 +319,9 @@
 				<th>Name</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
-				<th>Stars</th>
+				<th>Total Stars</th>
+				<th>Enemy Best Attack</th>
+				<th>Total Defenses</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -308,10 +329,12 @@
 			<tr>
 				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
 				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
-				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
-				<td class="col-xs-3"><?php displayAttack($enemy, 1); ?></td>
-				<td class="col-xs-3"><?php displayAttack($enemy, 2); ?></td>
-				<td class="col-xs-1"><?php echo ($enemy['attack1']['starsEarned'] + $enemy['attack2']['starsEarned']); ?></td>
+				<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
+				<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
+				<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
+				<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
+				<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
+				<td class="col-xs-1"><?php echo $enemy['totalDefenses']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
