@@ -182,6 +182,7 @@
 								}
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
+									$count = 0;
 									while ($count < $event['starsWon'] - $event['starsEarned']) {
 										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
 										$count = $count + 1;
@@ -224,6 +225,7 @@
 								}
 								elseif ($event['starsWon'] === 0) {
 									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
+									$count = 0;
 									while ($count < $event['starsWon'] - $event['starsEarned']) {
 										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
 										$count = $count + 1;
