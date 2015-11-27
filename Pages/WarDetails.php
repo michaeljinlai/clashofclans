@@ -268,7 +268,7 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Experience</th>
+				<th>Town Hall</th>
 				<th>Name</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
@@ -279,7 +279,7 @@
 			<?php foreach ($json['home']['roster'] as $enemy) : ?>
 			<tr>
 				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1">Unknown</td>
+				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['attack1']['target']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['attack2']['target']; ?></td>
@@ -295,7 +295,7 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Experience</th>
+				<th>Town Hall</th>
 				<th>Name</th>
 				<th>Attack 1</th>
 				<th>Attack 2</th>
@@ -306,7 +306,7 @@
 			<?php foreach ($json['enemy']['roster'] as $enemy) : ?>
 			<tr>
 				<td class="col-xs-1"><?php echo $enemy['position']; ?></td>
-				<td class="col-xs-1">Unknown</td>
+				<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['name']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['attack1']['target']; ?></td>
 				<td class="col-xs-3"><?php echo $enemy['attack2']['target']; ?></td>
