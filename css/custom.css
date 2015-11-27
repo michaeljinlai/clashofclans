@@ -298,6 +298,8 @@ ul.nav a.active {
 
 .war-event-img {
   margin-right: 5px;
+  width: 30px;
+  height: 30px;
 }
 
 .war-star-img {

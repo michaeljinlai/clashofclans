@@ -155,15 +155,15 @@
 						<?php 
 							if ($event['isHomeAttack'] === false) {
 								if ($event['starsWon'] > 0) {
-									echo '<img class="war-event-img" src="img/Shield-Broken.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo '<img class="war-event-img" src="img/Shield.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
 							}
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
-									echo '<img class="war-event-img" src="img/Sword.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Sword.png" />';
 									$count = 0;
 									while ($count < $event['starsWon'] - $event['starsEarned']) {
 										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
@@ -181,7 +181,7 @@
 									}
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo '<img class="war-event-img" src="img/Sword-Broken.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
 									while ($count < $event['starsWon'] - $event['starsEarned']) {
 										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
 										$count = $count + 1;
@@ -205,7 +205,7 @@
 						<?php 
 							if ($event['isHomeAttack'] === false) {
 								if ($event['starsWon'] > 0) {
-									echo '<img class="war-event-img" src="img/Sword.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Sword.png" />';
 									$count = 0;
 									while ($count < $event['starsWon'] - $event['starsEarned']) {
 										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
@@ -223,7 +223,7 @@
 									}
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo '<img class="war-event-img" src="img/Sword-Broken.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
 									while ($count < $event['starsWon'] - $event['starsEarned']) {
 										echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
 										$count = $count + 1;
@@ -242,10 +242,10 @@
 							}
 							elseif ($event['isHomeAttack'] === true) {
 								if ($event['starsWon'] > 0) {
-									echo '<img class="war-event-img" src="img/Shield-Broken.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
 								}
 								elseif ($event['starsWon'] === 0) {
-									echo '<img class="war-event-img" src="img/Shield.png" width="30" height="30" />';
+									echo '<img class="war-event-img" src="img/Shield.png" />';
 								}
 							}
 							echo $event['enemyPlayer']; 
