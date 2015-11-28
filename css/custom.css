@@ -97,11 +97,11 @@ ul.nav a.active {
 /* Datatables Whole Frame*/
 #myTable_wrapper, 
 .war-stats, 
-.war-events, 
-.war-my-team, 
+.war-events,
 .war-enemy-team, 
 .war-clan-vs-clan,
-.war-clan-info {
+.war-clan-info,
+#war-my-team_wrapper {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);
