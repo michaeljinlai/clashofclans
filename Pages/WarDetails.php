@@ -204,13 +204,13 @@
 				<tr class="
 					<?php 
 						if ($event['starsEarned'] === 0) {
-							echo 'background-neutral';
+							echo 'war-event-background-neutral';
 						}
 						elseif ($event['isHomeAttack'] === true && $event['starsEarned'] > 0) {
-							echo 'background-win';
+							echo 'war-event-background-win';
 						}
 						elseif ($event['isHomeAttack'] === false && $event['starsEarned'] > 0) {
-							echo 'background-lose';
+							echo 'war-event-background-lose';
 						}
 					?>
 				">
@@ -347,15 +347,20 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-    $('#war-my-team').DataTable({
-		paging: false
+	$(document).ready(function(){
+	    $('#war-events').DataTable({
+	    	paging: false,
+	    	aoColumnDefs: [
+	    		{ bSortable: false, aTargets: [ 1 ] }
+	    	]
+	    });
+
+	    $('#war-my-team').DataTable({
+			paging: false
+		});
+
+	    $('#war-enemy-team').DataTable({
+	    	paging: false
+	    });
 	});
-    $('#war-enemy-team').DataTable({
-    	paging: false
-    });
-    $('#war-events').DataTable({
-    	paging: false
-    });
-});
 </script>

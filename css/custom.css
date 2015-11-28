@@ -97,9 +97,9 @@ ul.nav a.active {
 /* Datatables Whole Frame*/
 #myTable_wrapper, 
 .war-stats, 
-.war-events,
 .war-clan-vs-clan,
 .war-clan-info,
+#war-events_wrapper,
 #war-my-team_wrapper,
 #war-enemy-team_wrapper {
   width: -webkit-calc(100% - 30px);
@@ -338,16 +338,28 @@ ul.nav a.active {
   color: #FF6131;
 }
 
-.background-neutral {
+.war-event-background-neutral {
   background-color: #CECFC6!important;
 }
 
-.background-win {
+.war-event-background-win {
   background-color: #B5CFA5!important;
 }
 
-.background-lose {
+.war-event-background-lose {
   background-color: #D6AEA5!important;
+}
+
+.war-log-background-neutral {
+  background-color: #f2f2f2!important;
+}
+
+.war-log-background-win {
+  background-color: #f2f8eb!important;
+}
+
+.war-log-background-lose {
+  background-color: #f8ebeb!important;
 }
 
 .team-star-container {
