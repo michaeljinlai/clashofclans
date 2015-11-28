@@ -351,16 +351,22 @@
 	    $('#war-events').DataTable({
 	    	paging: false,
 	    	aoColumnDefs: [
-	    		{ bSortable: false, aTargets: [ 1 ] }
+	    		{ bSortable: false, aTargets: [ 1, 2, 3 ] }
 	    	]
 	    });
 
 	    $('#war-my-team').DataTable({
-			paging: false
+			paging: false,
+	    	aoColumnDefs: [
+	    		{ bSortable: false, aTargets: [ 3, 4, 6 ] }
+	    	]
 		});
 
 	    $('#war-enemy-team').DataTable({
-	    	paging: false
+	    	paging: false,
+	    	aoColumnDefs: [
+	    		{ bSortable: false, aTargets: [ 3, 4, 6 ] }
+	    	]
 	    });
 	});
 </script>
