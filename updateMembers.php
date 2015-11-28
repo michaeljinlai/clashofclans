@@ -169,7 +169,7 @@ catch(PDOException $ex)
     die("Failed to run query: " . $ex->getMessage()); 
 } 
 
-header("Location: updatesuccess.php"); 
+header("Location: redirect.php?class=success&message=Please wait to be redirected"); 
 die(); 
 
 ?>
