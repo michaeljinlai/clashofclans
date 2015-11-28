@@ -101,7 +101,7 @@ ul.nav a.active {
 .war-clan-vs-clan,
 .war-clan-info,
 #war-events_wrapper,
-#war-team_wrapper,
+#war-team_wrapper {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);
