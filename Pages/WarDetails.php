@@ -190,7 +190,7 @@
 </div>
 	<!-- War Events Tab -->    
 <div id="warEvents" class="tab-pane fade">
-    <table class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
+    <table id="war-events" class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -348,7 +348,14 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-    $('#war-my-team').DataTable();
-    $('#war-enemy-team').DataTable();
+    $('#war-my-team').DataTable({
+		paging: false
+	});
+    $('#war-enemy-team').DataTable({
+    	paging: false
+    });
+    $('#war-events').DataTable({
+    	paging: false
+    });
 });
 </script>
