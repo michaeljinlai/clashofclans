@@ -107,6 +107,10 @@ ul.nav a.active {
   width: calc(100% - 30px);
 }
 
+#war-my-team_wrapper, #war-enemy-team_wrapper, .war-events {
+  margin-bottom: 300px;
+}
+
 #warStats .war-clan-vs-clan thead tr th, #warStats .war-stats thead tr th, #warStats {
   text-align: center;
 }

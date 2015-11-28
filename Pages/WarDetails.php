@@ -348,7 +348,13 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-    $('#war-my-team').DataTable();
-    $('#war-enemy-team').DataTable();
+    $('#war-my-team').DataTable( {
+    	paging: false,
+    	"dom": '<"pull-left"f><"pull-right"li>tp'
+    } );
+    $('#war-enemy-team').DataTable( {
+    	paging: false,
+    	"dom": '<"pull-left"f><"pull-right"li>tp'
+    } );
 });
 </script>
