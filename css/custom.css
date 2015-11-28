@@ -135,7 +135,8 @@ ul.nav a.active {
 
 @font-face {
     font-family: 'supercell';
-    src: url('../fonts/Supercell-magic-webfont.ttf');
+    /*src: url('../fonts/Supercell-magic-webfont.ttf');*/
+    src: url('../fonts/Bad-Blockhead.ttf');
 }
 
 .experience-level {
@@ -324,17 +325,13 @@ ul.nav a.active {
   font-family: 'supercell';
 }
 
-.war-time-remain, .war-event-id {
-  color: white;
-}
-
 .war-dmg {
   font-size: 14px;
   color: black;
 }
 
-.war-name-display {
-  font-size: 14px;
+.war-name-display, .war-time-remain, .war-event-id {
+  font-size: 17px;
   color: white;
 }
 
