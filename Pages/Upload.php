@@ -1,4 +1,18 @@
 <?php
+
+    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
+
+    // Check if user is logged in
+    if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') 
+    { 
+            // If they are not, we redirect them to the login page. 
+      header("Location: ../login.php"); 
+
+            // Remember that this die statement is absolutely critical.  Without it, 
+            // people can view your members-only content without logging in. 
+      die("Redirecting to login.php"); 
+    } 
+
     if (!empty($_FILES)) {
         $target_dir = "../database/war-history/raw/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
