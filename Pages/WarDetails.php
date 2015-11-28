@@ -349,6 +349,11 @@
 	$(document).ready(function(){
 	    $('#war-events').DataTable({
 	    	paging: false,
+	    	"dom": '<"pull-left"f><"pull-right"li>tp',
+	    	language: {
+		        search: "_INPUT_",
+		        searchPlaceholder: "Search"
+		    },
 	    	aoColumnDefs: [
 	    		{ bSortable: false, aTargets: [ 1, 2, 3 ] }
 	    	]
