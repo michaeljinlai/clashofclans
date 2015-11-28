@@ -133,7 +133,6 @@ ul.nav a.active {
   text-align: center;
 }
 
-
 /* Bootstrap removes border from responsive tables class */
 .table-responsive {
   border: none;
@@ -360,15 +359,15 @@ ul.nav a.active {
 }
 
 .war-event-background-neutral {
-  background-color: #CECFC6!important;
+  background-color: #CECFC6;
 }
 
 .war-event-background-win {
-  background-color: #B5CFA5!important;
+  background-color: #B5CFA5;
 }
 
 .war-event-background-lose {
-  background-color: #D6AEA5!important;
+  background-color: #D6AEA5;
 }
 
 .war-event-background-neutral:hover {
@@ -384,15 +383,27 @@ ul.nav a.active {
 }
 
 .war-log-background-neutral {
-  background-color: #f2f2f2!important;
+  background-color: #f2f2f2;
 }
 
 .war-log-background-win {
-  background-color: #f2f8eb!important;
+  background-color: #f2f8eb;
 }
 
 .war-log-background-lose {
-  background-color: #f8ebeb!important;
+  background-color: #f8ebeb;
+}
+
+.war-log-background-neutral:hover {
+  background-color: #d9d9d9!important;
+}
+
+.war-log-background-win:hover {
+  background-color: #daebc6!important;
+}
+
+.war-log-background-lose:hover {
+  background-color: #ebc6c6!important;
 }
 
 /* START GLYPHYICON ANIMATIONS */
