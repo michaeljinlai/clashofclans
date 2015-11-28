@@ -406,6 +406,11 @@ ul.nav a.active {
   background-color: #ebc6c6!important;
 }
 
+.war-event-dmg {
+  float: left;
+  width: 50px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
