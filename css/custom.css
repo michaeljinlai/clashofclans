@@ -98,10 +98,10 @@ ul.nav a.active {
 #myTable_wrapper, 
 .war-stats, 
 .war-events,
-.war-enemy-team, 
 .war-clan-vs-clan,
 .war-clan-info,
-#war-my-team_wrapper {
+#war-my-team_wrapper,
+#war-enemy-team_wrapper {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);

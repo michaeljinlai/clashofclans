@@ -315,7 +315,7 @@
 </div>
 <!-- Enemy Team Tab -->
 <div id="enemyTeam" class="tab-pane fade">
-    <table class="war-enemy-team table table-striped table-bordered table-hover dt-responsive members-table">
+    <table id="war-enemy-team" class="war-enemy-team table table-striped table-bordered table-hover dt-responsive members-table">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -349,5 +349,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
     $('#war-my-team').DataTable();
+    $('#war-enemy-team').DataTable();
 });
 </script>
