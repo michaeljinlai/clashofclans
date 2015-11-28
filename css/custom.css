@@ -111,6 +111,10 @@ ul.nav a.active {
   margin-bottom: 300px;
 }
 
+#war-my-team_filter input, #war-enemy-team_filter input{
+  margin-left: 0px;
+}
+
 #warStats .war-clan-vs-clan thead tr th, #warStats .war-stats thead tr th, #warStats {
   text-align: center;
 }

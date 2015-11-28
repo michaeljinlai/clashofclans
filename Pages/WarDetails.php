@@ -350,11 +350,19 @@
     $(document).ready(function(){
     $('#war-my-team').DataTable( {
     	paging: false,
-    	"dom": '<"pull-left"f><"pull-right"li>tp'
+    	"dom": '<"pull-left"f><"pull-right"li>tp',
+    	language: {
+	        search: "_INPUT_",
+	        searchPlaceholder: "Search"
+	    }
     } );
     $('#war-enemy-team').DataTable( {
     	paging: false,
-    	"dom": '<"pull-left"f><"pull-right"li>tp'
+    	"dom": '<"pull-left"f><"pull-right"li>tp',
+    	language: {
+	        search: "_INPUT_",
+	        searchPlaceholder: "Search"
+	    }
     } );
 });
 </script>
