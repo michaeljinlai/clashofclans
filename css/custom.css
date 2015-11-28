@@ -359,15 +359,15 @@ ul.nav a.active {
 }
 
 .war-event-background-neutral {
-  background-color: #CECFC6;
+  background-color: #CECFC6!important;
 }
 
 .war-event-background-win {
-  background-color: #B5CFA5;
+  background-color: #B5CFA5!important;
 }
 
 .war-event-background-lose {
-  background-color: #D6AEA5;
+  background-color: #D6AEA5!important;
 }
 
 .war-event-background-neutral:hover {
@@ -383,15 +383,15 @@ ul.nav a.active {
 }
 
 .war-log-background-neutral {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2!important;
 }
 
 .war-log-background-win {
-  background-color: #f2f8eb;
+  background-color: #f2f8eb!important;
 }
 
 .war-log-background-lose {
-  background-color: #f8ebeb;
+  background-color: #f8ebeb!important;
 }
 
 .war-log-background-neutral:hover {
