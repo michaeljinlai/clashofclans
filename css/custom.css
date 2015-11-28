@@ -409,7 +409,12 @@ ul.nav a.active {
 
 .war-event-dmg {
   float: left;
-  width: 50px;
+  width: 45px;
+}
+
+.war-team-dmg {
+  float: left;
+  width: 38px;
 }
 
 .war-star-img-container {

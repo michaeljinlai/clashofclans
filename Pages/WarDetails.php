@@ -10,7 +10,7 @@
 		if ($useGameFont)
 			echo '<span class="war-dmg war-event-dmg">'.$event['damage']."% ".'</span>';
 		else
-			echo'<span class="war-event-dmg">'.$event['damage']."% ".'</span>';
+			echo'<span class="war-team-dmg">'.$event['damage']."% ".'</span>';
 		echo '<span class="war-star-img-container">';
 		$count = 0;
 		while ($count < $event['starsWon'] - $event['starsEarned']) {
