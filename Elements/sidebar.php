@@ -58,9 +58,9 @@
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Videos')" data-toggle="tooltip" title="Videos" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-play-circle glyph-sidebar"></span>
-				<span class="sidebar-text">Videos</span>
+			<a onclick="loadDoc('Upload')" data-toggle="tooltip" title="Upload" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-upload glyph-sidebar"></span>
+				<span class="sidebar-text">Upload</span>
 			</a>
 		</li>
 		<!-- Only show log out button if they are logged in -->
