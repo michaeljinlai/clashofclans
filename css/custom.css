@@ -87,6 +87,7 @@ ul.nav a.active {
   background-color: white;
   height: 100vh;
   padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* Removing the margin from page-header built in from bootstrap */
