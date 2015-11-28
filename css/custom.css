@@ -358,9 +358,18 @@ ul.nav a.active {
   background-color: #D6AEA5!important;
 }
 
-.team-star-container {
-
+.background-neutral:hover {
+  background-color: #B8B9AC!important;
 }
+
+.background-win:hover {
+  background-color: #9FC18B!important;
+}
+
+.background-lose:hover {
+  background-color: #C79184!important;
+}
+
 
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
