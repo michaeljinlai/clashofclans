@@ -100,16 +100,33 @@ ul.nav a.active {
 .war-clan-vs-clan,
 .war-clan-info,
 #war-events_wrapper,
-#war-my-team_wrapper,
-#war-enemy-team_wrapper {
+#war-team_wrapper,
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);
 }
 
-#warStats .war-clan-vs-clan thead tr th, #warStats .war-stats thead tr th, #warStats {
+#warStats .war-clan-vs-clan thead tr th,
+#warStats .war-stats thead tr th,
+#warStats {
   text-align: center;
 }
+
+#warEvents td:nth-child(1),
+#warEvents td:nth-child(2) {
+  text-align: right;
+}
+
+.war-team td:nth-child(1) {
+  text-align: right;
+}
+
+.war-team td:nth-child(3),
+.war-team td:nth-child(6),
+.war-team td:nth-child(8) {
+  text-align: center;
+}
+
 
 /* Bootstrap removes border from responsive tables class */
 .table-responsive {
@@ -121,13 +138,14 @@ ul.nav a.active {
 }
 
 /* CSS for members table */
-.members-table tbody tr td {
+.members-table tbody tr td,
+.members-table thead tr th {
   vertical-align: middle;
 }
 
 @font-face {
-    font-family: 'supercell';
-    src: url('../fonts/Supercell-magic-webfont.ttf');
+  font-family: 'supercell';
+  src: url('../fonts/Supercell-magic-webfont.ttf');
 }
 
 .experience-level {
