@@ -96,7 +96,7 @@ ul.nav a.active {
 }
 
 /* Datatables Whole Frame*/
-#myTable_wrapper, 
+/*#myTable_wrapper, 
 .war-stats, 
 .war-clan-vs-clan,
 .war-clan-info,
@@ -105,7 +105,7 @@ ul.nav a.active {
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);
-}
+}*/
 
 #war-my-team_wrapper, #war-enemy-team_wrapper, .war-events {
   margin-bottom: 300px;
