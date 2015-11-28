@@ -412,6 +412,15 @@ ul.nav a.active {
   width: 50px;
 }
 
+.war-star-img-container {
+
+}
+
+.war-star-img-container {
+  float: left;
+  width: 54px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
