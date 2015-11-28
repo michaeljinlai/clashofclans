@@ -18,7 +18,7 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Time</th>
+					<th>Size</th>
 					<th>Destruction</th>
 					<th>Stars</th>
 					<th>My Clan</th>
@@ -34,9 +34,18 @@
 					$str = file_get_contents('../database/war-history/json/'.$warFile);
 					$json = json_decode($str, true);
 				?>
-					<tr>
+					<tr class="
+						<?php 
+							if ($json['summary']['result'] == "Draw")
+								echo 'war-log-background-neutral';
+							elseif ($json['summary']['result'] == "Victory")
+								echo 'war-log-background-win';
+							else
+								echo 'war-log-background-lose';
+						?>
+					">
 						<td><?php echo $json['id']; ?></td>
-						<td>Unknown</td>
+						<td><?php echo $json['home']['size']; ?></td>
 						<td><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
 						<td><?php echo ($json['summary']['home']['3Star']*3 + $json['summary']['home']['2Star']*2 + $json['summary']['home']['1Star']); ?></td>
 						<td>Prepare to Die</td>
@@ -58,5 +67,3 @@
     } );
 });
 </script>
-
-

@@ -97,11 +97,10 @@ ul.nav a.active {
 /* Datatables Whole Frame*/
 #myTable_wrapper, 
 .war-stats, 
-.war-events,
 .war-clan-vs-clan,
 .war-clan-info,
-#war-my-team_wrapper,
-#war-enemy-team_wrapper {
+#war-events_wrapper,
+#war-team_wrapper,
   width: -webkit-calc(100% - 30px);
   width: -moz-calc(100% - 30px);
   width: calc(100% - 30px);
@@ -119,6 +118,22 @@ ul.nav a.active {
   text-align: center;
 }
 
+#warEvents td:nth-child(1),
+#warEvents td:nth-child(2) {
+  text-align: right;
+}
+
+.war-team td:nth-child(1) {
+  text-align: right;
+}
+
+.war-team td:nth-child(3),
+.war-team td:nth-child(6),
+.war-team td:nth-child(8) {
+  text-align: center;
+}
+
+
 /* Bootstrap removes border from responsive tables class */
 .table-responsive {
   border: none;
@@ -129,7 +144,8 @@ ul.nav a.active {
 }
 
 /* CSS for members table */
-.members-table tbody tr td {
+.members-table tbody tr td,
+.members-table thead tr th {
   vertical-align: middle;
 }
 
@@ -343,30 +359,41 @@ ul.nav a.active {
   color: #FF6131;
 }
 
-.background-neutral {
+.war-event-background-neutral {
   background-color: #CECFC6!important;
 }
 
-.background-win {
+.war-event-background-win {
   background-color: #B5CFA5!important;
 }
 
-.background-lose {
+.war-event-background-lose {
   background-color: #D6AEA5!important;
 }
 
-.background-neutral:hover {
+.war-event-background-neutral:hover {
   background-color: #B8B9AC!important;
 }
 
-.background-win:hover {
+.war-event-background-win:hover {
   background-color: #9FC18B!important;
 }
 
-.background-lose:hover {
+.war-event-background-lose:hover {
   background-color: #C79184!important;
 }
 
+.war-log-background-neutral {
+  background-color: #f2f2f2!important;
+}
+
+.war-log-background-win {
+  background-color: #f2f8eb!important;
+}
+
+.war-log-background-lose {
+  background-color: #f8ebeb!important;
+}
 
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
