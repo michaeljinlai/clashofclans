@@ -57,12 +57,16 @@
 				<span class="sidebar-text">War Log</span>
 			</a>
 		</li>
-		<li>
-			<a onclick="loadDoc('Upload')" data-toggle="tooltip" title="Upload" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-upload glyph-sidebar"></span>
-				<span class="sidebar-text">Upload</span>
-			</a>
-		</li>
+		<!-- Only show Profile button if the user is an administrator -->
+		<?php 
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+			<li>
+				<a onclick="loadDoc(\'Upload\')" data-toggle="tooltip" title="Upload" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-upload glyph-sidebar"></span>
+					<span class="sidebar-text">Upload</span>
+				</a>
+			</li>';}
+		?>
 		<!-- Only show log out button if they are logged in -->
 		<?php 
 		if(!empty($_SESSION['user'])) {echo '
