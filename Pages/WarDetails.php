@@ -74,7 +74,7 @@
 	    <table class="war-clan-vs-clan table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th class="col-xs-4">Prepare to Die</th>
+					<th class="col-xs-4"><?php echo $json['home']['name']; ?></th>
 					<th class="col-xs-4">VS</th>
 					<th class="col-xs-4"><?php echo $json['enemy']['name']; ?></th>
 				</tr>
