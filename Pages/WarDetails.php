@@ -194,7 +194,7 @@
 	    <table id="war-events" class="war-events table table-striped table-hover dt-responsive members-table">
 			<thead style="border-top:5px solid red;">
 				<tr>
-					<th>#</th>
+					<th></th>
 					<th>Time Remaining</th>
 					<th><?php echo $json['home']['name']; ?></th>
 					<th><?php echo $json['enemy']['name']; ?></th>
