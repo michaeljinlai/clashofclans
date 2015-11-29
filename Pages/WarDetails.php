@@ -191,8 +191,8 @@
 	</div>
 	<!-- War Events Tab -->    
 	<div id="warEvents" class="tab-pane fade">
-	    <table id="war-events" class="war-events table table-striped table-bordered table-hover dt-responsive members-table">
-			<thead>
+	    <table id="war-events" class="war-events table table-striped table-hover dt-responsive members-table">
+			<thead style="border-top:5px solid red;">
 				<tr>
 					<th>#</th>
 					<th>Time Remaining</th>

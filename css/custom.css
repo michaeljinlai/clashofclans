@@ -111,7 +111,7 @@ ul.nav a.active {
   margin-bottom: 300px;
 }
 
-#war-my-team_filter input, #war-enemy-team_filter input{
+#war-my-team_filter input, #war-enemy-team_filter input, #war-events_filter input{
   margin-left: 0px;
 }
 
@@ -424,6 +424,39 @@ ul.nav a.active {
 
 .delete-table {
   width: 225px;
+}
+
+#war-events tbody tr td:first-child { 
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px; 
+}
+
+#war-events tbody tr td:last-child { 
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;  
+}
+
+#war-events {
+  border-collapse: separate;
+}
+
+#war-events {
+  border-top: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+#war-events thead tr th:first-child {
+  border-left: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+#war-events thead tr th:last-child {
+  border-right: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+#war-events thead tr th {
+  border-bottom: 0px;
 }
 
 /* START GLYPHYICON ANIMATIONS */
