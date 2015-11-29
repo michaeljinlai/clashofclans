@@ -36,7 +36,7 @@ foreach($files as $file){
         <tr id='del$count'>
             <td>$count</td>
             <td>$file</td>
-            <td><input type='button' id='delete$count' value='Delete' onclick='deleteFile(\"$file\",$count,\"$directory\");'></td>
+            <td><input class='btn btn-primary' type='button' id='delete$count' value='Delete' onclick='deleteFile(\"$file\",$count,\"$directory\");'></td>
         </tr>";
     $count++;
     }
