@@ -53,6 +53,7 @@
 
 <body>
 
+<h1 class="page-header">Upload</h1>
 <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
     Select file to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">

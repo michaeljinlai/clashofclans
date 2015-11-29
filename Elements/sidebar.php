@@ -62,8 +62,18 @@
 		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
 			<li>
 				<a onclick="loadDoc(\'Upload\')" data-toggle="tooltip" title="Upload" class="sidebar-item-link" data-placement="right">
-					<span class="glyphicon glyphicon-upload glyph-sidebar"></span>
+					<span class="glyphicon glyphicon-floppy-saved glyph-sidebar"></span>
 					<span class="sidebar-text">Upload</span>
+				</a>
+			</li>';}
+		?>
+		<!-- Only show Profile button if the user is an administrator -->
+		<?php 
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+			<li>
+				<a onClick="loadDelete(\'Delete\')" data-toggle="tooltip" title="Delete" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-floppy-remove glyph-sidebar"></span>
+					<span class="sidebar-text">Delete</span>
 				</a>
 			</li>';}
 		?>
@@ -88,7 +98,7 @@
 				</a>
 			</li>';
 		}
-		?>
+		?>			
 	</ul>
 </div>
 </html>
@@ -111,6 +121,18 @@ $(function () {
 <script>
 function loadDoc(str) {
 		$("#main").load("Pages/"+str+".php", function() {
+	    // This gets executed when the content is loaded
+	    //$.get("//code.jquery.com/jquery-1.10.2.min.js");
+	    //$.get("//cdn.datatables.net/1.10.10/js/jquery.dataTables.js");
+	});
+}
+</script>
+
+<!-- Sidebar Delete Button -->
+<!-- For some reasons I can't get this to work when the two delete php files are in the Pages folder -->
+<script>
+function loadDelete(str) {
+		$("#main").load(str+".php", function() {
 	    // This gets executed when the content is loaded
 	    //$.get("//code.jquery.com/jquery-1.10.2.min.js");
 	    //$.get("//cdn.datatables.net/1.10.10/js/jquery.dataTables.js");

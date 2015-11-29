@@ -422,6 +422,10 @@ ul.nav a.active {
   width: 54px;
 }
 
+.delete-table {
+  width: 225px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
