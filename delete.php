@@ -47,7 +47,7 @@ echo '</table>';
 <script type="text/javascript">
 function deleteFile(fname,rowid,directory)
 {
-    if (confirm('Are you sure you want to delete this file?')) {
+    if (confirm('Are you sure you want to delete "'+fname+'"?')) {
         $.ajax({ url: "deletefile.php",
             data: {"filename":fname,"directory":directory},
             type: 'post',
