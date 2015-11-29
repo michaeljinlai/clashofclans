@@ -196,7 +196,7 @@
 				<tr>
 					<th>#</th>
 					<th>Time Remaining</th>
-					<th>Prepare to Die</th>
+					<th><?php echo $json['home']['name']; ?></th>
 					<th><?php echo $json['enemy']['name']; ?></th>
 				</tr>
 			</thead>
