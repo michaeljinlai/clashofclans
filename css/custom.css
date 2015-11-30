@@ -58,6 +58,7 @@ body {
 }
 
 /* Sidebar Font Awesome (For Home) */
+/* For some reason not all the font awesome icons are the same initial size, which is a bummer */
 .sidebar li .sidebar-item-link .fa-sidebar-home {
   width: 17px;
   font-size: 21px;
