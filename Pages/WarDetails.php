@@ -293,7 +293,7 @@
 			<tbody>
 				<?php foreach ($json['enemy']['roster'] as $player) : ?>
 				<tr>
-					<td class="col-xs-1"><?php echo $player['position']; ?></td>				
+					<td class="col-xs-1"><?php echo $player['position']; ?></td>
 					<td class="col-xs-2"><?php echo $player['name']; ?></td>
 					<td class="col-xs-1"><?php echo $player['townHall']; ?></td>
 					<td class="col-xs-2"><?php displayAttack($player, 1); ?></td>
@@ -315,19 +315,23 @@
 						<th colspan="4"><?php echo $json['home']['name']; ?></th>
 					</tr>
 					<tr>
-						<th class="col-xs-1">#</th>
-						<th class="col-xs-8">Name</th>
-						<th class="col-xs-1">Offense</th>
-						<th class="col-xs-1">Defense</th>
+						<th>#</th>
+						<th>Name</th>
+						<!-- <th>Gold/Elixir</th> -->
+						<!-- <th>Dark Elixir</th> -->
+						<th>Offense</th>
+						<th>Defense</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ($json['home']['roster'] as $player) : ?>
 					<tr>
-						<td><?php echo $player['position']; ?></td>
-						<td><?php echo $player['name']; ?></td>
-						<td><?php echo $player['offenseWeight']; ?></td>
-						<td><?php echo $player['defenseWeight']; ?></td>
+						<td class="col-xs-1"><?php echo $player['position']; ?></td>
+						<td class="col-xs-9"><?php echo $player['name']; ?></td>
+						<!-- <td class="col-xs-1"><?php echo $player['goldAndElixir']; ?></td> -->
+						<!-- <td class="col-xs-1"><?php echo $player['darkElixir']; ?></td> -->
+						<td class="col-xs-1"><?php echo $player['offenseWeight']; ?></td>
+						<td class="col-xs-1"><?php echo $player['defenseWeight']; ?></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -338,22 +342,26 @@
 			<table id="war-weights-enemy" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
 				<thead>
 					<tr>
-						<th colspan="4"><?php echo $json['enemy']['name']; ?></th>
+						<th colspan="4"><?php echo $json['home']['name']; ?></th>
 					</tr>
 					<tr>
-						<th class="col-xs-1">#</th>
-						<th class="col-xs-8">Name</th>
-						<th class="col-xs-1">Offense</th>
-						<th class="col-xs-1">Defense</th>
+						<th>#</th>
+						<th>Name</th>
+						<!-- <th>Gold/Elixir</th> -->
+						<!-- <th>Dark Elixir</th> -->
+						<th>Offense</th>
+						<th>Defense</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($json['enemy']['roster'] as $player) : ?>
+					<?php foreach ($json['home']['roster'] as $player) : ?>
 					<tr>
-						<td><?php echo $player['position']; ?></td>
-						<td><?php echo $player['name']; ?></td>
-						<td><?php echo $player['offenseWeight']; ?></td>
-						<td><?php echo $player['defenseWeight']; ?></td>
+						<td class="col-xs-1"><?php echo $player['position']; ?></td>
+						<td class="col-xs-9"><?php echo $player['name']; ?></td>
+						<!-- <td class="col-xs-1"><?php echo $player['goldAndElixir']; ?></td> -->
+						<!-- <td class="col-xs-1"><?php echo $player['darkElixir']; ?></td> -->
+						<td class="col-xs-1"><?php echo $player['offenseWeight']; ?></td>
+						<td class="col-xs-1"><?php echo $player['defenseWeight']; ?></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -390,13 +398,23 @@
 	    	bInfo: false
 		});
 
-	    $('.war-weights').DataTable({
+	    var warWeightTable = $('.war-weights').DataTable({
 	    	paging: false,
 	    	bFilter: false,
 	    	bInfo: false,
 	    	aoColumnDefs: [
 	    		{ bSortable: false, aTargets: [ 1 ] }
 	    	]
+	    });
+
+	    $('a.toggle-vis').on( 'click', function (e) {
+	        e.preventDefault();
+	 
+	        // Get the column API object
+	        var column = warWeightTable.column( $(this).attr('data-column') );
+	 
+	        // Toggle the visibility
+	        column.visible( ! column.visible() );
 	    });
 	});
 </script>
