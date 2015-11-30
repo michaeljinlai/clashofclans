@@ -61,9 +61,9 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-    $('#myTable').DataTable( {
-    	"order": [[0, 'dsc']]
-    } );
-});
+    $(document).ready(function() {
+	    $('#myTable').DataTable({
+	    	"order": [[0, 'dsc']]
+	    });
+	});
 </script>
