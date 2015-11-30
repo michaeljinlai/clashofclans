@@ -193,15 +193,15 @@ section {
         <span><?php echo $leaderCount; ?></span>
       </li>
       <li>
-        <em>Co leader</em>
+        <em>Co-leader</em>
         <span><?php echo $coLeaderCount; ?></span>
       </li>
       <li>
-        <em>Elders</em>
+        <em>Elder</em>
         <span><?php echo $adminCount; ?></span>
       </li>
       <li>
-        <em>Members</em>
+        <em>Member</em>
         <span><?php echo $memberCount; ?></span>
       </li>
     </ul>
