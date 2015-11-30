@@ -10,15 +10,15 @@ var main = function () {
         $("[data-toggle='tooltip']").tooltip('destroy');
 
         $('.sidebar').animate({
-            width: "240px"
+            width: "160"
         }, 200);
 
         $('body').animate({
-            left: "240px"
+            left: "160"
         }, 200);
 
         setTimeout(function () {
-            $('body').css('width', '100%').css('width', '-=240px');
+            $('body').css('width', '100%').css('width', '-=160');
         }, 200);
 
     });
