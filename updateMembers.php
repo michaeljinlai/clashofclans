@@ -1,5 +1,7 @@
 <?php
 
+include('simple_html_dom.php');
+
 require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
 
 // Check if user is logged in
@@ -12,16 +14,6 @@ if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator
         // people can view your members-only content without logging in. 
   die("Redirecting to login.php"); 
 } 
-
-// Completely clear table 'members'
-$truncateMembers = "TRUNCATE TABLE members";
-$stmt = $db->prepare($truncateMembers); 
-$result = $stmt->execute(); 
-
-// Completely clear table 'clan_details'
-$truncateDetails = "TRUNCATE TABLE clan_details";
-$stmt = $db->prepare($truncateDetails); 
-$result = $stmt->execute(); 
 
 // Create a curl handle to a non-existing location
 $ch = curl_init('https://set7z18fgf.execute-api.us-east-1.amazonaws.com/prod/?route=getClanDetails&clanTag=%232J0G90RR');
@@ -44,8 +36,28 @@ $contents = curl_exec($ch);
 // Close handle
 curl_close($ch);
 
+// Using file_get_html is probably terrible and not sure if it will work on the live site
+$html = file_get_html('http://www.warclans.com/coc-clan/Y9QLPNP50');
+
+$warLosses = $html->find('div[class=clan-info] li span', 5)->innertext; // War Lost
+$warTies = $html->find('div[class=clan-info] li span', 6)->innertext; // War Tied
+
 //convert json object to php associative array
 $data = json_decode($contents, true);
+// Completely clear table 'members'
+
+if (!empty($data['clanDetails']['results']['memberList'])) {
+
+    $truncateMembers = "TRUNCATE TABLE members";
+    $stmt = $db->prepare($truncateMembers); 
+    $result = $stmt->execute(); 
+
+    // Completely clear table 'clan_details'
+    $truncateDetails = "TRUNCATE TABLE clan_details";
+    $stmt = $db->prepare($truncateDetails); 
+    $result = $stmt->execute(); 
+
+}
 
 // Example
 // Echos the first member of memberList
@@ -120,6 +132,8 @@ $query = "
         warFrequency,
         clanLevel,
         warWins,
+        warLosses,
+        warTies,
         clanPoints,
         requiredTrophies,
         members
@@ -134,6 +148,8 @@ $query = "
         :warFrequency,
         :clanLevel,
         :warWins,
+        :warLosses,
+        :warTies,
         :clanPoints,
         :requiredTrophies,
         :members
@@ -151,6 +167,8 @@ $query_params = array(
     ':warFrequency' => $data['clanDetails']['results']['warFrequency'], 
     ':clanLevel' => $data['clanDetails']['results']['clanLevel'], 
     ':warWins' => $data['clanDetails']['results']['warWins'], 
+    ':warLosses' => $warLosses, 
+    ':warTies' => $warTies, 
     ':clanPoints' => $data['clanDetails']['results']['clanPoints'], 
     ':requiredTrophies' => $data['clanDetails']['results']['requiredTrophies'],
     ':members' => $data['clanDetails']['results']['members'],
