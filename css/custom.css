@@ -511,6 +511,13 @@ ul.nav a.active {
   margin-right: 15px;
 }
 
+.ptd-logo {
+  width: 130px;
+  margin-left: 55px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
