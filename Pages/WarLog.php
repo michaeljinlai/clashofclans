@@ -14,7 +14,7 @@
 <div id="warMain">
 	<div class="table-responsive">
 	    <h1 class="page-header">War Log</h1>
-	    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
+	    <table id="memberTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
 					<th>#</th>
@@ -61,9 +61,9 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-    $('#myTable').DataTable( {
-    	"order": [[0, 'dsc']]
-    } );
-});
+    $(document).ready(function() {
+	    $('#memberTable').DataTable({
+	    	"order": [[0, 'dsc']]
+	    });
+	});
 </script>

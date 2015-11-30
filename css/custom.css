@@ -2,6 +2,15 @@ label {
   cursor: default;
 }
 
+/* Breadcrumb */
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li+li:before {
+  content:"» ";
+}
+
 /* Initial body */
 body {
   left: 50px;
@@ -156,27 +165,30 @@ ul.nav a.active {
 }
 
 .experience-level {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-image: url('https://clashofclans.com/img/svgs/player-star.svg');
   background-repeat: no-repeat;
-  background-size: 50px 50px; /* Size of the blue image thing */
+  background-size: 40px 40px; /* Size of the blue image thing */
+  display: inline-block;
   text-align: center; /* This only aligns center horizontally */
-  line-height: 50px; /* When this matches 'height', data will be vertically aligned in the center */
+  line-height: 40px; /* When this matches 'height', data will be vertically aligned in the center */
   font-family: 'supercell';
   color: white;
   /* Commented out because the border is terrible, maybe because the font file's quality is bad */
 /*  -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;*/
   text-shadow: 1px 3px 0px rgba(0, 0, 0, 1);
-  font-size: 17px;
+  font-size: 15px;
   /*margin: auto;*/ /* This centers the div within the td */
+  float: left;
+  margin-right: 5px;
 }
 
 .trophies {
   width: 150px;
-  height: 48px;
-  line-height: 48px;
+  height: 40px;
+  line-height: 40px;
   background-color: #E2C45A;
   text-align: center;
   font-family: 'supercell';
@@ -191,24 +203,26 @@ ul.nav a.active {
 }
 
 .clan-rank {
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   background-color: #444444;
   text-align: center;
   font-family: 'supercell';
   font-size: 18px;
   color: white;
   border-radius: 5px;
+  float: right;
+}
+
+.badge-img {
+  width: 40px;
+  height: 40px;
   float: left;
-  margin-top: 11px;
-  margin-left: 11px;
 }
 
 .member-name {
-  font-family: 'supercell';
-  font-size: 17px;
-  color: black;
+  font-size: 18px;
 }
 
 .member-role {
@@ -221,14 +235,13 @@ ul.nav a.active {
   height: 28px;
   line-height: 28px;
   background-color: #E7E7E7;
+  background-position: center top;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   color: black;
   border-radius: 5px;
   float: left;
-  margin-top: 11px;
-  margin-left: 11px;
 }
 
 .outer-clan-details-container {

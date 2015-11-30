@@ -11,24 +11,43 @@
 			echo '<span class="war-dmg war-event-dmg">'.$event['damage']."% ".'</span>';
 		else
 			echo'<span class="war-team-dmg">'.$event['damage']."% ".'</span>';
+
 		echo '<span class="war-star-img-container">';
-		$count = 0;
-		while ($count < $event['starsWon'] - $event['starsEarned']) {
+
+		for ($i = 0; $i < $event['starsWon'] - $event['starsEarned']; $i++)
 			echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
-			$count = $count + 1;
-		}
-		$count = 0;
-		while ($count < $event['starsEarned']) {
+		
+		for ($i = 0; $i < $event['starsEarned']; $i++)
 			echo '<img src="img/Star.png" class="war-star-img" />';
-			$count = $count + 1;
-		}
-		$count = 0;
-		while ($count < 3 - $event['starsWon']) {
+		
+		for ($i = 0; $i < 3 - $event['starsWon']; $i++)
 			echo '<img src="img/Star-Empty.png" class="war-star-img" />';
-			$count = $count + 1;
-		}
+
 		echo '</span>';
 		echo '</div>';
+	}
+
+	// Display player info and attack result in war events
+	function displayPlayer($event, $isHome) {
+		if ($isHome)
+			$nameDisplay = $event['homePlayerPosition'].". ".$event['homePlayer'];
+		else
+			$nameDisplay = $event['enemyPlayerPosition'].". ".$event['enemyPlayer'];
+
+		$successfulAttack = $event['starsWon'] > 0;
+
+		if ($event['isHomeAttack'] == !$isHome) {
+			echo '<img class="war-event-img" src="img/Shield'.($successfulAttack ? "-Broken" : "").'.png" />';			
+			echo '<span class="war-name-display">'.$nameDisplay.'</span>';
+			if ($successfulAttack)
+				echo '<div class="war-event-defeat">Defeat</div>';		
+			else
+				echo '<div class="war-event-defended">Defended!</div>';			
+		} else {
+			echo '<img class="war-event-img" src="img/Sword'.($successfulAttack ? "" : "-Broken").'.png" />';											
+			echo '<span class="war-name-display">'.$nameDisplay.'</span>';
+			displayResult($event);
+		}
 	}
 
 	// Used in My Team and Enemy Team only
@@ -59,9 +78,12 @@
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
-<h1 class="page-header">War Details <small><?php echo '#'.$json['id'].' versus '.$json['enemy']['name']; ?></small></h2>
+<h1 class="page-header">War Details <small><?php echo '#'.$json['id'].' versus '.$json['enemy']['name']; ?></small></h1>
+<ol class="breadcrumb">
+    <li><a href="" onClick="loadDoc('WarLog'); return false;">War Log</a></li>
+    <li>War <?php echo $json['id'] ?></li>
+</ol>
 <ul class="nav nav-pills">
-<li><a onClick="loadDoc('WarLog')">Back</a></li>
 <li class="active"><a data-toggle="pill" href="#warStats">War Stats</a></li>
 <li><a data-toggle="pill" href="#warEvents">War Events</a></li>
 <li><a data-toggle="pill" href="#myTeam">My Team</a></li>
@@ -204,79 +226,18 @@
 				<?php foreach ($json['events'] as $event) : ?>
 					<tr class="
 						<?php 
-							if ($event['starsEarned'] === 0) {
+							if ($event['starsEarned'] === 0)
 								echo 'war-event-background-neutral';
-							}
-							elseif ($event['isHomeAttack'] === true && $event['starsEarned'] > 0) {
+							elseif ($event['isHomeAttack'] === true && $event['starsEarned'] > 0)
 								echo 'war-event-background-win';
-							}
-							elseif ($event['isHomeAttack'] === false && $event['starsEarned'] > 0) {
+							elseif ($event['isHomeAttack'] === false && $event['starsEarned'] > 0)
 								echo 'war-event-background-lose';
-							}
 						?>
 					">
 						<td class="col-xs-1"><?php echo '<span class="war-event-id">'.$event['id'].'</span>'; ?></td>
 						<td class="col-xs-1"><?php echo '<span class="war-time-remain">'.$event['timeLeftDisplay'].'</span>'; ?></td>
-						<td class="col-xs-5">
-							<?php							
-								$nameDisplay = $event['homePlayerPosition'].". ".$event['homePlayer'];
-								if ($event['isHomeAttack'] === false) {
-									if ($event['starsWon'] > 0) {
-										echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
-									}
-									elseif ($event['starsWon'] === 0) {
-										echo '<img class="war-event-img" src="img/Shield.png" />';
-									}
-									echo '<span class="war-name-display">'.$nameDisplay.'</span>';
-									if ($event['starsWon'] > 0) {
-										echo '<div class="war-event-defeat">Defeat</div>';
-									}
-									elseif ($event['starsWon'] === 0) {
-										echo '<div class="war-event-defended">Defended!</div>';
-									}
-								}
-								elseif ($event['isHomeAttack'] === true) {
-									if ($event['starsWon'] > 0) {
-										echo '<img class="war-event-img" src="img/Sword.png" />';
-									}
-									elseif ($event['starsWon'] === 0) {
-										echo '<img class="war-event-img" src="img/Sword-Broken.png" />';									
-									}
-									echo '<span class="war-name-display">'.$nameDisplay.'</span>';
-									displayResult($event);
-								}
-							?>
-						</td>
-						<td class="col-xs-5">
-							<?php 
-								$nameDisplay = $event['enemyPlayerPosition'].". ".$event['enemyPlayer'];
-								if ($event['isHomeAttack'] === false) {
-									if ($event['starsWon'] > 0) {
-										echo '<img class="war-event-img" src="img/Sword.png" />';
-									}
-									elseif ($event['starsWon'] === 0) {
-										echo '<img class="war-event-img" src="img/Sword-Broken.png" />';
-									}
-									echo '<span class="war-name-display">'.$nameDisplay.'</span>'; 
-									displayResult($event);
-								}
-								elseif ($event['isHomeAttack'] === true) {
-									if ($event['starsWon'] > 0) {
-										echo '<img class="war-event-img" src="img/Shield-Broken.png" />';
-									}
-									elseif ($event['starsWon'] === 0) {
-										echo '<img class="war-event-img" src="img/Shield.png" />';
-									}
-									echo '<span class="war-name-display">'.$nameDisplay.'</span>'; 
-									if ($event['starsWon'] > 0) {
-										echo '<div class="war-event-defeat">Defeat</div>';
-									}
-									elseif ($event['starsWon'] === 0) {
-										echo '<div class="war-event-defended">Defended!</div>';
-									}
-								}
-							?>
-						</td>
+						<td class="col-xs-5"><?php displayPlayer($event, true) ?></td>
+						<td class="col-xs-5"><?php displayPlayer($event, false) ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
