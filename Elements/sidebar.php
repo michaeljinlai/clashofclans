@@ -13,9 +13,27 @@
 				<span class="sidebar-text">Home</span>
 			</a>
 		</li>
+		<li>
+			<a onclick="loadDoc('Members')" data-toggle="tooltip" title="Members" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-user glyph-sidebar"></span>
+				<span class="sidebar-text">Members</span>
+			</a>
+		</li>
+		<li>
+			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-tower glyph-sidebar"></span>
+				<span class="sidebar-text">War Log</span>
+			</a>
+		</li>
+		<li>
+			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-stats glyph-sidebar"></span>
+				<span class="sidebar-text">Statistics</span>
+			</a>
+		</li>
 		<!-- Only show Profile button if they are logged in -->
 		<?php 
-		if(!empty($_SESSION['user'])) {echo '
+		if(!empty($_SESSION['user'])) { echo '
 			<li>
 				<a onclick="loadDoc(\'Profile\')" data-toggle="tooltip"title="Profile" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-user glyph-sidebar"></span>
@@ -23,15 +41,18 @@
 				</a>
 			</li>';}
 		?>
-		<li>
-			<a onclick="loadDoc('Users')" data-toggle="tooltip"title="Users" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-list-alt glyph-sidebar"></span>
-				<span class="sidebar-text">Users</span>
-			</a>
-		</li>
-		<!-- Only show Profile button if the user is an administrator -->
+		<!-- Only show if the user is an administrator -->
 		<?php 
-		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
+			<li>
+				<a onclick="loadDoc(\'Users\')" data-toggle="tooltip"title="Users" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-list-alt glyph-sidebar"></span>
+					<span class="sidebar-text">Users</span>
+				</a>
+			</li>';}
+		?>
+		<?php 
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
 			<li>
 				<a href="updateMembers.php" data-toggle="tooltip" title="Update Database" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-refresh glyph-sidebar"></span>
@@ -39,27 +60,8 @@
 				</a>
 			</li>';}
 		?>
-		<li>
-			<a onclick="loadDoc('Members')" data-toggle="tooltip" title="Members" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
-				<span class="sidebar-text">Members</span>
-			</a>
-		</li>
-		<li>
-			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
-				<span class="sidebar-text">Statistics</span>
-			</a>
-		</li>
-		<li>
-			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
-				<span class="sidebar-text">War Log</span>
-			</a>
-		</li>
-		<!-- Only show Profile button if the user is an administrator -->
 		<?php 
-		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
 			<li>
 				<a onclick="loadDoc(\'Upload\')" data-toggle="tooltip" title="Upload" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-floppy-saved glyph-sidebar"></span>
@@ -67,9 +69,8 @@
 				</a>
 			</li>';}
 		?>
-		<!-- Only show Profile button if the user is an administrator -->
 		<?php 
-		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
 			<li>
 				<a onClick="loadDelete(\'Delete\')" data-toggle="tooltip" title="Delete" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-floppy-remove glyph-sidebar"></span>
@@ -79,7 +80,7 @@
 		?>
 		<!-- Only show log out button if they are logged in -->
 		<?php 
-		if(!empty($_SESSION['user'])) {echo '
+		if(!empty($_SESSION['user'])) { echo '
 			<li>
 				<a href="logout.php" data-toggle="tooltip" title="Logout" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-log-out glyph-sidebar"></span>
@@ -90,7 +91,7 @@
 		?>
 		<!-- Only show log in button if they are not logged in -->		
 		<?php 
-		if(empty($_SESSION['user'])) {echo '
+		if(empty($_SESSION['user'])) { echo '
 			<li>
 				<a href="login.php" data-toggle="tooltip" title="Login" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-log-in glyph-sidebar"></span>
