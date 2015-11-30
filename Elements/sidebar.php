@@ -50,15 +50,15 @@
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
-				<span class="sidebar-text">Statistics</span>
-			</a>
-		</li>
-		<li>
 			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
 				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
 				<span class="sidebar-text">War Log</span>
+			</a>
+		</li>
+		<li>
+			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
+				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
+				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
 		<!-- Only show Profile button if the user is an administrator -->

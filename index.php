@@ -10,12 +10,12 @@ require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
 <div class="sidebar-toggle">
   <!-- This Menu Button is active when side menu is not open -->
   <div class="">
-    <i class="icon-menu glyphicon glyphicon-triangle-right sidebar-arrow"></i>
+    <i class="icon-menu hide glyphicon glyphicon-triangle-right sidebar-arrow"></i>
   </div>
 
   <!-- This Menu Button is active when side menu is open -->
   <div class="">
-    <i class="icon-menu-open hide glyphicon glyphicon-triangle-right gly-rotate-180 sidebar-arrow"></i>
+    <i class="icon-menu-open glyphicon glyphicon-triangle-right gly-rotate-180 sidebar-arrow"></i>
   </div>
 
 </div>
@@ -32,7 +32,9 @@ $(document).ready(function(){
         $('body').css('width', '100%').css('width', '-='+$('.sidebar').width());
     });
 
+    // Both of these will be loaded once the page initally loads
     $("#main").load("Pages/Home.php", function() {});
+    $("[data-toggle='tooltip']").tooltip('destroy');
 
 });
 </script>
