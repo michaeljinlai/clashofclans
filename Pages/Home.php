@@ -45,7 +45,10 @@
 <div class="outer-clan-details-container">
     <div class="black-overlay">
     	<div class="clan-details-container">
-    		<div class="clan-badge"><?php echo '<img src="'.$row[0]['clanBadgeImg_xl'].'" width="122" height="122" />'; ?></div>
+    		<div class="clan-badge">
+                <?php echo '<img src="'.$row[0]['clanBadgeImg_xl'].'" width="122" height="122" />'; ?>
+                <span class="clan-level"><?php echo $row[0]['clanLevel']; ?></span>
+            </div>
     		<div class="clan-name"><?php echo $row[0]['name']; ?></div>
     		<div class="clan-description"><?php echo $row[0]['description']; ?></div>
     		<div class="clan-tag"><?php echo $row[0]['tag']; ?></div>

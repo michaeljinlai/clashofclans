@@ -568,6 +568,15 @@ ul.nav a.active {
   border-bottom: 1px solid #32323E;
 }
 
+.clan-level {
+   position: absolute; 
+   top: 97px; 
+   left: 2px; 
+   width: 100%;
+   min-width: 835px;
+   color: white;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
