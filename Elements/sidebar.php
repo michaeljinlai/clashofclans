@@ -23,12 +23,16 @@
 				</a>
 			</li>';}
 		?>
-		<li>
-			<a onclick="loadDoc('Users')" data-toggle="tooltip"title="Users" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-list-alt glyph-sidebar"></span>
-				<span class="sidebar-text">Users</span>
-			</a>
-		</li>
+		<!-- Only show User button if the user is an administrator -->
+		<?php 
+		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
+			<li>
+				<a onclick="loadDoc(\'Users\')" data-toggle="tooltip"title="Users" class="sidebar-item-link" data-placement="right">
+					<span class="glyphicon glyphicon-list-alt glyph-sidebar"></span>
+					<span class="sidebar-text">Users</span>
+				</a>
+			</li>';}
+		?>
 		<!-- Only show Profile button if the user is an administrator -->
 		<?php 
 		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') {echo '
