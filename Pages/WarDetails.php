@@ -11,22 +11,18 @@
 			echo '<span class="war-dmg war-event-dmg">'.$event['damage']."% ".'</span>';
 		else
 			echo'<span class="war-team-dmg">'.$event['damage']."% ".'</span>';
+
 		echo '<span class="war-star-img-container">';
-		$count = 0;
-		while ($count < $event['starsWon'] - $event['starsEarned']) {
+
+		for ($i = 0; $i < $event['starsWon'] - $event['starsEarned']; $i++)
 			echo '<img src="img/Star-Previously-Won.png" class="war-star-img" />';
-			$count = $count + 1;
-		}
-		$count = 0;
-		while ($count < $event['starsEarned']) {
+		
+		for ($i = 0; $i < $event['starsEarned']; $i++)
 			echo '<img src="img/Star.png" class="war-star-img" />';
-			$count = $count + 1;
-		}
-		$count = 0;
-		while ($count < 3 - $event['starsWon']) {
+		
+		for ($i = 0; $i < 3 - $event['starsWon']; $i++)
 			echo '<img src="img/Star-Empty.png" class="war-star-img" />';
-			$count = $count + 1;
-		}
+
 		echo '</span>';
 		echo '</div>';
 	}
@@ -47,8 +43,7 @@
 				echo '<div class="war-event-defeat">Defeat</div>';		
 			else
 				echo '<div class="war-event-defended">Defended!</div>';			
-		}
-		elseif ($event['isHomeAttack'] == $isHome) {
+		} else {
 			echo '<img class="war-event-img" src="img/Sword'.($successfulAttack ? "" : "-Broken").'.png" />';											
 			echo '<span class="war-name-display">'.$nameDisplay.'</span>';
 			displayResult($event);
