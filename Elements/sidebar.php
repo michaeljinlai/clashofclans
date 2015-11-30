@@ -58,7 +58,7 @@
 		</li>
 		<li>
 			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
-				<span class="fa fa-shield fa-sidebar"></span>
+				<span class="fa fa-shield fa-sidebar-home"></span>
 				<span class="sidebar-text">War Log</span>
 			</a>
 		</li>
