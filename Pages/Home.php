@@ -55,6 +55,7 @@
 <!--                 <div class="clan-members-frequency"><?php echo '<img class="clan-details-trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="45" height="47" />'; echo $row[0]['clanPoints']; ?></div>
                 <div class="clan-type-required"><?php echo '<img class="clan-details-wars-image" src="https://clashofclans.com/img/shared/wars.png" width="53" height="47" />'; echo $row[0]['warWins']; ?></div> -->
             </div>
+            <div class="clan-tag">&lt;&lt; To get started, click one of the buttons on the left</div>
     	</div>
     </div>
 </div>
