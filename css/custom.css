@@ -459,6 +459,11 @@ ul.nav a.active {
   border-bottom: 0px;
 }
 
+.delete-table {
+  float: left;
+  margin-right: 15px;
+}
+
 /* START GLYPHYICON ANIMATIONS */
 /* http://bootsnipp.com/snippets/featured/glyphicon-animate-rotation-and-flip */
 .gly-spin {
