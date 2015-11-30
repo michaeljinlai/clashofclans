@@ -64,6 +64,10 @@ body {
   font-size: 21px;
 }
 
+body div.sidebar ul li a {
+  height: 51px;
+}
+
 /* Sidebar Text Next To Glyphicons */
 .sidebar li .sidebar-item-link .sidebar-text {
   font-size: 15px;
