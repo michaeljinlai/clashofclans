@@ -247,15 +247,14 @@ ul.nav a.active {
 .outer-clan-details-container {
   background-image: url('https://d3fyyuog756ajk.cloudfront.net/uploaded-images/_600x600_crop_center-center_90/Gold.png');
   background-size: cover;
-  width: -webkit-calc(100% - 30px);
-  width: -moz-calc(100% - 30px);
-  width: calc(100% - 30px);
   height: 100%;
+  border-radius: 10px;
 }
 
 .black-overlay {
   background: rgba(0, 0, 0, .4);  
   height: 100%;
+  border-radius: 10px;
 }
 
 .clan-details-container {
