@@ -39,8 +39,16 @@ curl_close($ch);
 // Using file_get_html is probably terrible and not sure if it will work on the live site
 $html = file_get_html('http://www.warclans.com/coc-clan/Y9QLPNP50');
 
-$warLosses = $html->find('div[class=clan-info] li span', 5)->innertext; // War Lost
-$warTies = $html->find('div[class=clan-info] li span', 6)->innertext; // War Tied
+$warLosses = null;
+$warTies = null;
+
+if (!empty($html->find('div[class=clan-info] li span', 5)->innertext)) {
+    $warLosses = $html->find('div[class=clan-info] li span', 5)->innertext; // War Lost
+}
+
+if (!empty($html->find('div[class=clan-info] li span', 6)->innertext)) {
+    $warTies = $html->find('div[class=clan-info] li span', 6)->innertext; // War Tied
+}
 
 //convert json object to php associative array
 $data = json_decode($contents, true);
