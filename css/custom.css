@@ -120,7 +120,7 @@ ul.nav a.active {
   margin-bottom: 300px;
 }
 
-#war-my-team_filter input, #war-enemy-team_filter input, #war-events_filter input{
+#war-my-team_filter input, #war-enemy-team_filter input, #war-events_filter input, #memberTable_filter input {
   margin-left: 0px;
 }
 
