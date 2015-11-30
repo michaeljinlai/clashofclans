@@ -51,6 +51,18 @@ body {
   font-size: 17px;
 }
 
+/* Sidebar Font Awesome */
+.sidebar li .sidebar-item-link .fa-sidebar {
+  width: 17px;
+  font-size: 17px;
+}
+
+/* Sidebar Font Awesome (For Home) */
+.sidebar li .sidebar-item-link .fa-sidebar-home {
+  width: 17px;
+  font-size: 21px;
+}
+
 /* Sidebar Text Next To Glyphicons */
 .sidebar li .sidebar-item-link .sidebar-text {
   font-size: 15px;

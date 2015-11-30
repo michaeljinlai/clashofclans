@@ -13,11 +13,11 @@
 		</li>
 		<!-- Logo -->
 		<div class="sidebar-line">
-			
+
 		</div>
 		<li>
 			<a onclick="loadDoc('Home')" data-toggle="tooltip" title="Home" class="sidebar-item-link active" data-placement="right">
-				<span class="glyphicon glyphicon-home glyph-sidebar"></span>
+				<span class="fa fa-home fa-sidebar-home"></span>
 				<span class="sidebar-text">Home</span>
 			</a>
 		</li>
@@ -53,19 +53,19 @@
 		?>
 		<li>
 			<a onclick="loadDoc('Members')" data-toggle="tooltip" title="Members" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
+				<span class="fa fa-users fa-sidebar"></span>
 				<span class="sidebar-text">Members</span>
 			</a>
 		</li>
 		<li>
 			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
+				<span class="fa fa-line-chart fa-sidebar"></span>
 				<span class="sidebar-text">War Log</span>
 			</a>
 		</li>
 		<li>
 			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
-				<span class="glyphicon glyphicon-align-left glyph-sidebar"></span>
+				<span class="fa fa-bar-chart fa-sidebar"></span>
 				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
