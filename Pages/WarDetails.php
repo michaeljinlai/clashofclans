@@ -78,9 +78,12 @@
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
-<h1 class="page-header">War Details <small><?php echo '#'.$json['id'].' versus '.$json['enemy']['name']; ?></small></h2>
+<h1 class="page-header">War Details <small><?php echo '#'.$json['id'].' versus '.$json['enemy']['name']; ?></small></h1>
+<ol class="breadcrumb">
+    <li><a href="" onClick="loadDoc('WarLog'); return false;">War Log</a></li>
+    <li>War <?php echo $json['id'] ?></li>
+</ol>
 <ul class="nav nav-pills">
-<li><a onClick="loadDoc('WarLog')">Back</a></li>
 <li class="active"><a data-toggle="pill" href="#warStats">War Stats</a></li>
 <li><a data-toggle="pill" href="#warEvents">War Events</a></li>
 <li><a data-toggle="pill" href="#myTeam">My Team</a></li>

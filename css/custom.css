@@ -2,6 +2,15 @@ label {
   cursor: default;
 }
 
+/* Breadcrumb */
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li+li:before {
+  content:"» ";
+}
+
 /* Initial body */
 body {
   left: 50px;
