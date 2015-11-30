@@ -523,6 +523,28 @@ ul.nav a.active {
   border-bottom: 0px;
 }
 
+.war-weights thead tr th,
+.war-weights tbody tr td {
+  text-align: center;
+}
+
+.war-weights td:first-child {
+  text-align: right;
+}
+
+.war-weights td:nth-child(2) {
+  text-align: left;
+}
+
+.war-weights {
+  width: 100% !important;
+}
+
+.war-weights-subtitle {
+  display: block;
+  font-weight: normal;
+}
+
 .delete-table {
   float: left;
   margin-right: 15px;

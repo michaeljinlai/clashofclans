@@ -63,7 +63,11 @@
 <script type="text/javascript">
     $(document).ready(function() {
 	    $('#memberTable').DataTable({
-	    	"order": [[0, 'dsc']]
+	    	"order": [[0, 'dsc']],
+	    	language: {
+		        search: "_INPUT_",
+		        searchPlaceholder: "Search"
+		    }
 	    });
 	});
 </script>
