@@ -88,6 +88,7 @@
 <li><a data-toggle="pill" href="#warEvents">War Events</a></li>
 <li><a data-toggle="pill" href="#myTeam">My Team</a></li>
 <li><a data-toggle="pill" href="#enemyTeam">Enemy Team</a></li>
+<li><a data-toggle="pill" href="#warWeights">Weights</a></li>
 </ul>
 
 <div class="tab-content">
@@ -245,7 +246,6 @@
 	</div>
 	<!-- My Team Tab -->    
 	<div id="myTeam" class="tab-pane fade">
-
 	    <table id="war-my-team" class="war-team table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
@@ -260,16 +260,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($json['home']['roster'] as $enemy) : ?>
+				<?php foreach ($json['home']['roster'] as $player) : ?>
 				<tr>
-					<td class="col-xs-1"><?php echo $enemy['position']; ?></td>				
-					<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
-					<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
-					<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
-					<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
-					<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
-					<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
-					<td class="col-xs-1"><?php echo $enemy['totalDefenses']; ?></td>
+					<td class="col-xs-1"><?php echo $player['position']; ?></td>				
+					<td class="col-xs-2"><?php echo $player['name']; ?></td>
+					<td class="col-xs-1"><?php echo $player['townHall']; ?></td>
+					<td class="col-xs-2"><?php displayAttack($player, 1); ?></td>
+					<td class="col-xs-2"><?php displayAttack($player, 2); ?></td>
+					<td class="col-xs-1"><?php displayTotalStars($player); ?></td>
+					<td class="col-xs-2"><?php displayEnemyBestAttack($player); ?></td>
+					<td class="col-xs-1"><?php echo $player['totalDefenses']; ?></td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
@@ -291,20 +291,74 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($json['enemy']['roster'] as $enemy) : ?>
+				<?php foreach ($json['enemy']['roster'] as $player) : ?>
 				<tr>
-					<td class="col-xs-1"><?php echo $enemy['position']; ?></td>				
-					<td class="col-xs-2"><?php echo $enemy['name']; ?></td>
-					<td class="col-xs-1"><?php echo $enemy['townHall']; ?></td>
-					<td class="col-xs-2"><?php displayAttack($enemy, 1); ?></td>
-					<td class="col-xs-2"><?php displayAttack($enemy, 2); ?></td>
-					<td class="col-xs-1"><?php displayTotalStars($enemy); ?></td>
-					<td class="col-xs-2"><?php displayEnemyBestAttack($enemy); ?></td>
-					<td class="col-xs-1"><?php echo $enemy['totalDefenses']; ?></td>
+					<td class="col-xs-1"><?php echo $player['position']; ?></td>				
+					<td class="col-xs-2"><?php echo $player['name']; ?></td>
+					<td class="col-xs-1"><?php echo $player['townHall']; ?></td>
+					<td class="col-xs-2"><?php displayAttack($player, 1); ?></td>
+					<td class="col-xs-2"><?php displayAttack($player, 2); ?></td>
+					<td class="col-xs-1"><?php displayTotalStars($player); ?></td>
+					<td class="col-xs-2"><?php displayEnemyBestAttack($player); ?></td>
+					<td class="col-xs-1"><?php echo $player['totalDefenses']; ?></td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</div>
+	<!-- Weights Tab -->
+	<div id="warWeights" class="tab-pane fade">
+		<div class="col-xs-6">
+			<table id="war-weights-home" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
+				<thead>
+					<tr>
+						<th colspan="4"><?php echo $json['home']['name']; ?></th>
+					</tr>
+					<tr>
+						<th class="col-xs-1">#</th>
+						<th class="col-xs-8">Name</th>
+						<th class="col-xs-1">Offense</th>
+						<th class="col-xs-1">Defense</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($json['home']['roster'] as $player) : ?>
+					<tr>
+						<td><?php echo $player['position']; ?></td>
+						<td><?php echo $player['name']; ?></td>
+						<td><?php echo $player['offenseWeight']; ?></td>
+						<td><?php echo $player['defenseWeight']; ?></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-6">
+			<table id="war-weights-enemy" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
+				<thead>
+					<tr>
+						<th colspan="4"><?php echo $json['enemy']['name']; ?></th>
+					</tr>
+					<tr>
+						<th class="col-xs-1">#</th>
+						<th class="col-xs-8">Name</th>
+						<th class="col-xs-1">Offense</th>
+						<th class="col-xs-1">Defense</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($json['enemy']['roster'] as $player) : ?>
+					<tr>
+						<td><?php echo $player['position']; ?></td>
+						<td><?php echo $player['name']; ?></td>
+						<td><?php echo $player['offenseWeight']; ?></td>
+						<td><?php echo $player['defenseWeight']; ?></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 
@@ -319,10 +373,11 @@
 		    },
 	    	aoColumnDefs: [
 	    		{ bSortable: false, aTargets: [ 1, 2, 3 ] }
-	    	]
+	    	],
+	    	bInfo: false
 	    });
 
-	    $('#war-my-team').DataTable({
+	    $('.war-team').DataTable({
 			paging: false,
 			"dom": '<"pull-left"f><"pull-right"li>tp',
 	    	language: {
@@ -331,18 +386,16 @@
 		    },
 	    	aoColumnDefs: [
 	    		{ bSortable: false, aTargets: [ 3, 4, 6 ] }
-	    	]
+	    	],
+	    	bInfo: false
 		});
 
-	    $('#war-enemy-team').DataTable({
+	    $('.war-weights').DataTable({
 	    	paging: false,
-	    	"dom": '<"pull-left"f><"pull-right"li>tp',
-	    	language: {
-		        search: "_INPUT_",
-		        searchPlaceholder: "Search"
-		    },
+	    	bFilter: false,
+	    	bInfo: false,
 	    	aoColumnDefs: [
-	    		{ bSortable: false, aTargets: [ 3, 4, 6 ] }
+	    		{ bSortable: false, aTargets: [ 1 ] }
 	    	]
 	    });
 	});
