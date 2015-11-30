@@ -46,7 +46,7 @@
 			<li>
 				<a href="updateMembers.php" data-toggle="tooltip" title="Update DB" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-refresh glyph-sidebar"></span>
-					<span class="sidebar-text">Update Database</span>
+					<span class="sidebar-text">Update DB</span>
 				</a>
 			</li>';}
 		?>
