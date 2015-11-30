@@ -475,13 +475,16 @@ ul.nav a.active {
 }
 
 .war-weights thead tr th,
-.war-weights td:nth-child(3),
-.war-weights td:nth-child(4) {
+.war-weights tbody tr td {
   text-align: center;
 }
 
 .war-weights td:first-child {
   text-align: right;
+}
+
+.war-weights td:nth-child(2) {
+  text-align: left;
 }
 
 .war-weights {

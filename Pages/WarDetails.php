@@ -312,7 +312,7 @@
 			<table id="war-weights-home" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
 				<thead>
 					<tr>
-						<th colspan="4">
+						<th colspan="5">
 							<?php echo $json['home']['name']; ?>
 							<span class="war-weights-subtitle">Total Offense: <?php echo $json['home']['totalOffenseWeight']; ?></span>
 							<span class="war-weights-subtitle">Total Defense: <?php echo $json['home']['totalDefenseWeight']; ?></span>
@@ -321,6 +321,7 @@
 					<tr>
 						<th>#</th>
 						<th>Name</th>
+						<th>TH</th>
 						<!-- <th>Gold/Elixir</th> -->
 						<!-- <th>Dark Elixir</th> -->
 						<th>Offense</th>
@@ -332,6 +333,7 @@
 					<tr>
 						<td class="col-xs-1"><?php echo $player['position']; ?></td>
 						<td class="col-xs-9"><?php echo $player['name']; ?></td>
+						<td class="col-xs-1"><?php echo $player['townHall']; ?></td>
 						<!-- <td class="col-xs-1"><?php echo $player['goldAndElixir']; ?></td> -->
 						<!-- <td class="col-xs-1"><?php echo $player['darkElixir']; ?></td> -->
 						<td class="col-xs-1"><?php echo $player['offenseWeight']; ?></td>
@@ -346,7 +348,7 @@
 			<table id="war-weights-enemy" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
 				<thead>
 					<tr>
-						<th colspan="4">
+						<th colspan="5">
 							<?php echo $json['enemy']['name']; ?>
 							<span class="war-weights-subtitle">Total Offense: <?php echo $json['enemy']['totalOffenseWeight']; ?></span>
 							<span class="war-weights-subtitle">Total Defense: <?php echo $json['enemy']['totalDefenseWeight']; ?></span>
@@ -355,6 +357,7 @@
 					<tr>
 						<th>#</th>
 						<th>Name</th>
+						<th>TH</th>
 						<!-- <th>Gold/Elixir</th> -->
 						<!-- <th>Dark Elixir</th> -->
 						<th>Offense</th>
@@ -366,6 +369,7 @@
 					<tr>
 						<td class="col-xs-1"><?php echo $player['position']; ?></td>
 						<td class="col-xs-9"><?php echo $player['name']; ?></td>
+						<td class="col-xs-1"><?php echo $player['townHall']; ?></td>
 						<!-- <td class="col-xs-1"><?php echo $player['goldAndElixir']; ?></td> -->
 						<!-- <td class="col-xs-1"><?php echo $player['darkElixir']; ?></td> -->
 						<td class="col-xs-1"><?php echo $player['offenseWeight']; ?></td>
