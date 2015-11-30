@@ -312,7 +312,11 @@
 			<table id="war-weights-home" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
 				<thead>
 					<tr>
-						<th colspan="4"><?php echo $json['home']['name']; ?></th>
+						<th colspan="4">
+							<?php echo $json['home']['name']; ?>
+							<span class="war-weights-subtitle">Total Offense: <?php echo $json['home']['totalOffenseWeight']; ?></span>
+							<span class="war-weights-subtitle">Total Defense: <?php echo $json['home']['totalDefenseWeight']; ?></span>
+						</th>
 					</tr>
 					<tr>
 						<th>#</th>
@@ -342,7 +346,11 @@
 			<table id="war-weights-enemy" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
 				<thead>
 					<tr>
-						<th colspan="4"><?php echo $json['home']['name']; ?></th>
+						<th colspan="4">
+							<?php echo $json['enemy']['name']; ?>
+							<span class="war-weights-subtitle">Total Offense: <?php echo $json['enemy']['totalOffenseWeight']; ?></span>
+							<span class="war-weights-subtitle">Total Defense: <?php echo $json['enemy']['totalDefenseWeight']; ?></span>
+						</th>
 					</tr>
 					<tr>
 						<th>#</th>
@@ -354,7 +362,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($json['home']['roster'] as $player) : ?>
+					<?php foreach ($json['enemy']['roster'] as $player) : ?>
 					<tr>
 						<td class="col-xs-1"><?php echo $player['position']; ?></td>
 						<td class="col-xs-9"><?php echo $player['name']; ?></td>

@@ -488,6 +488,11 @@ ul.nav a.active {
   width: 100% !important;
 }
 
+.war-weights-subtitle {
+  display: block;
+  font-weight: normal;
+}
+
 .delete-table {
   float: left;
   margin-right: 15px;
