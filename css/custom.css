@@ -245,14 +245,14 @@ ul.nav a.active {
 }
 
 .outer-clan-details-container {
-  background-image: url('https://d3fyyuog756ajk.cloudfront.net/uploaded-images/_600x600_crop_center-center_90/Gold.png');
-  background-size: cover;
+  /*background-image: url('https://d3fyyuog756ajk.cloudfront.net/uploaded-images/_600x600_crop_center-center_90/Gold.png');
+  background-size: cover;*/
   height: 100%;
 }
 
 .black-overlay {
-  background: rgba(0, 0, 0, .4);  
-  height: 100%;
+  /*background: rgba(0, 0, 0, .4);  
+  height: 100%;*/
 }
 
 .outer-clan-details-container, .black-overlay {
@@ -262,7 +262,7 @@ ul.nav a.active {
 
 .clan-details-container {
   text-align: center;
-  color: white;
+  color: black;
   width: 50%; /* Centers the div */
   margin: 0 auto; /* Centers the div */
 }
@@ -305,11 +305,37 @@ ul.nav a.active {
   height: 107px;
   float: left;
   line-height: 107px;
-  background: rgba(255, 255, 255, .3);
+  background: rgba(0, 0, 0, .1);
   font-family: 'supercell';
 }
 
 .clan-war-wins {
+  border-radius: 10px;
+  font-size: 18px;
+  width: -webkit-calc(50% - 10px);
+  width: -moz-calc(50% - 10px);
+  width: calc(50% - 10px);
+  height: 107px;
+  float: right;
+  line-height: 107px;
+  background: rgba(0, 0, 0, .1); 
+  font-family: 'supercell'; 
+}
+
+.clan-members-frequency {
+  border-radius: 10px;
+  font-size: 18px;
+  width: -webkit-calc(50% - 10px);
+  width: -moz-calc(50% - 10px);
+  width: calc(50% - 10px);
+  height: 107px;
+  float: left;
+  line-height: 107px;
+  background: rgba(255, 255, 255, .3);
+  font-family: 'supercell';
+}
+
+.clan-type-required {
   border-radius: 10px;
   font-size: 18px;
   width: -webkit-calc(50% - 10px);
