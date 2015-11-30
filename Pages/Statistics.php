@@ -181,32 +181,28 @@ section {
 </div>
 
 <main>
-  <h1>Title</h1>
-  <p>description</p>
+  <h1>Roles</h1>
+  <p>Distribution of roles within the clan</p>
   <section>
     <div class="pieID pie">
       
     </div>
     <ul class="pieID legend">
       <li>
-        <em>Humans</em>
-        <span>718</span>
+        <em>Leader</em>
+        <span><?php echo $leaderCount; ?></span>
       </li>
       <li>
-        <em>Dogs</em>
-        <span>531</span>
+        <em>Co leader</em>
+        <span><?php echo $coLeaderCount; ?></span>
       </li>
       <li>
-        <em>Cats</em>
-        <span>868</span>
+        <em>Elders</em>
+        <span><?php echo $adminCount; ?></span>
       </li>
       <li>
-        <em>Slugs</em>
-        <span>344</span>
-      </li>
-      <li>
-        <em>Aliens</em>
-        <span>1145</span>
+        <em>Members</em>
+        <span><?php echo $memberCount; ?></span>
       </li>
     </ul>
   </section>
