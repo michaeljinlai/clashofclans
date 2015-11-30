@@ -29,7 +29,7 @@ body {
   left: 0px;  /* start off behind the scenes */
   height: 100%;
   position: fixed;
-  width: 240px;
+  width: 160px;
   text-align: left;
   z-index: -9999; /* behind everything */
   vertical-align: middle;
@@ -552,7 +552,7 @@ ul.nav a.active {
 
 .ptd-logo {
   width: 130px;
-  margin-left: 55px;
+  margin-left: 15px;
   padding-top: 25px;
   padding-bottom: 25px;
 }
