@@ -21,22 +21,19 @@ require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
 </div>
 
 <div class="main" id="main">
-  <div>
-      <h1 class="page-header">Home</h1>
-      <?php 
-	      if(!empty($_SESSION['user'])) {
-	      	echo '<div>Hello '.htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8').', secret content!</div><br />';
-	      }
-      ?>
-  </div>
+
 </div>
 
 <!-- Calculates the width of sidebar everytime the window is resized and adjusts the body -->
 <script>
 $(document).ready(function(){
+
     $(window).resize(function(){
         $('body').css('width', '100%').css('width', '-='+$('.sidebar').width());
     });
+
+    $("#main").load("Pages/Home.php", function() {});
+
 });
 </script>
 
