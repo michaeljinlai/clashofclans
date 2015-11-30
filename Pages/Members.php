@@ -1,5 +1,4 @@
 <?php 
-
     // First we execute our common code to connection to the database and start the session 
     require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
      
@@ -23,21 +22,32 @@
         FROM members 
     "; 
      
-    try 
-    { 
+    try { 
         // These two statements run the query against your database table. 
         $stmt = $db->prepare($query); 
         $stmt->execute(); 
     } 
-    catch(PDOException $ex) 
-    { 
+    catch (PDOException $ex) { 
         // Note: On a production website, you should not output $ex->getMessage(). 
         // It may provide an attacker with helpful information about your code.  
         die("Failed to run query: " . $ex->getMessage()); 
     } 
          
     // Finally, we can retrieve all of the found rows into an array using fetchAll 
-    $rows = $stmt->fetchAll(); 
+    $rows = $stmt->fetchAll();
+
+    function displayRole($role) {
+        if ($role == "member")
+            echo "Member";
+        elseif ($role == "admin")
+            echo "Elder";
+        elseif ($role == "coLeader")
+            echo "Co-leader";
+        elseif ($role == "leader")
+            echo "Leader";
+        else
+            echo "";
+    }
 ?> 
 
 <?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
@@ -47,15 +57,11 @@
 
 <div class="table-responsive">
     <h1 class="page-header">Members</h1>
-    <table id="myTable" class="table table-striped table-bordered table-hover dt-responsive members-table"> <!-- Removed: width="100%", cellspacing="0" -->
+    <table id="memberTable" class="table table-striped table-bordered table-hover dt-responsive members-table"> <!-- Removed: width="100%", cellspacing="0" -->
         <thead>
             <tr> 
-                <th>Clan Rank</th> 
-                <!-- <th>Badge</th>  -->
+                <th>#</th> 
                 <th>Name</th> 
-                <!-- <th>Role</th>  -->
-                <th>XP Level</th> 
-                <th>Previous Clan Rank</th> 
                 <th>Troops Donated</th> 
                 <th>Troops Received</th> 
                 <th>Trophies</th> 
@@ -64,15 +70,16 @@
         <tbody>
             <?php foreach($rows as $row): ?> 
                 <tr> 
-                    <td><div class="clan-rank"><?php echo $row['clanRank']; ?></div><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td> 
-                    <!-- <td><?php echo '<img src="'.$row['leagueBadgeImg_xl'].'" />'; ?></td>  -->
-                    <td><div class="member-name"><?php echo $row['name']; ?></div><div class="member-role"><?php echo $row['role']; ?></div></td> 
-                    <!-- <td><?php echo $row['role']; ?></td>  -->
-                    <td><div class="experience-level"><?php echo $row['expLevel']; ?></div></td> 
-                    <td><?php echo $row['previousClanRank']; ?></td> 
-                    <td><div class="troops-donated-received"><?php echo $row['donations']; ?></div></td> 
-                    <td><div class="troops-donated-received"><?php echo $row['donationsReceived']; ?></div></td>
-                    <td><div class="trophies"><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'; ?></div></td>
+                    <td class="col-xs-1"><div class="clan-rank"><?php echo $row['clanRank']; ?></div></td> 
+                    <td class="col-xs-8">
+                        <?php echo '<img class="badge-img" src="'.$row['leagueBadgeImg_xl'].'" />'; ?>
+                        <span class="experience-level"><?php echo $row['expLevel']; ?></span>
+                        <span class="member-name"><?php echo $row['name']; ?></span>
+                        <div class="member-role"><?php displayRole($row['role']); ?></div>
+                    </td>
+                    <td class="col-xs-1"><div class="troops-donated-received"><?php echo $row['donations']; ?></div></td> 
+                    <td class="col-xs-1"><div class="troops-donated-received"><?php echo $row['donationsReceived']; ?></div></td>
+                    <td class="col-xs-1"><div class="trophies"><?php echo $row['trophies']; echo '<img class="trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="35" height="35" />'; ?></div></td>
                 </tr> 
             <?php endforeach; ?> 
         </tbody>
@@ -81,6 +88,13 @@
 
 <script id="testThree" type="text/javascript">
     $(document).ready(function(){
-    $('#myTable').DataTable();
-});
+        $('#memberTable').DataTable({
+            paging: false,
+            "dom": '<"pull-left"f><"pull-right"li>tp',
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search"
+            }
+        });
+    });
 </script>
