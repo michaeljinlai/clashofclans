@@ -100,7 +100,8 @@ ul.nav a.active {
   color: #C3C3C4 ; 
   background-color: #101014;
   border-left: 4px solid;
-  border-color: #6441A5;
+  border-color: #6441A5; /* Twitch Color */
+  border-color: #214f78; /* Bootstrap Theme Color */
   padding-left: 11px;
 }
 
