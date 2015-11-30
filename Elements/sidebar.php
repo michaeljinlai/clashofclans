@@ -36,7 +36,7 @@
 		if(!empty($_SESSION['user'])) { echo '
 			<li>
 				<a onclick="loadDoc(\'Profile\')" data-toggle="tooltip"title="Profile" class="sidebar-item-link" data-placement="right">
-					<span class="glyphicon glyphicon-user glyph-sidebar"></span>
+					<span class="glyphicon glyphicon-cog glyph-sidebar"></span>
 					<span class="sidebar-text">Profile</span>
 				</a>
 			</li>';}
