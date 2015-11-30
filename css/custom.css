@@ -283,6 +283,7 @@ ul.nav a.active {
 
 .clan-description {
   font-size: 24px;
+  opacity: 0.8;
 }
 
 .clan-tag {
@@ -516,6 +517,13 @@ ul.nav a.active {
   margin-left: 55px;
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.sidebar-line {
+  margin: 0 auto;
+  margin-bottom: 12px;
+  width: 200px;
+  border-bottom: 1px solid #32323E;
 }
 
 /* START GLYPHYICON ANIMATIONS */

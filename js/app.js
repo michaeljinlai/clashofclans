@@ -6,6 +6,7 @@ var main = function () {
         $('.icon-menu-open').toggleClass('hide');
         $('.icon-menu').toggleClass('hide');
         $('.ptd-logo').toggleClass('hide');
+        $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip('destroy');
 
         $('.sidebar').animate({
@@ -27,6 +28,7 @@ var main = function () {
         $('.icon-menu-open').toggleClass('hide');
         $('.icon-menu').toggleClass('hide');
         $('.ptd-logo').toggleClass('hide');
+        $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip({container: 'body'});
 
         $('.sidebar').animate({

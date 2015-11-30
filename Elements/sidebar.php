@@ -7,9 +7,14 @@
 
 <div class="sidebar">
 	<ul class="nav nav-sidebar">
+		<!-- Logo -->
 		<li>
 			<img class="ptd-logo" src="img/ptd.png" />
 		</li>
+		<!-- Logo -->
+		<div class="sidebar-line">
+			
+		</div>
 		<li>
 			<a onclick="loadDoc('Home')" data-toggle="tooltip" title="Home" class="sidebar-item-link active" data-placement="right">
 				<span class="glyphicon glyphicon-home glyph-sidebar"></span>
