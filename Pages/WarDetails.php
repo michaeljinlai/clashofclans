@@ -444,6 +444,7 @@
 	</div>
 </div>
 
+<!-- Datatables -->
 <script type="text/javascript">
 	$(document).ready(function(){
 	    $('#war-events').DataTable({
@@ -493,6 +494,7 @@
 	});
 </script>
 
+<!-- Highcharts -->
 <script>
 $(function () {
     $('#container').highcharts({
@@ -501,6 +503,9 @@ $(function () {
         },
         chart: {
             type: 'line'
+        },
+        credits: {
+            enabled: false
         },
         title: {
             text: 'Timeline Overview of War Events'
