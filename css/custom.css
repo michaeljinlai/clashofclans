@@ -528,6 +528,11 @@ ul.nav a.active {
   border-bottom: 0px;
 }
 
+#war-timeline-container {
+  width:100%;
+  height:400px;
+}
+
 .war-weights thead tr th,
 .war-weights tbody tr td {
   text-align: center;

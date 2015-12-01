@@ -384,8 +384,8 @@
 	</div>
 	<!-- Analysis Tab -->
 	<div id="warAnalysis" class="tab-pane fade">
-		<div id="container" style="width:100%; height:400px;"></div>
-		<table id="war-analysis" class="hide war-events table table-striped table-hover dt-responsive members-table">
+		<div id="war-timeline-container"></div>
+		<table id="war-timeline" class="hide war-events table table-striped table-hover dt-responsive members-table">
 			<thead>
 		        <tr>
 		            <th></th>
@@ -400,11 +400,11 @@
 			    	$enemyTotal = 0;
 			    	$enemyAttack = 1;
 				?>
-				<?php foreach ($json['events'] as $event) : ?>
+				<?php foreach (array_reverse($json['events']) as $event) : ?>
 			        <tr>
 			            <th>
 			            	<?php 
-			            		if ($event['isHomeAttack'] === true) {
+			            		if ($event['isHomeAttack']) {
 			            			$allyTotal = $allyTotal + $event['starsEarned'];
 			            			echo 'Total stars earned: '.$allyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
@@ -413,7 +413,7 @@
 			            			.'Defender: '.$event['enemyPlayerPosition'].'.'.$event['enemyPlayer'];
 			            			$allyAttack = $allyAttack + 1; 
 			            		}
-			            		elseif ($event['isHomeAttack'] === false) {
+			            		else {
 			            			$enemyTotal = $enemyTotal + $event['starsEarned'];
 			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
@@ -498,9 +498,9 @@
 <!-- Highcharts -->
 <script>
 $(function () {
-    $('#container').highcharts({
+    $('#war-timeline-container').highcharts({
         data: {
-            table: 'war-analysis'
+            table: 'war-timeline'
         },
         chart: {
             type: 'line'
@@ -532,6 +532,7 @@ $(function () {
         },
         plotOptions: {
             series: {
+            	step: 'left',
                 connectNulls: true
             }
         }
