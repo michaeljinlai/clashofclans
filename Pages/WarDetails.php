@@ -89,6 +89,7 @@
 <li><a data-toggle="pill" href="#myTeam">My Team</a></li>
 <li><a data-toggle="pill" href="#enemyTeam">Enemy Team</a></li>
 <li><a data-toggle="pill" href="#warWeights">Weights</a></li>
+<li><a data-toggle="pill" href="#warAnalysis">Analysis</a></li>
 </ul>
 
 <div class="tab-content">
@@ -380,6 +381,32 @@
 			</table>
 		</div>
 	</div>
+	<!-- Analysis Tab -->
+	<div id="warAnalysis" class="tab-pane fade">
+		<div id="container" style="width:100%; height:400px;"></div>
+		<table id="war-analysis" class="war-events table table-striped table-hover dt-responsive members-table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Time Remaining</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php $runningTotal = 0; ?>
+				<?php foreach ($json['events'] as $event) : ?>
+					<tr>
+						<td>
+							<?php 
+								$runningTotal = $runningTotal + $event['starsEarned'];
+								echo $runningTotal; 
+							?>
+						</td>
+						<td><?php echo $event['timeLeftSeconds']; ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 <script type="text/javascript">
@@ -429,4 +456,32 @@
 	        column.visible( ! column.visible() );
 	    });
 	});
+</script>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        data: {
+            table: 'war-analysis'
+        },
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Data extracted from a HTML table in the page'
+        },
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Units'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.point.y + ' ' + this.point.name.toLowerCase();
+            }
+        }
+    });
+});
 </script>
