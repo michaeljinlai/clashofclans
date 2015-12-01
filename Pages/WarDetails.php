@@ -384,42 +384,58 @@
 	<!-- Analysis Tab -->
 	<div id="warAnalysis" class="tab-pane fade">
 		<div id="container" style="width:100%; height:400px;"></div>
-		<table id="war-analysis" class="war-events table table-striped table-hover dt-responsive members-table">
-
-<thead>
-        <tr>
-            <th></th>
-            <th>My Clan</th>
-            <th>Enemy Clan</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<?php $runningTotal = 0; $attack = 1; ?>
+		<table id="war-analysis" class="hide war-events table table-striped table-hover dt-responsive members-table">
+			<thead>
+		        <tr>
+		            <th></th>
+		            <th><?php echo $json['home']['name']; ?></th>
+		            <th><?php echo $json['enemy']['name']; ?></th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	<?php 
+			    	$allyTotal = 0; 
+			    	$allyAttack = 1;
+			    	$enemyTotal = 0;
+			    	$enemyAttack = 1;
+				?>
 				<?php foreach ($json['events'] as $event) : ?>
-        <tr>
-            <th>
-            	<?php 
-            		echo ' stars earned after Attack '.$attack; $attack = $attack + 1; 
-            	?>
-            </th>
-            <td>
-            	<?php 
-					$runningTotal = $runningTotal + $event['starsEarned'];
-					echo $runningTotal + 10; 
-				?>
-			</td>
-            <td>
-            	<?php 
-					echo $runningTotal; 
-				?>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
+			        <tr>
+			            <th>
+			            	<?php 
+			            		if ($event['isHomeAttack'] === true) {
+			            			echo ' stars earned after attack '.$allyAttack; 
+			            			$allyAttack = $allyAttack + 1; 
+			            		}
+			            		elseif ($event['isHomeAttack'] === false) {
+			            			echo ' stars earned after attack '.$enemyAttack; 
+			            			$enemyAttack = $enemyAttack + 1; 
+			            		}
+			            	?>
+			            </th>
+			            <td>
+			            	<?php 
+			            		if ($event['isHomeAttack'] === true) {
+									$allyTotal = $allyTotal + $event['starsEarned'];
+								echo $allyTotal; 
+								}
+							?>
+						</td>
+			            <td>
+			            	<?php 
+			            		if ($event['isHomeAttack'] === false) {
+									$enemyTotal = $enemyTotal + $event['starsEarned'];
+								echo $enemyTotal; 	
+								}
+							?>
+			            </td>
+			        </tr>
+		        <?php endforeach; ?>
+		    </tbody>
 		</table>
 	</div>
 </div>
-$json['summary']['home']['totalDestruction'], 2, '.', '');
+
 <script type="text/javascript">
 	$(document).ready(function(){
 	    $('#war-events').DataTable({
@@ -479,7 +495,7 @@ $(function () {
             type: 'line'
         },
         title: {
-            text: 'Title: I have no idea what this graph represents'
+            text: 'Timeline Overview of War Events'
         },
         yAxis: {
             allowDecimals: false,
@@ -498,6 +514,11 @@ $(function () {
             formatter: function () {
                 return '<b>' + this.series.name + '</b><br/>' +
                     this.point.y + ' ' + this.point.name.toLowerCase();
+            }
+        },
+        plotOptions: {
+            series: {
+                connectNulls: true
             }
         }
     });
