@@ -387,21 +387,21 @@
 		<table id="war-analysis" class="war-events table table-striped table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th></th>
 					<th>Time Remaining</th>
+					<th>Total Stars</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php $runningTotal = 0; ?>
 				<?php foreach ($json['events'] as $event) : ?>
 					<tr>
+						<td><?php echo $event['timeLeftSeconds']/3600; ?></td>
 						<td>
 							<?php 
 								$runningTotal = $runningTotal + $event['starsEarned'];
 								echo $runningTotal; 
 							?>
 						</td>
-						<td><?php echo $event['timeLeftSeconds']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
@@ -468,12 +468,19 @@ $(function () {
             type: 'line'
         },
         title: {
-            text: 'Data extracted from a HTML table in the page'
+            text: 'Title: I have no idea what this graph represents'
         },
         yAxis: {
             allowDecimals: false,
             title: {
-                text: 'Units'
+                text: 'Total Stars Earned'
+            }
+        },
+        xAxis: {
+        	 
+            allowDecimals: false,
+            title: {
+                text: 'Time Remaining (Hours)'
             }
         },
         tooltip: {
