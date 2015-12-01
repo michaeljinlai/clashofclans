@@ -404,6 +404,7 @@
 			            <th>
 			            	<?php 
 			            		if ($event['isHomeAttack'] === true) {
+			            			$allyTotal = $allyTotal + $event['starsEarned'];
 			            			echo 'Total stars earned: '.$allyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$allyAttack.' ('.$event['damage'].'%)'.'<br>'
@@ -412,6 +413,7 @@
 			            			$allyAttack = $allyAttack + 1; 
 			            		}
 			            		elseif ($event['isHomeAttack'] === false) {
+			            			$enemyTotal = $enemyTotal + $event['starsEarned'];
 			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$enemyAttack.' ('.$event['damage'].'%)'.'<br>'
@@ -424,16 +426,14 @@
 			            <td>
 			            	<?php 
 			            		if ($event['isHomeAttack'] === true) {
-									$allyTotal = $allyTotal + $event['starsEarned'];
-								echo $allyTotal; 
+									echo $allyTotal; 
 								}
 							?>
 						</td>
 			            <td>
 			            	<?php 
 			            		if ($event['isHomeAttack'] === false) {
-									$enemyTotal = $enemyTotal + $event['starsEarned'];
-								echo $enemyTotal; 	
+									echo $enemyTotal; 	
 								}
 							?>
 			            </td>
