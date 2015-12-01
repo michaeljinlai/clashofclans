@@ -21,6 +21,7 @@
 	    <table id="memberTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
+					<th></th>
 					<th>#</th>
 					<th>Size</th>
 					<th>Destruction</th>
@@ -29,7 +30,6 @@
 					<th>Enemy Clan</th>
 					<th>Stars</th>
 					<th>Destruction</th>
-					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,6 +48,7 @@
 								echo 'war-log-background-lose';
 						?>
 					">
+						<td><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">View</a></td>
 						<td><?php echo $json['id']; ?></td>
 						<td><?php echo $json['home']['size']; ?></td>
 						<td><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
@@ -56,7 +57,6 @@
 						<td><?php echo $json['enemy']['name']; ?></td>
 						<td><?php echo ($json['summary']['enemy']['3Star']*3 + $json['summary']['enemy']['2Star']*2 + $json['summary']['enemy']['1Star']); ?></td>
 						<td><?php echo number_format((float)$json['summary']['enemy']['totalDestruction'], 2, '.', ''); ?>%</td>
-						<td><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">Details</a></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
@@ -71,7 +71,10 @@
 	    	language: {
 		        search: "_INPUT_",
 		        searchPlaceholder: "Search"
-		    }
+		    },
+		    aoColumnDefs: [
+		    	{ bSortable: false, aTargets: [ 0 ] }
+		    ]
 	    });
 	});
 </script>
