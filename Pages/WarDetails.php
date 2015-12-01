@@ -407,16 +407,16 @@
 			            			echo 'Total stars earned: '.$allyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$allyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Attacker: '.$event['homePlayer'].'<br>'
-			            			.'Defender: '.$event['enemyPlayer'];
+			            			.'Attacker: '.$event['homePlayerPosition'].'.'.$event['homePlayer'].'<br>'
+			            			.'Defender: '.$event['enemyPlayerPosition'].'.'.$event['enemyPlayer'];
 			            			$allyAttack = $allyAttack + 1; 
 			            		}
 			            		elseif ($event['isHomeAttack'] === false) {
 			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$enemyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Attacker: '.$event['enemyPlayer'].'<br>'
-			            			.'Defender: '.$event['homePlayer'];
+			            			.'Attacker: '.$event['enemyPlayerPosition'].'.'.$event['enemyPlayer'].'<br>'
+			            			.'Defender: '.$event['homePlayerPosition'].'.'.$event['homePlayer'];
 			            			$enemyAttack = $enemyAttack + 1; 
 			            		}
 			            	?>
