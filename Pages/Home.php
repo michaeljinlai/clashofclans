@@ -78,7 +78,7 @@
                     </span>
                 </div>
             </div>
-            <div class="clan-tag">&lt;&lt; To get started, click one of the buttons on the left</div>
+            <div class="clan-tag">&lt;&lt; To get started, click on the sidebar</div>
     	</div>
     </div>
 </div>
