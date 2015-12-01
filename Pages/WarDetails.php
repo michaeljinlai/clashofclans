@@ -385,30 +385,41 @@
 	<div id="warAnalysis" class="tab-pane fade">
 		<div id="container" style="width:100%; height:400px;"></div>
 		<table id="war-analysis" class="war-events table table-striped table-hover dt-responsive members-table">
-			<thead>
-				<tr>
-					<th>Time Remaining</th>
-					<th>Total Stars</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php $runningTotal = 0; ?>
+
+<thead>
+        <tr>
+            <th></th>
+            <th>My Clan</th>
+            <th>Enemy Clan</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<?php $runningTotal = 0; $attack = 1; ?>
 				<?php foreach ($json['events'] as $event) : ?>
-					<tr>
-						<td><?php echo $event['timeLeftSeconds']/3600; ?></td>
-						<td>
-							<?php 
-								$runningTotal = $runningTotal + $event['starsEarned'];
-								echo $runningTotal; 
-							?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
+        <tr>
+            <th>
+            	<?php 
+            		echo ' stars earned after Attack '.$attack; $attack = $attack + 1; 
+            	?>
+            </th>
+            <td>
+            	<?php 
+					$runningTotal = $runningTotal + $event['starsEarned'];
+					echo $runningTotal + 10; 
+				?>
+			</td>
+            <td>
+            	<?php 
+					echo $runningTotal; 
+				?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
 		</table>
 	</div>
 </div>
-
+$json['summary']['home']['totalDestruction'], 2, '.', '');
 <script type="text/javascript">
 	$(document).ready(function(){
 	    $('#war-events').DataTable({
@@ -477,7 +488,7 @@ $(function () {
             }
         },
         xAxis: {
-        	 
+        	visible: false,
             allowDecimals: false,
             title: {
                 text: 'Time Remaining (Hours)'
