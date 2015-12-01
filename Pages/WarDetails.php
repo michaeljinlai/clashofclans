@@ -418,8 +418,8 @@
 			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
 			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$enemyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Attacker: '.$event['enemyPlayerPosition'].'.'.$event['enemyPlayer'].'<br>'
-			            			.'Defender: '.$event['homePlayerPosition'].'.'.$event['homePlayer'];
+			            			.'Attacker: '.$event['enemyPlayerPosition'].'. '.$event['enemyPlayer'].'<br>'
+			            			.'Defender: '.$event['homePlayerPosition'].'. '.$event['homePlayer'];
 			            			$enemyAttack = $enemyAttack + 1; 
 			            		}
 			            	?>
@@ -533,7 +533,10 @@ $(function () {
         plotOptions: {
             series: {
             	step: 'left',
-                connectNulls: true
+                connectNulls: true,
+                marker: {
+                	radius: 3
+                }
             }
         }
     });
