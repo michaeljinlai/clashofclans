@@ -68,12 +68,6 @@
 				<span class="sidebar-text">Statistics</span>
 			</a>
 		</li>
-		<li>
-			<a onclick="loadDoc('asd')" data-toggle="tooltip" title="asd" class="sidebar-item-link" data-placement="right">
-				<span class="fa fa-bar-chart fa-sidebar"></span>
-				<span class="sidebar-text">asd</span>
-			</a>
-		</li>
 		<!-- Only show Profile button if the user is an administrator -->
 		<?php 
 		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
