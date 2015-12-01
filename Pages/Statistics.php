@@ -1,5 +1,9 @@
 <div>
     <h1 class="page-header">Statistics</h1>
+    <ol class="breadcrumb">
+        <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
+        <li>Statistics</li>
+    </ol>
 </div>
 
 <?php 

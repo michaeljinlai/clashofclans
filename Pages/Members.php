@@ -57,6 +57,10 @@
 
 <div class="table-responsive">
     <h1 class="page-header">Members</h1>
+    <ol class="breadcrumb">
+        <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
+        <li>Members</li>
+    </ol>
     <table id="memberTable" class="table table-striped table-bordered table-hover dt-responsive members-table"> <!-- Removed: width="100%", cellspacing="0" -->
         <thead>
             <tr> 

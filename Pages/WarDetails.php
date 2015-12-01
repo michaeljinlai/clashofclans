@@ -80,6 +80,7 @@
 
 <h1 class="page-header">War Details <small><?php echo '#'.$json['id'].' versus '.$json['enemy']['name']; ?></small></h1>
 <ol class="breadcrumb">
+    <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
     <li><a href="" onClick="loadDoc('WarLog'); return false;">War Log</a></li>
     <li>War <?php echo $json['id'] ?></li>
 </ol>

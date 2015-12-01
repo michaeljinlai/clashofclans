@@ -14,6 +14,10 @@
 <div id="warMain">
 	<div class="table-responsive">
 	    <h1 class="page-header">War Log</h1>
+	    <ol class="breadcrumb">
+		    <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
+		    <li>War Log</li>
+		</ol>
 	    <table id="memberTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
