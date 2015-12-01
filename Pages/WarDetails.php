@@ -404,11 +404,19 @@
 			            <th>
 			            	<?php 
 			            		if ($event['isHomeAttack'] === true) {
-			            			echo ' stars earned after attack '.$allyAttack; 
+			            			echo 'Total stars earned: '.$allyTotal.'<br>'
+			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
+			            			.'Attack #'.$allyAttack.' ('.$event['damage'].'%)'.'<br>'
+			            			.'Attacker: '.$event['homePlayer'].'<br>'
+			            			.'Defender: '.$event['enemyPlayer'];
 			            			$allyAttack = $allyAttack + 1; 
 			            		}
 			            		elseif ($event['isHomeAttack'] === false) {
-			            			echo ' stars earned after attack '.$enemyAttack; 
+			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
+			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
+			            			.'Attack #'.$enemyAttack.' ('.$event['damage'].'%)'.'<br>'
+			            			.'Attacker: '.$event['enemyPlayer'].'<br>'
+			            			.'Defender: '.$event['homePlayer'];
 			            			$enemyAttack = $enemyAttack + 1; 
 			            		}
 			            	?>
@@ -512,8 +520,8 @@ $(function () {
         },
         tooltip: {
             formatter: function () {
-                return '<b>' + this.series.name + '</b><br/>' +
-                    this.point.y + ' ' + this.point.name.toLowerCase();
+                //return '<b>' + this.series.name + '</b><br/>' + this.point.y + ' ' + this.point.name.toLowerCase();
+                return '<b>' + this.series.name + '</b><br/>' + this.point.name;
             }
         },
         plotOptions: {
