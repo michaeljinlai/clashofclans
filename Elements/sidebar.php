@@ -20,6 +20,24 @@
 				<span class="sidebar-text">Home</span>
 			</a>
 		</li>
+		<li>
+			<a onclick="loadDoc('Members')" data-toggle="tooltip" title="Members" class="sidebar-item-link" data-placement="right">
+				<span class="fa fa-users fa-sidebar"></span>
+				<span class="sidebar-text">Members</span>
+			</a>
+		</li>
+		<li>
+			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
+				<span class="fa fa-shield fa-sidebar-home"></span>
+				<span class="sidebar-text">War Log</span>
+			</a>
+		</li>
+		<li>
+			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
+				<span class="fa fa-bar-chart fa-sidebar"></span>
+				<span class="sidebar-text">Statistics</span>
+			</a>
+		</li>
 		<!-- Only show Profile button if they are logged in -->
 		<?php 
 		if(!empty($_SESSION['user'])) { echo '
@@ -50,24 +68,6 @@
 				</a>
 			</li>';}
 		?>
-		<li>
-			<a onclick="loadDoc('Members')" data-toggle="tooltip" title="Members" class="sidebar-item-link" data-placement="right">
-				<span class="fa fa-users fa-sidebar"></span>
-				<span class="sidebar-text">Members</span>
-			</a>
-		</li>
-		<li>
-			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
-				<span class="fa fa-shield fa-sidebar-home"></span>
-				<span class="sidebar-text">War Log</span>
-			</a>
-		</li>
-		<li>
-			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
-				<span class="fa fa-bar-chart fa-sidebar"></span>
-				<span class="sidebar-text">Statistics</span>
-			</a>
-		</li>
 		<!-- Only show Profile button if the user is an administrator -->
 		<?php 
 		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
