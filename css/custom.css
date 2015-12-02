@@ -529,7 +529,8 @@ ul.nav a.active {
 }
 
 #war-timeline-container {
-  height: 500px;
+  float: left;
+  height: 400px;
   width: 100%;
 }
 

@@ -90,7 +90,7 @@
 <li><a data-toggle="pill" href="#myTeam">My Team</a></li>
 <li><a data-toggle="pill" href="#enemyTeam">Enemy Team</a></li>
 <li><a data-toggle="pill" href="#warWeights">Weights</a></li>
-<li><a data-toggle="pill" href="#warAnalysis">Analysis</a></li>
+<!-- <li><a data-toggle="pill" href="#warAnalysis">Analysis</a></li> -->
 </ul>
 
 <div class="tab-content">
@@ -216,6 +216,7 @@
 	</div>
 	<!-- War Events Tab -->    
 	<div id="warEvents" class="tab-pane fade">
+		<div id="war-timeline-container"></div>
 	    <table id="war-events" class="war-events table table-striped table-hover dt-responsive members-table">
 			<thead style="border-top:5px solid red;">
 				<tr>
@@ -383,59 +384,58 @@
 		</div>
 	</div>
 	<!-- Analysis Tab -->
-	<div id="warAnalysis" class="tab-pane fade">
-		<div id="war-timeline-container"></div>
-	</div>
+	<!-- <div id="warAnalysis" class="tab-pane fade">
+	</div> -->
 </div>
 
 <!-- Datatables -->
 <script type="text/javascript">
-	$(document).ready(function(){
-	    $('#war-events').DataTable({
-	    	paging: false,
-	    	"dom": '<"pull-left"f><"pull-right"li>tp',
-	    	language: {
-		        search: "_INPUT_",
-		        searchPlaceholder: "Search"
-		    },
-	    	aoColumnDefs: [
-	    		{ bSortable: false, aTargets: [ 1, 2, 3 ] }
-	    	],
-	    	bInfo: false
-	    });
+$(document).ready(function(){
+    $('#war-events').DataTable({
+    	paging: false,
+    	"dom": '<"pull-left"f><"pull-right"li>tp',
+    	language: {
+	        search: "_INPUT_",
+	        searchPlaceholder: "Search"
+	    },
+    	aoColumnDefs: [
+    		{ bSortable: false, aTargets: [ 1, 2, 3 ] }
+    	],
+    	bInfo: false
+    });
 
-	    $('.war-team').DataTable({
-			paging: false,
-			"dom": '<"pull-left"f><"pull-right"li>tp',
-	    	language: {
-		        search: "_INPUT_",
-		        searchPlaceholder: "Search"
-		    },
-	    	aoColumnDefs: [
-	    		{ bSortable: false, aTargets: [ 3, 4, 6 ] }
-	    	],
-	    	bInfo: false
-		});
-
-	    var warWeightTable = $('.war-weights').DataTable({
-	    	paging: false,
-	    	bFilter: false,
-	    	bInfo: false,
-	    	aoColumnDefs: [
-	    		{ bSortable: false, aTargets: [ 1 ] }
-	    	]
-	    });
-
-	    $('a.toggle-vis').on( 'click', function (e) {
-	        e.preventDefault();
-	 
-	        // Get the column API object
-	        var column = warWeightTable.column( $(this).attr('data-column') );
-	 
-	        // Toggle the visibility
-	        column.visible( ! column.visible() );
-	    });
+    $('.war-team').DataTable({
+		paging: false,
+		"dom": '<"pull-left"f><"pull-right"li>tp',
+    	language: {
+	        search: "_INPUT_",
+	        searchPlaceholder: "Search"
+	    },
+    	aoColumnDefs: [
+    		{ bSortable: false, aTargets: [ 3, 4, 6 ] }
+    	],
+    	bInfo: false
 	});
+
+    var warWeightTable = $('.war-weights').DataTable({
+    	paging: false,
+    	bFilter: false,
+    	bInfo: false,
+    	aoColumnDefs: [
+    		{ bSortable: false, aTargets: [ 1 ] }
+    	]
+    });
+
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+ 
+        // Get the column API object
+        var column = warWeightTable.column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    });
+});
 </script>
 
 <!-- Highcharts -->
@@ -469,22 +469,23 @@
 				$pointObject = 
 					'{x:'.$event['timestamp'].
 					',y:'.$cumulativeStars.
-					',name:"'.getTooltipText($event, $cumulativeStars).
-					'"}';
+					',name:"'.getTooltipText($event, $cumulativeStars).'"}';
 				array_push($points, $pointObject);
 			}
 		}
 
-		array_push($points, '{x:86400,y:'.$cumulativeStars.',name:"War ended"}');
+		array_push($points, '{x:86400,y:'.$cumulativeStars.',name:"War ended<br>Total stars: '.$cumulativeStars.'"}');
 		echo implode(",", $points);
 	}
 ?>
-<script>
+<script type="text/javascript">
 $(function () {
     $('#war-timeline-container').highcharts({
         series: [{
+        	name: '<?php echo $json['home']['name']; ?>',
         	data: [<?php getAttackData($json, true); ?>] // home attacks
         }, {
+        	name: '<?php echo $json['enemy']['name']; ?>',
         	data: [<?php getAttackData($json, false); ?>] // enemy attacks
         }],
         chart: {
@@ -494,23 +495,32 @@ $(function () {
             enabled: false
         },
         title: {
-            text: 'War Timeline'
+            text: 'Timeline'
         },
         yAxis: {
+        	endOnTick: false,
+        	tickInterval: 5,
+        	max: <?php echo ($json['home']['size'] * 3); ?>,
             allowDecimals: false,
             title: {
-                text: 'Total Stars Earned'
+                text: 'Star Count'
             }
         },
         xAxis: {
-        	visible: false,
+        	endOnTick:false,
+        	tickInterval: 3600,
             allowDecimals: false,
             title: {
-                text: 'Time Remaining (Hours)'
+                text: 'Time'
+            },
+            labels: {
+            	formatter: function() {
+            		return this.value / 3600;
+            	}
             }
         },
         tooltip: {
-            formatter: function () {
+            formatter: function() {
                 //return '<b>' + this.series.name + '</b><br/>' + this.point.y + ' ' + this.point.name.toLowerCase();
                 return '<b>' + this.series.name + '</b><br/>' + this.point.name;
             }
@@ -520,10 +530,22 @@ $(function () {
             	step: 'left',
                 connectNulls: true,
                 marker: {
+                	enabled: true,
                 	radius: 3
                 }
             }
         }
     });
+
+	// Call resize chart because highcharts can not calculate width of container which has CSS
+	// The problem still persists when collapsing and expanding the sidebar
+	$('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+		var target = $(e.target).attr("href")
+		if (target == "#warEvents") {
+			$('#war-timeline-container').highcharts().reflow();
+		}
+	});
 });
+
+
 </script>
