@@ -211,8 +211,13 @@ def parseAttackEntry(file):
     values.append(readInt32(file))  # Replay ID
  
     values.append(readInt32(file))  # Time remaining
-    event['timeLeftDisplay'] = secondsToString(values[-1])
-    event['timeLeftSeconds'] = values[-1]
+    timeLeft = values[-1]
+    # Temporary solution for timeLeft <1m
+    if timeLeft < 0:
+        timeLeft = abs(timeLeft) % 60
+    event['timeLeftDisplay'] = secondsToString(timeLeft)
+    event['timeLeftSeconds'] = timeLeft
+    event['timestamp'] = 86400 - timeLeft
 
     values.append(readInt64(file))  # Attacker clan ID
     attackerClanId = values[-1]
