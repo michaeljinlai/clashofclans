@@ -385,63 +385,6 @@
 	<!-- Analysis Tab -->
 	<div id="warAnalysis" class="tab-pane fade">
 		<div id="war-timeline-container"></div>
-		<table id="war-timeline" class="war-events table table-striped table-hover dt-responsive members-table">
-			<thead>
-		        <tr>
-		            <th></th>
-		            <th><?php echo $json['home']['name']; ?></th>
-		            <th><?php echo $json['enemy']['name']; ?></th>
-		        </tr>
-		    </thead>
-		    <tbody>
-		    	<?php 
-			    	$allyTotal = 0; 
-			    	$allyAttack = 1;
-			    	$enemyTotal = 0;
-			    	$enemyAttack = 1;
-				?>
-				<?php foreach (array_reverse($json['events']) as $event) : ?>
-			        <tr>
-			            <th>
-			            	<?php 
-			            		if ($event['isHomeAttack']) {
-			            			$allyTotal = $allyTotal + $event['starsEarned'];
-			            			echo 'Total stars earned: '.$allyTotal.'<br>'
-			            			.'Stars earned: '.$event['starsEarned'].'<br>'
-			            			.'Attack #'.$allyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Atk: '.$event['homePlayerPosition'].'. '.$event['homePlayer'].'<br>'
-			            			.'Def: '.$event['enemyPlayerPosition'].'. '.$event['enemyPlayer'];
-			            			$allyAttack = $allyAttack + 1; 
-			            		}
-			            		else {
-			            			$enemyTotal = $enemyTotal + $event['starsEarned'];
-			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
-			            			.'Stars earned: '.$event['starsEarned'].'<br>'
-			            			.'Attack #'.$enemyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Atk: '.$event['enemyPlayerPosition'].'. '.$event['enemyPlayer'].'<br>'
-			            			.'Def: '.$event['homePlayerPosition'].'. '.$event['homePlayer'];
-			            			$enemyAttack = $enemyAttack + 1; 
-			            		}
-			            	?>
-			            </th>
-			            <td>
-			            	<?php 
-			            		if ($event['isHomeAttack'] === true) {
-									echo $allyTotal; 
-								}
-							?>
-						</td>
-			            <td>
-			            	<?php 
-			            		if ($event['isHomeAttack'] === false) {
-									echo $enemyTotal; 	
-								}
-							?>
-			            </td>
-			        </tr>
-		        <?php endforeach; ?>
-		    </tbody>
-		</table>
 	</div>
 </div>
 
@@ -496,12 +439,54 @@
 </script>
 
 <!-- Highcharts -->
+<?php
+	// $isAttacker: true for attacker's name, false for defender's name
+	function getPlayerName($event, $isAttacker) {
+		if ($event['isHomeAttack'] xor $isAttacker)
+			$str = $event['enemyPlayerPosition'].'. '.$event['enemyPlayer'];
+		else
+			$str = $event['homePlayerPosition'].'. '.$event['homePlayer'];
+		return addslashes($str);
+	}
+
+	function getTooltipText($event, $cumulativeStars) {
+		return 'Total stars earned: '.$cumulativeStars.'<br>'.
+			'Attack #'.$event['id'].' ('.$event['damage'].'%)'.'<br>'.
+			'Stars earned: '.$event['starsEarned'].'<br>'.
+			'Atk: '.getPlayerName($event, true).'<br>'.
+			'Def: '.getPlayerName($event, false);
+	}
+
+	function getAttackData($json, $isHome) {
+		$cumulativeStars = 0;
+		$points = array();
+
+		array_push($points, '{x:0,y:0,name:"War started"}');
+
+		foreach (array_reverse($json['events']) as $event) {
+			if ($event['isHomeAttack'] == $isHome) {
+				$cumulativeStars += $event['starsEarned'];
+				$pointObject = 
+					'{x:'.$event['timestamp'].
+					',y:'.$cumulativeStars.
+					',name:"'.getTooltipText($event, $cumulativeStars).
+					'"}';
+				array_push($points, $pointObject);
+			}
+		}
+
+		array_push($points, '{x:86400,y:'.$cumulativeStars.',name:"War ended"}');
+		echo implode(",", $points);
+	}
+?>
 <script>
 $(function () {
     $('#war-timeline-container').highcharts({
-        data: {
-            table: 'war-timeline'
-        },
+        series: [{
+        	data: [<?php getAttackData($json, true); ?>] // home attacks
+        }, {
+        	data: [<?php getAttackData($json, false); ?>] // enemy attacks
+        }],
         chart: {
             type: 'line'
         },
@@ -509,7 +494,7 @@ $(function () {
             enabled: false
         },
         title: {
-            text: 'Timeline Overview of War Events'
+            text: 'War Timeline'
         },
         yAxis: {
             allowDecimals: false,
