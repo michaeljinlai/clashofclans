@@ -215,6 +215,8 @@ def parseAttackEntry(file):
     # Temporary solution for timeLeft <1m
     if timeLeft < 0:
         timeLeft = abs(timeLeft) % 60
+    elif timeLeft > 86400:
+        timeLeft = 86400
     event['timeLeftDisplay'] = secondsToString(timeLeft)
     event['timeLeftSeconds'] = timeLeft
     event['timestamp'] = 86400 - timeLeft
