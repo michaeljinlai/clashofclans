@@ -385,7 +385,7 @@
 	<!-- Analysis Tab -->
 	<div id="warAnalysis" class="tab-pane fade">
 		<div id="war-timeline-container"></div>
-		<table id="war-timeline" class="hide war-events table table-striped table-hover dt-responsive members-table">
+		<table id="war-timeline" class="war-events table table-striped table-hover dt-responsive members-table">
 			<thead>
 		        <tr>
 		            <th></th>
@@ -407,19 +407,19 @@
 			            		if ($event['isHomeAttack']) {
 			            			$allyTotal = $allyTotal + $event['starsEarned'];
 			            			echo 'Total stars earned: '.$allyTotal.'<br>'
-			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
+			            			.'Stars earned: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$allyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Attacker: '.$event['homePlayerPosition'].'.'.$event['homePlayer'].'<br>'
-			            			.'Defender: '.$event['enemyPlayerPosition'].'.'.$event['enemyPlayer'];
+			            			.'Atk: '.$event['homePlayerPosition'].'. '.$event['homePlayer'].'<br>'
+			            			.'Def: '.$event['enemyPlayerPosition'].'. '.$event['enemyPlayer'];
 			            			$allyAttack = $allyAttack + 1; 
 			            		}
 			            		else {
 			            			$enemyTotal = $enemyTotal + $event['starsEarned'];
 			            			echo 'Total stars earned: '.$enemyTotal.'<br>'
-			            			.'Stars earned this attack: '.$event['starsEarned'].'<br>'
+			            			.'Stars earned: '.$event['starsEarned'].'<br>'
 			            			.'Attack #'.$enemyAttack.' ('.$event['damage'].'%)'.'<br>'
-			            			.'Attacker: '.$event['enemyPlayerPosition'].'. '.$event['enemyPlayer'].'<br>'
-			            			.'Defender: '.$event['homePlayerPosition'].'. '.$event['homePlayer'];
+			            			.'Atk: '.$event['enemyPlayerPosition'].'. '.$event['enemyPlayer'].'<br>'
+			            			.'Def: '.$event['homePlayerPosition'].'. '.$event['homePlayer'];
 			            			$enemyAttack = $enemyAttack + 1; 
 			            		}
 			            	?>
