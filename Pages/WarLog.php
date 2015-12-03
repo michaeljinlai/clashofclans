@@ -21,7 +21,7 @@
 	    <table id="memberTable" class="table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
-					<th></th>
+					<th class="col-xs-1"></th>
 					<th>#</th>
 					<th>Size</th>
 					<th>Destruction</th>
@@ -48,7 +48,7 @@
 								echo 'war-log-background-lose';
 						?>
 					">
-						<td><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">View</a></td>
+						<td style="text-align:center;"><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">View</a></td>
 						<td><?php echo $json['id']; ?></td>
 						<td><?php echo $json['home']['size']; ?></td>
 						<td><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
