@@ -8,6 +8,7 @@ var main = function () {
         $('.ptd-logo').toggleClass('hide');
         $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip('destroy');
+        $('.sidebar').css('overflow', 'auto');
 
         $('.sidebar').animate({
             width: "160"
@@ -30,6 +31,7 @@ var main = function () {
         $('.ptd-logo').toggleClass('hide');
         $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip({container: 'body'});
+        $('.sidebar').css('overflow', 'hidden');
 
         $('.sidebar').animate({
             width: "50px"
