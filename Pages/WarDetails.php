@@ -170,7 +170,7 @@
 				</tr>
 			</tbody>
 		</table>
-	    <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
+	    <!-- <table class="war-stats table table-striped table-bordered table-hover dt-responsive members-table">
 			<thead>
 				<tr>
 					<th colspan="3">Attack Stats</th>
@@ -212,7 +212,7 @@
 					<td class="col-xs-4">Unknown</td>
 				</tr>
 			</tbody>
-		</table>
+		</table> -->
 	</div>
 	<!-- War Events Tab -->    
 	<div id="warEvents" class="tab-pane fade">
