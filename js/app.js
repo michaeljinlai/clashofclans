@@ -9,6 +9,7 @@ var main = function () {
         $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip('destroy');
         $('.sidebar').css('overflow', 'auto');
+        $('.sidebar-log-in').css('width', '160px');
 
         $('.sidebar').animate({
             width: "160"
@@ -32,6 +33,8 @@ var main = function () {
         $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip({container: 'body'});
         $('.sidebar').css('overflow', 'hidden');
+        $('.sidebar-log-in').css('width', '50px');
+
 
         $('.sidebar').animate({
             width: "50px"
