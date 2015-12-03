@@ -63,13 +63,13 @@
                     <br>
                     War Frequency: 
                     <span class="clan-supercell">
-                        <?php echo $row[0]['warFrequency']; ?>
+                        <?php echo ucfirst($row[0]['warFrequency']); ?>
                     </span>
                 </div>
                 <div class="clan-type-required">
                     Type: 
                     <span class="clan-supercell">
-                        <?php echo $row[0]['type']; ?>
+                        <?php echo ucfirst($row[0]['type']); ?>
                     </span>
                     <br>
                     Required Trophies: 
