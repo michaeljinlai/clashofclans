@@ -52,26 +52,28 @@
 
 <body>
 
-<h1 class="page-header">Upload</h1>
-<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
-    
-    Select directory:
-    <br>
-    <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default active">
-            <input type="radio" name="directory" value="raw" checked="checked" />Raw Folder
-        </label>
-        <label class="btn btn-default">
-            <input type="radio" name="directory" value="json" />Json Folder
-        </label>
-    </div>
+<div class="enter-effect">
+    <h1 class="page-header">Upload</h1>
+    <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post" enctype="multipart/form-data">
+        
+        Select directory:
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default active">
+                <input type="radio" name="directory" value="raw" checked="checked" />Raw Folder
+            </label>
+            <label class="btn btn-default">
+                <input type="radio" name="directory" value="json" />Json Folder
+            </label>
+        </div>
 
-    <br><br>
+        <br><br>
 
-    Select file to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <br>
-    <button class="btn btn-primary" type="submit" name="submit">Upload File</button>
-</form>
+        Select file to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <br>
+        <button class="btn btn-primary" type="submit" name="submit">Upload File</button>
+    </form>
+</div>
 
 </body>

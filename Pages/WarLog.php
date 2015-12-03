@@ -11,7 +11,7 @@
 	$scanned_directory = array_diff(scandir($directory), array('..', '.'));
 ?>
 
-<div id="warMain">
+<div id="warMain" class="enter-effect">
 	<div class="table-responsive">
 	    <h1 class="page-header">War Log</h1>
 	    <ol class="breadcrumb">

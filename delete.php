@@ -15,6 +15,8 @@
 
 ?>
 
+<div class="enter-effect">
+
 <h1 class="page-header">Delete</h1>
 
 <?php
@@ -77,6 +79,8 @@ foreach($files as $file){
 }
 echo '</table>';
 ?>
+
+</div>
 
 <script type="text/javascript">
 function deleteFile(fname,rowid,directory,tableRowId)

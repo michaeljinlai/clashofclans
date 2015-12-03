@@ -44,7 +44,7 @@
     <h1 class="page-header">Home</h1>
 </div> -->
 
-<div class="outer-clan-details-container">
+<div class="outer-clan-details-container enter-effect">
     <div class="black-overlay">
     	<div class="clan-details-container">
     		<div class="clan-badge">

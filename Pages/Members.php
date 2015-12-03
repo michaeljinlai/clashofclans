@@ -55,7 +55,7 @@
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
-<div class="table-responsive">
+<div class="table-responsive enter-effect">
     <h1 class="page-header">Members</h1>
     <ol class="breadcrumb">
         <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
