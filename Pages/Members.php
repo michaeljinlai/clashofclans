@@ -1,6 +1,6 @@
 <?php 
     // First we execute our common code to connection to the database and start the session 
-    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
+    require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
      
     // Everything below this point in the file is secured by the login system 
      
@@ -50,12 +50,12 @@
     }
 ?> 
 
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/Elements/header.php"); ?>
 
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
-<div class="table-responsive enter-effect">
+<div class="enter-effect table-responsive">
     <h1 class="page-header">Members</h1>
     <ol class="breadcrumb">
         <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
