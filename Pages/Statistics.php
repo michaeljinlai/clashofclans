@@ -80,6 +80,7 @@
 ?>
 
 <div id="container" style="width:100%; height:400px;"></div>
+<div style="padding-top: 50px; text-align: center;">More coming soon!</div>
 
 <table id="datatable" class="hide">
   <thead>
