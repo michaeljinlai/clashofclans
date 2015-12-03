@@ -217,7 +217,7 @@
 	<!-- War Events Tab -->    
 	<div id="warEvents" class="tab-pane fade">
 		<div id="war-timeline-container"></div>
-	    <table id="war-events" class="war-events table table-striped table-hover dt-responsive members-table">
+	    <table id="war-events" class="war-events table table-striped table-hover dt-responsive members-table extra-bot-margin">
 			<thead style="border-top:5px solid red;">
 				<tr>
 					<th></th>

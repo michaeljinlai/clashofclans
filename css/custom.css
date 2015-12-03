@@ -139,10 +139,6 @@ ul.nav a.active {
   width: calc(100% - 30px);
 }*/
 
-#war-my-team_wrapper, #war-enemy-team_wrapper, .war-events {
-  margin-bottom: 300px;
-}
-
 #war-my-team_filter input, #war-enemy-team_filter input, #war-events_filter input, #memberTable_filter input {
   margin-left: 0px;
 }
