@@ -15,6 +15,8 @@
             warFrequency,
             clanLevel,
             warWins,
+            warLosses,
+            warTies,
             clanPoints,
             requiredTrophies,
             members 
@@ -54,7 +56,14 @@
     		<div class="clan-tag"><?php echo $row[0]['tag']; ?></div>
             <div class="clan-details-wrapper">
                 <div class="clan-total-points"><?php echo '<img class="clan-details-trophy-image" src="https://clashofclans.com/img/shared/trophy.png" width="45" height="47" />'; echo $row[0]['clanPoints']; ?></div>
-                <div class="clan-war-wins"><?php echo '<img class="clan-details-wars-image" src="https://clashofclans.com/img/shared/wars.png" width="53" height="47" />'; echo $row[0]['warWins']; ?></div>
+                <div class="clan-war-wins">
+                    <?php
+                        echo '<img class="clan-details-wars-image" src="https://clashofclans.com/img/shared/wars.png" width="53" height="47" />';
+                        echo $row[0]['warWins'].'/';
+                        echo $row[0]['warLosses'].'/';
+                        echo $row[0]['warTies'];
+                    ?>
+                </div>
                 <div class="clan-members-frequency">
                     Members: 
                     <span class="clan-supercell">

@@ -329,7 +329,7 @@ ul.nav a.active {
   float: left;
   line-height: 107px;
   /*background: rgba(0, 0, 0, .1);*/
-  background: #337AB7;
+  background: #afc0cf;
   font-family: 'supercell';
   min-width: 110px;
 }
@@ -344,7 +344,7 @@ ul.nav a.active {
   float: right;
   line-height: 107px;
   /*background: rgba(0, 0, 0, .1);*/
-  background: #337AB7;
+  background: #afc0cf;
   font-family: 'supercell'; 
   min-width: 110px;
 }
