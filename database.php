@@ -1,8 +1,8 @@
 <?php 
 
     // These variables define the connection information for your MySQL database 
-    $dbusername = "db209388"; 
-    $dbpassword = "Walrusness123!"; 
+    $dbusername = "db209388_isaac"; 
+    $dbpassword = "AAuser.mt?id=1"; 
     $dbhost = "internal-db.s209388.gridserver.com"; 
     $dbname = "db209388_clashofclans"; 
 
