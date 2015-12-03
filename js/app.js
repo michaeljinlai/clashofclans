@@ -9,7 +9,6 @@ var main = function () {
         $('.sidebar-line').toggleClass('hide');
         $("[data-toggle='tooltip']").tooltip('destroy');
         $('.sidebar').css('overflow', 'auto');
-        $('.sidebar-log-in').css('width', '160px');
 
         $('.sidebar').animate({
             width: "160"
@@ -21,6 +20,7 @@ var main = function () {
 
         setTimeout(function () {
             $('body').css('width', '100%').css('width', '-=160');
+            $('.sidebar-log-in').css('width', '160px');
         }, 200);
 
     });
@@ -34,7 +34,6 @@ var main = function () {
         $("[data-toggle='tooltip']").tooltip({container: 'body'});
         $('.sidebar').css('overflow', 'hidden');
         $('.sidebar-log-in').css('width', '50px');
-
 
         $('.sidebar').animate({
             width: "50px"
