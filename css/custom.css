@@ -80,6 +80,8 @@ body div.sidebar ul li a {
   color: #BFBFBF;
   padding: 7px;
   padding-left: 8px;
+  width: 14px;
+  position: fixed;
 }
 
 /* Sidebar Arrow */
@@ -117,6 +119,7 @@ ul.nav a.active {
   height: calc(50% - 20px);
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 34px;
 }
 
 /* Removing the margin from page-header built in from bootstrap */
