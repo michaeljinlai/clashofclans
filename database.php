@@ -1,13 +1,13 @@
 <?php 
 
     // These variables define the connection information for your MySQL database 
-    $dbusername = "root"; 
-    $dbpassword = "root"; 
-    $dbhost = "localhost"; 
-    $dbname = "clashofclans"; 
+    $dbusername = "db209388"; 
+    $dbpassword = "Walrusness123!"; 
+    $dbhost = "internal-db.s209388.gridserver.com"; 
+    $dbname = "db209388_clashofclans"; 
 
     // UTF-8 is a character encoding scheme that allows you to conveniently store 
-    // a wide varienty of special characters, like ¢ or €, in your database. 
+    // a wide varienty of special characters, like Â¢ or â‚¬, in your database. 
     // By passing the following $options array to the database connection code we 
     // are telling the MySQL server that we want to communicate with it using UTF-8 
     // See Wikipedia for more information on UTF-8: 
