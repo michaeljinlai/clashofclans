@@ -192,7 +192,7 @@ foreach ($scanned_directory as $warFile) {
       <th>Stars Earned</th>
       <th>Stars Won</th>
       <th>Total Damage</th>
-      <th>Stars Earned / Attack</th>
+      <th>Avg Stars Earned / Attack</th>
     </tr>
   </thead>
   <tbody>
