@@ -27,7 +27,7 @@
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right" id="asdasd">
+			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right" id="sidebarHome">
 				<span class="fa fa-shield fa-sidebar-home"></span>
 				<span class="sidebar-text">War Log</span>
 			</a>
@@ -155,7 +155,7 @@ function loadDelete(str) {
 function loadWar(id) {
 	$("#main").load("Pages/WarDetails.php?id="+id, function() {
 	    $("ul.nav a").removeClass("active");
-	    $("#asdasd").toggleClass("active");
+	    $("#sidebarHome").toggleClass("active");
 	});
 }
 </script>
