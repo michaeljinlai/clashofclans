@@ -27,7 +27,7 @@
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right">
+			<a onclick="loadDoc('WarLog')" data-toggle="tooltip" title="War Log" class="sidebar-item-link" data-placement="right" id="asdasd">
 				<span class="fa fa-shield fa-sidebar-home"></span>
 				<span class="sidebar-text">War Log</span>
 			</a>
@@ -130,7 +130,7 @@ $(function () {
 <!-- Sidebar Button Tab Changes -->
 <script>
 function loadDoc(str) {
-		$("#main").load("Pages/"+str+".php", function() {
+	$("#main").load("Pages/"+str+".php", function() {
 	    // This gets executed when the content is loaded
 	    //$.get("//code.jquery.com/jquery-1.10.2.min.js");
 	    //$.get("//cdn.datatables.net/1.10.10/js/jquery.dataTables.js");
@@ -142,7 +142,7 @@ function loadDoc(str) {
 <!-- For some reasons I can't get this to work when the two delete php files are in the Pages folder -->
 <script>
 function loadDelete(str) {
-		$("#main").load(str+".php", function() {
+	$("#main").load(str+".php", function() {
 	    // This gets executed when the content is loaded
 	    //$.get("//code.jquery.com/jquery-1.10.2.min.js");
 	    //$.get("//cdn.datatables.net/1.10.10/js/jquery.dataTables.js");
@@ -153,8 +153,9 @@ function loadDelete(str) {
 <!-- War Log Details Changes -->
 <script>
 function loadWar(id) {
-		$("#main").load("Pages/WarDetails.php?id="+id, function() {
-	    // Code here gets executed when the content is loaded
+	$("#main").load("Pages/WarDetails.php?id="+id, function() {
+	    $("ul.nav a").removeClass("active");
+	    $("#asdasd").toggleClass("active");
 	});
 }
 </script>
@@ -162,7 +163,7 @@ function loadWar(id) {
 <!-- Player Details -->
 <script>
 function loadPlayer(name) {
-		$("#main").load("Pages/PlayerDetails.php?name="+name, function() {
+	$("#main").load("Pages/PlayerDetails.php?name="+name, function() {
 	    // Code here gets executed when the content is loaded
 	});
 }
