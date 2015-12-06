@@ -162,7 +162,7 @@ function loadWar(id) {
 <!-- Player Details -->
 <script>
 function loadPlayer(name) {
-		$("#statisticsMain").load("Pages/PlayerDetails.php?name="+name, function() {
+		$("#main").load("Pages/PlayerDetails.php?name="+name, function() {
 	    // Code here gets executed when the content is loaded
 	});
 }
