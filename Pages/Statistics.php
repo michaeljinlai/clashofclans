@@ -1,4 +1,4 @@
-<div class="enter-effect">
+<div id="statisticsMain" class="enter-effect">
     <h1 class="page-header">Statistics</h1>
     <ol class="breadcrumb">
         <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
@@ -187,6 +187,7 @@ foreach ($scanned_directory as $warFile) {
 <table class="table table-striped table-bordered table-hover dt-responsive">
   <thead>
     <tr>
+      <th class="col-xs-1"></th>
       <th>Name</th>
       <th>Total Attacks</th>
       <th>Stars Earned</th>
@@ -198,6 +199,7 @@ foreach ($scanned_directory as $warFile) {
   <tbody>
     <?php for ($i = 0; $i < count($playerArray); $i++) : ?>
       <tr>
+        <td style="text-align:center;"><a onclick="loadPlayer('<?php echo urlencode($fullArray[0][$i]); ?>')" class="btn btn-primary">View</a></td>
         <td><?php echo $fullArray[0][$i]; ?></td>
         <td><?php echo $fullArray[1][$i]; ?></td>
         <td><?php echo $fullArray[2][$i]; ?></td>
