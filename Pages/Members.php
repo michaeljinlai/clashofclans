@@ -2,8 +2,6 @@
     // First we execute our common code to connection to the database and start the session 
     require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
      
-    // Everything below this point in the file is secured by the login system 
-     
     // We can retrieve a list of members from the database using a SELECT query. 
     // In this case we do not have a WHERE clause because we want to select all 
     // of the rows from the database table. 
