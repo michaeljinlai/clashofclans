@@ -7,11 +7,11 @@ require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
 // Check if user is logged in
 if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') 
 { 
-        // If they are not, we redirect them to the login page. 
+    // If they are not, we redirect them to the login page. 
   header("Location: login.php"); 
 
-        // Remember that this die statement is absolutely critical.  Without it, 
-        // people can view your members-only content without logging in. 
+    // Remember that this die statement is absolutely critical.  Without it, 
+    // people can view your members-only content without logging in. 
   die("Redirecting to login.php"); 
 } 
 
@@ -50,12 +50,12 @@ if (!empty($html->find('div[class=clan-info] li span', 6)->innertext)) {
     $warTies = $html->find('div[class=clan-info] li span', 6)->innertext; // War Tied
 }
 
-//convert json object to php associative array
+// Convert json object to php associative array
 $data = json_decode($contents, true);
-// Completely clear table 'members'
 
 if (!empty($data['clanDetails']['results']['memberList'])) {
 
+    // Completely clear table 'members'
     $truncateMembers = "TRUNCATE TABLE members";
     $stmt = $db->prepare($truncateMembers); 
     $result = $stmt->execute(); 
@@ -71,7 +71,6 @@ if (!empty($data['clanDetails']['results']['memberList'])) {
 // Echos the first member of memberList
 // echo $data['clanDetails']['results']['memberList'][0]['name'];
 
-// Echos the name of each member
 foreach ($data['clanDetails']['results']['memberList'] as $member) {
 
 	$query = " 

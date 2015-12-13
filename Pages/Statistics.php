@@ -6,7 +6,7 @@
     </ol>
 
 
-<?php 
+<?php // Begin pie chart of roles within clan
 
     // First we execute our common code to connection to the database and start the session 
     require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
@@ -50,7 +50,7 @@
 
 <?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
 
-<?php // Testing Area
+<?php
   
   // Initialize variables
   $leaderCount = 0;
@@ -111,7 +111,7 @@
 
 <br>
 
-<?php
+<?php // Begin information of each player
 
 // Gets an array of all json file names (including '.' and '..')
 $directory = '../database/war-history/json';
