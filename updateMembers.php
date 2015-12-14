@@ -5,14 +5,13 @@ include('simple_html_dom.php');
 require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
 
 // Check if user is logged in
-if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') 
-{ 
+if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') { 
     // If they are not, we redirect them to the login page. 
-  header("Location: login.php"); 
+    header("Location: login.php"); 
 
     // Remember that this die statement is absolutely critical.  Without it, 
     // people can view your members-only content without logging in. 
-  die("Redirecting to login.php"); 
+    die("Redirecting to login.php"); 
 } 
 
 // Create a curl handle to a non-existing location
@@ -112,14 +111,12 @@ foreach ($data['clanDetails']['results']['memberList'] as $member) {
 	    ':leagueBadgeImg_xl' => $member['leagueBadgeImg']['xl'] // And only one link for this
 	); 
 	 
-	try 
-	{ 
+	try { 
 	    // Execute the query to create the user 
 	    $stmt = $db->prepare($query); 
 	    $result = $stmt->execute($query_params); 
 	} 
-	catch(PDOException $ex) 
-	{ 
+	catch(PDOException $ex) { 
 	    // Note: On a production website, you should not output $ex->getMessage(). 
 	    // It may provide an attacker with helpful information about your code.  
 	    die("Failed to run query: " . $ex->getMessage()); 
@@ -181,14 +178,13 @@ $query_params = array(
     ':members' => $data['clanDetails']['results']['members'],
 ); 
 
-try 
-{ 
+try {
     // Execute the query to create the user 
     $stmt = $db->prepare($query); 
     $result = $stmt->execute($query_params); 
 } 
-catch(PDOException $ex) 
-{ 
+
+catch(PDOException $ex) { 
     // Note: On a production website, you should not output $ex->getMessage(). 
     // It may provide an attacker with helpful information about your code.  
     die("Failed to run query: " . $ex->getMessage()); 
