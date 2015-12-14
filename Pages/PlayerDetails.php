@@ -9,11 +9,54 @@
 
 	<?php
 
-	// Gets an array of all json file names (including '.' and '..')
-	$directory = '../database/war-history/json';
+		require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
 
-	// Remove the '.' and '..' from the array
-	$scanned_directory = array_diff(scandir($directory), array('..', '.'));
+  		$currentName = $_GET['name'];
+
+  		$query = " 
+		    SELECT * FROM members_statistics WHERE name = '$currentName'
+		"; 
+		 
+		try { 
+		    // Execute the query to create the user 
+		    $stmt = $db->prepare($query); 
+		    $stmt->execute(); 
+		} 
+		catch (PDOException $ex) { 
+		    // Note: On a production website, you should not output $ex->getMessage(). 
+		    // It may provide an attacker with helpful information about your code.  
+		    die("Failed to run query: " . $ex->getMessage()); 
+		} 
+
+		$rows = $stmt->fetchAll();
+		$members_statistics_id = $rows[0]['id'];
+
+		$query = " 
+	    SELECT 
+	        war_id,
+	        attackNumber,
+	        damage,
+	        target,
+	        enemyClan,
+	        starsWon,
+	        starsEarned
+	    FROM members_attacks
+	    WHERE members_statistics_id = '$members_statistics_id'
+		"; 
+
+		try { 
+		    // These two statements run the query against your database table. 
+		    $stmt = $db->prepare($query); 
+		    $stmt->execute(); 
+		} 
+		catch (PDOException $ex) { 
+		    // Note: On a production website, you should not output $ex->getMessage(). 
+		    // It may provide an attacker with helpful information about your code.  
+		    die("Failed to run query: " . $ex->getMessage()); 
+		} 
+		   
+		// Finally, we can retrieve all of the found rows into an array using fetchAll 
+		$rows = $stmt->fetchAll();
 
 	?>
 
@@ -30,37 +73,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($scanned_directory as $warFile) : ?>
-			<?php 
-				$str = file_get_contents('../database/war-history/json/'.$warFile);
-				$json = json_decode($str, true);
-			?>
-				<?php foreach ($json['home']['roster'] as $roster) : ?>
-					<?php if ($roster['name'] === $_GET['name']) : ?>
-						<?php if ($roster['attack1'] !== "") : ?>
-							<tr>
-								<td><a onclick="loadWar('<?php echo $json['id'] ?>')" class="pointer"><?php echo $json['id']; ?></a></td>
-								<td>Attack 1</td>
-								<td><?php echo $roster['attack1']['damage']; ?></td>
-								<td><?php echo $roster['attack1']['targetPosition'].'. '.$roster['attack1']['target']; ?></td>
-								<td><?php echo $json['enemy']['name']; ?></td>
-								<td><?php echo $roster['attack1']['starsWon']; ?></td>
-								<td><?php echo $roster['attack1']['starsEarned']; ?></td>
-							</tr>
-						<?php endif; ?>	
-						<?php if ($roster['attack2'] !== "") : ?>
-							<tr>
-								<td><a onclick="loadWar('<?php echo $json['id'] ?>')" class="pointer"><?php echo $json['id']; ?></a></td>
-								<td>Attack 2</td>
-								<td><?php echo $roster['attack2']['damage']; ?></td>
-								<td><?php echo $roster['attack2']['targetPosition'].'. '.$roster['attack2']['target']; ?></td>
-								<td><?php echo $json['enemy']['name']; ?></td>
-								<td><?php echo $roster['attack2']['starsWon']; ?></td>
-								<td><?php echo $roster['attack2']['starsEarned']; ?></td>
-							</tr>
-						<?php endif; ?>	
-					<?php endif; ?>	
-				<?php endforeach; ?>
+			<?php foreach ($rows as $attack) : ?>
+				<tr>
+					<td><a onclick="loadWar('<?php echo $attack['war_id']; ?>')" class="pointer"><?php echo $attack['war_id']; ?></a></td>
+					<td>Attack <?php echo $attack['attackNumber']; ?></td>
+					<td><?php echo $attack['damage']; ?></td>
+					<td><?php echo $attack['target']; ?></td>
+					<td><?php echo $attack['enemyClan']; ?></td>
+					<td><?php echo $attack['starsWon']; ?></td>
+					<td><?php echo $attack['starsEarned']; ?></td>
+				</tr>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
