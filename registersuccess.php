@@ -10,9 +10,7 @@
 <br>
 
 <div class="container">
-
     <div class="alert alert-success">
-      <strong>Success!</strong> Please wait to be redirected to the login page
+        <strong>Success!</strong> Please wait to be redirected to the login page
     </div>
-
 </div>

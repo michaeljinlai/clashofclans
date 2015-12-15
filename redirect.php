@@ -10,9 +10,7 @@
 <br>
 
 <div class="container">
-
     <div class="alert <?php echo 'alert-'.$_GET['class']; ?>">
-      <strong><?php echo ucfirst($_GET['class']); ?>!</strong> <?php echo $_GET['message']; ?>
+        <strong><?php echo ucfirst($_GET['class']); ?>!</strong> <?php echo $_GET['message']; ?>
     </div>
-
 </div>

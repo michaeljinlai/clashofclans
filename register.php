@@ -5,8 +5,7 @@
      
     // This if statement checks to determine whether the registration form has been submitted 
     // If it has, then the registration code is run, otherwise the form is displayed 
-    if(!empty($_POST)) 
-    {   
+    if(!empty($_POST)) {   
 
         // Google ReCaptcha
         // https://www.google.com/recaptcha/admin#site/319847548?setup
@@ -19,7 +18,7 @@
 
         $captchasuccess = false;
 
-        if ($arr['success']){
+        if ($arr['success']) {
             $captchasuccess = true;
         }
         // END GOOGLE RECAPTCHA
@@ -39,8 +38,7 @@
         $valid = true;
 
         // Ensure that the user has entered a non-empty username 
-        if(empty($_POST['username'])) 
-        { 
+        if(empty($_POST['username'])) { 
             // Note that die() is generally a terrible way of handling user errors 
             // like this.  It is much better to display the error with the form 
             // and allow the user to correct their mistake.  However, that is an 
@@ -52,16 +50,14 @@
         }
 
         // Ensure that the password is at least 6 characters long 
-        if(strlen($_POST['password']) < 6) 
-        { 
+        if(strlen($_POST['password']) < 6) { 
             $passwordError = 'Password needs to be at least 6 characters';
             $confirmPasswordError = 'Password needs to be at least 6 characters';
             $valid = false;
         }        
          
         // Ensure that the user has entered a non-empty password 
-        if(empty($_POST['password'])) 
-        { 
+        if(empty($_POST['password'])) { 
             //die("Please enter a password."); 
 
             $passwordError = 'Please enter a password';
@@ -69,22 +65,19 @@
         } 
 
         // Ensure that the user has captcha 
-        if($captchasuccess == false) 
-        { 
+        if($captchasuccess == false) { 
             $captchaError = 'Please verify the captcha';
             $valid = false;
         } 
 
         // Ensure that the user has entered a non-empty confirm password 
-        if(empty($_POST['confirmPassword'])) 
-        { 
+        if(empty($_POST['confirmPassword'])) { 
             $confirmPasswordError = 'Please enter a confirm password';
             $valid = false;
         } 
 
         // Ensure that the fields password and confirm password mathes
-        if(!($_POST["password"] == $_POST["confirmPassword"])) 
-        { 
+        if(!($_POST["password"] == $_POST["confirmPassword"])) { 
             $confirmPasswordError = 'Passwords do not match';
             $passwordError = 'Passwords do not match';
             $valid = false;
@@ -94,8 +87,7 @@
         // filter_var is a useful PHP function for validating form input, see: 
         // http://us.php.net/manual/en/function.filter-var.php 
         // http://us.php.net/manual/en/filter.filters.php 
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
-        { 
+        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { 
             //die("Invalid E-Mail Address"); 
 
             $emailError = 'Please enter a valid email address';
@@ -125,14 +117,12 @@
             ':username' => $_POST['username'] 
         ); 
          
-        try 
-        { 
+        try { 
             // These two statements run the query against your database table. 
             $stmt = $db->prepare($query); 
             $result = $stmt->execute($query_params); 
         } 
-        catch(PDOException $ex) 
-        { 
+        catch(PDOException $ex) { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
             die("Failed to run query: " . $ex->getMessage()); 
@@ -144,8 +134,7 @@
          
         // If a row was returned, then we know a matching username was found in 
         // the database already and we should not allow the user to continue. 
-        if($row) 
-        { 
+        if($row) { 
             //die("This username is already in use"); 
 
             $usernameError = 'This username is already in use';
@@ -166,20 +155,17 @@
             ':email' => $_POST['email'] 
         ); 
          
-        try 
-        { 
+        try { 
             $stmt = $db->prepare($query); 
             $result = $stmt->execute($query_params); 
         } 
-        catch(PDOException $ex) 
-        { 
+        catch(PDOException $ex) { 
             die("Failed to run query: " . $ex->getMessage()); 
         } 
          
         $row = $stmt->fetch(); 
          
-        if($row) 
-        { 
+        if($row) { 
             //die("This email address is already registered"); 
             $emailError = 'This email address is already registered';
             $valid = false;
@@ -226,8 +212,7 @@
             // times for each guess they make against a password, whereas if the password 
             // were hashed only once the attacker would have been able to make 65537 different  
             // guesses in the same amount of time instead of only one. 
-            for($round = 0; $round < 65536; $round++) 
-            { 
+            for($round = 0; $round < 65536; $round++) { 
                 $password = hash('sha256', $password . $salt); 
             } 
              
@@ -241,14 +226,12 @@
                 ':email' => $_POST['email'] 
             ); 
              
-            try 
-            { 
+            try { 
                 // Execute the query to create the user 
                 $stmt = $db->prepare($query); 
                 $result = $stmt->execute($query_params); 
             } 
-            catch(PDOException $ex) 
-            { 
+            catch(PDOException $ex) { 
                 // Note: On a production website, you should not output $ex->getMessage(). 
                 // It may provide an attacker with helpful information about your code.  
                 die("Failed to run query: " . $ex->getMessage()); 

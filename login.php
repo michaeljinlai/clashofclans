@@ -10,8 +10,7 @@
      
     // This if statement checks to determine whether the login form has been submitted 
     // If it has, then the login code is run, otherwise the form is displayed 
-    if(!empty($_POST)) 
-    { 
+    if(!empty($_POST)) { 
 
         // keep track of incorrect username and password
         $error = null;
@@ -36,14 +35,12 @@
             ':username' => $_POST['username'] 
         ); 
          
-        try 
-        { 
+        try { 
             // Execute the query against the database 
             $stmt = $db->prepare($query); 
             $result = $stmt->execute($query_params); 
         } 
-        catch(PDOException $ex) 
-        { 
+        catch(PDOException $ex) { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
             die("Failed to run query: " . $ex->getMessage()); 
@@ -57,19 +54,16 @@
         // Retrieve the user data from the database.  If $row is false, then the username 
         // they entered is not registered. 
         $row = $stmt->fetch(); 
-        if($row) 
-        { 
+        if($row) { 
             // Using the password submitted by the user and the salt stored in the database, 
             // we now check to see whether the passwords match by hashing the submitted password 
             // and comparing it to the hashed version already stored in the database. 
             $check_password = hash('sha256', $_POST['password'] . $row['salt']); 
-            for($round = 0; $round < 65536; $round++) 
-            { 
+            for($round = 0; $round < 65536; $round++) { 
                 $check_password = hash('sha256', $check_password . $row['salt']); 
             } 
              
-            if($check_password === $row['password']) 
-            { 
+            if($check_password === $row['password']) { 
                 // If they do, then we flip this to true 
                 $login_ok = true; 
             } 
@@ -77,8 +71,7 @@
          
         // If the user logged in successfully, then we send them to the private members-only page 
         // Otherwise, we display a login failed message and show the login form again 
-        if($login_ok) 
-        { 
+        if($login_ok) { 
             // Here I am preparing to store the $row array into the $_SESSION by 
             // removing the salt and password values from it.  Although $_SESSION is 
             // stored on the server-side, there is no reason to store sensitive values 
@@ -93,19 +86,18 @@
             // the user's details. 
             $_SESSION['user'] = $row; 
             
-            if($_SESSION['user']['privilege'] === 'administrator'){
-            // Redirect the user if they are an administrator.  <-- need to add field to users table for administrator 
-            header("Location: index.php"); 
-            die("Redirecting to: index.php"); 
+            if($_SESSION['user']['privilege'] === 'administrator') {
+	            // Redirect the user if they are an administrator.  <-- need to add field to users table for administrator 
+	            header("Location: index.php"); 
+	            die("Redirecting to: index.php"); 
             }
             else {
-            // Redirect the user if they are a normal user. 
-            header("Location: index.php"); 
-            die("Redirecting to: index.php"); 
+	            // Redirect the user if they are a normal user. 
+	            header("Location: index.php"); 
+	            die("Redirecting to: index.php"); 
             }
         } 
-        else 
-        { 
+        else { 
             // Tell the user they failed 
             //print("Login Failed."); 
             $error = "Incorrect Username/Password";

@@ -11,8 +11,8 @@ E-mail Address: <input type="text" name="email" size="20" /> <input type="submit
                 <h3>Forgot Password</h3>
             </div>
             <form class="form-horizontal" action="change.php" method="post"> 
-                <!-- Email -->
                 
+                <!-- Email -->                
                 <label class="control-label">Email</label>
                 <div class="controls">
                     <input name="email" type="text" placeholder="Email">

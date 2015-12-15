@@ -19,16 +19,14 @@
     // error while executing that code, it stops immediately and jumps down to the 
     // catch block.  For more detailed information on exceptions and try/catch blocks: 
     // http://us2.php.net/manual/en/language.exceptions.php 
-    try 
-    { 
+    try { 
         // This statement opens a connection to your database using the PDO library 
         // PDO is designed to provide a flexible interface between PHP and many 
         // different types of database servers.  For more information on PDO: 
         // http://us2.php.net/manual/en/class.pdo.php 
         $db = new PDO("mysql:host={$dbhost};dbname={$dbname};charset=utf8", $dbusername, $dbpassword, $options); 
     } 
-    catch(PDOException $ex) 
-    { 
+    catch(PDOException $ex) { 
         // If an error occurs while opening a connection to your database, it will 
         // be trapped here.  The script will output an error and stop executing. 
         // Note: On a production website, you should not output $ex->getMessage(). 
@@ -51,18 +49,13 @@
     // of PHP may still have magic quotes enabled and this code is necessary to 
     // prevent them from causing problems.  For more information on magic quotes: 
     // http://php.net/manual/en/security.magicquotes.php 
-    if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) 
-    { 
-        function undo_magic_quotes_gpc(&$array) 
-        { 
-            foreach($array as &$value) 
-            { 
-                if(is_array($value)) 
-                { 
+    if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) { 
+        function undo_magic_quotes_gpc(&$array) { 
+            foreach($array as &$value) { 
+                if(is_array($value)) { 
                     undo_magic_quotes_gpc($value); 
                 } 
-                else 
-                { 
+                else { 
                     $value = stripslashes($value); 
                 } 
             } 
