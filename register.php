@@ -238,7 +238,7 @@
             } 
 
             // This redirects the user back to the login page after they register 
-            header("Location: registersuccess.php"); 
+            header("Location: redirect.php?class=success&message=Please wait to be redirected&url=login.php"); 
              
             // Calling die or exit after performing a redirect using the header function 
             // is critical.  The rest of your PHP script will continue to execute and 
