@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2015 at 03:23 PM
+-- Generation Time: Dec 16, 2015 at 12:20 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -166,8 +166,8 @@ INSERT INTO `members_attacks` (`id`, `members_statistics_id`, `war_id`, `attackN
 (37, 20, 144, 1, 100, 'Ebrahim Uchiha', 'WeWinSometimes', 3, 3),
 (38, 2, 145, 1, 50, '~Roem_Royen~', 'INDO BLUE SKY', 1, 1),
 (39, 2, 145, 2, 100, '✴PASHA✴', 'INDO BLUE SKY', 3, 2),
-(40, 3, 145, 1, 100, 'BEN''S', 'INDO BLUE SKY', 3, 3),
-(41, 3, 145, 2, 70, '✈Mr.RICKY✈', 'INDO BLUE SKY', 2, 2),
+(40, 21, 145, 1, 100, 'BEN''S', 'INDO BLUE SKY', 3, 3),
+(41, 21, 145, 2, 70, '✈Mr.RICKY✈', 'INDO BLUE SKY', 2, 2),
 (42, 22, 145, 1, 54, '✴PASHA✴', 'INDO BLUE SKY', 1, 1),
 (43, 22, 145, 2, 94, '~ Shagrath ~', 'INDO BLUE SKY', 2, 0),
 (44, 5, 145, 1, 100, '~"RoYeN_Tea"~', 'INDO BLUE SKY', 3, 3),
@@ -197,8 +197,8 @@ INSERT INTO `members_attacks` (`id`, `members_statistics_id`, `war_id`, `attackN
 (68, 24, 146, 2, 86, 'augusto fernand', 'Espartanos USA', 2, 1),
 (69, 2, 146, 1, 77, 'keyner', 'Espartanos USA', 2, 2),
 (70, 2, 146, 2, 68, 'cori', 'Espartanos USA', 2, 2),
-(71, 3, 146, 1, 78, 'joshe', 'Espartanos USA', 1, 1),
-(72, 3, 146, 2, 39, 'Ramiro', 'Espartanos USA', 0, 0),
+(71, 21, 146, 1, 78, 'joshe', 'Espartanos USA', 1, 1),
+(72, 21, 146, 2, 39, 'Ramiro', 'Espartanos USA', 0, 0),
 (73, 22, 146, 1, 100, 'cori', 'Espartanos USA', 3, 1),
 (74, 22, 146, 2, 54, 'augusto fernand', 'Espartanos USA', 1, 1),
 (75, 4, 146, 1, 60, 'THE FLASH⚡', 'Espartanos USA', 2, 2),
@@ -338,8 +338,8 @@ INSERT INTO `members_attacks` (`id`, `members_statistics_id`, `war_id`, `attackN
 (209, 28, 149, 2, 100, 'xiaopang728', '神州帝国', 3, 2),
 (210, 20, 149, 1, 100, 'love4ever.miko', '神州帝国', 3, 3),
 (211, 20, 149, 2, 100, '王者之国', '神州帝国', 3, 3),
-(212, 3, 150, 1, 54, '페이커', '롯데', 1, 1),
-(213, 3, 150, 2, 86, '길전투', '롯데', 2, 2),
+(212, 21, 150, 1, 54, '페이커', '롯데', 1, 1),
+(213, 21, 150, 2, 86, '길전투', '롯데', 2, 2),
 (214, 22, 150, 1, 64, '태율아비', '롯데', 2, 2),
 (215, 22, 150, 2, 68, '남추', '롯데', 2, 1),
 (216, 4, 150, 1, 79, '남추', '롯데', 1, 1),
@@ -374,7 +374,7 @@ INSERT INTO `members_attacks` (`id`, `members_statistics_id`, `war_id`, `attackN
 
 CREATE TABLE IF NOT EXISTS `members_statistics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `totalAttacks` int(20) DEFAULT NULL,
   `starsEarned` int(10) DEFAULT NULL,
   `starsWon` int(10) DEFAULT NULL,
@@ -439,20 +439,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `salt`, `privilege`, `email`) VALUES
-(1, 'keiwo', '2f04f54a742317739381def9da3930145221f2badd23064189e4f12e8ad3ff9e', '39153ef1375a4bc2', 'administrator', 'i_like_something@hotmail.com'),
+(1, 'keiwo', 'f10d7e62bfe9fcbea5f45cdfdb4c1ad06f7e6a5de4b8889d334f9849d8033fac', 'd507fc6e51d85d', 'administrator', 'i_like_something@hotmail.com'),
 (2, 'normal', '80e0ce4977c91a6b5e6ba2a105b271b27413fbcf6bd00fc8151510f4379f9a94', '34307d9aebd7f92', 'user', 'Mike@mike.com'),
 (3, 'happy', 'e68f17bdfd55a27ba52c1674bb8a967d3d5c207cd25de8b7ad4d5dc732220c29', '71f959425da78668', 'user', 'happy@happy.com'),
 (4, 'tom', 'ba82fe15b4f8082cdb20d267286d25fdeb38cce50cd6ec17809094798b773924', '347ac2848f9600', 'user', 'adsjkhaskhj@asd.com'),
 (5, 'kjahssa', '548374f6cb900c4efec0af823393096baae1ba9e9a84c51952aa271e316d3db5', '62c5cd6863545690', 'user', 'asdjkhd@asjkhd.com'),
 (6, 'John', '3d0ec21e2d45c6e62c25c94f885bc63a169064edbaa710e366b6ef7998cff3dd', '33e8ee596155c920', 'user', 'john@john.com'),
-(7, 'try', 'b0aa8efd47a8bf751e335210add2c6b03f0f20a4617f4c247db7fd4523e5e6ef', '93d429e6f1e1633', 'user', 'try@try.com');
+(7, 'try', 'b0aa8efd47a8bf751e335210add2c6b03f0f20a4617f4c247db7fd4523e5e6ef', '93d429e6f1e1633', 'user', 'try@try.com'),
+(8, 'test', '8db6ece565d098c2c18d69a2690b2fd9d47cdd8f96a4a9df3b4915cdc4575488', '58d06c067f080ef3', 'user', 'test@test.commmm'),
+(9, 'aklsdasjkld', '2c594ed0bed10bdcb4ddd3761edb3d770f9dd1cb96cca53532f6d2c117d41756', '3ccb99073e85ea59', 'user', 'askdj@askjd.com');
 
 --
 -- Constraints for dumped tables
