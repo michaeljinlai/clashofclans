@@ -22,6 +22,16 @@
 
 <!-- Calculates the width of sidebar everytime the window is resized and adjusts the body -->
 <script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
 $(document).ready(function(){
 
     $(window).resize(function(){
@@ -31,6 +41,10 @@ $(document).ready(function(){
     // Both of these will be loaded once the page initally loads
     $("#main").load("Pages/Home.php", function() {});
     $("[data-toggle='tooltip']").tooltip('destroy');
+
+    if (getCookie("sidebar")=="close") {
+    	$('.icon-menu-open').click();
+    }    
 
 });
 </script>
