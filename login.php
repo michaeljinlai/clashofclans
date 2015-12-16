@@ -162,7 +162,7 @@
 
             <!-- Forgot Password (with inline style to make it float right) -->
             <label style="float:right;">
-                <a href="forgot_password.php">Forgot Password</a>
+                <a href="forgot_password">Forgot Password</a>
             </label>
 
         </div>
@@ -171,7 +171,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <div class="btn-group btn-block btn-group-justified">
         <a class="btn btn-info" href="register">Register</a>
-        <a class="btn btn-info" href="forgot_password.php">Forgot Password</a>
+        <a class="btn btn-info" href="forgot_password">Forgot Password</a>
         </div>
 
         <div class="login-back">

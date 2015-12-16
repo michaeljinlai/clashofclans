@@ -20,7 +20,7 @@ if (isset($_POST["ForgotPassword"])) {
 				            <form class="form-horizontal"> 
 					            Entered email is invalid.  
 					            <div class="form-actions">
-					                <a class="btn" href="forgot_password.php">Try Again</a>
+					                <a class="btn" href="forgot_password">Try Again</a>
 					            </div>
 					        </form    
 				        </div>
@@ -79,7 +79,7 @@ if (isset($_POST["ForgotPassword"])) {
 				            <form class="form-horizontal"> 
 					            Email does not exist.  
 					            <div class="form-actions">
-					                <a class="btn" href="forgot_password.php">Try Again</a>
+					                <a class="btn" href="forgot_password">Try Again</a>
 					            </div>
 					        </form    
 				        </div>
