@@ -312,7 +312,7 @@
                 </div>
                 <div class="form-actions">
                     <button id="register" type="submit" class="btn btn-success">Register</button>
-                    <a class="btn" href="login.php">Back</a>
+                    <a class="btn" href="login">Back</a>
                 </div>
             </form>
         </div>

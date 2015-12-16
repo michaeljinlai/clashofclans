@@ -61,7 +61,7 @@ if (isset($_POST["ForgotPassword"])) {
 				            <form class="form-horizontal"> 
 					            Your password recovery key has been sent to your email.  
 					            <div class="form-actions">
-					                <a class="btn" href="login.php">Back to Login</a>
+					                <a class="btn" href="login">Back to Login</a>
 					            </div>
 					        </form    
 				        </div>

@@ -112,7 +112,7 @@
 		<?php 
 		if(empty($_SESSION['user'])) { echo '
 			<li class="sidebar-log-in">
-				<a href="login.php" data-toggle="tooltip" title="Login" class="sidebar-item-link" data-placement="right">
+				<a href="login" data-toggle="tooltip" title="Login" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-log-in glyph-sidebar"></span>
 					<span class="sidebar-text">Login</span>
 				</a>
