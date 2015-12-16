@@ -157,7 +157,7 @@
 
             <!-- Sign Up -->
             <label>
-                <a href="register.php">Sign Up</a>
+                <a href="register">Sign Up</a>
             </label>
 
             <!-- Forgot Password (with inline style to make it float right) -->
@@ -170,7 +170,7 @@
         <!-- Sign in button -->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <div class="btn-group btn-block btn-group-justified">
-        <a class="btn btn-info" href="register.php">Register</a>
+        <a class="btn btn-info" href="register">Register</a>
         <a class="btn btn-info" href="forgot_password.php">Forgot Password</a>
         </div>
 
