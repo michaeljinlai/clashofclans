@@ -2,6 +2,8 @@
 
     // First we execute our common code to connection to the database and start the session 
     require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
+
+    $test = $_SERVER['DOCUMENT_ROOT']."/clashofclans/";
      
     // This variable will be used to re-display the user's username to them in the 
     // login form if they fail to enter the correct password.  It is initialized here 
@@ -88,12 +90,12 @@
             
             if($_SESSION['user']['privilege'] === 'administrator') {
 	            // Redirect the user if they are an administrator.  <-- need to add field to users table for administrator 
-	            header("Location: index.php"); 
+	            header("Location: ./"); 
 	            die("Redirecting to: index.php"); 
             }
             else {
 	            // Redirect the user if they are a normal user. 
-	            header("Location: index.php"); 
+	            header("Location: ./"); 
 	            die("Redirecting to: index.php"); 
             }
         } 
