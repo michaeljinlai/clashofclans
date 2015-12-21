@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/Elements/header.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
 <html>
 
 <!-- Mobile device options -->

@@ -1,7 +1,7 @@
 <?php 
 	// First we execute our common code to connection to the database and start the session 
-	require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
-	require($_SERVER['DOCUMENT_ROOT']."/Elements/sidebar.php"); 
+	require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
+	require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/sidebar.php"); 
 ?>
 
 <div class="sidebar-toggle">

@@ -1,6 +1,6 @@
 <?php 
     // First we execute our common code to connection to the database and start the session 
-    require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
+    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
      
     // Everything below this point in the file is secured by the login system 
      
@@ -38,7 +38,7 @@
     // Finally, we can retrieve all of the found rows into an array using fetchAll 
     $rows = $stmt->fetchAll(); 
 
-	require($_SERVER['DOCUMENT_ROOT']."/Elements/header.php");
+	require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php");
  
 	// Initialize variables
 	$leaderCount = 0;

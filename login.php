@@ -1,9 +1,9 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
+    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
 
-    $test = $_SERVER['DOCUMENT_ROOT']."/";
+    $test = $_SERVER['DOCUMENT_ROOT']."/clashofclans/";
      
     // This variable will be used to re-display the user's username to them in the 
     // login form if they fail to enter the correct password.  It is initialized here 

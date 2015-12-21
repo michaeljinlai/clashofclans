@@ -1,6 +1,6 @@
 <?php
 
-	require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
+	require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
 
 		$currentName = $_GET['name'];
 
