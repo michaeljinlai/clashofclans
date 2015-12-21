@@ -85,7 +85,7 @@ body div.sidebar ul li a {
 }
 
 /* Sidebar Arrow */
-.sidebar-arrow {
+.sidebar-arrow, .pointer {
   cursor: pointer;
 }
 
@@ -376,12 +376,12 @@ ul.nav a.active {
 }
 
 /* Pills Hover Color */
-#warMain ul li a:hover {
+#main ul li a:hover {
   background-color: #337ab7;
   color: white;
 }
 
-#warMain ul li {
+#main ul li {
   margin-bottom: 15px;
 }
 

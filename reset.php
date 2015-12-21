@@ -1,10 +1,9 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
+require($_SERVER['DOCUMENT_ROOT']."/database.php");
     
 // Was the form submitted?
-if (isset($_POST["ResetPasswordForm"]))
-{
+if (isset($_POST["ResetPasswordForm"])) {
 	// Gather the post data
 	$email = $_POST["email"];
 	$dbpassword = $_POST["password"];
@@ -18,8 +17,7 @@ if (isset($_POST["ResetPasswordForm"]))
 	$resetkey = hash('sha512', $resetsalt.$email);
 
 	// Does the new reset key match the old one?
-	if ($resetkey == $hash)
-	{
+	if ($resetkey == $hash) {
 		if ($dbpassword == $confirmpassword)
 		{
 			$salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647)); 
@@ -41,8 +39,9 @@ if (isset($_POST["ResetPasswordForm"]))
 		else
 			echo "Your passwords do not match.";
 	}
-	else
+	else {
 		echo "Your password reset key is invalid.";
+	}
 }
 
 ?>

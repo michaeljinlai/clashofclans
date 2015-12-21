@@ -2,8 +2,6 @@
     // First we execute our common code to connection to the database and start the session 
     require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
      
-    // Everything below this point in the file is secured by the login system 
-     
     // We can retrieve a list of members from the database using a SELECT query. 
     // In this case we do not have a WHERE clause because we want to select all 
     // of the rows from the database table. 
@@ -55,7 +53,7 @@
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
-<div class="enter-effect table-responsive">
+<div class="table-responsive enter-effect">
     <h1 class="page-header">Members</h1>
     <ol class="breadcrumb">
         <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>

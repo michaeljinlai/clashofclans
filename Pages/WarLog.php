@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/Elements/header.php"); ?>
 
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
@@ -11,7 +11,7 @@
 	$scanned_directory = array_diff(scandir($directory), array('..', '.'));
 ?>
 
-<div id="warMain" class="enter-effect">
+<div class="enter-effect">
 	<div class="table-responsive">
 	    <h1 class="page-header">War Log</h1>
 	    <ol class="breadcrumb">

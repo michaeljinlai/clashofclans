@@ -1,11 +1,10 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
+    require($_SERVER['DOCUMENT_ROOT']."/database.php"); 
      
     // At the top of the page we check to see whether the user is logged in or not 
-    if(empty($_SESSION['user'])) 
-    { 
+    if(empty($_SESSION['user'])) { 
         // If they are not, we redirect them to the login page. 
         header("Location: login.php"); 
          
@@ -16,19 +15,16 @@
      
     // This if statement checks to determine whether the edit form has been submitted 
     // If it has, then the account updating code is run, otherwise the form is displayed 
-    if(!empty($_POST)) 
-    { 
+    if(!empty($_POST)) { 
         // Make sure the user entered a valid E-Mail address 
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
-        { 
+        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { 
             die("Invalid E-Mail Address"); 
         } 
          
         // If the user is changing their E-Mail address, we need to make sure that 
         // the new value does not conflict with a value that is already in the system. 
         // If the user is not changing their E-Mail address this check is not needed. 
-        if($_POST['email'] != $_SESSION['user']['email']) 
-        { 
+        if($_POST['email'] != $_SESSION['user']['email']) { 
             // Define our SQL query 
             $query = " 
                 SELECT 
@@ -43,14 +39,12 @@
                 ':email' => $_POST['email'] 
             ); 
              
-            try 
-            { 
+            try { 
                 // Execute the query 
                 $stmt = $db->prepare($query); 
                 $result = $stmt->execute($query_params); 
             } 
-            catch(PDOException $ex) 
-            { 
+            catch(PDOException $ex) { 
                 // Note: On a production website, you should not output $ex->getMessage(). 
                 // It may provide an attacker with helpful information about your code.  
                 die("Failed to run query: " . $ex->getMessage()); 
@@ -58,25 +52,21 @@
              
             // Retrieve results (if any) 
             $row = $stmt->fetch(); 
-            if($row) 
-            { 
+            if($row) { 
                 die("This E-Mail address is already in use"); 
             } 
         } 
          
         // If the user entered a new password, we need to hash it and generate a fresh salt 
         // for good measure. 
-        if(!empty($_POST['password'])) 
-        { 
+        if(!empty($_POST['password'])) { 
             $salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647)); 
             $password = hash('sha256', $_POST['password'] . $salt); 
-            for($round = 0; $round < 65536; $round++) 
-            { 
+            for($round = 0; $round < 65536; $round++) { 
                 $password = hash('sha256', $password . $salt); 
             } 
         } 
-        else 
-        { 
+        else { 
             // If the user did not enter a new password we will not update their old one. 
             $password = null; 
             $salt = null; 
@@ -90,8 +80,7 @@
          
         // If the user is changing their password, then we need parameter values 
         // for the new password hash and salt too. 
-        if($password !== null) 
-        { 
+        if($password !== null) { 
             $query_params[':password'] = $password; 
             $query_params[':salt'] = $salt; 
         } 
@@ -107,8 +96,7 @@
          
         // If the user is changing their password, then we extend the SQL query 
         // to include the password and salt columns and parameter tokens too. 
-        if($password !== null) 
-        { 
+        if($password !== null) { 
             $query .= " 
                 , password = :password 
                 , salt = :salt 
@@ -122,14 +110,12 @@
                 id = :user_id 
         "; 
          
-        try 
-        { 
+        try { 
             // Execute the query 
             $stmt = $db->prepare($query); 
             $result = $stmt->execute($query_params); 
         } 
-        catch(PDOException $ex) 
-        { 
+        catch(PDOException $ex) { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
             die("Failed to run query: " . $ex->getMessage()); 
@@ -140,15 +126,16 @@
         $_SESSION['user']['email'] = $_POST['email']; 
          
         // This redirects the user back to the members-only page after they register 
-        header("Location: admin.php"); 
+        header("Location: redirect.php?class=success&message=Please wait to be redirected"); 
          
         // Calling die or exit after performing a redirect using the header function 
         // is critical.  The rest of your PHP script will continue to execute and 
         // will be sent to the user if you do not die or exit. 
-        die("Redirecting to admin.php"); 
+        die(); 
     } 
      
 ?> 
+
 <h1>Edit Account</h1> 
 <form action="edit_account.php" method="post"> 
     Username:<br /> 

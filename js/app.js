@@ -23,6 +23,8 @@ var main = function () {
             $('.sidebar-log-in').css('width', '160px');
         }, 200);
 
+        document.cookie = "sidebar=open";
+
     });
 
     $('.icon-menu-open').click(function () {
@@ -46,6 +48,8 @@ var main = function () {
         setTimeout(function () {
             $('body').css('width', '100%').css('width', '-=50px');
         }, 200);
+
+        document.cookie = "sidebar=close";
 
     });
 
