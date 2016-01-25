@@ -51,7 +51,7 @@
                 <?php echo '<img src="'.$row[0]['clanBadgeImg_xl'].'" width="122" height="122" />'; ?>
                 <span class="clan-level"><?php echo $row[0]['clanLevel']; ?></span>
             </div>
-    		<div class="clan-name"><?php echo $row[0]['name']; ?></div>
+    		<div class="clan-name"><?php echo 'Prepare to Die·'.$row[0]['name']; ?></div>
     		<div class="clan-description"><?php echo $row[0]['description']; ?></div>
     		<div class="clan-tag"><?php echo $row[0]['tag']; ?></div>
             <div class="clan-details-wrapper">
@@ -59,9 +59,9 @@
                 <div class="clan-war-wins">
                     <?php
                         echo '<img class="clan-details-wars-image" src="https://clashofclans.com/img/shared/wars.png" width="53" height="47" />';
-                        echo $row[0]['warWins'].'/';
-                        echo $row[0]['warLosses'].'/';
-                        echo $row[0]['warTies'];
+                        echo $row[0]['warWins'];
+                        // echo $row[0]['warLosses'].'/';
+                        // echo $row[0]['warTies'];
                     ?>
                 </div>
                 <div class="clan-members-frequency">
@@ -87,7 +87,7 @@
                     </span>
                 </div>
             </div>
-            <div class="clan-tag">&lt;&lt; To get started, click on the sidebar</div>
+            <!-- <div class="clan-tag">&lt;&lt; To get started, click on the sidebar</div> -->
     	</div>
     </div>
 </div>
