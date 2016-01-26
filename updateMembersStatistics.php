@@ -101,61 +101,55 @@ try {
 			        ':starsWon' => $rosterEntry['attack'.$i]['starsWon'],
 			        ':starsEarned' => $rosterEntry['attack'.$i]['starsEarned']
 			    );
-
-				$result = $stmt->execute($queryParams);
+				$stmt->execute($queryParams);
 		    }
 	    }
 	}
 
-	if (!empty($players)) {
-		// Add member stats to database
-		foreach ($players as $player) {
-			$query = "
-		        INSERT INTO members_statistics (
-		        	playerId,
-		            name,
-		            totalAttacks,
-		            starsEarned,
-		            starsWon,
-		            damage,
-		            avgStarsEarned,
-		            offenseValCalc,
-		            defenseValCalc
-		        ) VALUES (
-		        	:playerId, 
-		            :name,
-		            :totalAttacks,
-		            :starsEarned,
-		            :starsWon,
-		            :damage,
-		            :avgStarsEarned,
-		            :offenseValCalc,
-		            :defenseValCalc
-		        ) 
-		    ";
+	// Add member stats to database
+	$query = "
+        INSERT INTO members_statistics (
+        	playerId,
+            name,
+            totalAttacks,
+            starsEarned,
+            starsWon,
+            damage,
+            avgStarsEarned,
+            offenseValCalc,
+            defenseValCalc
+        ) VALUES (
+        	:playerId, 
+            :name,
+            :totalAttacks,
+            :starsEarned,
+            :starsWon,
+            :damage,
+            :avgStarsEarned,
+            :offenseValCalc,
+            :defenseValCalc
+        ) 
+    ";
+	$stmt = $db->prepare($query); 
 
-		    $queryParams = array( 
-		    	':playerId' => $player->id,
-		        ':name' => $player->name,
-		        ':totalAttacks' => $player->attacksUsed,
-		        ':starsEarned' => $player->starsEarned,
-		        ':starsWon' => $player->starsWon,
-		        ':damage' => $player->totalDamage / $player->attacksUsed,
-		        ':avgStarsEarned' => $player->starsEarned / $player->attacksUsed,
-		        ':offenseValCalc' => null,
-		        ':defenseValCalc' => null
-		    ); 
-		     
-			$stmt = $db->prepare($query); 
-		    $result = $stmt->execute($queryParams); 
-		}
-
-		header("Location: redirect.php?class=success&message=Please wait to be redirected"); 
-		die(); 
-	} else {
-	    header("Location: redirect.php?class=warning&message=An error has occured"); 
-	    die(); 
+	foreach ($players as $player) {
+	    $queryParams = array( 
+	    	':playerId' => $player->id,
+	        ':name' => $player->name,
+	        ':totalAttacks' => $player->attacksUsed,
+	        ':starsEarned' => $player->starsEarned,
+	        ':starsWon' => $player->starsWon,
+	        ':damage' => $player->totalDamage / $player->attacksUsed,
+	        ':avgStarsEarned' => $player->starsEarned / $player->attacksUsed,
+	        ':offenseValCalc' => null,
+	        ':defenseValCalc' => null
+	    ); 
+	    $stmt->execute($queryParams); 
 	}
+
+	header("Location: redirect.php?class=success&message=Please wait to be redirected"); 
+	die(); 
+	
 } catch (PDOException $ex) { 
     // Note: On a production website, you should not output $ex->getMessage(). 
     // It may provide an attacker with helpful information about your code.  
