@@ -72,9 +72,9 @@
 		<?php 
 		if(!empty($_SESSION['user']) && $_SESSION['user']['privilege'] === 'administrator') { echo '
 			<li>
-				<a href="updateMembersStatistics.php" data-toggle="tooltip" title="Update Members Statistics" class="sidebar-item-link" data-placement="right">
+				<a href="updateMembersStatistics.php" data-toggle="tooltip" title="Update Stats" class="sidebar-item-link" data-placement="right">
 					<span class="glyphicon glyphicon-refresh glyph-sidebar"></span>
-					<span class="sidebar-text">Update Members Statistics</span>
+					<span class="sidebar-text">Update Stats</span>
 				</a>
 			</li>';}
 		?>

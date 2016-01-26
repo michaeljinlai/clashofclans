@@ -41,43 +41,40 @@
 	require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php");
  
 	// Initialize variables
-	$leaderCount = 0;
-	$coLeaderCount = 0;
-	$adminCount = 0;
-	$memberCount = 0;
+	// $leaderCount = 0;
+	// $coLeaderCount = 0;
+	// $adminCount = 0;
+	// $memberCount = 0;
 
-	foreach ($rows as $row) {
-	  	switch ($row['role']) {
-		    case 'leader':
-		        $leaderCount = $leaderCount + 1;
-		        break;
-		    case 'coLeader':
-		        $coLeaderCount = $coLeaderCount + 1;
-		        break;
-		    case 'admin':
-		        $adminCount = $adminCount + 1;
-		        break;
-		    case 'member':
-		        $memberCount = $memberCount + 1;
-		        break;
-	  	}
-	}
+	// foreach ($rows as $row) {
+	//   	switch ($row['role']) {
+	// 	    case 'leader':
+	// 	        $leaderCount = $leaderCount + 1;
+	// 	        break;
+	// 	    case 'coLeader':
+	// 	        $coLeaderCount = $coLeaderCount + 1;
+	// 	        break;
+	// 	    case 'admin':
+	// 	        $adminCount = $adminCount + 1;
+	// 	        break;
+	// 	    case 'member':
+	// 	        $memberCount = $memberCount + 1;
+	// 	        break;
+	//   	}
+	// }
 
-  	$total = $leaderCount+$coLeaderCount+$adminCount+$memberCount;
+ //  	$total = $leaderCount+$coLeaderCount+$adminCount+$memberCount;
 ?>
 
 <div class="enter-effect">
-
     <h1 class="page-header">Statistics</h1>
     <ol class="breadcrumb">
         <li><a href="" onClick="loadDoc('Home'); return false;">Home</a></li>
         <li>Statistics</li>
     </ol>
 
-	<div id="container" style="width:100%; height:400px;"></div>
-	<div style="padding-top: 50px; text-align: center;">More coming soon!</div>
-
-	<table id="datatable" class="hide">
+	<!-- <div id="container" style="width:100%; height:400px;"></div> -->
+	<!-- <table id="datatable" class="hide">
 			<thead>
 				<tr>
 				  	<th>Role</th>
@@ -102,9 +99,7 @@
 				  	<td><?php echo $memberCount; ?></td>
 				</tr>
 			</tbody>
-	</table>
-
-	<br>
+	</table> -->
 
 	<?php // Begin information of each player
 
@@ -147,10 +142,9 @@
 
 	?>
 
-	<table class="table table-striped table-bordered table-hover dt-responsive">
+	<table id="members-stats" class="table table-striped table-bordered table-hover table-condensed dt-responsive">
 	    <thead>
 	        <tr>
-	            <th class="col-xs-1"></th>
 	            <th>Name</th>
 	            <th>Total Attacks</th>
 	            <th>Stars Earned</th>
@@ -162,8 +156,7 @@
 	    <tbody>
 	        <?php foreach ($rows as $member) : ?>
 	            <tr>
-					<td style="text-align:center;"><a onclick="loadPlayer('<?php echo urlencode($member['name']); ?>')" class="btn btn-primary">View</a></td>
-					<td><?php echo $member['name']; ?></td>
+					<td><a onclick="loadPlayer('<?php echo urlencode($member['name']); ?>')"><?php echo $member['name']; ?></a></td>
 					<td><?php echo $member['totalAttacks']; ?></td>
 					<td><?php echo $member['starsEarned']; ?></td>
 					<td><?php echo $member['starsWon']; ?></td>
@@ -176,7 +169,13 @@
 
 </div>
 
-<script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#members-stats').DataTable();
+});
+</script>
+
+<!--<script>
 $(function () {
     $('#container').highcharts({
         data: {
@@ -205,4 +204,4 @@ $(function () {
         }
     });
 });
-</script>
+</script>-->

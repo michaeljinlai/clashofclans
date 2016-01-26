@@ -314,7 +314,7 @@
 		<!-- Weights Tab -->
 		<div id="warWeights" class="tab-pane fade">
 			<div class="col-xs-6">
-				<table id="war-weights-home" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
+				<table id="war-weights-home" class="war-weights table table-striped table-bordered table-hover table-condensed dt-responsive members-table">
 					<thead>
 						<tr>
 							<th colspan="5">
@@ -350,7 +350,7 @@
 			</div>
 
 			<div class="col-xs-6">
-				<table id="war-weights-enemy" class="war-weights table table-striped table-bordered table-hover dt-responsive members-table">
+				<table id="war-weights-enemy" class="war-weights table table-striped table-bordered table-hover table-condensed dt-responsive members-table">
 					<thead>
 						<tr>
 							<th colspan="5">
