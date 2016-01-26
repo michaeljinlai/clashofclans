@@ -20,11 +20,11 @@
 	} 
 
 	$rows = $stmt->fetchAll();
-	$members_statistics_id = $rows[0]['id'];
+	$playerId = $rows[0]['playerId'];
 
 	$query = " 
     SELECT 
-        war_id,
+        warId,
         attackNumber,
         damage,
         target,
@@ -32,7 +32,7 @@
         starsWon,
         starsEarned
     FROM members_attacks
-    WHERE members_statistics_id = '$members_statistics_id'
+    WHERE playerId = '$playerId'
 	"; 
 
 	try { 
@@ -75,7 +75,7 @@
 		<tbody>
 			<?php foreach ($rows as $attack) : ?>
 				<tr>
-					<td><a onclick="loadWar('<?php echo $attack['war_id']; ?>')" class="pointer"><?php echo $attack['war_id']; ?></a></td>
+					<td><a onclick="loadWar('<?php echo $attack['warId']; ?>')" class="pointer"><?php echo $attack['warId']; ?></a></td>
 					<td>Attack <?php echo $attack['attackNumber']; ?></td>
 					<td><?php echo $attack['damage']; ?></td>
 					<td><?php echo $attack['target']; ?></td>
