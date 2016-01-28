@@ -4,6 +4,7 @@ import os
 import argparse
 import json
 import re
+import pdb
 
 def readInt32(file):
     value = file.read(4)
@@ -110,7 +111,7 @@ def parseMember(file):
     player['id'] = values[-1]
 
     values.append(readInt64(file))  # Member ID
-
+    
     values.append(readString(file)) # Member Name
     player['name'] = values[-1]
     values[-1] = '"' + values[-1] + '"'
@@ -147,17 +148,19 @@ def parseMember(file):
 
     values.append(readInt32(file))
 
-    values.append(readInt32(file))  # TH level ID
+    values.append(readInt32(file))
+    # if (values[-1] > 9):
+    #     values.append(readByte(file))
     player['townHall'] = values[-1] + 1
 
     values.append(readByte(file))
     values.append(readInt32(file))
     values.append(readInt32(file))
     values.append(readInt32(file))
-   
+
     values.append(readByte(file))
     battleDay = values[-1]
-    
+
     if battleDay:
         values.append(readInt32(file))
         values.append(readInt32(file))
@@ -274,7 +277,7 @@ def parseAttackEntry(file):
 
     defender = searchPlayer(defenderId, enemyClan if isHomeAttack else homeClan)
     defenderPosition = defender['position']
-    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition}        
+    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition, 'targetId': defenderId}
 
     player = searchPlayer(attackerId, homeClan if isHomeAttack else enemyClan)
     player['attacksUsed'] += 1
