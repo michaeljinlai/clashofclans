@@ -18,6 +18,7 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .main{background-color:white;height:-webkit-calc(50% - 20px);height:-moz-calc(50% - 20px);height:calc(50% - 20px);padding-left:30px;padding-right:30px;padding-top:34px;}
 .page-header{margin-top:0px;}
 #war-my-team_filter input, #war-enemy-team_filter input, #war-events_filter input, #memberTable_filter input{margin-left:0px;}
+#war-log-container{width:100%;max-width:900px}
 #warStats .war-clan-vs-clan thead tr th, #warStats .war-stats thead tr th, #warStats{text-align:center;}
 #warEvents td:nth-child(1),
 #warEvents td:nth-child(2){text-align:right;}
@@ -94,6 +95,11 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .war-weights{width:100% !important;}
 .war-weights-subtitle{display:block;font-weight:normal;}
 .delete-table{float:left;margin-right:15px;}
+#members-stats-container{max-width:800px;width:100%;}
+#player-overview-container{max-width:100%;width:100%;display:inline-block;}
+#player-overview1, #player-overview2{max-width:300px;width:100%;float:left;}
+#player-overview2{margin-left:20px;}
+#attack-log-container{max-width:800px;width:100%;display:inline-block;}
 .ptd-logo{width:130px;margin-left:15px;padding-top:25px;padding-bottom:25px;}
 .sidebar-line{margin:0 auto;margin-bottom:12px;width:120px;border-bottom:1px solid #32323E;}
 .clan-level{position:absolute;top:97px;left:2px;width:100%;min-width:835px;color:white;font-weight:bold;font-size:130%;text-shadow:1px 2px black;}

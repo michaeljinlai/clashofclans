@@ -324,7 +324,7 @@
 							</th>
 						</tr>
 						<tr>
-							<th>#</th>
+							<th></th>
 							<th>Name</th>
 							<th>TH</th>
 							<!-- <th>Gold/Elixir</th> -->
@@ -360,7 +360,7 @@
 							</th>
 						</tr>
 						<tr>
-							<th>#</th>
+							<th></th>
 							<th>Name</th>
 							<th>TH</th>
 							<!-- <th>Gold/Elixir</th> -->
