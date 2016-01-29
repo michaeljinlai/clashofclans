@@ -42,7 +42,7 @@
                         <td class="col-xs-2"><?php echo $member['totalAttacks']; ?></td>
                         <td class="col-xs-2"><?php echo $member['starsEarned']; ?></td>
                         <td class="col-xs-2"><?php echo number_format($member['totalDamage'] / $member['totalAttacks'], 1); ?></td>
-                        <td class="col-xs-2"><?php echo number_format($member['totalRating'] / $member['totalAttacks'], 3); ?></td>
+                        <td class="col-xs-2"><?php echo number_format($member['totalRating'] / $member['warsJoined'], 3); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -54,7 +54,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     var t = $('#members-stats').DataTable({
-        stateSave: false,
+        stateSave: true,
         stateDuration: -1,
         iDisplayLength: 10,
         language: {

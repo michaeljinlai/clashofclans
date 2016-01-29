@@ -96,9 +96,9 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .war-weights-subtitle{display:block;font-weight:normal;}
 .delete-table{float:left;margin-right:15px;}
 #members-stats-container{max-width:800px;width:100%;}
-#player-overview-container{max-width:100%;width:100%;display:inline-block;}
+#player-overview-container{max-width:100%;width:100%;display:inline-block;margin-bottom:-15px;}
 #player-overview1, #player-overview2{max-width:300px;width:100%;float:left;}
-#player-overview2{margin-left:20px;}
+#player-overview1{margin-right:20px;}
 #attack-log-container{max-width:800px;width:100%;display:inline-block;}
 .ptd-logo{width:130px;margin-left:15px;padding-top:25px;padding-bottom:25px;}
 .sidebar-line{margin:0 auto;margin-bottom:12px;width:120px;border-bottom:1px solid #32323E;}

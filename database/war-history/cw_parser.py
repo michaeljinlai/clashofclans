@@ -198,15 +198,16 @@ def parseAttacks(file, homeClan, enemyClan):
 
     warEvents = []
     for i in range (0, numAttacks):
-        entry = parseAttackEntry(fileIn)
-        entry['id'] = numAttacks - i
+        entry = parseAttackEntry(fileIn, numAttacks - i)
         warEvents.append(entry)
 
     return warEvents
 
-def parseAttackEntry(file):
+def parseAttackEntry(file, entryId):
     values = []
     event = {}
+
+    event['id'] = entryId;
 
     values.append(readInt32(file))
     values.append(readInt32(file))
@@ -277,7 +278,7 @@ def parseAttackEntry(file):
 
     defender = searchPlayer(defenderId, enemyClan if isHomeAttack else homeClan)
     defenderPosition = defender['position']
-    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition, 'targetId': defenderId}
+    attackResult = {'starsWon': event['starsWon'], 'starsEarned': event['starsEarned'], 'damage': event['damage'], 'target': defenderName, 'targetPosition': defenderPosition, 'targetId': defenderId, 'attackId': entryId}
 
     player = searchPlayer(attackerId, homeClan if isHomeAttack else enemyClan)
     player['attacksUsed'] += 1

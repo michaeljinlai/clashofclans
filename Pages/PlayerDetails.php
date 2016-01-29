@@ -11,10 +11,17 @@
         $player = $stmt->fetchAll()[0];
 
         // Get player attacks
-        $query = "SELECT * FROM members_attacks WHERE playerId = '$playerId'";
+        $query = "SELECT * FROM war_events WHERE (playerId = '$playerId' AND isAttack = 1) ORDER BY warId DESC, attackId DESC";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $attacks = $stmt->fetchAll();
+
+        // Get player defenses
+        $query = "SELECT * FROM war_events WHERE (playerId = '$playerId' AND isAttack = 0) ORDER BY warId DESC, attackId DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $defenses = $stmt->fetchAll();
+
     } catch (PDOException $ex) {
         die("Failed to run query: ".$ex->getMessage());
     }
@@ -40,10 +47,11 @@
         <li><a href="" onClick="loadDoc('Statistics'); return false;">Statistics</a></li>
         <li><?php echo $player['name']; ?></li>
     </ol>
-    <h3>Overview</h3>
 
+    <h3>Overview</h3>
     <div id="player-overview-container">
         <table id="player-overview1" class="table table-bordered table-hover table-condensed dt-responsive members-table">
+            <!-- <tfoot><tr><td colspan="2"><span style="font-size:x-small">* Weights as of war <?php echo $attacks[0]['warId'] ?></td></tr></span></tfoot> -->
             <tbody>
                 <tr>
                     <td class="col-xs-7">Name</td>
@@ -58,22 +66,22 @@
                     <td><?php echo $player['townHall']; ?></td>
                 </tr>
                 <tr>
-                    <td>Offense Weight</td>
+                    <td>Offense Weight*</td>
                     <td><?php echo $player['offenseWeight']; ?></td>
                 </tr>
                 <tr>
-                    <td>Defense Weight</td>
+                    <td>Defense Weight*</td>
                     <td><?php echo $player['defenseWeight']; ?></td>
                 </tr>
                 <tr>
-                    <td>Gold/Elixir Available</td>
+                    <td>Gold/Elixir Available*</td>
                     <td><?php echo $player['goldElixir']; ?></td>
                 </tr>
                 <tr>
-                    <td>Dark Elixir Available</td>
+                    <td>Dark Elixir Available*</td>
                     <td><?php echo $player['darkElixir']; ?></td>
                 </tr>
-            </tbody>
+            </tbody> 
         </table>
 
         <table id="player-overview2" class="table table-bordered table-hover table-condensed dt-responsive members-table">
@@ -92,11 +100,12 @@
                 </tr>
                 <tr>
                     <td>Total Defenses</td>
-                    <td><?php echo $player['totalAttacks']; ?></td>
+                    <td><?php echo count($defenses); ?></td>
                 </tr>
             </tbody>
         </table>
     </div>
+
 
     <h3>Attack Log</h3>
     <div id="attack-log-container">
@@ -119,14 +128,49 @@
                     <tr>
                         <td><a onclick="loadWar('<?php echo $attack['warId']; ?>')" class="pointer"><?php echo $attack['warId']; ?></a></td>
                         
-                        <td><?php echo $attack['target']; ?></td>
+                        <td><?php echo $attack['enemyName']; ?></td>
                         <td><?php echo $attack['enemyClan']; ?></td>
-                        <td class="col-xs-1"><?php echo $attack['townHall']; ?></td>
-                        <td class="col-xs-1"><?php echo $attack['enemyTownHall']; ?></td>
-                        <td class="col-xs-1"><?php echo $attack['rank']; ?></td>
+                        <td class="col-xs-1"><?php echo $attack['myTH']; ?></td>
+                        <td class="col-xs-1"><?php echo $attack['enemyTH']; ?></td>
+                        <td class="col-xs-1"><?php echo $attack['myRank']; ?></td>
                         <td class="col-xs-1"><?php echo $attack['enemyRank']; ?></td>
                         <td><?php displayResult($attack); ?></td>
                         <td><?php echo $attack['damage']; ?>%</td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Defense Log</h3>
+        <div id="attack-log-container">
+        <table id="defense-log" class="table table-striped table-bordered table-hover table-condensed dt-responsive members-table">
+            <thead>
+                <tr>
+                    <th>War</th>
+                    <th>Name</th>
+                    <th>Clan</th>
+                    <th>My TH</th>
+                    <th>Enemy TH</th>
+                    <th>My Rank</th>
+                    <th>Enemy Rank</th>
+                    <th>Stars</th>
+                    <th>Damage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($defenses as $defense) : ?>
+                    <tr>
+                        <td><a onclick="loadWar('<?php echo $defense['warId']; ?>')" class="pointer"><?php echo $defense['warId']; ?></a></td>
+                        
+                        <td><?php echo $defense['enemyName']; ?></td>
+                        <td><?php echo $defense['enemyClan']; ?></td>
+                        <td class="col-xs-1"><?php echo $defense['myTH']; ?></td>
+                        <td class="col-xs-1"><?php echo $defense['enemyTH']; ?></td>
+                        <td class="col-xs-1"><?php echo $defense['myRank']; ?></td>
+                        <td class="col-xs-1"><?php echo $defense['enemyRank']; ?></td>
+                        <td><?php displayResult($defense); ?></td>
+                        <td><?php echo $defense['damage']; ?>%</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -137,7 +181,8 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    var t = $('#attack-log').DataTable({
+    var prop = {
+        iDisplayLength: 10,
         order: [[ 0, 'dsc' ]],
         language: {
             search: "_INPUT_",
@@ -146,6 +191,8 @@ $(document).ready(function(){
         aoColumnDefs: [
             { bSortable: false, aTargets: [ 1, 2, 3, 4, 5, 6, 7, 8 ] }
         ]
-    });
+    }
+    $('#attack-log').DataTable(prop);
+    $('#defense-log').DataTable(prop);
 });
 </script>
