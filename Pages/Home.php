@@ -49,7 +49,7 @@
 
 	    <?php // Begin information of each player
 	        try {
-	            $query = "SELECT playerId, name FROM members_statistics WHERE active = 1"; 
+	            $query = "SELECT playerId, name FROM members_statistics"; 
 	            $stmt = $db->prepare($query); 
 	            $stmt->execute();
 	            $members = $stmt->fetchAll();
