@@ -47,9 +47,10 @@ class Player {
         $this->totalRating += $entry['rating'];
 
         for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
-            $this->starsEarned += $entry['attack'.$i]['starsEarned'];
-            $this->starsWon += $entry['attack'.$i]['starsWon'];
-            $this->totalDamage += $entry['attack'.$i]['damage'];
+            $attack = $entry['attack'.$i];
+            $this->starsEarned += $attack['starsEarned'];
+            $this->starsWon += $attack['starsWon'];
+            $this->totalDamage += $attack['damage'];
         }
     }
 }
@@ -149,10 +150,12 @@ try {
 
         // Add offenses to war_events and record member stats
         foreach ($json['home']['roster'] as $entry) {
-            $id = strval($entry['id']);  //?
-            $entry['rating'] = 0; // ?
+            $id = strval($entry['id']);
+            $entry['rating'] = 0;
             for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
                 $attack = $entry['attack'.$i];
+                $attackRating = calcAttackRating($entry['position'], $attack);
+                $entry['rating'] += $attackRating;
                 $stmt->execute(
                     array(
                         ':playerId'     => $id,
@@ -168,7 +171,7 @@ try {
                         ':enemyRank'    => $attack['targetPosition'],
                         ':myTH'         => $entry['townHall'],
                         ':enemyTH'      => $townHall[$attack['targetId']],
-                        ':rating'       => ($entry['rating'] += calcAttackRating($entry['position'], $attack))
+                        ':rating'       => $attackRating
                     )
                 );
             }
@@ -221,20 +224,20 @@ try {
     foreach ($players as $player) {
         $stmt->execute(
             array(
-                ':active' =>        $player->active,
-                ':playerId' =>      $player->id,
-                ':name' =>          $player->name,
-                ':totalAttacks' =>  $player->attacksUsed,
-                ':starsEarned' =>   $player->starsEarned,
-                ':starsWon' =>      $player->starsWon,
-                ':totalDamage' =>   $player->totalDamage,
-                ':totalRating' =>   $player->totalRating,
-                ':warsJoined' =>    $player->warsJoined,
-                ':townHall' =>      $player->townHall,
-                ':offenseWeight' => $player->offenseWeight,
-                ':defenseWeight' => $player->defenseWeight,
-                ':goldElixir' =>    $player->goldElixir,
-                ':darkElixir' =>    $player->darkElixir
+                ':active'           => $player->active,
+                ':playerId'         => $player->id,
+                ':name'             => $player->name,
+                ':totalAttacks'     => $player->attacksUsed,
+                ':starsEarned'      => $player->starsEarned,
+                ':starsWon'         => $player->starsWon,
+                ':totalDamage'      => $player->totalDamage,
+                ':totalRating'      => $player->totalRating,
+                ':warsJoined'       => $player->warsJoined,
+                ':townHall'         => $player->townHall,
+                ':offenseWeight'    => $player->offenseWeight,
+                ':defenseWeight'    => $player->defenseWeight,
+                ':goldElixir'       => $player->goldElixir,
+                ':darkElixir'       => $player->darkElixir
             )
         );
     }

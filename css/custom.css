@@ -97,9 +97,9 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .delete-table{float:left;margin-right:15px;}
 #members-stats-container{max-width:800px;width:100%;}
 #player-overview-container{max-width:100%;width:100%;display:inline-block;margin-bottom:-15px;}
-#player-overview1, #player-overview2{max-width:300px;width:100%;float:left;}
-#player-overview1{margin-right:20px;}
-#attack-log-container{max-width:800px;width:100%;display:inline-block;}
+.player-overview{max-width:240px;width:100%;float:left;margin-right:5px;}
+#event-log-container{max-width:800px;width:100%;display:inline-block;}
+.statistics-charts-container{max-width:700px;width:100%;height:225px;}
 .ptd-logo{width:130px;margin-left:15px;padding-top:25px;padding-bottom:25px;}
 .sidebar-line{margin:0 auto;margin-bottom:12px;width:120px;border-bottom:1px solid #32323E;}
 .clan-level{position:absolute;top:97px;left:2px;width:100%;min-width:835px;color:white;font-weight:bold;font-size:130%;text-shadow:1px 2px black;}
