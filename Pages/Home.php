@@ -42,7 +42,38 @@
 
 
 <div class="outer-clan-details-container enter-effect">
-    <div class="black-overlay">
+	<div>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
+
+    	<input class="form-control input-lg" type="text" id="externalSearchBox" placeholder="Search Members" onfocus="this.placeholder=''" onblur="this.placeholder = 'Search Members'">
+
+	    <?php // Begin information of each player
+	        try {
+	            $query = "SELECT playerId, name FROM members_statistics WHERE active = 1"; 
+	            $stmt = $db->prepare($query); 
+	            $stmt->execute();
+	            $members = $stmt->fetchAll();
+	        } catch (PDOException $ex) { 
+	            die("Failed to run query: ".$ex->getMessage()); 
+	        } 
+	    ?>
+
+	    <table id="members" class="table table-bordered table-hover dt-responsive members-table">
+	        <thead class="hide">
+	            <tr>
+	                <th>Name</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <?php foreach ($members as $member) : ?>
+	                <tr class="pointer" onclick="loadPlayer('<?php echo urlencode($member['playerId']); ?>')">
+	                    <td class="col-xs-12"><?php echo $member['name']; ?></td>
+	                </tr>
+	            <?php endforeach; ?>
+	        </tbody>
+	    </table>
+	</div>
+    <div class="clan-info">
     	<div class="clan-details-container">
     		<div class="clan-badge">
                 <?php echo '<img src="'.$row[0]['clanBadgeImg_xl'].'" width="122" height="122" />'; ?>
@@ -88,3 +119,30 @@
     	</div>
     </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#members").hide()
+    var t = $('#members').DataTable({
+        stateSave: true,
+        stateDuration: -1,
+        language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search"
+        },
+        paging: false,
+        "dom": 't'
+    });
+    // This updates the datatable each time a key is pressed
+    $('#externalSearchBox').keyup(function(){
+	    t.search($(this).val()).draw();
+        if (this.value == '') {
+	        $("#members").hide();
+	        $(".clan-info").show();
+	    } else {
+	        $("#members").show();
+	        $(".clan-info").hide();
+	    }
+	})
+});
+</script>
