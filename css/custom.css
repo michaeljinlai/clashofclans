@@ -40,8 +40,7 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .member-role{font-size:12px;color:#A4A2A2;}
 .troops-donated-received{width:110px;height:28px;line-height:28px;background-color:#E7E7E7;background-position:center top;text-align:center;font-size:13px;font-weight:bold;color:black;border-radius:5px;float:left;}
 .outer-clan-details-container{height:100%;}
-.black-overlay{}
-.outer-clan-details-container, .black-overlay{border-top-right-radius:10px;border-top-left-radius:10px;}
+.outer-clan-details-container{border-top-right-radius:10px;border-top-left-radius:10px;}
 .clan-details-container{text-align:center;color:black;width:50%;margin:0 auto;min-width:775px;}
 .clan-badge{padding-top:50px;opacity:1;}
 .clan-name{font-family:'supercell';font-size:44px;margin-bottom:20px;}
@@ -96,13 +95,16 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .war-weights-subtitle{display:block;font-weight:normal;}
 .delete-table{float:left;margin-right:15px;}
 #members-stats-container{max-width:800px;width:100%;}
+#externalSearchBox{border-radius:0;font-size:25px;text-align:center;background-color:#F5F5F5;}
+#members{text-align:center;font-size:25px;background-color:#F5F5F5;}
+#members td:hover{background-color:#e8e8e8}
 #player-overview-container{max-width:100%;width:100%;display:inline-block;margin-bottom:-15px;}
 .player-overview{max-width:240px;width:100%;float:left;margin-right:5px;}
 #event-log-container{max-width:800px;width:100%;display:inline-block;}
 .statistics-charts-container{max-width:700px;width:100%;height:225px;}
 .ptd-logo{width:130px;margin-left:15px;padding-top:25px;padding-bottom:25px;}
 .sidebar-line{margin:0 auto;margin-bottom:12px;width:120px;border-bottom:1px solid #32323E;}
-.clan-level{position:absolute;top:97px;left:2px;width:100%;min-width:835px;color:white;font-weight:bold;font-size:130%;text-shadow:1px 2px black;}
+.clan-level{position:absolute;top:133px;left:2px;width:100%;min-width:835px;color:white;font-weight:bold;font-size:130%;text-shadow:1px 2px black;}
 li.sidebar-log-in{position:fixed;bottom:0;width:160px;overflow:hidden;}
 .enter-effect{-webkit-animation-name:fadeIn;-moz-animation-name:fadeIn;-ms-animation-name:fadeIn;-o-animation-name:fadeIn;animation-name:fadeIn;-webkit-animation-duration:500ms;-moz-animation-duration:500ms;-ms-animation-duration:500ms;-o-animation-duration:500ms;animation-duration:500ms;}
 .gly-spin{-webkit-animation:spin 2s infinite linear;-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;animation:spin 2s infinite linear;}
