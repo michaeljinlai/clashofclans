@@ -33,7 +33,7 @@
 			</a>
 		</li>
 		<li>
-			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right">
+			<a onclick="loadDoc('Statistics')" data-toggle="tooltip" title="Statistics" class="sidebar-item-link" data-placement="right" id="sidebarStatistics">
 				<span class="fa fa-bar-chart fa-sidebar"></span>
 				<span class="sidebar-text">Statistics</span>
 			</a>
@@ -164,6 +164,7 @@ function loadDelete(str) {
 <script>
 function loadWar(id) {
 	$("#main").load("Pages/WarDetails.php?id="+id, function() {
+		// Code here gets executed when the content is loaded
 	    $("ul.nav a").removeClass("active");
 	    $("#sidebarHome").toggleClass("active");
 	});
@@ -175,6 +176,8 @@ function loadWar(id) {
 function loadPlayer(name) {
 	$("#main").load("Pages/PlayerDetails.php?name="+name, function() {
 	    // Code here gets executed when the content is loaded
+	    $("ul.nav a").removeClass("active");
+	    $("#sidebarStatistics").toggleClass("active");
 	});
 }
 </script>
