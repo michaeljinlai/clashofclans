@@ -67,6 +67,7 @@
     $(document).ready(function() {
 	    $('#memberTable').DataTable({
 	    	"order": [[1, 'dsc']],
+	    	pageLength: 25,
 	    	language: {
 		        search: "_INPUT_",
 		        searchPlaceholder: "Search"

@@ -36,6 +36,7 @@
                     <th></th>
                     <th>Name</th>
                     <th>Town Hall</th>
+                    <th>Wars Recorded</th>
                     <th>Attacks</th>
                     <th>Defenses</th>
                     <th>Stars Earned</th>
@@ -50,6 +51,7 @@
                         <td class="col-xs-1"></td>
                         <td><a class="pointer" onclick="loadPlayer('<?php echo urlencode($member['playerId']); ?>')"><?php echo $member['name']; ?></a></td>
                         <td class="col-xs-1"><?php echo $member['townHall']; ?></td>
+                        <td class="col-xs-1"><?php echo $member['warsJoined']; ?></td>
                         <td class="col-xs-1"><?php echo $member['totalAttacks']; ?></td>
                         <td class="col-xs-1"><?php echo $member['totalDefenses']; ?></td>
                         <td class="col-xs-1"><?php echo $member['starsEarned']; ?></td>
@@ -79,7 +81,7 @@ $(document).ready(function(){
             orderable: false,
             targets: 0
         } ],
-        order: [[ 8, 'dsc' ]]
+        order: [[ 9, 'dsc' ]]
     });
 
     t.on( 'order.dt search.dt', function () {

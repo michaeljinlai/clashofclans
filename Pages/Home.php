@@ -42,7 +42,7 @@
 
 
 <div class="outer-clan-details-container enter-effect">
-	<div>
+	<div id="search-box">
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
 
     	<input class="form-control input-lg" type="text" id="externalSearchBox" placeholder="Search Members" onfocus="this.placeholder=''" onblur="this.placeholder = 'Search Members'">
@@ -73,6 +73,7 @@
 	        </tbody>
 	    </table>
 	</div>
+
     <div class="clan-info">
     	<div class="clan-details-container">
     		<div class="clan-badge">
@@ -124,8 +125,6 @@
 $(document).ready(function(){
 	$("#members").hide()
     var t = $('#members').DataTable({
-        stateSave: true,
-        stateDuration: -1,
         language: {
             search: "_INPUT_",
             searchPlaceholder: "Search"
