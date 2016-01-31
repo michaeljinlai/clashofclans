@@ -1,5 +1,12 @@
 <?php 
     require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
+
+    // TODO: set as global function
+    function safeDivide($a, $b, $decimals) {
+        if ($b == 0)
+            return 0;
+        return number_format($a / $b, $decimals);
+    }
 ?>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 
@@ -13,7 +20,7 @@
 
     <?php // Begin information of each player
         try {
-            $query = "SELECT * FROM members_statistics WHERE active = 1"; 
+            $query = "SELECT * FROM members_statistics WHERE (active = 1 AND warsJoined > 3)"; 
             $stmt = $db->prepare($query); 
             $stmt->execute();
             $members = $stmt->fetchAll();
@@ -28,9 +35,12 @@
                 <tr>
                     <th></th>
                     <th>Name</th>
+                    <th>Town Hall</th>
                     <th>Attacks</th>
+                    <th>Defenses</th>
                     <th>Stars Earned</th>
-                    <th>Average Damage %</th>
+                    <th>Offense Damage</th>
+                    <th>Defense Damage</th>
                     <th>Rating</th>
                 </tr>
             </thead>
@@ -38,11 +48,14 @@
                 <?php foreach ($members as $member) : ?>
                     <tr>
                         <td class="col-xs-1"></td>
-                        <td class="col-xs-3"><a class="pointer" onclick="loadPlayer('<?php echo urlencode($member['playerId']); ?>')"><?php echo $member['name']; ?></a></td>
-                        <td class="col-xs-2"><?php echo $member['totalAttacks']; ?></td>
-                        <td class="col-xs-2"><?php echo $member['starsEarned']; ?></td>
-                        <td class="col-xs-2"><?php echo number_format($member['totalDamage'] / $member['totalAttacks'], 1); ?></td>
-                        <td class="col-xs-2"><?php echo number_format($member['totalRating'] / $member['warsJoined'], 3); ?></td>
+                        <td><a class="pointer" onclick="loadPlayer('<?php echo urlencode($member['playerId']); ?>')"><?php echo $member['name']; ?></a></td>
+                        <td class="col-xs-1"><?php echo $member['townHall']; ?></td>
+                        <td class="col-xs-1"><?php echo $member['totalAttacks']; ?></td>
+                        <td class="col-xs-1"><?php echo $member['totalDefenses']; ?></td>
+                        <td class="col-xs-1"><?php echo $member['starsEarned']; ?></td>
+                        <td class="col-xs-1"><?php echo safeDivide($member['totalDamage'], $member['totalAttacks'], 1); ?>%</td>
+                        <td class="col-xs-1"><?php echo safeDivide($member['totalDamageDefense'], $member['totalDefenses'], 1); ?>%</td>
+                        <td class="col-xs-1"><?php echo safeDivide($member['totalRating2'], $member['warsJoined'], 3); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -56,7 +69,7 @@ $(document).ready(function(){
     var t = $('#members-stats').DataTable({
         stateSave: true,
         stateDuration: -1,
-        iDisplayLength: 10,
+        pageLength: 25,
         language: {
             search: "_INPUT_",
             searchPlaceholder: "Search"
@@ -66,7 +79,7 @@ $(document).ready(function(){
             orderable: false,
             targets: 0
         } ],
-        order: [[ 5, 'dsc' ]]
+        order: [[ 8, 'dsc' ]]
     });
 
     t.on( 'order.dt search.dt', function () {

@@ -8,6 +8,9 @@ if (empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrato
     die("Redirecting to login.php"); 
 }
 
+// This file requires serious refactoring
+
+
 // Class to store and process member statistics fields/attributes
 class Player {
     var $id; // In-game unique ID
@@ -19,13 +22,17 @@ class Player {
     var $starsEarned;
     var $starsWon;
     var $totalDamage;
-    var $totalRating;
+    var $totalRating1;
+    var $totalRating2;
 
     var $townHall;
     var $offenseWeight;
     var $defenseWeight;
     var $goldElixir;
     var $darkElixir;
+
+    var $totalDefenses;
+    var $totalDamageDefense;
 
     private $position;
 
@@ -43,8 +50,11 @@ class Player {
     function updateStats($entry) {
         $this->warsJoined += 1;
         $this->attacksUsed += $entry['attacksUsed'];
+        $this->totalDefenses += $entry['totalDefenses'];
+        $this->totalDamageDefense += $entry['totalDamageDefense'];
         $this->position = $entry['position'];
-        $this->totalRating += $entry['rating'];
+        $this->totalRating1 += $entry['rating1'];
+        $this->totalRating2 += $entry['rating2'];
 
         for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
             $attack = $entry['attack'.$i];
@@ -55,8 +65,39 @@ class Player {
     }
 }
 
+// Store playerId-to-details reference for one war
+class PlayerDetailReference {
+    private $townHall;
+    private $offenseWeight;
+    private $defenseWeight;
+    private $defenses;
+    private $damage;
+
+    public function __construct($townHall, $offenseWeight, $defenseWeight) {
+        $this->townHall = $townHall;
+        $this->offenseWeight = $offenseWeight;
+        $this->defenseWeight = $defenseWeight;
+        $this->defenses = 0;
+    }
+
+    public function __get($property) {
+        if (property_exists($this, $property)) 
+            return $this->$property;
+    }
+
+    public function __set($property, $value) {
+        if (property_exists($this, $property))
+            $this->$property = $value;
+    }
+
+    public function addDefense($damage) {
+        $this->defenses++;
+        $this->damage += $damage;
+    }
+}   
+
 // Helper function
-function calcAttackRating($position, $attack) {
+function calcAttackRating1($position, $attack) {
     $earned = $attack['starsEarned'];
     $won = $attack['starsWon'];
 
@@ -66,6 +107,28 @@ function calcAttackRating($position, $attack) {
     $score = ($earned == 3) ? 6 : $won * $earned - ($earned - 1);
     $adjmt = $position - $attack['targetPosition'];
     $rating = $score * (1 + $adjmt * 0.05);
+
+    return $rating;
+}
+
+function calcAttackRating2($attack, $myWeight, $enemyWeight, $townHall) {
+    $earned = $attack['starsEarned'];
+    $won = $attack['starsWon'];
+
+    if ($earned == 0)
+        return 0;
+
+    $score = ($earned == 3) ? 6 : $won * $earned - ($earned - 1);
+
+    $adjmt = $enemyWeight - $myWeight;
+    $rating = $score * (1 + $adjmt * 0.001);
+
+    if ($townHall > 9 && $enemyWeight > 700)
+        $rating *= 1.5;
+    elseif ($townHall == 8)
+        $rating *= 0.95;
+    elseif ($townHall < 8)
+        $rating *= 0.6;
 
     return $rating;
 }
@@ -130,19 +193,31 @@ try {
             )"
         );
 
-        $townHall = array(); // id-to-townHall reference
-        foreach ($json['home']['roster'] as $entry)
-            $townHall[$entry['id']] = $entry['townHall'];
+        $detailRef = array();
+        foreach ($json['home']['roster'] as $entry) {
+            $detailRef[$entry['id']] = new PlayerDetailReference(
+                $entry['townHall'],
+                $entry['offenseWeight'],
+                $entry['defenseWeight']
+            );
+        }
 
         // Add defenses to war_events
         foreach ($json['enemy']['roster'] as $entry) {
-            $townHall[$entry['id']] = $entry['townHall'];
+            $detailRef[$entry['id']] = new PlayerDetailReference(
+                $entry['townHall'],
+                $entry['offenseWeight'],
+                $entry['defenseWeight']
+            );
 
             for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
                 $attack = $entry['attack'.$i];
+                $myId = $attack['targetId'];
+                $detailRef[$myId]->addDefense($attack['damage']);
+
                 $stmt->execute(
                     array(
-                        ':playerId'     => $attack['targetId'],
+                        ':playerId'     => $myId,
                         ':warId'        => $json['id'],
                         ':attackId'     => $attack['attackId'],
                         ':isAttack'     => false,
@@ -153,12 +228,12 @@ try {
                         ':enemyClan'    => $json['enemy']['name'],
                         ':myRank'       => $attack['targetPosition'],
                         ':enemyRank'    => $entry['position'],
-                        ':myTH'         => $townHall[$attack['targetId']],
+                        ':myTH'         => $detailRef[$myId]->townHall,
                         ':enemyTH'      => $entry['townHall'],
                         ':rating1'      => 0,
                         ':rating2'      => 0,
-                        ':myWeight'     => 0,
-                        ':enemyWeight'  => 0
+                        ':myWeight'     => $detailRef[$myId]->defenseWeight,
+                        ':enemyWeight'  => $entry['offenseWeight']
                     )
                 );
             }
@@ -167,11 +242,30 @@ try {
         // Add offenses to war_events and record member stats
         foreach ($json['home']['roster'] as $entry) {
             $id = strval($entry['id']);
-            $entry['rating'] = 0;
+            $entry['rating1'] = 0;
+            $entry['rating2'] = 0;
+
+            // if (!array_key_exists('totalDefenses', $entry))
+            //     $entry['totalDefenses'] = 0;
+
+            $entry['totalDefenses'] = $detailRef[$entry['id']]->defenses;
+            $entry['totalDamageDefense'] = $detailRef[$entry['id']]->damage;
+
+
             for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
+
                 $attack = $entry['attack'.$i];
-                $attackRating = calcAttackRating($entry['position'], $attack);
-                $entry['rating'] += $attackRating;
+                $attackRating1 = calcAttackRating1($entry['position'], $attack);
+                $entry['rating1'] += $attackRating1;
+
+                $myWeight = $entry['offenseWeight'];
+                $enemyWeight = $detailRef[$attack['targetId']]->defenseWeight;
+                $enemyTH = $detailRef[$attack['targetId']]->townHall;
+
+                $attackRating2 = calcAttackRating2($attack, $myWeight, $enemyWeight, $enemyTH);
+                $entry['rating2'] += $attackRating2;
+
+
                 $stmt->execute(
                     array(
                         ':playerId'     => $id,
@@ -186,11 +280,11 @@ try {
                         ':myRank'       => $entry['position'],
                         ':enemyRank'    => $attack['targetPosition'],
                         ':myTH'         => $entry['townHall'],
-                        ':enemyTH'      => $townHall[$attack['targetId']],
-                        ':rating1'      => $attackRating,
-                        ':rating2'      => 0,
-                        ':myWeight'     => 0,
-                        ':enemyWeight'  => 0
+                        ':enemyTH'      => $enemyTH,
+                        ':rating1'      => $attackRating1,
+                        ':rating2'      => $attackRating2,
+                        ':myWeight'     => $myWeight,
+                        ':enemyWeight'  => $enemyWeight
                     )
                 );
             }
@@ -212,10 +306,13 @@ try {
             playerId,
             name,
             totalAttacks,
+            totalDefenses,
             starsEarned,
             starsWon,
             totalDamage,
+            totalDamageDefense,
             totalRating,
+            totalRating2,
             warsJoined,
             townHall,
             offenseWeight,
@@ -227,10 +324,13 @@ try {
             :playerId, 
             :name,
             :totalAttacks,
+            :totalDefenses,
             :starsEarned,
             :starsWon,
             :totalDamage,
+            :totalDamageDefense,
             :totalRating,
+            :totalRating2,
             :warsJoined,
             :townHall,
             :offenseWeight,
@@ -247,10 +347,13 @@ try {
                 ':playerId'         => $player->id,
                 ':name'             => $player->name,
                 ':totalAttacks'     => $player->attacksUsed,
+                ':totalDefenses'    => $player->totalDefenses,
                 ':starsEarned'      => $player->starsEarned,
                 ':starsWon'         => $player->starsWon,
                 ':totalDamage'      => $player->totalDamage,
-                ':totalRating'      => $player->totalRating,
+                ':totalDamageDefense' => $player->totalDamageDefense,
+                ':totalRating'      => $player->totalRating1,
+                ':totalRating2'     => $player->totalRating2,
                 ':warsJoined'       => $player->warsJoined,
                 ':townHall'         => $player->townHall,
                 ':offenseWeight'    => $player->offenseWeight,

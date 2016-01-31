@@ -41,7 +41,9 @@
         return $result;
     }
 
-    function displayEventsTable($events) {    
+    function displayEventsTable($events) {
+        $loggedIn = !empty($_SESSION['user']) && $_SESSION['user']['privilege'] == 'administrator';
+
         echo "
             <div id=\"event-log-container\">
                 <table class=\"event-log table table-striped table-bordered table-hover table-condensed dt-responsive members-table\">        
@@ -55,7 +57,8 @@
                             <th>My Rank</th>
                             <th>Enemy Rank</th>
                             <th>Stars</th>
-                            GG<th>Damage</th>
+                            <th>Damage</th>
+                            ".(($loggedIn) ? "<th>Rating</th>" : "")."
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +75,7 @@
                             <td class=\"col-xs-1\">".$event['enemyRank']."</td>
                             <td>".getResult($event)."</td>
                             <td>".$event['damage']."%</td>
+                            ".(($loggedIn) ? "<td>".$event['rating2']."</td>" : "")."
                         </tr>
             ";
         }
@@ -97,7 +101,7 @@
                 else
                     $str = 'progress';
             else
-                $str = 'neutral';
+                $str = 'draw';
 
         return 'war-log-background-'.$str;
     }
@@ -109,6 +113,13 @@
                 <td class=\"col-xs-4\">".$col2."</td>
             </tr>
         ";
+    }
+
+    // TODO: set as global function
+    function safeDivide($a, $b, $decimals) {
+        if ($b == 0)
+            return 0;
+        return number_format($a / $b, $decimals);
     }
 ?>
 
@@ -148,11 +159,11 @@
                     displayRow("Total Attacks", $numAttacks);
                     displayRow("Attacks Missed", $numWars * 2 - $numAttacks);
                     displayRow("Total Stars", $player['starsWon']);
-                    displayRow("Average Stars", number_format($player['starsWon'] / $numAttacks, 2));
-                    // displayRow("Stars Earned", $player['starsEarned']);
-                    displayRow("Stars Earned per War", number_format($player['starsEarned'] / $numWars, 2));
-                    displayRow("Average Damage", number_format($player['totalDamage'] / $numAttacks, 2)."%");
-                    displayRow("Rating", number_format($player['totalRating'] / $numWars, 3));
+                    displayRow("Stars per Attack", safeDivide($player['starsWon'], $numAttacks, 2));
+                    displayRow("Total Stars Earned", $player['starsEarned']);
+                    displayRow("Stars Earned per War", safeDivide($player['starsEarned'], $numWars, 2));
+                    displayRow("Average Damage", safeDivide($player['totalDamage'], $numAttacks, 2)."%");
+                    displayRow("Rating", safeDivide($player['totalRating2'], $numWars, 3));
                 ?>
             </tbody>
         </table>
@@ -173,12 +184,12 @@
                     }
 
                     displayRow("Total Defenses", $numDefenses);
-                    displayRow("Defenses per War", number_format($numDefenses / $numWars, 2));
-                    // displayRow("Average Attacks to 3 Star", number_format($totalAttacksTo3 / $numWars, 2));
+                    displayRow("Defenses per War", safeDivide($numDefenses, $numWars, 2));
+                    // displayRow("Average Attacks to 3 Star", safeDivide($totalAttacksTo3 / $numWars, 2));
                     displayRow("Total Stars Given", $totalStarsGiven);
-                    displayRow("Stars Given per War", number_format($totalStarsGiven / $numWars, 2));
-                    displayRow("Stars per Defense", number_format($totalStarsLost / $numDefenses, 2));
-                    displayRow("Average Damage", number_format($totalDamage / $numDefenses, 2)."%");
+                    displayRow("Stars Given per War", safeDivide($totalStarsGiven, $numWars, 2));
+                    displayRow("Stars per Defense", safeDivide($totalStarsLost, $numDefenses, 2));
+                    displayRow("Average Damage", safeDivide($totalDamage, $numDefenses, 2)."%");
                 ?>
             </tbody>
         </table>

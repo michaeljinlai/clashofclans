@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2016 at 04:15 PM
+-- Generation Time: Jan 31, 2016 at 10:28 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -136,10 +136,13 @@ CREATE TABLE IF NOT EXISTS `members_statistics` (
   `playerId` bigint(20) DEFAULT NULL,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `totalAttacks` int(20) DEFAULT NULL,
+  `totalDefenses` int(11) NOT NULL,
   `starsEarned` int(10) DEFAULT NULL,
   `starsWon` int(10) DEFAULT NULL,
   `totalDamage` int(11) DEFAULT NULL,
+  `totalDamageDefense` int(11) NOT NULL,
   `totalRating` float DEFAULT NULL,
+  `totalRating2` float NOT NULL,
   `warsJoined` int(11) NOT NULL,
   `townHall` int(11) NOT NULL,
   `offenseWeight` int(11) NOT NULL,

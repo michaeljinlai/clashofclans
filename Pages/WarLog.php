@@ -44,14 +44,6 @@
 								$result = $json['summary']['result'];
 								echo 'war-log-background-'.$result;
 								$inProgress = ($result == "progress");
-								// if ($result == "Draw")
-								// 	echo 'war-log-background-neutral';
-								// elseif ($result == "Victory")
-								// 	echo 'war-log-background-win';
-								// elseif ($result == "Loss")
-								// 	echo 'war-log-background-lose';
-								// else
-								// 	echo 'war-log-background-progress';
 							?>
 						">
 							<td style="text-align:center;"><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">View</a></td>
