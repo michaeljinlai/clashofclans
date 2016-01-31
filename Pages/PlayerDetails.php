@@ -55,14 +55,14 @@
                             <th>My Rank</th>
                             <th>Enemy Rank</th>
                             <th>Stars</th>
-                            <th>Damage</th>
+                            GG<th>Damage</th>
                         </tr>
                     </thead>
                     <tbody>
         ";
         foreach ($events as $event) {
             echo "
-                        <tr>
+                        <tr class=\"".getEventBackground($event)."\">
                             <td><a onclick=\"loadWar('".$event['warId']."')\" class=\"pointer\">".$event['warId']."</a></td>
                             <td>".$event['enemyClan']."</td>
                             <td>".$event['enemyName']."</td>
@@ -82,12 +82,32 @@
         ";
     }
 
+    function getEventBackground($event) {
+        $won = $event['starsWon'];
+        $earned = $event['starsEarned'];
+        $isAttack = $event['isAttack'];
+        $str = "";
+
+        if ($won == 0)
+            $str = ($isAttack) ? 'lose' : 'win';
+        else
+            if ($earned > 0)
+                if ($won == 3)
+                    $str = ($isAttack) ? 'win' : 'lose';
+                else
+                    $str = 'progress';
+            else
+                $str = 'neutral';
+
+        return 'war-log-background-'.$str;
+    }
+
     function displayRow($col1, $col2) {
         echo "
             <tr>
                 <td class=\"col-xs-8\">".$col1."</td>
                 <td class=\"col-xs-4\">".$col2."</td>
-            </td>
+            </tr>
         ";
     }
 ?>
@@ -338,7 +358,7 @@ $(function(){
         },
         series: [{
             type: 'pie',
-            name: 'Stars Won',
+            name: 'Stars',
             title: {
                 align: 'center',
                 format: '{name}',
@@ -411,7 +431,7 @@ $(function(){
                 verticalAlign: 'top',
                 y: -30
             },
-            center: ['33%', null],
+            center: ['30%', null],
             size: 125,
             animation: false,
             data: <?php $defenseStats->getStars(); ?>,
@@ -424,7 +444,7 @@ $(function(){
                 verticalAlign: 'top',
                 y: -30
             },
-            center: ['66%', null],
+            center: ['70%', null],
             size: 125,
             animation: false,
             data: <?php $defenseStats->getTownHall(); ?>,

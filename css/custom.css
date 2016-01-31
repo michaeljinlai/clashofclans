@@ -72,6 +72,8 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .war-log-background-neutral{background-color:#f2f2f2!important;}
 .war-log-background-win{background-color:#f2f8eb!important;}
 .war-log-background-lose{background-color:#f8ebeb!important;}
+.war-log-background-progress{background-color:#fff7e5!important;}
+.war-log-background-progress:hover{background-color:#ffefcc!important;}
 .war-log-background-neutral:hover{background-color:#d9d9d9!important;}
 .war-log-background-win:hover{background-color:#daebc6!important;}
 .war-log-background-lose:hover{background-color:#ebc6c6!important;}
