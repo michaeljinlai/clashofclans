@@ -73,12 +73,18 @@ function calcAttackRating($position, $attack) {
 // Main
 $activeThresh = 5; // Recent war participation to be considered active
 $directory = 'database/war-history/json/';
-$files = array_diff(scandir($directory, SCANDIR_SORT_DESCENDING), array('..', '.')); // latest war required to be processed first
+$files = array_diff(scandir($directory, SCANDIR_SORT_DESCENDING), array('..', '.')); // wars required to be processed in descending order, do not change
 $players = array();
 
 try {
     $stmt = $db->prepare("TRUNCATE TABLE war_events");
     $stmt->execute();
+
+    // Remove files from parsing if it's in progress
+    $fileContents = file_get_contents($directory.$files[0]);
+    $json = json_decode($fileContents, true);
+    if ($json['summary']['result'] == "progress")
+        array_shift($files);
 
     for ($fileN = 0; $fileN < count($files); $fileN++) {
         $fileContents = file_get_contents($directory.$files[$fileN]);
@@ -99,7 +105,10 @@ try {
                 enemyRank,
                 myTH,
                 enemyTH,
-                rating
+                rating1,
+                rating2,
+                myWeight,
+                enemyWeight
             ) VALUES (
                 :playerId,
                 :warId,
@@ -114,7 +123,10 @@ try {
                 :enemyRank,
                 :myTH,
                 :enemyTH,
-                :rating
+                :rating1,
+                :rating2,
+                :myWeight,
+                :enemyWeight
             )"
         );
 
@@ -125,6 +137,7 @@ try {
         // Add defenses to war_events
         foreach ($json['enemy']['roster'] as $entry) {
             $townHall[$entry['id']] = $entry['townHall'];
+
             for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
                 $attack = $entry['attack'.$i];
                 $stmt->execute(
@@ -142,7 +155,10 @@ try {
                         ':enemyRank'    => $entry['position'],
                         ':myTH'         => $townHall[$attack['targetId']],
                         ':enemyTH'      => $entry['townHall'],
-                        ':rating'       => 0
+                        ':rating1'      => 0,
+                        ':rating2'      => 0,
+                        ':myWeight'     => 0,
+                        ':enemyWeight'  => 0
                     )
                 );
             }
@@ -171,7 +187,10 @@ try {
                         ':enemyRank'    => $attack['targetPosition'],
                         ':myTH'         => $entry['townHall'],
                         ':enemyTH'      => $townHall[$attack['targetId']],
-                        ':rating'       => $attackRating
+                        ':rating1'      => $attackRating,
+                        ':rating2'      => 0,
+                        ':myWeight'     => 0,
+                        ':enemyWeight'  => 0
                     )
                 );
             }

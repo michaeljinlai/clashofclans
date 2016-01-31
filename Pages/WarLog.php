@@ -40,24 +40,29 @@
 						$json = json_decode($str, true);
 					?>
 						<tr class="
-							<?php 
-								if ($json['summary']['result'] == "Draw")
-									echo 'war-log-background-neutral';
-								elseif ($json['summary']['result'] == "Victory")
-									echo 'war-log-background-win';
-								else
-									echo 'war-log-background-lose';
+							<?php
+								$result = $json['summary']['result'];
+								echo 'war-log-background-'.$result;
+								$inProgress = ($result == "progress");
+								// if ($result == "Draw")
+								// 	echo 'war-log-background-neutral';
+								// elseif ($result == "Victory")
+								// 	echo 'war-log-background-win';
+								// elseif ($result == "Loss")
+								// 	echo 'war-log-background-lose';
+								// else
+								// 	echo 'war-log-background-progress';
 							?>
 						">
 							<td style="text-align:center;"><a onclick="loadWar('<?php echo $json['id']; ?>')" class="btn btn-primary">View</a></td>
 							<td><?php echo $json['id']; ?></td>
 							<td><?php echo $json['home']['size']; ?></td>
-							<td><?php echo number_format((float)$json['summary']['home']['totalDestruction'], 2, '.', ''); ?>%</td>
-							<td><?php echo ($json['summary']['home']['3Star']*3 + $json['summary']['home']['2Star']*2 + $json['summary']['home']['1Star']); ?></td>
+							<td><?php echo ($inProgress) ? "-" : number_format((float)$json['summary']['home']['totalDestruction'], 2)."%"; ?></td>
+							<td><?php echo ($inProgress) ? "-" : ($json['summary']['home']['3Star']*3 + $json['summary']['home']['2Star']*2 + $json['summary']['home']['1Star']); ?></td>
 							<td><?php echo $json['home']['name']; ?></td>
 							<td><?php echo $json['enemy']['name']; ?></td>
-							<td><?php echo ($json['summary']['enemy']['3Star']*3 + $json['summary']['enemy']['2Star']*2 + $json['summary']['enemy']['1Star']); ?></td>
-							<td><?php echo number_format((float)$json['summary']['enemy']['totalDestruction'], 2, '.', ''); ?>%</td>
+							<td><?php echo ($inProgress) ? "-" : ($json['summary']['enemy']['3Star']*3 + $json['summary']['enemy']['2Star']*2 + $json['summary']['enemy']['1Star']); ?></td>
+							<td><?php echo ($inProgress) ? "-" : number_format((float)$json['summary']['enemy']['totalDestruction'], 2)."%"; ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
