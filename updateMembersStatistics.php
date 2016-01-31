@@ -134,9 +134,16 @@ function calcAttackRating2($attack, $myWeight, $enemyWeight, $townHall) {
 }
 
 // Main
-$activeThresh = 5; // Recent war participation to be considered active
+
+// Recent war participation to be considered active
+$activeThresh = 5;
+
+ // Wars required to be processed in descending order, do not change
 $directory = 'database/war-history/json/';
-$files = array_diff(scandir($directory, SCANDIR_SORT_DESCENDING), array('..', '.')); // wars required to be processed in descending order, do not change
+$files = array_diff(scandir($directory), array('..', '.')); 
+natsort($files);
+$files = array_reverse($files);
+
 $players = array();
 
 try {
