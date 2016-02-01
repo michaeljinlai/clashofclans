@@ -43,9 +43,9 @@
         return $result;
     }
 
-    function displayEventsTable($events) {
+    function displayEventsTable($events, $isAttack) {
         $loggedIn = !empty($_SESSION['user']) && $_SESSION['user']['privilege'] == 'administrator';
-
+        
         echo "
             <div id=\"event-log-container\">
                 <table class=\"event-log table table-striped table-bordered table-hover table-condensed dt-responsive members-table\">        
@@ -67,7 +67,7 @@
         ";
         foreach ($events as $event) {
             echo "
-                        <tr class=\"".getEventBackground($event)."\">
+                        <tr class=\"".getEventBackground($event, $isAttack)."\">
                             <td><a onclick=\"loadWar('".$event['warId']."')\" class=\"pointer\">".$event['warId']."</a></td>
                             <td>".$event['enemyClan']."</td>
                             <td>".$event['enemyName']."</td>
@@ -88,10 +88,10 @@
         ";
     }
 
-    function getEventBackground($event) {
+    function getEventBackground($event, $isAttack) {
         $won = $event['starsWon'];
         $earned = $event['starsEarned'];
-        $isAttack = $event['isAttack'];
+        // $isAttack = $event['isAttack']; // this doesn't seem to work on the live website, it's always true
         $str = "";
 
         if ($won == 0)
@@ -202,10 +202,10 @@
     <div id="defense-charts-container" class="statistics-charts-container"></div>
 
     <h3>Attack Log</h3>
-    <?php displayEventsTable($attacks); ?>
+    <?php displayEventsTable($attacks, true); ?>
 
     <h3>Defense Log</h3>
-    <?php displayEventsTable($defenses); ?>
+    <?php displayEventsTable($defenses, false); ?>
 </div>
 
 <?php
