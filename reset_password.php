@@ -1,4 +1,7 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/usebootstrap2.3.2.php");?>
+<?php 
+	include("include.php");
+	require($_SERVER['DOCUMENT_ROOT'].ROOT_PATH."/Elements/usebootstrap2.3.2.php");
+?>
 <?php echo '
 <body>
 	<div class="container">

@@ -1,5 +1,6 @@
 <?php 
-    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php");
+    include("../include.php");
+    require($_SERVER['DOCUMENT_ROOT'].ROOT_PATH."/database.php"); 
 
     // TODO: set as global function
     function safeDivide($a, $b, $decimals) {

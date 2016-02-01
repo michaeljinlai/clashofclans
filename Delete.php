@@ -1,6 +1,6 @@
 <?php
-
-    require($_SERVER['DOCUMENT_ROOT']."/clashofclans/database.php"); 
+    include("include.php");
+    require($_SERVER['DOCUMENT_ROOT'].ROOT_PATH."/database.php"); 
 
     // Check if user is logged in
     if(empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrator') { 

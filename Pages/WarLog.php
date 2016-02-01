@@ -1,4 +1,7 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
+<?php
+	include("../include.php");
+	require($_SERVER['DOCUMENT_ROOT'].ROOT_PATH."/Elements/header.php"); 
+ ?>
 
 <!-- Datatables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10/datatables.min.css"/> 

@@ -1,4 +1,7 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/clashofclans/Elements/header.php"); ?>
+<?php
+	include("../include.php");
+	require($_SERVER['DOCUMENT_ROOT'].ROOT_PATH."/Elements/header.php"); 
+?>
 
 <?php 
 	$str = file_get_contents('../database/war-history/json/'.$_GET['id'].'.json');
