@@ -31,6 +31,8 @@
     ?>
 
     <div id="members-stats-container">
+        <p>To be listed here, you must be active in clan wars and have at least 3 wars recorded. Otherwise, you can find your statistics page with the homepage search box.</p>
+        <p>"Rating" is a modified version of PaddyJ's <a href="https://docs.google.com/spreadsheets/d/1fBuGq0AtbY9m7LlzDN86NmixNwNzZyBQ0DR0Cd4icsE">algorithm</a> for calculating your offensive value. This value is determined by your stars, enemy weight and town hall level. The algorithm may require some tweaking, but it provides a good picture of who's doing well. At the moment, "Rating" does not account for defensive performance.</p>
         <table id="members-stats" class="table table-striped table-bordered table-hover table-condensed dt-responsive members-table">
             <thead>
                 <tr>
