@@ -22,6 +22,7 @@
 		    <li>War Log</li>
 		</ol>
 		<div id="war-log-container">
+			<p> * Wars 12 to 28 are unavailable due to the 2015 Winter Update that changed how the data was encrypted.</p>
 		    <table id="memberTable" class="table table-striped table-bordered table-hover table-condensed dt-responsive members-table">
 				<thead>
 					<tr>
