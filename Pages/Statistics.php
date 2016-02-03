@@ -21,7 +21,7 @@
 
     <?php // Begin information of each player
         try {
-            $query = "SELECT * FROM members_statistics WHERE (active = 1 AND warsJoined > 3)"; 
+            $query = "SELECT * FROM members_statistics WHERE (active = 1 AND warsJoined >= 3)"; 
             $stmt = $db->prepare($query); 
             $stmt->execute();
             $members = $stmt->fetchAll();
@@ -38,8 +38,10 @@
                 <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>Town Hall</th>
-                    <th>Wars Recorded</th>
+                    <th>TH</th>
+                    <th>Weight</th>
+                    <th>Wars</th>
+                    <th>Perfect Wars</th>
                     <th>Attacks</th>
                     <th>Defenses</th>
                     <th>Stars Earned</th>
@@ -51,10 +53,12 @@
             <tbody>
                 <?php foreach ($members as $member) : ?>
                     <tr>
-                        <td class="col-xs-1"></td>
+                        <td></td>
                         <td><a class="pointer" onclick="loadPlayer('<?php echo urlencode($member['playerId']); ?>')"><?php echo $member['name']; ?></a></td>
-                        <td class="col-xs-1"><?php echo $member['townHall']; ?></td>
+                        <td><?php echo $member['townHall']; ?></td>
+                        <td class="col-xs-1"><?php echo safeDivide($member['goldElixir'], 1000, 0); ?>k</td>
                         <td class="col-xs-1"><?php echo $member['warsJoined']; ?></td>
+                        <td class="col-xs-1"><?php echo $member['perfectWars']; ?></td>
                         <td class="col-xs-1"><?php echo $member['totalAttacks']; ?></td>
                         <td class="col-xs-1"><?php echo $member['totalDefenses']; ?></td>
                         <td class="col-xs-1"><?php echo $member['starsEarned']; ?></td>
@@ -84,7 +88,7 @@ $(document).ready(function(){
             orderable: false,
             targets: 0
         } ],
-        order: [[ 9, 'dsc' ]]
+        order: [[ 11, 'dsc' ]]
     });
 
     t.on( 'order.dt search.dt', function () {

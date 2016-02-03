@@ -10,6 +10,7 @@ if (empty($_SESSION['user']) || $_SESSION['user']['privilege'] !== 'administrato
 }
 
 // This file requires serious refactoring
+// Next update to this file will have to be a refactor, cannot add anymore new things
 
 
 // Class to store and process member statistics fields/attributes
@@ -35,6 +36,8 @@ class Player {
     var $totalDefenses;
     var $totalDamageDefense;
 
+    var $perfectWars;
+
     private $position;
 
     function Player($entry) {
@@ -46,10 +49,12 @@ class Player {
         $this->defenseWeight = $entry['defenseWeight'];
         $this->goldElixir = $entry['goldAndElixir'];
         $this->darkElixir = $entry['darkElixir'];
+
+        $this->perfectWars = 0;
     }
 
     function updateStats($entry) {
-        $this->warsJoined += 1;
+        $this->warsJoined++;
         $this->attacksUsed += $entry['attacksUsed'];
         $this->totalDefenses += $entry['totalDefenses'];
         $this->totalDamageDefense += $entry['totalDamageDefense'];
@@ -57,12 +62,18 @@ class Player {
         $this->totalRating1 += $entry['rating1'];
         $this->totalRating2 += $entry['rating2'];
 
+        $starsWon = 0;
         for ($i = 1; $i <= $entry['attacksUsed']; $i++) {
             $attack = $entry['attack'.$i];
             $this->starsEarned += $attack['starsEarned'];
             $this->starsWon += $attack['starsWon'];
             $this->totalDamage += $attack['damage'];
+
+            $starsWon += $attack['starsWon']; 
         }
+
+        if ($starsWon == 6)
+            $this->perfectWars++;
     }
 }
 
@@ -326,7 +337,8 @@ try {
             offenseWeight,
             defenseWeight,
             goldElixir,
-            darkElixir
+            darkElixir,
+            perfectWars
         ) VALUES (
             :active,
             :playerId, 
@@ -344,7 +356,8 @@ try {
             :offenseWeight,
             :defenseWeight,
             :goldElixir,
-            :darkElixir
+            :darkElixir,
+            :perfectWars
         )"
     );
 
@@ -367,7 +380,8 @@ try {
                 ':offenseWeight'    => $player->offenseWeight,
                 ':defenseWeight'    => $player->defenseWeight,
                 ':goldElixir'       => $player->goldElixir,
-                ':darkElixir'       => $player->darkElixir
+                ':darkElixir'       => $player->darkElixir,
+                ':perfectWars'      => $player->perfectWars
             )
         );
     }

@@ -97,7 +97,7 @@ ul.nav a.active{color:#C3C3C4;background-color:#101014;border-left:4px solid;bor
 .war-weights{width:100% !important;}
 .war-weights-subtitle{display:block;font-weight:normal;}
 .delete-table{float:left;margin-right:15px;}
-#members-stats-container{max-width:900px;width:100%;}
+#members-stats-container{max-width:960px;width:100%;}
 #externalSearchBox{border-radius:0;font-size:25px;text-align:center;background-color:#F5F5F5;}
 #members{text-align:center;font-size:25px;background-color:#F5F5F5;}
 #members td:hover{background-color:#e8e8e8}

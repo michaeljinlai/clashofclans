@@ -158,6 +158,7 @@
             <thead><tr><th colspan="2">Offense Stats</th></tr></thead>
             <tbody>
                 <?php
+                    displayRow("Perfect Wars", $player['perfectWars']);
                     displayRow("Total Attacks", $numAttacks);
                     displayRow("Attacks Missed", $numWars * 2 - $numAttacks);
                     displayRow("Total Stars", $player['starsWon']);
@@ -165,7 +166,6 @@
                     displayRow("Total Stars Earned", $player['starsEarned']);
                     displayRow("Stars Earned per War", safeDivide($player['starsEarned'], $numWars, 2));
                     displayRow("Average Damage", safeDivide($player['totalDamage'], $numAttacks, 2)."%");
-                    displayRow("Rating", safeDivide($player['totalRating2'], $numWars, 3));
                 ?>
             </tbody>
         </table>
